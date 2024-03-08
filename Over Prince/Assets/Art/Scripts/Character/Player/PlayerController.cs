@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeed = 2f;
 
-    private PlayerConstants.MovementState movementState = PlayerConstants.MovementState.Idle;
+    private CharacterState characterState = CharacterState.Idle;
 
     void Start()
     {
@@ -45,16 +45,20 @@ public class PlayerController : MonoBehaviour
         sprintAction = actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInput).FindAction(PlayerControllerConstants.InputKeyNames.Sprint);
 
         attack1Action = actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInput).FindAction(PlayerControllerConstants.InputKeyNames.Attack1);
-        attack1Action.performed += OnAttack1Pressed;
+        //attack1Action.performed += OnAttack1Pressed;
+        attack1Action.performed += (context) => OnAttackPressed(context, 0);
 
         attack2Action = actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInput).FindAction(PlayerControllerConstants.InputKeyNames.Attack2);
-        attack2Action.performed += OnAttack2Pressed;
+        //attack2Action.performed += OnAttack2Pressed;
+        attack2Action.performed += (context) => OnAttackPressed(context, 1);
 
         attack3Action = actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInput).FindAction(PlayerControllerConstants.InputKeyNames.Attack3);
-        attack3Action.performed += OnAttack3Pressed;
+        //attack3Action.performed += OnAttack3Pressed;
+        attack3Action.performed += (context) => OnAttackPressed(context, 2);
 
         attack4Action = actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInput).FindAction(PlayerControllerConstants.InputKeyNames.Attack4);
-        attack4Action.performed += OnAttack4Pressed;
+        //attack4Action.performed += OnAttack4Pressed;
+        attack4Action.performed += (context) => OnAttackPressed(context, 3);
         
         testAction = actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInput).FindAction(PlayerControllerConstants.InputKeyNames.TestAction);
         testAction.performed += OnTestButtonPressed;
@@ -68,8 +72,8 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 moveVector = moveAction.ReadValue<Vector2>();
         UpdateSpriteFromMovement(moveVector);
-        if (moveVector != Vector2.zero) {
-            rigidBody.MovePosition(rigidBody.position + moveVector * (testMoveSpeed ? moveSpeed : PlayerConstants.GetMoveSpeed(movementState)) * Time.fixedDeltaTime);
+        if (moveVector != Vector2.zero && player.state != CharacterState.Attacking) {
+            rigidBody.MovePosition(rigidBody.position + moveVector * (testMoveSpeed ? moveSpeed : PlayerConstants.GetMoveSpeed(characterState)) * Time.fixedDeltaTime);
         }
     }
 
@@ -80,12 +84,18 @@ public class PlayerController : MonoBehaviour
         }
         if (moveVector != Vector2.zero) {
             float isSprinting = sprintAction.ReadValue<float>();
-            movementState = (PlayerConstants.MovementState) 1 + (Mathf.Abs(isSprinting) > 0.0f ? 1 : 0);
+            characterState = (CharacterState) 1 + (Mathf.Abs(isSprinting) > 0.0f ? 1 : 0);
         } else {
-            movementState = PlayerConstants.MovementState.Idle;
+            characterState = CharacterState.Idle;
         }
-        animator.SetInteger(Constants.AnimationKeys.MoveSpeed, (int) movementState);
+        animator.SetInteger(Constants.AnimationKeys.MoveSpeed, (int) characterState);
     }
+
+    private void OnAttackPressed(InputAction.CallbackContext context, int attackIndex)
+    {
+        InitiateAttack(attackIndex);
+    }
+    /*
 
     private void OnAttack1Pressed(InputAction.CallbackContext context)
     {
@@ -106,6 +116,7 @@ public class PlayerController : MonoBehaviour
     {
         InitiateAttack(3);
     }
+    */
 
     private void OnTestButtonPressed(InputAction.CallbackContext context)
     {

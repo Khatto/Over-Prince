@@ -5,7 +5,7 @@ using UnityEngine;
 public class AnimationStateBehaviour : StateMachineBehaviour
 {
 
-    [SerializeField] private PlayerState stateToTransitionToOnEnter;
+    [SerializeField] private CharacterState stateToTransitionToOnEnter;
     
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {

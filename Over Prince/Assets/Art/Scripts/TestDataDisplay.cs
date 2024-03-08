@@ -22,7 +22,7 @@ public class TestDataDisplay : MonoBehaviour
     void Update()
     {
         if (textMeshProUGUI != null) {
-            string playerState = "Player State: " + player.state;
+            string playerState = "Player Character State: " + player.state;
             string isJab3 = "Is in Jab-3: " + animator.GetCurrentAnimatorStateInfo(0).IsName("Base.Attack-Jab3");
             textMeshProUGUI.text = playerState + "\n" + isJab3;
         }

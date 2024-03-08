@@ -1,15 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Character
 {
     public Attack[] attacks = new Attack[] {
         AttackData.GetAttackByAttackID(AttackID.Jab),
     };
-    public Animator animator;
-    public AttackManager attackManager;
-    public PlayerState state = PlayerState.Idle;
 
     void Start()
     {
@@ -17,18 +12,14 @@ public class Player : MonoBehaviour
         attackManager = GetComponent<AttackManager>();
     }
 
-    public void EnterState(PlayerState state) {
-        this.state = state;
-    }
-
     public void InitiateAttack(int attackIndex) {
-        if (state != PlayerState.Attacking && attackIndex < attacks.Length) {
-            state = PlayerState.Attacking;
+        if (state != CharacterState.Attacking && attackIndex < attacks.Length) {
+            state = CharacterState.Attacking;
             animator.SetTrigger(Constants.AnimationKeys.PerformAttack);
             animator.SetInteger(Constants.AnimationKeys.AttackDesignation, (int) attacks[attackIndex].attackID);
             attackManager.PerformAttack(attacks[attackIndex].attackID);
         }
-        else if (state == PlayerState.Attacking) {
+        else if (state == CharacterState.Attacking) {
             if (ShouldContinueJabAttack(attackIndex)) {
                 animator.SetTrigger(Constants.AnimationKeys.ContinueAttack);
                 if (IsPerformingJab2()) {
@@ -54,11 +45,4 @@ public class Player : MonoBehaviour
         return animator.GetCurrentAnimatorStateInfo(0).IsName(AttackData.AnimationKeys.Jab3);
     }
 
-}
-
-public enum PlayerState {
-    Idle,
-    Walking,
-    Running,
-    Attacking 
 }

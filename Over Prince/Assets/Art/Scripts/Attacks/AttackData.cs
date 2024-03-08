@@ -17,7 +17,7 @@ public static class AttackData {
         "Jab", 
         AttackTrigger.Single, 
         new Hit[] {
-            new(30, 5, 10, 15, 20, 3, 1, 0.0f)
+            new(30, 5, 10, 20, 3, 1, 0.0f)
         },
         new Hitbox(0.82f, 1.39f)
     );
@@ -27,7 +27,7 @@ public static class AttackData {
         "Jab2", 
         AttackTrigger.Single, 
         new Hit[] {
-            new(30, 4, 10, 16, 20, 2, 1, 0.0f)
+            new(30, 4, 10, 20, 2, 1, 0.0f)
         },
         new Hitbox(0.85f, 1.42f)
     );
@@ -37,7 +37,7 @@ public static class AttackData {
         "Jab3", 
         AttackTrigger.Single, 
         new Hit[] {
-            new(30, 5, 4, 21, 20, 3, 2, 1.0f)
+            new(30, 5, 4, 20, 3, 2, 1.0f)
         },
         new Hitbox(1.01f, 1.19f)
     );
@@ -89,18 +89,16 @@ public class Hit {
     public int totalFrames;
     public int startupFrames;
     public int activeFrames;
-    public int coolDownFrames;
     public int cancelleableFrame;
     public int hitStunFrames;
     public float damage;
 
     public float knockdownPower;
 
-    public Hit(int totalFrames, int startupFrames, int activeFrames, int coolDownFrames, int cancelleableFrame, int hitStunFrames, float damage, float knockdownPower) {
+    public Hit(int totalFrames, int startupFrames, int activeFrames, int cancelleableFrame, int hitStunFrames, float damage, float knockdownPower) {
         this.totalFrames = totalFrames;
         this.startupFrames = startupFrames;
         this.activeFrames = activeFrames;
-        this.coolDownFrames = coolDownFrames;
         this.cancelleableFrame = cancelleableFrame;
         this.hitStunFrames = hitStunFrames;
         this.damage = damage;

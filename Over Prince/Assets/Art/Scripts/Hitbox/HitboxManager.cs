@@ -12,15 +12,27 @@ public class HitboxManager : MonoBehaviour
     public Hit hit;
     public HitboxState state = HitboxState.Startup;
     public SpriteRenderer spriteRenderer;
-    public Boolean displayHitbox = false;
+    public bool displayHitbox = false;
 
     // Test Rendering Colors
 
-    private Color startUpColor = new Color(1, 1, 1, 0.1f);
+    private Color startUpColor {
+        get {
+            return displayHitbox ? new Color(0, 1, 0, 1.0f) : Constants.Colors.transparent;
+        }
+    }
 
-    private Color activeColor = new Color(1, 0, 0, 1.0f);
+    private Color activeColor {
+        get {
+            return displayHitbox ? new Color(1, 0, 0, 1.0f) : Constants.Colors.transparent;
+        }
+    }
 
-    private Color coolDownColor = new Color(0, 0, 1, 1);
+    private Color coolDownColor {
+        get {
+            return displayHitbox ? new Color(0, 0, 1, 1.0f) : Constants.Colors.transparent;
+        }
+    }
 
     public float timer = 0;
 
@@ -38,7 +50,7 @@ public class HitboxManager : MonoBehaviour
 
     private float computedCoolDownFrames {
         get {
-            return (hit.startupFrames + hit.activeFrames + hit.coolDownFrames) / Constants.targetFPS;
+            return (hit.totalFrames - (hit.startupFrames + hit.activeFrames)) / Constants.targetFPS;
         }
     }
 
@@ -51,7 +63,7 @@ public class HitboxManager : MonoBehaviour
 
     public void PerformAttack(Hit hit) {
         this.hit = hit;
-        state = HitboxState.Startup;
+        SetState(HitboxState.Startup);
     }
 
 
@@ -78,7 +90,7 @@ public class HitboxManager : MonoBehaviour
             case HitboxState.CoolDown:
             {
                 timer += Time.deltaTime;
-                if (timer >= computedCoolDownFrames) {
+                if (timer >= hit.totalFrames / Constants.targetFPS) {
                     SetState(HitboxState.Finished);
                 }
                 break;

@@ -8,17 +8,11 @@ public static class PlayerConstants {
         internal static float Running = 3.75f;
     }
 
-    public enum MovementState {
-        Idle = 0,
-        Walking = 1,
-        Running = 2
-    }
-
-    public static float GetMoveSpeed(MovementState movementState) {
-        return movementState switch {
-            MovementState.Idle => MoveSpeed.Idle,
-            MovementState.Walking => MoveSpeed.Walking,
-            MovementState.Running => MoveSpeed.Running,
+    public static float GetMoveSpeed(CharacterState characterState) {
+        return characterState switch {
+            CharacterState.Idle => MoveSpeed.Idle,
+            CharacterState.Walking => MoveSpeed.Walking,
+            CharacterState.Running => MoveSpeed.Running,
             _ => 0
         };
     }
