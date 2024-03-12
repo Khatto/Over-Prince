@@ -18,4 +18,10 @@ public static class Constants {
 
     public static float targetFPS = 60f;
 
+    /// <summary>
+    /// The modifier for all character's movement speed when moving vertically.  
+    /// This is to account for the nature of Beat 'em Ups where vertical movement sort of indicates going into/out of the plane of the screen.
+    /// </summary>
+    public static float verticalMovementModifier = 0.65f;
+
 }

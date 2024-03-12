@@ -45,19 +45,15 @@ public class PlayerController : MonoBehaviour
         sprintAction = actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInput).FindAction(PlayerControllerConstants.InputKeyNames.Sprint);
 
         attack1Action = actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInput).FindAction(PlayerControllerConstants.InputKeyNames.Attack1);
-        //attack1Action.performed += OnAttack1Pressed;
         attack1Action.performed += (context) => OnAttackPressed(context, 0);
 
         attack2Action = actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInput).FindAction(PlayerControllerConstants.InputKeyNames.Attack2);
-        //attack2Action.performed += OnAttack2Pressed;
         attack2Action.performed += (context) => OnAttackPressed(context, 1);
 
         attack3Action = actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInput).FindAction(PlayerControllerConstants.InputKeyNames.Attack3);
-        //attack3Action.performed += OnAttack3Pressed;
         attack3Action.performed += (context) => OnAttackPressed(context, 2);
 
         attack4Action = actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInput).FindAction(PlayerControllerConstants.InputKeyNames.Attack4);
-        //attack4Action.performed += OnAttack4Pressed;
         attack4Action.performed += (context) => OnAttackPressed(context, 3);
         
         testAction = actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInput).FindAction(PlayerControllerConstants.InputKeyNames.TestAction);
@@ -71,6 +67,8 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 moveVector = moveAction.ReadValue<Vector2>();
+        moveVector.y *= Constants.verticalMovementModifier;
+        Debug.Log("Move Vector" + moveVector);
         UpdateSpriteFromMovement(moveVector);
         if (moveVector != Vector2.zero && player.state != CharacterState.Attacking) {
             rigidBody.MovePosition(rigidBody.position + moveVector * (testMoveSpeed ? moveSpeed : PlayerConstants.GetMoveSpeed(characterState)) * Time.fixedDeltaTime);
@@ -95,28 +93,6 @@ public class PlayerController : MonoBehaviour
     {
         InitiateAttack(attackIndex);
     }
-    /*
-
-    private void OnAttack1Pressed(InputAction.CallbackContext context)
-    {
-        InitiateAttack(0);
-    }
-
-    private void OnAttack2Pressed(InputAction.CallbackContext context)
-    {
-        InitiateAttack(1);
-    }
-
-    private void OnAttack3Pressed(InputAction.CallbackContext context)
-    {
-        InitiateAttack(2);
-    }
-
-    private void OnAttack4Pressed(InputAction.CallbackContext context)
-    {
-        InitiateAttack(3);
-    }
-    */
 
     private void OnTestButtonPressed(InputAction.CallbackContext context)
     {

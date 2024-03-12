@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour {
         rigidBody = GetComponent<Rigidbody2D>();
         collider2D = GetComponent<Collider2D>();
         targetCollider = target.GetComponent<Collider2D>();
+        speed = EnemyConstants.GetMoveSpeedForEnemy(GetComponent<Enemy>().enemyID);
     }
 
     void FixedUpdate()
@@ -27,6 +28,7 @@ public class EnemyController : MonoBehaviour {
         {
             Vector3 direction = (target.transform.position - rigidBody.transform.position).normalized;
             Vector3 moveVector = direction * speed * Time.fixedDeltaTime;
+            moveVector.y *= Constants.verticalMovementModifier;
             rigidBody.MovePosition(rigidBody.transform.position + moveVector);
         }
     }
