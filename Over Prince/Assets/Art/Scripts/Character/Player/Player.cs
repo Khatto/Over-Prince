@@ -17,15 +17,15 @@ public class Player : Character
             state = CharacterState.Attacking;
             animator.SetTrigger(Constants.AnimationKeys.PerformAttack);
             animator.SetInteger(Constants.AnimationKeys.AttackDesignation, (int) attacks[attackIndex].attackID);
-            attackManager.PerformAttack(attacks[attackIndex].attackID);
+            attackManager.PerformAttack(attacks[attackIndex].attackID, HitboxOwner.Player);
         }
         else if (state == CharacterState.Attacking) {
             if (ShouldContinueJabAttack(attackIndex)) {
                 animator.SetTrigger(Constants.AnimationKeys.ContinueAttack);
                 if (IsPerformingJab2()) {
-                    attackManager.PerformAttack(AttackID.Jab3);
+                    attackManager.PerformAttack(AttackID.Jab3, HitboxOwner.Player);
                 } else {
-                    attackManager.PerformAttack(AttackID.Jab2);
+                    attackManager.PerformAttack(AttackID.Jab2, HitboxOwner.Player);
                 }
             }
         }

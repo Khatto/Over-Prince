@@ -10,3 +10,12 @@ public class Hitbox {
         this.yOffset = yOffset;
     }
 }
+
+/// <summary>
+/// Represents the entity that generates a Hitbox.
+/// </summary>
+public enum HitboxOwner {
+    Player,
+    Enemy,
+    Environment
+}

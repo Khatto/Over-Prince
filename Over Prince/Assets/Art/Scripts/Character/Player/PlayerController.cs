@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeed = 2f;
 
-    private CharacterState characterState = CharacterState.Idle;
+    //private CharacterState characterState = CharacterState.Idle;
 
     void Start()
     {
@@ -68,10 +68,9 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 moveVector = moveAction.ReadValue<Vector2>();
         moveVector.y *= Constants.verticalMovementModifier;
-        Debug.Log("Move Vector" + moveVector);
         UpdateSpriteFromMovement(moveVector);
         if (moveVector != Vector2.zero && player.state != CharacterState.Attacking) {
-            rigidBody.MovePosition(rigidBody.position + moveVector * (testMoveSpeed ? moveSpeed : PlayerConstants.GetMoveSpeed(characterState)) * Time.fixedDeltaTime);
+            rigidBody.MovePosition(rigidBody.position + moveVector * (testMoveSpeed ? moveSpeed : PlayerConstants.GetMoveSpeed(player.state)) * Time.fixedDeltaTime);
         }
     }
 
@@ -82,11 +81,12 @@ public class PlayerController : MonoBehaviour
         }
         if (moveVector != Vector2.zero) {
             float isSprinting = sprintAction.ReadValue<float>();
-            characterState = (CharacterState) 1 + (Mathf.Abs(isSprinting) > 0.0f ? 1 : 0);
-        } else {
-            characterState = CharacterState.Idle;
+            player.state = (CharacterState) 1 + (Mathf.Abs(isSprinting) > 0.0f ? 1 : 0);
+            animator.SetInteger(Constants.AnimationKeys.MoveSpeed, (int) player.state);
+        } else if (player.state != CharacterState.Attacking) {
+            player.state = CharacterState.Idle;
+            animator.SetInteger(Constants.AnimationKeys.MoveSpeed, (int) player.state);
         }
-        animator.SetInteger(Constants.AnimationKeys.MoveSpeed, (int) characterState);
     }
 
     private void OnAttackPressed(InputAction.CallbackContext context, int attackIndex)

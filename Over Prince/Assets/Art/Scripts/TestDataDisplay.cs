@@ -24,7 +24,8 @@ public class TestDataDisplay : MonoBehaviour
         if (textMeshProUGUI != null) {
             string playerState = "Player Character State: " + player.state;
             string isJab3 = "Is in Jab-3: " + animator.GetCurrentAnimatorStateInfo(0).IsName("Base.Attack-Jab3");
-            textMeshProUGUI.text = playerState + "\n" + isJab3;
+            string fps = "FPS: " + (1 / Time.unscaledDeltaTime);
+            textMeshProUGUI.text = playerState + "\n" + isJab3 + "\n" + fps;
         }
     }
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1923223686482192445}
   m_Layer: 0
   m_Name: Hitbox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -173,4 +173,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 1
   spriteRenderer: {fileID: 0}
+  displayHitbox: 1
   timer: 0

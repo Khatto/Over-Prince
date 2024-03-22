@@ -13,6 +13,11 @@ public class HitboxManager : MonoBehaviour
     public HitboxState state = HitboxState.Startup;
     public SpriteRenderer spriteRenderer;
     public bool displayHitbox = false;
+    public HitboxOwner hitboxOwner = HitboxOwner.Player;
+
+    public float timeEnteredStartup;
+    public float timeEnteredActive;
+    public float timeEnteredCooldown;
 
     // Test Rendering Colors
 
@@ -54,7 +59,6 @@ public class HitboxManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -67,13 +71,13 @@ public class HitboxManager : MonoBehaviour
     }
 
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         switch (state) {
             case HitboxState.Startup:
             {
                 timer += Time.deltaTime;
+                Log("Hitbox is in Startup State: " + Time.time);
                 if (timer >= computedStartupFrames) {
                     SetState(HitboxState.Active);
                 }
@@ -81,6 +85,7 @@ public class HitboxManager : MonoBehaviour
             }
             case HitboxState.Active:
             {
+                Log("Hitbox is in Active State: " + Time.time);
                 timer += Time.deltaTime;
                 if (timer >= computedActiveFrames) {
                     SetState(HitboxState.CoolDown);
@@ -89,6 +94,7 @@ public class HitboxManager : MonoBehaviour
             }
             case HitboxState.CoolDown:
             {
+                Log("Hitbox is in CoolDown State: " + Time.time);
                 timer += Time.deltaTime;
                 if (timer >= hit.totalFrames / Constants.targetFPS) {
                     SetState(HitboxState.Finished);
@@ -100,29 +106,48 @@ public class HitboxManager : MonoBehaviour
     }
 
     void SetState(HitboxState state) {
+        Log("==== Setting Hitbox State to: " + state.ToString() + " at " + Time.time + " ====");
         switch (state) {
             case HitboxState.Startup:
             {
                 spriteRenderer.color = startUpColor;
+                timeEnteredStartup = Time.time;
                 break;
             }
             case HitboxState.Active:
             {
                 spriteRenderer.color = activeColor;
+                timeEnteredActive = Time.time;
                 break;
             }
             case HitboxState.CoolDown:
             {
                 spriteRenderer.color = coolDownColor;
+                timeEnteredCooldown = Time.time;
                 break;
             }
             case HitboxState.Finished:
             {
+                Log("************************************");
+                Log("         F I N I S H E D");
+                Log("Startup Time was: " + timeEnteredStartup + " and ended at: " + timeEnteredActive);
+                Log("The duration of time spent in Startup was: " + (timeEnteredActive - timeEnteredStartup));
+                Log("The intended Startup time was: " + hit.startupFrames / Constants.targetFPS);
+                Log("Active Time was: " + timeEnteredActive + " and ended at: " + timeEnteredCooldown);
+                Log("The duration of time spent in Active was: " + (timeEnteredCooldown - timeEnteredActive));
+                Log("The intended Active time was: " + hit.activeFrames / Constants.targetFPS);
+                Log("************************************");
                 Destroy(gameObject);
                 break;
             }
         }
         this.state = state;
+    }
+
+    private void Log(string message) {
+        if (Settings.DisplayHitboxLogs) {
+            Debug.Log(message);
+        }
     }
 }
 

@@ -5,6 +5,11 @@ using UnityEngine;
 /// </summary>
 public static class Constants {
 
+    public static class TagKeys {
+        public const string Hurtbox = "Hurtbox";
+        public const string Hitbox = "Hitbox";
+    }
+
     public static class AnimationKeys {
         public const string MoveSpeed = "moveSpeed";
         public const string PerformAttack = "performAttack";
