@@ -6,13 +6,18 @@ using UnityEngine;
 public class HurtboxManager : MonoBehaviour
 {
     public List<HitboxOwner> hitboxesToWatchFor = new List<HitboxOwner>();
+    private Character character;
+
+    void Start() {
+        character = transform.parent.gameObject.GetComponent<Character>();
+    }
     
     void OnTriggerStay2D(Collider2D other) {
         if (other.gameObject.tag == Constants.TagKeys.Hitbox) {
             HitboxManager manager = other.gameObject.GetComponent<HitboxManager>();
-            if (manager.state == HitboxState.Active && hitboxesToWatchFor.Contains(manager.hitboxOwner)) {
-                Log("TRIGGER STAY! " + Time.time);
-                
+            if (manager.state == HitboxState.Active && hitboxesToWatchFor.Contains(manager.hitboxOwner) && CanBeHit()) {
+                Log("Was hit! " + Time.time);
+                ApplyAttackFromHitbox(other.GetComponent<HitboxManager>());
             }
         }
     }
@@ -37,6 +42,10 @@ public class HurtboxManager : MonoBehaviour
         }
     }
 
+    private void ApplyAttackFromHitbox(HitboxManager manager) {
+        character.ApplyHit(manager.hit, manager.direction);
+    }
+
     private void Log(string message) {
         if (Settings.DisplayHitboxLogs) {
             Debug.Log(message);
@@ -44,6 +53,6 @@ public class HurtboxManager : MonoBehaviour
     }
 
     bool CanBeHit() {
-        return true;
+        return character.CanBeHit();
     }
 }

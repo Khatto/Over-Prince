@@ -3,5 +3,7 @@ public enum CharacterState {
     Walking = 1,
     Running = 2,
     Attacking = 3,
-    HitStun = 4
+    HitStun = 4,
+    Invulnerable = 5,
+    Dead = 6
 }

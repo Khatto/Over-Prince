@@ -1,6 +1,6 @@
 using System;
+using UnityEngine;
 using UnityEditor.UI;
-
 
 /// <summary>
 /// Holds all of the data for the various attacks in the game
@@ -17,7 +17,7 @@ public static class AttackData {
         "Jab", 
         AttackTrigger.Single, 
         new Hit[] {
-            new(30, 5, 10, 20, 3, 1, 0.0f)
+            new(30, 5, 10, 20, 3, 1, 0.0f, new Vector2(0, 0))
         },
         new Hitbox(0.82f, 1.39f)
     );
@@ -27,7 +27,7 @@ public static class AttackData {
         "Jab2", 
         AttackTrigger.Single, 
         new Hit[] {
-            new(30, 4, 10, 20, 2, 1, 0.0f)
+            new(30, 4, 10, 20, 2, 1, 0.0f, new Vector2(0, 0))
         },
         new Hitbox(0.85f, 1.42f)
     );
@@ -37,7 +37,7 @@ public static class AttackData {
         "Jab3", 
         AttackTrigger.Single, 
         new Hit[] {
-            new(30, 5, 4, 20, 3, 2, 1.0f)
+            new(30, 5, 4, 20, 40, 2, 1.0f, new Vector2(500.0f, 0))
         },
         new Hitbox(1.01f, 1.19f)
     );
@@ -92,10 +92,10 @@ public class Hit {
     public int cancelleableFrame;
     public int hitStunFrames;
     public float damage;
-
     public float knockdownPower;
+    public Vector2 knockback;
 
-    public Hit(int totalFrames, int startupFrames, int activeFrames, int cancelleableFrame, int hitStunFrames, float damage, float knockdownPower) {
+    public Hit(int totalFrames, int startupFrames, int activeFrames, int cancelleableFrame, int hitStunFrames, float damage, float knockdownPower, Vector2 knockback) {
         this.totalFrames = totalFrames;
         this.startupFrames = startupFrames;
         this.activeFrames = activeFrames;
@@ -103,6 +103,7 @@ public class Hit {
         this.hitStunFrames = hitStunFrames;
         this.damage = damage;
         this.knockdownPower = knockdownPower;
+        this.knockback = knockback;
     }
 }
 

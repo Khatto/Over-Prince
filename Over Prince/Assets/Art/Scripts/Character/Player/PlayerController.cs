@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : CharacterController, IHurtableCharacterController
 {
 
     public bool testMoveSpeed = false;
@@ -32,15 +32,27 @@ public class PlayerController : MonoBehaviour
 
     private InputAction testAction;
 
-    private Rigidbody2D rigidBody;
     public Animator animator;
-
-    public float moveSpeed = 2f;
-
-    //private CharacterState characterState = CharacterState.Idle;
 
     void Start()
     {
+        SetupActions();
+        rigidBody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        player = GetComponent<Player>();
+    }
+
+    void FixedUpdate()
+    {
+        Vector2 moveVector = moveAction.ReadValue<Vector2>();
+        moveVector.y *= Constants.verticalMovementModifier;
+        UpdateSpriteFromMovement(moveVector);
+        if (moveVector != Vector2.zero && player.state != CharacterState.Attacking) {
+            rigidBody.MovePosition(rigidBody.position + moveVector * (testMoveSpeed ? moveSpeed : PlayerConstants.GetMoveSpeed(player.state)) * Time.fixedDeltaTime);
+        }
+    }
+
+    void SetupActions() {
         moveAction = actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInput).FindAction(PlayerControllerConstants.InputKeyNames.Move);
         sprintAction = actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInput).FindAction(PlayerControllerConstants.InputKeyNames.Sprint);
 
@@ -58,20 +70,6 @@ public class PlayerController : MonoBehaviour
         
         testAction = actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInput).FindAction(PlayerControllerConstants.InputKeyNames.TestAction);
         testAction.performed += OnTestButtonPressed;
-
-        rigidBody = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        player = GetComponent<Player>();
-    }
-
-    void FixedUpdate()
-    {
-        Vector2 moveVector = moveAction.ReadValue<Vector2>();
-        moveVector.y *= Constants.verticalMovementModifier;
-        UpdateSpriteFromMovement(moveVector);
-        if (moveVector != Vector2.zero && player.state != CharacterState.Attacking) {
-            rigidBody.MovePosition(rigidBody.position + moveVector * (testMoveSpeed ? moveSpeed : PlayerConstants.GetMoveSpeed(player.state)) * Time.fixedDeltaTime);
-        }
     }
 
     void UpdateSpriteFromMovement(Vector2 moveVector) {
@@ -79,13 +77,15 @@ public class PlayerController : MonoBehaviour
         if (transform.localScale.x > 0.0 && moveVector.x < 0.0 || transform.localScale.x < 0.0 && moveVector.x > 0.0) {
             transform.localScale = transform.localScale.FlippedHorizontally();
         }
-        if (moveVector != Vector2.zero) {
-            float isSprinting = sprintAction.ReadValue<float>();
-            player.state = (CharacterState) 1 + (Mathf.Abs(isSprinting) > 0.0f ? 1 : 0);
-            animator.SetInteger(Constants.AnimationKeys.MoveSpeed, (int) player.state);
-        } else if (player.state != CharacterState.Attacking) {
-            player.state = CharacterState.Idle;
-            animator.SetInteger(Constants.AnimationKeys.MoveSpeed, (int) player.state);
+        if (player.state != CharacterState.Attacking) {
+            if (moveVector != Vector2.zero) {
+                float isSprinting = sprintAction.ReadValue<float>();
+                player.state = (CharacterState) 1 + (Mathf.Abs(isSprinting) > 0.0f ? 1 : 0);
+                animator.SetInteger(Constants.AnimationKeys.MoveSpeed, (int) player.state);
+            } else {
+                player.state = CharacterState.Idle;
+                animator.SetInteger(Constants.AnimationKeys.MoveSpeed, (int) player.state);
+            }
         }
     }
 
@@ -111,5 +111,10 @@ public class PlayerController : MonoBehaviour
     private void OnDisable()
     {
         actions.FindActionMap("playerInput").Disable();
+    }
+
+    public void EnterHitStun(float hitStunFrames)
+    {
+        throw new NotImplementedException();
     }
 }

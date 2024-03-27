@@ -14,6 +14,7 @@ public class HitboxManager : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public bool displayHitbox = false;
     public HitboxOwner hitboxOwner = HitboxOwner.Player;
+    public Constants.Direction direction;
 
     public float timeEnteredStartup;
     public float timeEnteredActive;

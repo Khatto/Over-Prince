@@ -8,6 +8,7 @@ public class Player : Character
 
     void Start()
     {
+        base.Start();
         animator = GetComponent<Animator>();
         attackManager = GetComponent<AttackManager>();
     }
@@ -17,15 +18,15 @@ public class Player : Character
             state = CharacterState.Attacking;
             animator.SetTrigger(Constants.AnimationKeys.PerformAttack);
             animator.SetInteger(Constants.AnimationKeys.AttackDesignation, (int) attacks[attackIndex].attackID);
-            attackManager.PerformAttack(attacks[attackIndex].attackID, HitboxOwner.Player);
+            attackManager.PerformAttack(attacks[attackIndex].attackID, HitboxOwner.Player, GetDirection());
         }
         else if (state == CharacterState.Attacking) {
             if (ShouldContinueJabAttack(attackIndex)) {
                 animator.SetTrigger(Constants.AnimationKeys.ContinueAttack);
                 if (IsPerformingJab2()) {
-                    attackManager.PerformAttack(AttackID.Jab3, HitboxOwner.Player);
+                    attackManager.PerformAttack(AttackID.Jab3, HitboxOwner.Player, GetDirection());
                 } else {
-                    attackManager.PerformAttack(AttackID.Jab2, HitboxOwner.Player);
+                    attackManager.PerformAttack(AttackID.Jab2, HitboxOwner.Player, GetDirection());
                 }
             }
         }

@@ -29,4 +29,9 @@ public static class Constants {
     /// </summary>
     public static float verticalMovementModifier = 0.65f;
 
+    public enum Direction {
+        Left = -1,
+        Right = 1
+    }
+
 }
