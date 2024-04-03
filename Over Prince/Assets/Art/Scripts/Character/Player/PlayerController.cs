@@ -74,10 +74,10 @@ public class PlayerController : CharacterController, IHurtableCharacterControlle
 
     void UpdateSpriteFromMovement(Vector2 moveVector) {
         // TODO: (Performance) Check if it's more performant to only transform if we've changed our moveVector speed, or every method call
-        if (transform.localScale.x > 0.0 && moveVector.x < 0.0 || transform.localScale.x < 0.0 && moveVector.x > 0.0) {
-            transform.localScale = transform.localScale.FlippedHorizontally();
-        }
         if (player.state != CharacterState.Attacking) {
+            if (transform.localScale.x > 0.0 && moveVector.x < 0.0 || transform.localScale.x < 0.0 && moveVector.x > 0.0) {
+                transform.localScale = transform.localScale.FlippedHorizontally();
+            }
             if (moveVector != Vector2.zero) {
                 float isSprinting = sprintAction.ReadValue<float>();
                 player.state = (CharacterState) 1 + (Mathf.Abs(isSprinting) > 0.0f ? 1 : 0);

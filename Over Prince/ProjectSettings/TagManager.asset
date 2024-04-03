@@ -16,7 +16,7 @@ TagManager:
   - Background
   - Player
   - Enemy
-  - 
+  - Screen
   - 
   - 
   - 
@@ -57,4 +57,7 @@ TagManager:
     locked: 0
   - name: Objects
     uniqueID: 3275283111
+    locked: 0
+  - name: Screen
+    uniqueID: 2180092215
     locked: 0
