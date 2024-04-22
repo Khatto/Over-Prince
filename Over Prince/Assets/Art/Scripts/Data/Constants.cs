@@ -5,6 +5,14 @@ using UnityEngine;
 /// </summary>
 public static class Constants {
 
+    public static class Scenes {
+        public const string Title = "TitleScreen";
+        public const string Intro = "IntroScene";
+        public const string Playground = "PlaygroundScene";
+        public const string SceneOne = "SceneOne";
+        public const float SceneTransitionTime = .65f;
+    }
+
     public static class TagKeys {
         public const string Hurtbox = "Hurtbox";
         public const string Hitbox = "Hitbox";

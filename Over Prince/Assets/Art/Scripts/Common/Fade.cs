@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using TMPro;
 
@@ -8,8 +9,8 @@ public class Fade : MonoBehaviour
 
     public bool active = false;
     public FadeType fadeType = FadeType.FadeInFadeOut;
-    public float fadeTime = 1f;
 
+    public float fadeTime = 1f;
     private float startTime = 0.0f;
     private Color startColor;
 
@@ -48,6 +49,11 @@ public class Fade : MonoBehaviour
             color.a = Mathf.PingPong(Time.time, fadeTime);
             spriteRenderer.color = color;
         }
+    }
+
+    public void StartFadeWithTime (FadeType fadeType, float fadeTime) {
+        this.fadeTime = fadeTime;
+        StartFade(fadeType);
     }
 
     public void StartFade (FadeType fadeType) {
@@ -112,6 +118,36 @@ public class Fade : MonoBehaviour
             spriteRenderer.color = color;
         }
         StartFade(FadeType.FadeOut);
+    }
+
+    public void FadeOutAfterDelay(float delay) {
+        StartCoroutine(FadeOutAfterDelayCoroutine(delay));
+    
+    }
+
+    private IEnumerator FadeOutAfterDelayCoroutine(float delay) {
+        yield return new WaitForSeconds(delay);
+        StartFade(FadeType.FadeOut);
+    }
+
+    public bool HasFadedIn () {
+        if (textMeshPro != null) {
+            return textMeshPro.color.a == 1.0f;
+        }
+        if (spriteRenderer != null) {
+            return spriteRenderer.color.a == 1.0f;
+        }
+        return false;
+    }
+
+    public bool HasFadedOut () {
+        if (textMeshPro != null) {
+            return textMeshPro.color.a == 0.0f;
+        }
+        if (spriteRenderer != null) {
+            return spriteRenderer.color.a == 0.0f;
+        }
+        return false;
     }
 }
 

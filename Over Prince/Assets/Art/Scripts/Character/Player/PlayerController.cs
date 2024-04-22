@@ -105,12 +105,12 @@ public class PlayerController : CharacterController, IHurtableCharacterControlle
 
     private void OnEnable()
     {
-        actions.FindActionMap("playerInput").Enable();
+        actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInput).Enable();
     }
 
     private void OnDisable()
     {
-        actions.FindActionMap("playerInput").Disable();
+        actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInput).Disable();
     }
 
     public void EnterHitStun(float hitStunFrames)
