@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
+
+    public AudioSource mainSong;
+    public AudioSource loopedSong;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(WaitForSongEnd());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator WaitForSongEnd()
     {
-        
+        yield return new WaitUntil(() => !mainSong.isPlaying);
+        loopedSong.Play();
     }
 }

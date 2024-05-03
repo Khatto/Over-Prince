@@ -13,6 +13,7 @@ public class DialogueManager : MonoBehaviour
     public Dialogue currentDialogue;
     public DialogueState state = DialogueState.NotStarted;
     public DialogueDisplayMode dialogueDisplayMode = DialogueDisplayMode.Single;
+    public Vector2 dialogueDefaultPosition = new Vector2(0.0f, 0.0f);
 
     private struct DialogueManagerConstants {
         public const float dialogueFadeTime = 0.5f;
@@ -22,12 +23,6 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         dialogueFade = dialogueText.GetComponent<Fade>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void DisplayDialogues(Dialogue[] dialogues)
@@ -62,6 +57,9 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(SetDialogueStateAfterTime(DialogueState.Finished, DialogueManagerConstants.dialogueFadeTime));
     }
 
+    /// <summary>
+    /// Displays the next dialogue in the queue in the dialogueSequence if one exists
+    /// </summary>
     private void DisplayNextQueuedDialogue()
     {
         if (dialogueSequence.Count > 0) {
@@ -77,6 +75,17 @@ public class DialogueManager : MonoBehaviour
         dialogueFade.StartFadeWithTime(FadeType.FadeIn, DialogueManagerConstants.dialogueFadeTime);
         dialogueText.text = dialogue.text;
         StartCoroutine(SetDialogueStateAfterTime(DialogueState.DisplayingDialogue, dialogue.displayTime));
+        StartCoroutine(ModifyDialoguePositionBasedOnLineCount());
+    }
+
+    private IEnumerator ModifyDialoguePositionBasedOnLineCount() {
+        yield return new WaitForSeconds(0.0f);
+        Debug.Log("Number of lines for Text Mesh Pro: " + dialogueText.text + " = " + dialogueText.textInfo.lineCount);
+        dialogueText.rectTransform.anchoredPosition = new Vector2(
+            dialogueText.rectTransform.anchoredPosition.x, // TODO: Determine if we want to use 
+            dialogueDefaultPosition.y - ((dialogueText.textInfo.lineCount % 2) * (dialogueText.fontSize))
+        );
+
     }
 
     private IEnumerator SetDialogueStateAfterTime(DialogueState state, float displayTime)
@@ -99,6 +108,10 @@ public class DialogueManager : MonoBehaviour
 
     public bool CanProceedToNextDialogue() {
         return state == DialogueState.DisplayingDialogue;
+    }
+
+    public void SetDialogueColor(Color color) {
+        dialogueText.color = color;
     }
 
 

@@ -88,8 +88,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _BumpScale: 1
-    - _Color_1_Influence: 0.714
-    - _Color_2_Influence: 0.288
+    - _Color_1_Influence: 0.418
+    - _Color_2_Influence: 0.136
     - _Color_3_Influence: 0.528
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -110,6 +110,6 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color_1: {r: 0.10123708, g: 0.42623705, b: 0.8584906, a: 1}
     - _Color_2: {r: 1, g: 0.5732969, b: 0.09019607, a: 1}
-    - _Color_3: {r: 0.8396226, g: 0.11194978, b: 0, a: 1}
+    - _Color_3: {r: 0.8396226, g: 0.3265734, b: 0.1782218, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

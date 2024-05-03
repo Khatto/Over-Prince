@@ -22,6 +22,7 @@ public class IntroSceneManager : MonoBehaviour
     public ParticleSystem deltaParticles2;
     public ParticleSystem sideParticlesBack;
     public ParticleSystem sideParticlesFront;
+    public SpriteRenderer introImageSad;
 
     private struct IntroSceneConstants {
         public const float screenFadeDelay = 1.0f;
@@ -53,7 +54,7 @@ public class IntroSceneManager : MonoBehaviour
 
     void Start()
     {
-        PerformPart(IntroSceneState.PartSeven);
+        PerformPart(IntroSceneState.PartOne);
     }
 
     void Update() {
@@ -120,6 +121,21 @@ public class IntroSceneManager : MonoBehaviour
             case IntroSceneState.PartNine:
                 if (screenFader.HasFadedIn()) {
                     PerformPart(IntroSceneState.PartTen);
+                }
+                break;
+            case IntroSceneState.PartTen:
+                if (dialogueManager.state == DialogueState.Finished) {
+                    PerformPart(IntroSceneState.PartEleven);
+                }
+                break;
+            case IntroSceneState.PartEleven:
+                if (screenFader.HasFadedIn()) {
+                    PerformPart(IntroSceneState.PartTwelve);
+                }
+                break;
+            case IntroSceneState.PartTwelve:
+                if (dialogueManager.state == DialogueState.Finished) {
+                    PerformPart(IntroSceneState.PartThirteen);
                 }
                 break;
         }
@@ -196,6 +212,24 @@ public class IntroSceneManager : MonoBehaviour
                 memoryExperiencesView.gameObject.SetActive(true);
                 screenFader.StartFadeWithTime(FadeType.FadeOut, IntroSceneConstants.screenFadeTime);
                 break;
+            case IntroSceneState.PartEleven:
+                screenFader.StartFadeWithTime(FadeType.FadeIn, IntroSceneConstants.screenFadeTime);
+                break;
+            case IntroSceneState.PartTwelve:
+                memoryExperiencesView.gameObject.SetActive(false);
+                screenFader.StartFadeWithTime(FadeType.FadeOut, IntroSceneConstants.screenFadeTime);
+                videoPlayer.transform.parent.gameObject.SetActive(true);
+                dialogueManager.DisplayDialogues(DialogueConstants.IntroScene.PartTwelve.dialogues);
+                videoPlayer.Play();
+                break;
+            case IntroSceneState.PartThirteen:
+                videoPlayer.Stop();
+                videoPlayer.transform.parent.gameObject.SetActive(false);
+                introImageSad.gameObject.SetActive(true);
+                dialogueManager.DisplayDialogues(DialogueConstants.IntroScene.PartThirteen.dialogues);
+                dialogueManager.SetDialogueColor(Color.red);
+                break;
+
         }
     }
 
@@ -220,8 +254,9 @@ public enum IntroSceneState {
     PartSix, // Displaying FileView and Dialogue
     PartSeven, // Fading out and showing the side view
     PartEight, // Fading in and Displaying Side View and Dialogue,
-    PartNine,
-    PartTen,
-    PartEleven,
-    PartTwelve,
+    PartNine, // Fading out and showing the Experiences View
+    PartTen, // Fading in and Displaying Experiences View and Dialogue
+    PartEleven, // Fading out and showing the protagonist
+    PartTwelve, // Fading in and Displaying protagonist and Dialogue
+    PartThirteen // Zooming into the prtoganist and displaying dialogue
 }
