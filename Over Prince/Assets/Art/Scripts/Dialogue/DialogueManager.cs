@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEditor;
+using UnityEngine.UIElements;
 
 public class DialogueManager : MonoBehaviour
 {
     public TextMeshProUGUI dialogueText;
     private Fade dialogueFade;
+
+    public TextMeshProUGUI shadowText;
+    private Fade shadowFade;
+    public Vector2 shadowOffset = new Vector2(2.0f, -2.0f);
 
     public Queue<Dialogue> dialogueSequence;
     public Dialogue currentDialogue;
@@ -23,6 +28,20 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         dialogueFade = dialogueText.GetComponent<Fade>();
+        SetupDialogueShadow();
+    }
+
+    private void SetupDialogueShadow() {
+        if (
+            dialogueText.GetComponent<TextComponent>() != null
+            && dialogueText.GetComponent<TextComponent>().shadowText != null
+        )
+        {
+            shadowText = dialogueText.GetComponent<TextComponent>().shadowText;
+            if (shadowText != null) {
+                shadowFade = shadowText.GetComponent<Fade>();
+            }
+        }
     }
 
     public void DisplayDialogues(Dialogue[] dialogues)
@@ -53,8 +72,71 @@ public class DialogueManager : MonoBehaviour
 
     public void HideDialogue()
     {   state = DialogueState.FadingDialogueOut;
-        dialogueFade.StartFadeWithTime(FadeType.FadeOut, DialogueManagerConstants.dialogueFadeTime);
+        FadeDialogue(FadeType.FadeOut);
         StartCoroutine(SetDialogueStateAfterTime(DialogueState.Finished, DialogueManagerConstants.dialogueFadeTime));
+    }
+
+    private void FadeInAndDisplayDialogue(Dialogue dialogue)
+    {
+        FadeDialogue(FadeType.FadeIn);
+        SetDialogueText(dialogue.text);
+        StartCoroutine(SetDialogueStateAfterTime(DialogueState.DisplayingDialogue, dialogue.displayTime));
+        StartCoroutine(ModifyDialoguePositionBasedOnLineCount());
+    }
+
+    private IEnumerator ModifyDialoguePositionBasedOnLineCount() {
+        yield return new WaitForSeconds(0.0f);
+        SetDialoguePositionBasedOnLines();
+    }
+
+    private IEnumerator SetDialogueStateAfterTime(DialogueState state, float displayTime)
+    {
+        yield return new WaitForSeconds(displayTime + DialogueManagerConstants.dialogueFadeTime);
+        this.state = state;
+        if (dialogueDisplayMode == DialogueDisplayMode.Sequence)
+        {
+            DisplayNextQueuedDialogue();
+        }
+    }
+
+    private IEnumerator FadeOutThenDisplayDialogue(Dialogue dialogue, float dialogueFadeTime = DialogueManagerConstants.dialogueFadeTime)
+    {
+        state = DialogueState.FadingDialogueOut;
+        FadeDialogue(FadeType.FadeOut);
+        yield return new WaitForSeconds(dialogueFadeTime);
+        FadeInAndDisplayDialogue(dialogue);
+    }
+
+    private void FadeDialogue(FadeType fadeType)
+    {
+        dialogueFade.StartFadeWithTime(fadeType, DialogueManagerConstants.dialogueFadeTime);
+        if (DialogueHasShadow())
+        {
+            shadowFade.StartFadeWithTime(fadeType, DialogueManagerConstants.dialogueFadeTime);
+        }
+    }
+
+    public bool CanProceedToNextDialogue() {
+        return state == DialogueState.DisplayingDialogue;
+    }
+
+    /// <summary>
+    /// Sets the color of the dialogue text and its shadow if it exists
+    /// </summary>
+    /// <param name="color"></param>
+    public void SetDialogueColor(Color color) {
+        dialogueText.color = color;
+        if (DialogueHasShadow()) {
+            shadowText.color = color;
+        }
+    }
+
+    /// <summary>
+    /// Returns true if the dialogue has a shadow text object, false otherwise
+    /// </summary>
+    /// <returns></returns>
+    public bool DialogueHasShadow() {
+        return shadowText != null;
     }
 
     /// <summary>
@@ -70,50 +152,33 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    private void FadeInAndDisplayDialogue(Dialogue dialogue)
+    /// <summary>
+    /// Sets the text of the dialogue to the provided text, and its shadow if it exists
+    /// </summary>
+    /// <param name="text"></param>
+    private void SetDialogueText(string text)
     {
-        dialogueFade.StartFadeWithTime(FadeType.FadeIn, DialogueManagerConstants.dialogueFadeTime);
-        dialogueText.text = dialogue.text;
-        StartCoroutine(SetDialogueStateAfterTime(DialogueState.DisplayingDialogue, dialogue.displayTime));
-        StartCoroutine(ModifyDialoguePositionBasedOnLineCount());
-    }
-
-    private IEnumerator ModifyDialoguePositionBasedOnLineCount() {
-        yield return new WaitForSeconds(0.0f);
-        Debug.Log("Number of lines for Text Mesh Pro: " + dialogueText.text + " = " + dialogueText.textInfo.lineCount);
-        dialogueText.rectTransform.anchoredPosition = new Vector2(
-            dialogueText.rectTransform.anchoredPosition.x, // TODO: Determine if we want to use 
-            dialogueDefaultPosition.y - ((dialogueText.textInfo.lineCount % 2) * (dialogueText.fontSize))
-        );
-
-    }
-
-    private IEnumerator SetDialogueStateAfterTime(DialogueState state, float displayTime)
-    {
-        yield return new WaitForSeconds(displayTime + DialogueManagerConstants.dialogueFadeTime);
-        this.state = state;
-        if (dialogueDisplayMode == DialogueDisplayMode.Sequence)
+        dialogueText.text = text;
+        if (DialogueHasShadow())
         {
-            DisplayNextQueuedDialogue();
+            shadowText.text = text;
         }
     }
 
-    private IEnumerator FadeOutThenDisplayDialogue(Dialogue dialogue)
-    {
-        state = DialogueState.FadingDialogueOut;
-        dialogueFade.StartFadeWithTime(FadeType.FadeOut, DialogueManagerConstants.dialogueFadeTime);
-        yield return new WaitForSeconds(DialogueManagerConstants.dialogueFadeTime);
-        FadeInAndDisplayDialogue(dialogue);
+    /// <summary>
+    /// Sets the position of the dialogue based on the number of lines in the dialogue text, and its shadow if it exists
+    /// </summary>
+    private void SetDialoguePositionBasedOnLines() {
+        Vector2 newPosition = new Vector2(
+            dialogueText.rectTransform.anchoredPosition.x, // TODO: Determine if we want to use 
+            dialogueDefaultPosition.y - ((dialogueText.textInfo.lineCount % 2) * dialogueText.fontSize)
+        );
+        dialogueText.rectTransform.anchoredPosition = newPosition;
+        if (DialogueHasShadow())
+        {
+            shadowText.rectTransform.anchoredPosition = newPosition + shadowOffset;
+        }
     }
-
-    public bool CanProceedToNextDialogue() {
-        return state == DialogueState.DisplayingDialogue;
-    }
-
-    public void SetDialogueColor(Color color) {
-        dialogueText.color = color;
-    }
-
 
 }
 
