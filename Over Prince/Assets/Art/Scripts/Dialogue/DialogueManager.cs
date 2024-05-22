@@ -20,7 +20,7 @@ public class DialogueManager : MonoBehaviour
     public DialogueDisplayMode dialogueDisplayMode = DialogueDisplayMode.Single;
     public Vector2 dialogueDefaultPosition = new Vector2(0.0f, 0.0f);
 
-    private struct DialogueManagerConstants {
+    public static class DialogueManagerConstants {
         public const float dialogueFadeTime = 0.5f;
     }
 

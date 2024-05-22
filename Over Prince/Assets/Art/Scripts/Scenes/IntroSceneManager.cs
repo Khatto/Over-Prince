@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,7 @@ public class IntroSceneManager : MonoBehaviour
     public Transform memoryFieldView;
     public Transform memoryFileView;
     public Transform sceneSideView;
+    public Transform memoryElevatorView;
     public Transform memoryExperiencesView;
     public ParticleSystem deltaParticles;
     public ParticleSystem deltaParticles2;
@@ -54,7 +56,7 @@ public class IntroSceneManager : MonoBehaviour
 
     void Start()
     {
-        PerformPart(IntroSceneState.PartOne);
+        PerformPart(IntroSceneState.PartEight);
     }
 
     void Update() {
@@ -100,12 +102,12 @@ public class IntroSceneManager : MonoBehaviour
                 }
                 break;
             case IntroSceneState.PartEight:
+                /*
                 mainCamera.orthographicSize = Mathf.Lerp(
                     IntroSceneConstants.cameraDefaultSize,
                     IntroSceneConstants.PartEight.cameraEndSize, 
                     (Time.time - startTime) / IntroSceneConstants.PartEight.cameraZoomTime
                 );
-                
                 Vector3 cameraPos = Vector3.Lerp(
                     IntroSceneConstants.PartEight.cameraStartPos,
                     IntroSceneConstants.PartEight.cameraEndPos,
@@ -113,7 +115,7 @@ public class IntroSceneManager : MonoBehaviour
                 );
                 cameraPos.z = IntroSceneConstants.cameraZPos;
                 mainCamera.transform.position = cameraPos;
-                
+                */
                 if (mainCamera.orthographicSize <= IntroSceneConstants.PartEight.cameraEndSize) {
                     PerformPart(IntroSceneState.PartNine);
                 }
@@ -170,6 +172,7 @@ public class IntroSceneManager : MonoBehaviour
                 screenFader.StartFadeWithTime(FadeType.FadeOut, IntroSceneConstants.screenFadeTime);
                 break;
             case IntroSceneState.PartFour:
+                MoveParallaxContainer(memoryFieldView, DialogueConstants.IntroScene.PartFour.dialogues, IntroSceneConstants.screenFadeTime);
                 dialogueManager.DisplayDialogues(DialogueConstants.IntroScene.PartFour.dialogues);
                 break;
             case IntroSceneState.PartFive:
@@ -182,6 +185,7 @@ public class IntroSceneManager : MonoBehaviour
                 dialogueManager.DisplayDialogues(DialogueConstants.IntroScene.PartSix.dialogues);
                 memoryFieldView.gameObject.SetActive(false);
                 memoryFileView.gameObject.SetActive(true);
+                MoveParallaxContainer(memoryFileView, DialogueConstants.IntroScene.PartSix.dialogues, IntroSceneConstants.screenFadeTime);
                 screenFader.StartFadeWithTime(FadeType.FadeOut, IntroSceneConstants.screenFadeTime);
                 break;
             case IntroSceneState.PartSeven:
@@ -194,7 +198,7 @@ public class IntroSceneManager : MonoBehaviour
                 sideParticlesFront.Play();
                 dialogueManager.DisplayDialogues(DialogueConstants.IntroScene.PartEight.dialogues);
                 memoryFileView.gameObject.SetActive(false);
-                sceneSideView.gameObject.SetActive(true);
+                memoryElevatorView.gameObject.SetActive(true);
                 screenFader.StartFadeWithTime(FadeType.FadeOut, IntroSceneConstants.screenFadeTime);
                 break;
             case IntroSceneState.PartNine:
@@ -208,8 +212,9 @@ public class IntroSceneManager : MonoBehaviour
                 sideParticlesFront.Stop();
                 sideParticlesFront.gameObject.SetActive(false);
                 dialogueManager.DisplayDialogues(DialogueConstants.IntroScene.PartTen.dialogues);
-                sceneSideView.gameObject.SetActive(false);
+                memoryElevatorView.gameObject.SetActive(false);
                 memoryExperiencesView.gameObject.SetActive(true);
+                MoveParallaxContainer(memoryExperiencesView, DialogueConstants.IntroScene.PartSix.dialogues, IntroSceneConstants.screenFadeTime);
                 screenFader.StartFadeWithTime(FadeType.FadeOut, IntroSceneConstants.screenFadeTime);
                 break;
             case IntroSceneState.PartEleven:
@@ -229,8 +234,19 @@ public class IntroSceneManager : MonoBehaviour
                 dialogueManager.DisplayDialogues(DialogueConstants.IntroScene.PartThirteen.dialogues);
                 dialogueManager.SetDialogueColor(Color.red);
                 break;
-
         }
+    }
+
+    private void MoveParallaxContainer(Transform transform, Dialogue[] dialogues, float extraTime = 0.0f) {
+        Parallax container = transform.GetComponent<Parallax>();
+        container.SetMovementTime(
+            DialogueConstants.TotalDialogueTime(
+                dialogues,
+                DialogueManager.DialogueManagerConstants.dialogueFadeTime + extraTime
+            )
+        );
+        container.SetEasingFunction(EasingFuncs.EaseOut);
+        container.Move();
     }
 
     IEnumerator PlayIntroVideo() {
