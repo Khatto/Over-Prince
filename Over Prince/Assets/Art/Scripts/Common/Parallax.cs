@@ -10,27 +10,31 @@ public class Parallax : MonoBehaviour
     public float movementTime = 0.5f;
     public Vector2 movementDelta = new Vector2(0.0f, 0.0f);
     public System.Func<float, float> easingFunction = EasingFuncs.Linear;
+    public SimpleMovement simpleMovement;
 
-    // TODO: Potentially move these to a movement utility class
-    public static IEnumerator ChangeObjectPos(Transform transform, Vector2 positionDelta, float duration, System.Func<float, float> easingFunction) {
-        Vector2 startPosition = transform.position;
-        Vector2 endPosition = startPosition + positionDelta;
-        float timeElapsed = 0;
-
-        while (timeElapsed <= duration) {
-            transform.position = Vector2.Lerp(startPosition, endPosition, easingFunction(timeElapsed / duration));
-            yield return null;
-            timeElapsed += Time.deltaTime;
-        }
-        transform.position = endPosition;
+    
+    public void Start() {
+        AddSimpleMovementIfNecessary();
     }
+
+    public void AddSimpleMovementIfNecessary() {
+        if (this.simpleMovement == null) {
+            this.simpleMovement = this.transform.gameObject.AddComponent<SimpleMovement>();
+        } else {
+            this.simpleMovement = this.transform.gameObject.GetComponent<SimpleMovement>();
+        }
+    }
+
 
     public void Move() {
         if (parallaxType == ParallaxType.Container) {
             foreach (Transform child in transform) {
                 if (child.GetComponent<Parallax>() != null && child.GetComponent<Parallax>().parallaxType == ParallaxType.MovingElement) {
                     Parallax childParallax = child.GetComponent<Parallax>();
-                    StartCoroutine(ChangeObjectPos(child, childParallax.movementDelta, childParallax.movementTime, childParallax.easingFunction));
+                    childParallax.AddSimpleMovementIfNecessary();
+                    SimpleMovement simpleMovement = child.GetComponent<SimpleMovement>();
+                    simpleMovement.SetMovementValues(childParallax.movementTime, childParallax.movementDelta, childParallax.easingFunction);
+                    simpleMovement.Move();
                 }
             }
         }

@@ -3,6 +3,7 @@ public static class DialogueConstants {
     public static class CommonFormattedTerms {
         public static string TheField = "<color=\"red\">The Field</color>";
         public static string TheFile = "<color=\"red\">The File</color>";
+        public static string End = "<color=\"red\">END</color>";
         public static string Elevators = "<color=#9945dd>Elevators</color>";
     }
 
@@ -58,14 +59,14 @@ public static class DialogueConstants {
                 new Dialogue(" ", "Music/Song_Name", 1),
                 new Dialogue("I'm so tired of this cycle...", "Music/Song_Name", 3),
                 new Dialogue("I literally can't take this anymore...", "Music/Song_Name", 3),
-                new Dialogue("I know one thing...", "Music/Song_Name", 3),
+                new Dialogue("All I know is...", "Music/Song_Name", 3),
                 new Dialogue(" ", "Music/Song_Name", 1),
             };
         }
 
         public static class PartThirteen {
             public static Dialogue[] dialogues = {
-                new Dialogue("THIS ALL HAS TO END!", "Music/Song_Name", 10)
+                new Dialogue($"This all has to {CommonFormattedTerms.End}!", "Music/Song_Name", 5)
             };
         }
     }

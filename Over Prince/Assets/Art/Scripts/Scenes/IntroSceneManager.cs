@@ -32,6 +32,7 @@ public class IntroSceneManager : MonoBehaviour
         public const float cameraZPos = -10.0f;
         public const float cameraDefaultSize = 5.0f;
         public const float screenFadeTime = 1.0f;
+        public const float screenFlashTime = 0.2f;
 
         public struct PartOne {
             public const float cameraStartY = 1.65f;
@@ -52,11 +53,18 @@ public class IntroSceneManager : MonoBehaviour
             public const float cameraEndSize = 4.25f;
             public const float cameraZoomTime = 10.0f;
         }
+
+        public struct PartTwelve {
+            public static Vector2 cameraStartPos = new Vector3(0.0f, 1.16f, cameraZPos);
+            public static Vector2 cameraEndPos = new Vector4(0.0f, 2.04f, cameraZPos);
+            public const float cameraStartSize = 3.5f;
+            public const float cameraEndSize = 2.5f;
+        }
     }
 
     void Start()
     {
-        PerformPart(IntroSceneState.PartEight);
+        PerformPart(IntroSceneState.PartOne);
     }
 
     void Update() {
@@ -65,7 +73,7 @@ public class IntroSceneManager : MonoBehaviour
                 mainCamera.orthographicSize = Mathf.Lerp(
                     IntroSceneConstants.PartOne.cameraStartSize,
                     IntroSceneConstants.PartOne.cameraEndSize, 
-                    (Time.time - startTime) / IntroSceneConstants.PartOne.cameraZoomTime
+                    EasingFuncs.EaseInOut((Time.time - startTime) / IntroSceneConstants.PartOne.cameraZoomTime)
                 );
                 if (mainCamera.orthographicSize >= IntroSceneConstants.PartOne.cameraEndSize) {
                     PerformPart(IntroSceneState.PartTwo);
@@ -102,21 +110,7 @@ public class IntroSceneManager : MonoBehaviour
                 }
                 break;
             case IntroSceneState.PartEight:
-                /*
-                mainCamera.orthographicSize = Mathf.Lerp(
-                    IntroSceneConstants.cameraDefaultSize,
-                    IntroSceneConstants.PartEight.cameraEndSize, 
-                    (Time.time - startTime) / IntroSceneConstants.PartEight.cameraZoomTime
-                );
-                Vector3 cameraPos = Vector3.Lerp(
-                    IntroSceneConstants.PartEight.cameraStartPos,
-                    IntroSceneConstants.PartEight.cameraEndPos,
-                    (Time.time - startTime) / IntroSceneConstants.PartEight.cameraZoomTime
-                );
-                cameraPos.z = IntroSceneConstants.cameraZPos;
-                mainCamera.transform.position = cameraPos;
-                */
-                if (mainCamera.orthographicSize <= IntroSceneConstants.PartEight.cameraEndSize) {
+                if (dialogueManager.state == DialogueState.Finished) {
                     PerformPart(IntroSceneState.PartNine);
                 }
                 break;
@@ -136,8 +130,30 @@ public class IntroSceneManager : MonoBehaviour
                 }
                 break;
             case IntroSceneState.PartTwelve:
+                float dialogueTime = DialogueConstants.TotalDialogueTime(
+                    DialogueConstants.IntroScene.PartTwelve.dialogues,
+                    DialogueManager.DialogueManagerConstants.dialogueFadeTime + IntroSceneConstants.screenFadeTime
+                );
+                mainCamera.orthographicSize = Mathf.Lerp(
+                    IntroSceneConstants.PartTwelve.cameraStartSize,
+                    IntroSceneConstants.PartTwelve.cameraEndSize, 
+                    EasingFuncs.EaseInOut((Time.time - startTime) / dialogueTime)
+                );
+                Vector3 cameraPos = Vector3.Lerp(
+                    IntroSceneConstants.PartTwelve.cameraStartPos,
+                    IntroSceneConstants.PartTwelve.cameraEndPos,
+                    EasingFuncs.EaseInOut((Time.time - startTime) / dialogueTime)
+                );
+                cameraPos.z = IntroSceneConstants.cameraZPos;
+                mainCamera.transform.position = cameraPos;
+
                 if (dialogueManager.state == DialogueState.Finished) {
                     PerformPart(IntroSceneState.PartThirteen);
+                }
+                break;
+            case IntroSceneState.PartThirteen:
+                if (dialogueManager.state == DialogueState.Finished) {
+                    PerformPart(IntroSceneState.PartFourteen);
                 }
                 break;
         }
@@ -199,6 +215,7 @@ public class IntroSceneManager : MonoBehaviour
                 dialogueManager.DisplayDialogues(DialogueConstants.IntroScene.PartEight.dialogues);
                 memoryFileView.gameObject.SetActive(false);
                 memoryElevatorView.gameObject.SetActive(true);
+                MoveParallaxContainer(memoryElevatorView, DialogueConstants.IntroScene.PartEight.dialogues, IntroSceneConstants.screenFadeTime);
                 screenFader.StartFadeWithTime(FadeType.FadeOut, IntroSceneConstants.screenFadeTime);
                 break;
             case IntroSceneState.PartNine:
@@ -221,6 +238,9 @@ public class IntroSceneManager : MonoBehaviour
                 screenFader.StartFadeWithTime(FadeType.FadeIn, IntroSceneConstants.screenFadeTime);
                 break;
             case IntroSceneState.PartTwelve:
+                startTime = Time.time;
+                mainCamera.orthographicSize = IntroSceneConstants.PartTwelve.cameraStartSize;
+                mainCamera.transform.position = IntroSceneConstants.PartTwelve.cameraStartPos;
                 memoryExperiencesView.gameObject.SetActive(false);
                 screenFader.StartFadeWithTime(FadeType.FadeOut, IntroSceneConstants.screenFadeTime);
                 videoPlayer.transform.parent.gameObject.SetActive(true);
@@ -231,8 +251,12 @@ public class IntroSceneManager : MonoBehaviour
                 videoPlayer.Stop();
                 videoPlayer.transform.parent.gameObject.SetActive(false);
                 introImageSad.gameObject.SetActive(true);
+                screenFader.StartFadeWithTime(FadeType.FlashInThenFadeOut, IntroSceneConstants.screenFlashTime);
                 dialogueManager.DisplayDialogues(DialogueConstants.IntroScene.PartThirteen.dialogues);
-                dialogueManager.SetDialogueColor(Color.red);
+                break;
+            case IntroSceneState.PartFourteen:
+                screenFader.StartFadeWithTime(FadeType.FadeIn, IntroSceneConstants.screenFadeTime);
+                StartCoroutine(FadeToNextScene(IntroSceneConstants.screenFadeTime));
                 break;
         }
     }
@@ -258,6 +282,11 @@ public class IntroSceneManager : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
         dialogueManager.DisplayDialogues(dialogues);
     }
+
+    IEnumerator FadeToNextScene(float delayTime) {
+        yield return new WaitForSeconds(delayTime);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("IntroStageScene");
+    }
 }
 
 public enum IntroSceneState {
@@ -274,5 +303,6 @@ public enum IntroSceneState {
     PartTen, // Fading in and Displaying Experiences View and Dialogue
     PartEleven, // Fading out and showing the protagonist
     PartTwelve, // Fading in and Displaying protagonist and Dialogue
-    PartThirteen // Zooming into the prtoganist and displaying dialogue
+    PartThirteen, // Zooming into the prtoganist and displaying dialogue,
+    PartFourteen // Fading and transitioning to the next scene
 }
