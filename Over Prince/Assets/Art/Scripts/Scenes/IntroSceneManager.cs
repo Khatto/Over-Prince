@@ -6,6 +6,7 @@ using UnityEngine.Video;
 public class IntroSceneManager : MonoBehaviour
 {
     public Camera mainCamera;
+    public MusicManager musicManager;
     public VideoPlayer videoPlayer;
     public SpriteRenderer videoSpriteBackground;
     public Fade screenFader;
@@ -32,6 +33,8 @@ public class IntroSceneManager : MonoBehaviour
         public const float cameraZPos = -10.0f;
         public const float cameraDefaultSize = 5.0f;
         public const float screenFadeTime = 1.0f;
+        public const float sceneTransitionTime = 2.0f;
+        public const float musicEchoFadeTime = 3.75f;
         public const float screenFlashTime = 0.2f;
 
         public struct PartOne {
@@ -159,6 +162,9 @@ public class IntroSceneManager : MonoBehaviour
         }
     }
 
+    /**
+     * Perform the actions for the given state once when the state is initially set
+     */
     private void PerformPart(IntroSceneState state) {
         Debug.Log("Starting state " + state + " at " + Time.time);
         this.state = state;
@@ -248,6 +254,7 @@ public class IntroSceneManager : MonoBehaviour
                 videoPlayer.Play();
                 break;
             case IntroSceneState.PartThirteen:
+                musicManager.FadeOutWithEcho(IntroSceneConstants.musicEchoFadeTime);
                 videoPlayer.Stop();
                 videoPlayer.transform.parent.gameObject.SetActive(false);
                 introImageSad.gameObject.SetActive(true);
@@ -256,7 +263,7 @@ public class IntroSceneManager : MonoBehaviour
                 break;
             case IntroSceneState.PartFourteen:
                 screenFader.StartFadeWithTime(FadeType.FadeIn, IntroSceneConstants.screenFadeTime);
-                StartCoroutine(FadeToNextScene(IntroSceneConstants.screenFadeTime));
+                StartCoroutine(FadeToNextScene(IntroSceneConstants.sceneTransitionTime));
                 break;
         }
     }

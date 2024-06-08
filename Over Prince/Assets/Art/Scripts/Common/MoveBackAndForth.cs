@@ -18,7 +18,6 @@ public class MoveBackAndForth : MonoBehaviour
 
     public SimpleMovement simpleMovement;
 
-    // Start is called before the first frame update
     void Start()
     {
         simpleMovement = gameObject.GetOrAddComponent<SimpleMovement>();
@@ -26,13 +25,10 @@ public class MoveBackAndForth : MonoBehaviour
         simpleMovement.Move();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (active) {
 
         }
     }
-
-    
 }

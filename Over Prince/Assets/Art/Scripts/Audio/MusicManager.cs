@@ -1,7 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class MusicManager : MonoBehaviour
 {
@@ -10,7 +9,6 @@ public class MusicManager : MonoBehaviour
     public AudioSource loopedSong;
     public bool startScenePlaying = true;
     public MusicState state = MusicState.NotStarted;
-    
     public float musicFadeTime = Constants.targetFPS * 2.0f;
 
 
@@ -44,9 +42,12 @@ public class MusicManager : MonoBehaviour
         if (state == MusicState.SwappingSongs) {
             SwapSongs();
         }
+        else if (state == MusicState.FadingOut) {
+            FadeOutMusic();
+        }
     }
     
-    public void SwapSongs() {
+    private void SwapSongs() {
         mainSong.volume -= Time.deltaTime / musicFadeTime;
         loopedSong.volume += Time.deltaTime / musicFadeTime;
         if (mainSong.volume <= 0) {
@@ -54,7 +55,35 @@ public class MusicManager : MonoBehaviour
             loopedSong.volume = 1;
             state = MusicState.PlayingLooped;
         }
-    
+    }
+
+    private void FadeOutMusic() {
+        mainSong.volume -= Time.deltaTime / musicFadeTime;
+        loopedSong.volume -= Time.deltaTime / musicFadeTime;
+        if (mainSong.volume <= 0) {
+            mainSong.Stop();
+        }
+        if (loopedSong.volume <= 0) {
+            loopedSong.Stop();
+        }
+        if (mainSong.volume <= 0 && loopedSong.volume <= 0) {
+            state = MusicState.FadedOut;
+        }
+    }
+
+    public void FadeOutWithEcho(float? echoFadeTime = null) {
+        AudioEchoFilter mainSongEcho = mainSong.gameObject.GetComponent<AudioEchoFilter>();
+        AudioEchoFilter loopedSongEcho = loopedSong.gameObject.GetComponent<AudioEchoFilter>();
+        if (mainSongEcho != null) {
+            mainSongEcho.enabled = true;
+        }
+        if (loopedSongEcho != null) {
+            loopedSongEcho.enabled = true;
+        }
+        if (echoFadeTime != null) {
+            musicFadeTime = (float) echoFadeTime;
+        }
+        state = MusicState.FadingOut;
     }
 }
 
@@ -63,5 +92,7 @@ public enum MusicState
     NotStarted,
     Playing,
     SwappingSongs, // Used when slowly increasing the volume of the looped song while decreasing the volume of the main song
-    PlayingLooped
+    PlayingLooped,
+    FadingOut,
+    FadedOut
 }

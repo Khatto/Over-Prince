@@ -808,7 +808,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parallaxType: 1
   movementTime: 0.5
-  movementDelta: {x: 0, y: 0.6}
+  movementDelta: {x: 0, y: 0.425}
+  simpleMovement: {fileID: 0}
 --- !u!1 &311617507
 GameObject:
   m_ObjectHideFlags: 0
@@ -1073,6 +1074,7 @@ MonoBehaviour:
   parallaxType: 0
   movementTime: 0.5
   movementDelta: {x: 0, y: 0}
+  simpleMovement: {fileID: 0}
 --- !u!1 &425484917
 GameObject:
   m_ObjectHideFlags: 0
@@ -1231,6 +1233,7 @@ MonoBehaviour:
   parallaxType: 0
   movementTime: 1
   movementDelta: {x: 0, y: 0}
+  simpleMovement: {fileID: 0}
 --- !u!1 &529280450
 GameObject:
   m_ObjectHideFlags: 0
@@ -1515,6 +1518,7 @@ GameObject:
   m_Component:
   - component: {fileID: 569197164}
   - component: {fileID: 569197163}
+  - component: {fileID: 569197165}
   m_Layer: 0
   m_Name: Juxtaposition
   m_TagString: Untagged
@@ -1633,6 +1637,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1910834967}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!168 &569197165
+AudioEchoFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569197162}
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Delay: 937
+  m_DecayRatio: 0.5
+  m_WetMix: 1
+  m_DryMix: 1
 --- !u!1 &586971239
 GameObject:
   m_ObjectHideFlags: 0
@@ -1839,6 +1856,7 @@ MonoBehaviour:
   parallaxType: 1
   movementTime: 0.5
   movementDelta: {x: -0.6, y: 0}
+  simpleMovement: {fileID: 0}
 --- !u!1 &617775322
 GameObject:
   m_ObjectHideFlags: 0
@@ -6790,7 +6808,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parallaxType: 1
   movementTime: 0.5
-  movementDelta: {x: 0, y: 0.2}
+  movementDelta: {x: 0, y: 0.15}
+  simpleMovement: {fileID: 0}
 --- !u!1 &727035623
 GameObject:
   m_ObjectHideFlags: 0
@@ -6913,6 +6932,7 @@ MonoBehaviour:
   parallaxType: 1
   movementTime: 0.5
   movementDelta: {x: -1, y: 0}
+  simpleMovement: {fileID: 0}
 --- !u!1 &733491155
 GameObject:
   m_ObjectHideFlags: 0
@@ -6962,6 +6982,7 @@ MonoBehaviour:
   parallaxType: 1
   movementTime: 14
   movementDelta: {x: 0.25, y: 0}
+  simpleMovement: {fileID: 0}
 --- !u!95 &733491158
 Animator:
   serializedVersion: 5
@@ -7325,6 +7346,7 @@ MonoBehaviour:
   parallaxType: 1
   movementTime: 0.5
   movementDelta: {x: 0.6, y: 0}
+  simpleMovement: {fileID: 0}
 --- !u!1 &836287731
 GameObject:
   m_ObjectHideFlags: 0
@@ -12694,6 +12716,7 @@ MonoBehaviour:
   parallaxType: 1
   movementTime: 0.5
   movementDelta: {x: 0.5, y: 0}
+  simpleMovement: {fileID: 0}
 --- !u!95 &895035038
 Animator:
   serializedVersion: 5
@@ -13057,6 +13080,7 @@ MonoBehaviour:
   parallaxType: 1
   movementTime: 0.5
   movementDelta: {x: -0.5, y: 0}
+  simpleMovement: {fileID: 0}
 --- !u!1 &1140794720
 GameObject:
   m_ObjectHideFlags: 0
@@ -13179,6 +13203,7 @@ MonoBehaviour:
   parallaxType: 1
   movementTime: 0.5
   movementDelta: {x: 0, y: -0.6}
+  simpleMovement: {fileID: 0}
 --- !u!1 &1144240133
 GameObject:
   m_ObjectHideFlags: 0
@@ -18412,7 +18437,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parallaxType: 1
   movementTime: 0.5
-  movementDelta: {x: 0, y: 0.5}
+  movementDelta: {x: 0, y: 0.4}
+  simpleMovement: {fileID: 0}
 --- !u!1 &1257961369
 GameObject:
   m_ObjectHideFlags: 0
@@ -18462,6 +18488,7 @@ MonoBehaviour:
   parallaxType: 1
   movementTime: 0.5
   movementDelta: {x: 2, y: 0}
+  simpleMovement: {fileID: 0}
 --- !u!95 &1257961372
 Animator:
   serializedVersion: 5
@@ -18642,6 +18669,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 1287538007}
+  musicManager: {fileID: 1910834966}
   videoPlayer: {fileID: 1144240135}
   videoSpriteBackground: {fileID: 1870895309}
   screenFader: {fileID: 313635440}
@@ -18908,6 +18936,7 @@ MonoBehaviour:
   parallaxType: 1
   movementTime: 0.5
   movementDelta: {x: 0, y: 0.8}
+  simpleMovement: {fileID: 0}
 --- !u!1 &1353311431
 GameObject:
   m_ObjectHideFlags: 0
@@ -19114,6 +19143,7 @@ MonoBehaviour:
   parallaxType: 1
   movementTime: 0.5
   movementDelta: {x: 0, y: -0.9}
+  simpleMovement: {fileID: 0}
 --- !u!1 &1372550239
 GameObject:
   m_ObjectHideFlags: 0
@@ -19236,6 +19266,7 @@ MonoBehaviour:
   parallaxType: 1
   movementTime: 0.5
   movementDelta: {x: 0, y: -0.6}
+  simpleMovement: {fileID: 0}
 --- !u!1 &1373247298
 GameObject:
   m_ObjectHideFlags: 0
@@ -19559,6 +19590,7 @@ MonoBehaviour:
   parallaxType: 1
   movementTime: 0.5
   movementDelta: {x: 0, y: 0.5}
+  simpleMovement: {fileID: 0}
 --- !u!1 &1647300963
 GameObject:
   m_ObjectHideFlags: 0
@@ -19681,6 +19713,7 @@ MonoBehaviour:
   parallaxType: 1
   movementTime: 0.5
   movementDelta: {x: 0, y: -0.6}
+  simpleMovement: {fileID: 0}
 --- !u!1 &1668318485
 GameObject:
   m_ObjectHideFlags: 0
@@ -19865,6 +19898,7 @@ MonoBehaviour:
   parallaxType: 1
   movementTime: 0.5
   movementDelta: {x: 0, y: 0.8}
+  simpleMovement: {fileID: 0}
 --- !u!1 &1718928528
 GameObject:
   m_ObjectHideFlags: 0
@@ -19965,6 +19999,7 @@ MonoBehaviour:
   parallaxType: 1
   movementTime: 0.5
   movementDelta: {x: 0, y: 0}
+  simpleMovement: {fileID: 0}
 --- !u!1 &1758152986
 GameObject:
   m_ObjectHideFlags: 0
@@ -20217,6 +20252,7 @@ MonoBehaviour:
   parallaxType: 0
   movementTime: 0.5
   movementDelta: {x: 0, y: 0}
+  simpleMovement: {fileID: 0}
 --- !u!4 &1799881951
 Transform:
   m_ObjectHideFlags: 0
@@ -20363,6 +20399,7 @@ MonoBehaviour:
   parallaxType: 1
   movementTime: 0.5
   movementDelta: {x: 0, y: -0.1}
+  simpleMovement: {fileID: 0}
 --- !u!1 &1852716900
 GameObject:
   m_ObjectHideFlags: 0
@@ -20485,6 +20522,7 @@ MonoBehaviour:
   parallaxType: 1
   movementTime: 0.5
   movementDelta: {x: 0, y: -1.1}
+  simpleMovement: {fileID: 0}
 --- !u!1 &1870895308
 GameObject:
   m_ObjectHideFlags: 0
@@ -25634,6 +25672,7 @@ MonoBehaviour:
   parallaxType: 1
   movementTime: 0.5
   movementDelta: {x: 0, y: -0.1}
+  simpleMovement: {fileID: 0}
 --- !u!1 &1980112930
 GameObject:
   m_ObjectHideFlags: 0
@@ -25756,6 +25795,7 @@ MonoBehaviour:
   parallaxType: 1
   movementTime: 0.5
   movementDelta: {x: 0, y: 0.1}
+  simpleMovement: {fileID: 0}
 --- !u!1 &1988163607
 GameObject:
   m_ObjectHideFlags: 0
@@ -25878,6 +25918,7 @@ MonoBehaviour:
   parallaxType: 1
   movementTime: 0.5
   movementDelta: {x: 0, y: 0.5}
+  simpleMovement: {fileID: 0}
 --- !u!1 &2001948673
 GameObject:
   m_ObjectHideFlags: 0
@@ -26000,6 +26041,7 @@ MonoBehaviour:
   parallaxType: 1
   movementTime: 0.5
   movementDelta: {x: 0, y: -0.3}
+  simpleMovement: {fileID: 0}
 --- !u!1 &2028263598
 GameObject:
   m_ObjectHideFlags: 0
@@ -26122,6 +26164,7 @@ MonoBehaviour:
   parallaxType: 1
   movementTime: 0.5
   movementDelta: {x: 0, y: -0.1}
+  simpleMovement: {fileID: 0}
 --- !u!1 &2034210556
 GameObject:
   m_ObjectHideFlags: 0
@@ -26132,6 +26175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2034210558}
   - component: {fileID: 2034210557}
+  - component: {fileID: 2034210559}
   m_Layer: 0
   m_Name: Juxtaposition (Looped)
   m_TagString: Untagged
@@ -26250,6 +26294,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1910834967}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!168 &2034210559
+AudioEchoFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034210556}
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Delay: 468
+  m_DecayRatio: 0.5
+  m_WetMix: 1
+  m_DryMix: 1
 --- !u!1 &2062974116
 GameObject:
   m_ObjectHideFlags: 0
@@ -26372,6 +26429,7 @@ MonoBehaviour:
   parallaxType: 1
   movementTime: 0.5
   movementDelta: {x: 0, y: -0.6}
+  simpleMovement: {fileID: 0}
 --- !u!1 &2106947992
 GameObject:
   m_ObjectHideFlags: 0
@@ -26423,6 +26481,7 @@ MonoBehaviour:
   parallaxType: 0
   movementTime: 0.5
   movementDelta: {x: 0, y: 0}
+  simpleMovement: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

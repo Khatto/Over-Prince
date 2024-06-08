@@ -35,7 +35,7 @@ public static class DialogueConstants {
             public static Dialogue[] dialogues = {
                 new Dialogue($"Some call it {CommonFormattedTerms.TheFile}.", "Music/Song_Name", 3),
                 new Dialogue("Because at times it feels like we're programs in some simulation...", "Music/Song_Name", 4),
-                new Dialogue("Maybe someone's watching us and collecting data or something...", "Music/Song_Name", 4),
+                new Dialogue("Maybe someone's watching us and collecting data or something...", "Music/Song_Name", 3.5f),
             };
         }
 
@@ -66,7 +66,7 @@ public static class DialogueConstants {
 
         public static class PartThirteen {
             public static Dialogue[] dialogues = {
-                new Dialogue($"This all has to {CommonFormattedTerms.End}!", "Music/Song_Name", 5)
+                new Dialogue($"This all has to {CommonFormattedTerms.End}!", "Music/Song_Name", 8)
             };
         }
     }
