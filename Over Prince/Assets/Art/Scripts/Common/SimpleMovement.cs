@@ -13,7 +13,7 @@ public class SimpleMovement : MonoBehaviour
     public EasingFunctionType easingFunctionType = EasingFunctionType.Linear;
     public SimpleMovementState state = SimpleMovementState.NotMoving;
     
-    public static IEnumerator ChangeObjectPos(Transform transform, Vector2 positionDelta, float duration, System.Func<float, float> easingFunction, SimpleMovementState state) {
+    public IEnumerator ChangeObjectPos(Transform transform, Vector2 positionDelta, float duration, System.Func<float, float> easingFunction) {
         Vector2 startPosition = transform.position;
         Vector2 endPosition = startPosition + positionDelta;
         float timeElapsed = 0;
@@ -29,7 +29,7 @@ public class SimpleMovement : MonoBehaviour
     }
 
     public void Move() {
-        StartCoroutine(ChangeObjectPos(transform, movementDelta, movementTime, easingFunction, state));
+        StartCoroutine(ChangeObjectPos(transform, movementDelta, movementTime, easingFunction));
     }
 
     public void SetMovementTime(float movementTime) {

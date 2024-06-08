@@ -1,10 +1,10 @@
 public static class DialogueConstants {
 
     public static class CommonFormattedTerms {
-        public static string TheField = "<color=\"red\">The Field</color>";
-        public static string TheFile = "<color=\"red\">The File</color>";
-        public static string End = "<color=\"red\">END</color>";
-        public static string Elevators = "<color=#9945dd>Elevators</color>";
+        public static string TheField = $"<color={Colors.redColor}>The Field</color>";
+        public static string TheFile = $"<color={Colors.redColor}>The File</color>";
+        public static string End = $"<color={Colors.redColor}>END</color>";
+        public static string Elevators = $"<color={Colors.elevatorColor}>Elevators</color>";
     }
 
     public static float TotalDialogueTime(Dialogue[] dialogues, float dialogueFadeTime) {
@@ -66,7 +66,7 @@ public static class DialogueConstants {
 
         public static class PartThirteen {
             public static Dialogue[] dialogues = {
-                new Dialogue($"This all has to {CommonFormattedTerms.End}!", "Music/Song_Name", 8)
+                new Dialogue($"This all has to {CommonFormattedTerms.End}!", "Music/Song_Name", 5)
             };
         }
     }
