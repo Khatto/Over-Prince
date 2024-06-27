@@ -29,6 +29,7 @@ public class TitleScreenManager : MonoBehaviour
 
     void Start()
     {
+        Application.targetFrameRate = (int) Constants.targetFPS;
         SetupActions();
         deltaParticles.Stop();
         StartCoroutine(PlayVideo());

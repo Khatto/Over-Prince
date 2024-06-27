@@ -158,10 +158,10 @@ public class DialogueManager : MonoBehaviour
     /// <param name="text"></param>
     private void SetDialogueText(string text)
     {
-        dialogueText.text = text;
+        dialogueText.SetText(text);
         if (DialogueHasShadow())
         {
-            shadowText.text = text;
+            shadowText.SetText(text);
         }
     }
 

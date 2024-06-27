@@ -11,4 +11,9 @@ using TMPro;
 public class TextComponent : MonoBehaviour
 {
     public TextMeshProUGUI shadowText;
+
+    public void Start() {
+        if (shadowText != null) {
+        }
+    }
 }

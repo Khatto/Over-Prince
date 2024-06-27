@@ -88,8 +88,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _BumpScale: 1
-    - _Color_1_Influence: 0.29
-    - _Color_2_Influence: 0.29
+    - _Color_1_Influence: 0.28
+    - _Color_2_Influence: 0.33
     - _Color_3_Influence: 0.528
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1

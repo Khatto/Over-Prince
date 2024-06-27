@@ -34,6 +34,8 @@ public class PlayerController : CharacterController, IHurtableCharacterControlle
 
     public Animator animator;
 
+    public PlayerControllerState state = PlayerControllerState.Inactive;
+
     void Start()
     {
         SetupActions();
@@ -44,12 +46,15 @@ public class PlayerController : CharacterController, IHurtableCharacterControlle
 
     void FixedUpdate()
     {
-        Vector2 moveVector = moveAction.ReadValue<Vector2>();
-        moveVector.y *= Constants.verticalMovementModifier;
-        UpdateSpriteFromMovement(moveVector);
-        if (moveVector != Vector2.zero && player.state != CharacterState.Attacking) {
-            rigidBody.MovePosition(rigidBody.position + moveVector * (testMoveSpeed ? moveSpeed : PlayerConstants.GetMoveSpeed(player.state)) * Time.fixedDeltaTime);
+        if (state == PlayerControllerState.Active) {
+            Vector2 moveVector = moveAction.ReadValue<Vector2>();
+            moveVector.y *= Constants.verticalMovementModifier;
+            UpdateSpriteFromMovement(moveVector);
+            if (moveVector != Vector2.zero && player.state != CharacterState.Attacking) {
+                rigidBody.MovePosition(rigidBody.position + moveVector * (testMoveSpeed ? moveSpeed : PlayerConstants.GetMoveSpeed(player.state)) * Time.fixedDeltaTime);
+            }
         }
+        
     }
 
     void SetupActions() {
@@ -117,4 +122,9 @@ public class PlayerController : CharacterController, IHurtableCharacterControlle
     {
         throw new NotImplementedException();
     }
+}
+
+public enum PlayerControllerState {
+    Active,
+    Inactive
 }

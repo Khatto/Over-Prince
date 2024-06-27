@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEditor.UI;
 
 /// <summary>
 /// Holds all of the data for the various attacks in the game

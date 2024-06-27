@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class Fade : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Fade : MonoBehaviour
     public float fadeTime = 1f;
     private float startTime = 0.0f;
     private Color startColor;
+    private Action callback = null;
 
     void Start () {
         textMeshPro = gameObject.GetComponent<TextMeshProUGUI>();
@@ -38,21 +40,9 @@ public class Fade : MonoBehaviour
         }
     }
 
-    void FadeInFadeOut () {
-        if (textMeshPro != null) {
-            Color color = textMeshPro.color;
-            color.a = Mathf.PingPong(Time.time, fadeTime);
-            textMeshPro.color = color;
-        }
-        if (spriteRenderer != null) {
-            Color color = spriteRenderer.color;
-            color.a = Mathf.PingPong(Time.time, fadeTime);
-            spriteRenderer.color = color;
-        }
-    }
-
-    public void StartFadeWithTime (FadeType fadeType, float fadeTime) {
+    public void StartFadeWithTime (FadeType fadeType, float fadeTime, Action callback = null) {
         this.fadeTime = fadeTime;
+        this.callback = callback;
         StartFade(fadeType);
     }
 
@@ -74,7 +64,7 @@ public class Fade : MonoBehaviour
             color.a = Mathf.Lerp(startColor.a, 1, (Time.time - startTime) / fadeTime);
             textMeshPro.color = color;
             if (color.a == 1.0f) {
-                active = false;
+                FinishedFadeAction();
             }
         }
         if (spriteRenderer != null) {
@@ -82,7 +72,7 @@ public class Fade : MonoBehaviour
             color.a = Mathf.Lerp(startColor.a, 1, (Time.time - startTime) / fadeTime);
             spriteRenderer.color = color;
             if (color.a == 1.0f) {
-                active = false;
+                FinishedFadeAction();
             }
         }
     }
@@ -93,7 +83,7 @@ public class Fade : MonoBehaviour
             color.a = Mathf.Lerp(startColor.a, 0, (Time.time - startTime) / fadeTime);
             textMeshPro.color = color;
             if (color.a == 0.0f) {
-                active = false;
+                FinishedFadeAction();
             }
         }
         if (spriteRenderer != null) {
@@ -101,8 +91,21 @@ public class Fade : MonoBehaviour
             color.a = Mathf.Lerp(startColor.a, 0, (Time.time - startTime) / fadeTime);
             spriteRenderer.color = color;
             if (color.a == 0.0f) {
-                active = false;
+                FinishedFadeAction();
             }
+        }
+    }
+
+    private void FadeInFadeOut () {
+        if (textMeshPro != null) {
+            Color color = textMeshPro.color;
+            color.a = Mathf.PingPong(Time.time, fadeTime);
+            textMeshPro.color = color;
+        }
+        if (spriteRenderer != null) {
+            Color color = spriteRenderer.color;
+            color.a = Mathf.PingPong(Time.time, fadeTime);
+            spriteRenderer.color = color;
         }
     }
 
@@ -120,9 +123,15 @@ public class Fade : MonoBehaviour
         StartFade(FadeType.FadeOut);
     }
 
+    private void FinishedFadeAction() {
+        active = false;
+        if (callback != null) {
+            callback();
+        }
+    }
+
     public void FadeOutAfterDelay(float delay) {
         StartCoroutine(FadeOutAfterDelayCoroutine(delay));
-    
     }
 
     private IEnumerator FadeOutAfterDelayCoroutine(float delay) {
