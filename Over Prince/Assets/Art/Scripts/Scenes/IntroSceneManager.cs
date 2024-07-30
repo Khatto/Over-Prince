@@ -71,7 +71,6 @@ public class IntroSceneManager : MonoBehaviour
     }
 
     void Update() {
-        //Debug.Log("mainCamera.orthoSize: " + mainCamera.orthographicSize + " at " + Time.time + " Camera End Size: " + IntroSceneConstants.PartOne.cameraEndSize + " State: " + state);
         switch (state) {
             case IntroSceneState.PartOne:
                 mainCamera.orthographicSize = Mathf.Lerp(
@@ -79,7 +78,6 @@ public class IntroSceneManager : MonoBehaviour
                     IntroSceneConstants.PartOne.cameraEndSize, 
                     EasingFuncs.EaseInOut((Time.time - startTime) / IntroSceneConstants.PartOne.cameraZoomTime)
                 );
-                //if (mainCamera.orthographicSize >= IntroSceneConstants.PartOne.cameraEndSize) {
                 if (Time.time - startTime >= IntroSceneConstants.PartOne.cameraZoomTime) {
                     PerformPart(IntroSceneState.PartTwo);
                 }
@@ -164,9 +162,9 @@ public class IntroSceneManager : MonoBehaviour
         }
     }
 
-    /**
-     * Perform the actions for the given state once when the state is initially set
-     */
+    /// <summary>
+    /// Perform the actions for the given state once when the state is initially set
+    /// </summary>
     private void PerformPart(IntroSceneState state) {
         Debug.Log("Starting state " + state + " at " + Time.time);
         this.state = state;

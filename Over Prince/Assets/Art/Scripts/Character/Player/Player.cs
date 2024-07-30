@@ -6,8 +6,12 @@ public class Player : Character
         AttackData.GetAttackByAttackID(AttackID.Jab),
     };
 
-    void Start()
+    public override void Start()
     {
+        Setup();
+    }
+
+    void Setup() {
         base.Start();
         animator = GetComponent<Animator>();
         attackManager = GetComponent<AttackManager>();

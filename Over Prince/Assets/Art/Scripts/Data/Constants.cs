@@ -42,4 +42,21 @@ public static class Constants {
         Right = 1
     }
 
+    public enum Song {
+        Juxtaposition,
+        TheEnd
+    }
+
+    public static class SongDatas {
+        public static SongData juxtaposition = new SongData("Juxtaposition", "Khiry Arnold");
+        public static SongData theEnd = new SongData("The End", "Khiry Arnold");
+
+        public static SongData GetSongData(Song song) {
+            return song switch {
+                Song.Juxtaposition => juxtaposition,
+                Song.TheEnd => theEnd,
+                _ => juxtaposition
+            };
+        }
+    }
 }

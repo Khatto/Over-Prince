@@ -12,7 +12,8 @@ public class Character : MonoBehaviour {
     public CharacterController controller;
     public IHurtableCharacterController hurtableController;
 
-    public void Start() {
+    public virtual void Start() {
+        Debug.Log("Character Start");
         hurtableController = GetComponent<IHurtableCharacterController>();
         rigidBody = GetComponent<Rigidbody2D>();
     }
