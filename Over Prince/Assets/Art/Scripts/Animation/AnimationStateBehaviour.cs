@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO - Rename this PlayerIdleAnimationStateBehaviour? Or PlayerAnimationStateBehaviour?  Or CharacterStateTransitionAnimationStateBehaviour?
 public class AnimationStateBehaviour : StateMachineBehaviour
 {
 

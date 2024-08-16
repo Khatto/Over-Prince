@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CharacterController : MonoBehaviour
+public class MovableCharacterController : MonoBehaviour
 {
     public Rigidbody2D rigidBody;
 

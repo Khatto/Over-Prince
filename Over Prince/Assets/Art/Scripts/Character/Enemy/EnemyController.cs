@@ -3,7 +3,7 @@ using UnityEngine;
 /// <summary>
 /// Controls the behavior of an enemy character, primarily the movement.
 /// </summary>
-public class EnemyController : CharacterController, IHurtableCharacterController {
+public class EnemyController : MovableCharacterController, IHurtableCharacterController {
 
     private Collider2D collider2D;
     public Transform target;

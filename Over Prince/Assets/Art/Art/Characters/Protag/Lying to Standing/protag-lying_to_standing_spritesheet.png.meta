@@ -67,7 +67,7 @@ TextureImporter:
   swizzle: 50462976
   cookieLightType: 0
   platformSettings:
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 8192
     resizeAlgorithm: 0
@@ -80,7 +80,7 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -93,8 +93,8 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
+  - serializedVersion: 4
+    buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -106,9 +106,22 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Android
     maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: tvOS
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -123,2652 +136,2779 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: protag-lying_to_standing_0
+      name: protag-lying_to_standing_spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 10800
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5718fcf9f625a4fdf84cebca56b35e2b
-      internalID: -1917893488
+      spriteID: 052d7dd751c8548a8b1befc8d391bc57
+      internalID: -2063734120
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_1
+      name: protag-lying_to_standing_spritesheet_1
       rect:
         serializedVersion: 2
         x: 1080
         y: 10800
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb929c4a7c916442a9a9c3eb6ff82a47
-      internalID: -22404436
+      spriteID: ae8e4a6d778e34add861cc9a67786fc0
+      internalID: 1914770330
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_2
+      name: protag-lying_to_standing_spritesheet_2
       rect:
         serializedVersion: 2
         x: 2160
         y: 10800
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b8bc5d8083dc4f19a38ac285f5aaf7b
-      internalID: 189224861
+      spriteID: 4976a1904366d4f3c9907a7907ab4ea2
+      internalID: 654370828
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_3
+      name: protag-lying_to_standing_spritesheet_3
       rect:
         serializedVersion: 2
         x: 3240
         y: 10800
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09f09674cf7534970af803623dcde48b
-      internalID: 1095259071
+      spriteID: de6c528b2775e4c469c3298ba8f99635
+      internalID: -1289618785
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_4
+      name: protag-lying_to_standing_spritesheet_4
       rect:
         serializedVersion: 2
         x: 4320
         y: 10800
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8ce888205ba44805b4d4236f9557ec2
-      internalID: -555191540
+      spriteID: 0a54bdf3d433c45869659579f4d36c6e
+      internalID: -1595264292
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_5
+      name: protag-lying_to_standing_spritesheet_5
       rect:
         serializedVersion: 2
         x: 5400
         y: 10800
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e93e9c0a0391483c9817908dced0f94
-      internalID: -1673513930
+      spriteID: 175c7f4820d2e41959dded853a1f2a42
+      internalID: 2143380557
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_6
+      name: protag-lying_to_standing_spritesheet_6
       rect:
         serializedVersion: 2
         x: 6480
         y: 10800
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9edc1a8539ec845cba59af771c32dbd6
-      internalID: 1397563936
+      spriteID: 44a6368ac6b1843e3a340c93a197d719
+      internalID: -1005709499
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_7
+      name: protag-lying_to_standing_spritesheet_7
       rect:
         serializedVersion: 2
         x: 7560
         y: 10800
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a02a3e2174194aa19ebd3c74ed777d7
-      internalID: -931598216
+      spriteID: 4c55e659c41cb4c5f8aace12eb2b79c0
+      internalID: 53264341
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_8
+      name: protag-lying_to_standing_spritesheet_8
       rect:
         serializedVersion: 2
         x: 8640
         y: 10800
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83a2746cf12a543089710063814ffb05
-      internalID: -1106618945
+      spriteID: debffe11ce44848fbbd4d5738778be16
+      internalID: -864307158
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_9
+      name: protag-lying_to_standing_spritesheet_9
       rect:
         serializedVersion: 2
         x: 9720
         y: 10800
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7d60f8d2fd844a91b2773f4e7d5d875
-      internalID: 665237205
+      spriteID: 97480b2d7af6841e88a23495fbe6fbf5
+      internalID: 133503445
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_10
+      name: protag-lying_to_standing_spritesheet_10
       rect:
         serializedVersion: 2
         x: 10800
         y: 10800
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbf1a1a6f8df14f97b1dad327b498a1b
-      internalID: -1697536409
+      spriteID: 5c285cfee3def46d9b53d5c008add151
+      internalID: -434255998
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_11
+      name: protag-lying_to_standing_spritesheet_11
       rect:
         serializedVersion: 2
         x: 11880
         y: 10800
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f42d98128c2204c7a91e3eaee50a7ab1
-      internalID: -1916718833
+      spriteID: 260f8d24ddcca4790bc354b1498754a6
+      internalID: 594459995
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_12
+      name: protag-lying_to_standing_spritesheet_12
       rect:
         serializedVersion: 2
         x: 0
         y: 9720
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e29fffa2c15b4e9a80922945ba9b29a
-      internalID: 220686104
+      spriteID: 86dd07097e9c94e3d946557a1ddd03b6
+      internalID: 587161143
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_13
+      name: protag-lying_to_standing_spritesheet_13
       rect:
         serializedVersion: 2
         x: 1080
         y: 9720
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a0dee2be4d6d4d68821b7201cf623a5
-      internalID: 980349604
+      spriteID: 0909dcaed17d14d2caecffdb82b0e905
+      internalID: 2035578281
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_14
+      name: protag-lying_to_standing_spritesheet_14
       rect:
         serializedVersion: 2
         x: 2160
         y: 9720
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 406014d55f32941aa98e786f95bccdb8
-      internalID: -1480665038
+      spriteID: 7c37c31daa0994d5389d5c648299d1db
+      internalID: -308346034
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_15
+      name: protag-lying_to_standing_spritesheet_15
       rect:
         serializedVersion: 2
         x: 3240
         y: 9720
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 130786c1c6aa2442e9468c87e71585c0
-      internalID: 1902935449
+      spriteID: 45aad93fd42fa41ecbe7d2fd271d8739
+      internalID: -263564473
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_16
+      name: protag-lying_to_standing_spritesheet_16
       rect:
         serializedVersion: 2
         x: 4320
         y: 9720
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b985f67834504009b8be54af311f2a9
-      internalID: 550167592
+      spriteID: 6bb5436b0f17d4920a49b75722adee45
+      internalID: -419071748
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_17
+      name: protag-lying_to_standing_spritesheet_17
       rect:
         serializedVersion: 2
         x: 5400
         y: 9720
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 360f9e4b5b7104d8c895eb045bb62721
-      internalID: -1377689349
+      spriteID: 8d80b099885ec469d92f8b45f61106c2
+      internalID: -1541541210
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_18
+      name: protag-lying_to_standing_spritesheet_18
       rect:
         serializedVersion: 2
         x: 6480
         y: 9720
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7210b734445cd4a48a572d61bcd837d3
-      internalID: -1344562156
+      spriteID: 0ce2bb72042df405892b21e6cfda4293
+      internalID: 1640272836
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_19
+      name: protag-lying_to_standing_spritesheet_19
       rect:
         serializedVersion: 2
         x: 7560
         y: 9720
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f3f48f587b3041d7b0ba04f3d61b897
-      internalID: 1655036133
+      spriteID: 41e465b95f8ce4ca1bf79b56bdee3677
+      internalID: 2016559431
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_20
+      name: protag-lying_to_standing_spritesheet_20
       rect:
         serializedVersion: 2
         x: 8640
         y: 9720
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2bbc2f02b3a2f45deb61a9e6b039e736
-      internalID: -1476651284
+      spriteID: 1a1c817c381024e23bf7e6739c247ff6
+      internalID: -850452760
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_21
+      name: protag-lying_to_standing_spritesheet_21
       rect:
         serializedVersion: 2
         x: 9720
         y: 9720
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78feb0bdbcfcb43929f89d6ccaae3eec
-      internalID: 1960256374
+      spriteID: 4e962c7bdd3b449f5bb0522bdb637971
+      internalID: 584555837
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_22
+      name: protag-lying_to_standing_spritesheet_22
       rect:
         serializedVersion: 2
         x: 10800
         y: 9720
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc0c9d07f72be4f599b1a85a29e2205f
-      internalID: -917467692
+      spriteID: a72836b16637143b6b18034e55e45f64
+      internalID: -841765857
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_23
+      name: protag-lying_to_standing_spritesheet_23
       rect:
         serializedVersion: 2
         x: 11880
         y: 9720
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55a50ce74e17c4faba0b0cb255150d37
-      internalID: 901488007
+      spriteID: 1579adc54e628417bb662d31106421b7
+      internalID: 361111431
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_24
+      name: protag-lying_to_standing_spritesheet_24
       rect:
         serializedVersion: 2
         x: 0
         y: 8640
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 159ef3109e38c49c881b09e22af0296e
-      internalID: -730752034
+      spriteID: 7e5dcec3169164ffc970a30c2ab751da
+      internalID: 1432238100
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_25
+      name: protag-lying_to_standing_spritesheet_25
       rect:
         serializedVersion: 2
         x: 1080
         y: 8640
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd5aee4bea7de4c67ae8cf54a59afc02
-      internalID: -848683460
+      spriteID: 908ea8e74c8a94e82ad7eaf505805a73
+      internalID: -314339325
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_26
+      name: protag-lying_to_standing_spritesheet_26
       rect:
         serializedVersion: 2
         x: 2160
         y: 8640
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87cca33cfdb3443379de166f6c608e64
-      internalID: -709565350
+      spriteID: 2a3c35dbd02934c4588b98d130a3e16c
+      internalID: -376053131
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_27
+      name: protag-lying_to_standing_spritesheet_27
       rect:
         serializedVersion: 2
         x: 3240
         y: 8640
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9aeb229fef4142cb86de670ba7fb0ba
-      internalID: 1645296176
+      spriteID: 50c31e240216240bc8c314c6ad7bac0d
+      internalID: -1853005897
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_28
+      name: protag-lying_to_standing_spritesheet_28
       rect:
         serializedVersion: 2
         x: 4320
         y: 8640
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 569e6ec37597e4a4181eacf13cc767e1
-      internalID: -382516304
+      spriteID: 2adc8ad8f23564135af25de4e23e032a
+      internalID: -602495094
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_29
+      name: protag-lying_to_standing_spritesheet_29
       rect:
         serializedVersion: 2
         x: 5400
         y: 8640
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0daf1920a2d346989c9ec4e8a7b7d9d
-      internalID: -246298335
+      spriteID: 46ced638604a941eb8211440f41d933c
+      internalID: -672143582
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_30
+      name: protag-lying_to_standing_spritesheet_30
       rect:
         serializedVersion: 2
         x: 6480
         y: 8640
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea3bc9127799f40b6aee90905e042d02
-      internalID: -2099307030
+      spriteID: f1ea7aa80ec27403e97d7eeaa0ecc420
+      internalID: -1660545985
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_31
+      name: protag-lying_to_standing_spritesheet_31
       rect:
         serializedVersion: 2
         x: 7560
         y: 8640
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a439fd8e371d34ca4903190064bf101e
-      internalID: 2046951443
+      spriteID: 400947dc3f6b74e1caa26b6f4ff7e2da
+      internalID: 79332543
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_32
+      name: protag-lying_to_standing_spritesheet_32
       rect:
         serializedVersion: 2
         x: 8640
         y: 8640
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67466101901c3456fba3aa1f2f0b6861
-      internalID: -399995946
+      spriteID: decdeaabff1314b51af68501f056f16f
+      internalID: -610944164
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_33
+      name: protag-lying_to_standing_spritesheet_33
       rect:
         serializedVersion: 2
         x: 9720
         y: 8640
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6162c04651c75432fb2ca60d87626e9e
-      internalID: 1255978376
+      spriteID: 5fa9c602e4eb9456180aaa6fcca8137c
+      internalID: 1484123590
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_34
+      name: protag-lying_to_standing_spritesheet_34
       rect:
         serializedVersion: 2
         x: 10800
         y: 8640
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e26cdd3b9bd7f44ef90177e84064e18e
-      internalID: -2063599352
+      spriteID: 0c8b46ba6a3e145abb9fb42b79f2de43
+      internalID: -2079949946
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_35
+      name: protag-lying_to_standing_spritesheet_35
       rect:
         serializedVersion: 2
         x: 11880
         y: 8640
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ac493fdc3c704447b3070b4ac8df6b2
-      internalID: -722478609
+      spriteID: 578140731767245c1b94f32178c0e120
+      internalID: 38616314
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_36
+      name: protag-lying_to_standing_spritesheet_36
       rect:
         serializedVersion: 2
         x: 0
         y: 7560
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54970b31722c8423f8e2c2f65e788cb1
-      internalID: 1742888840
+      spriteID: 4c93644f6fbc045b9b3de982132ed377
+      internalID: 1117970422
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_37
+      name: protag-lying_to_standing_spritesheet_37
       rect:
         serializedVersion: 2
         x: 1080
         y: 7560
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad5c758e6c7924e9e9c36b1d934b9090
-      internalID: 14663595
+      spriteID: 6cdacb52a91a14d10ab39afaf09939ea
+      internalID: -834829861
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_38
+      name: protag-lying_to_standing_spritesheet_38
       rect:
         serializedVersion: 2
         x: 2160
         y: 7560
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4e7c38f7ee314548b830e24eb3069e6
-      internalID: 365197448
+      spriteID: e92dd57699928458a9a2ea1b08a50267
+      internalID: -562640523
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_39
+      name: protag-lying_to_standing_spritesheet_39
       rect:
         serializedVersion: 2
         x: 3240
         y: 7560
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27517efeb5b1245e2a26a599b0d66109
-      internalID: -371721736
+      spriteID: 439c96595eb67425b89c6251c4e66349
+      internalID: -433590846
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_40
+      name: protag-lying_to_standing_spritesheet_40
       rect:
         serializedVersion: 2
         x: 4320
         y: 7560
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d3ad4a455a6a4d5db586cf745d9772e
-      internalID: -2081007281
+      spriteID: 0ae89484e6d974fdaa5ed0cece19593b
+      internalID: 1926816064
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_41
+      name: protag-lying_to_standing_spritesheet_41
       rect:
         serializedVersion: 2
         x: 5400
         y: 7560
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11a0ce87dca0f469db63c470d6a46bfa
-      internalID: 476378340
+      spriteID: c0dd20609060d4425a3dc2b89d7b3cd7
+      internalID: 512166397
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_42
+      name: protag-lying_to_standing_spritesheet_42
       rect:
         serializedVersion: 2
         x: 6480
         y: 7560
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 492df0f3319e64cf3bb4868c0fea756b
-      internalID: 462687304
+      spriteID: 11dcd2b1c63e74b8d9de5be371b32596
+      internalID: 1469127159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_43
+      name: protag-lying_to_standing_spritesheet_43
       rect:
         serializedVersion: 2
         x: 7560
         y: 7560
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fafd8e7fa6a94884af36ff5be5be3a6
-      internalID: -785170043
+      spriteID: a2b367de0db414c948f06f649a77d16b
+      internalID: -598260769
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_44
+      name: protag-lying_to_standing_spritesheet_44
       rect:
         serializedVersion: 2
         x: 8640
         y: 7560
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 418645c388d0c4d4e824f08edb6fbc88
-      internalID: -760843817
+      spriteID: 0f82b24ab1c7c4c3c99bc4c43833450d
+      internalID: 98024852
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_45
+      name: protag-lying_to_standing_spritesheet_45
       rect:
         serializedVersion: 2
         x: 9720
         y: 7560
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01c4ebc4402c94a1d9b001c5530e4eb6
-      internalID: -1881976016
+      spriteID: 01a07a11d68404d5683eb9f98c3ca31e
+      internalID: -1358499493
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_46
+      name: protag-lying_to_standing_spritesheet_46
       rect:
         serializedVersion: 2
         x: 10800
         y: 7560
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03cf4040af4294f6789e7dec046e92dd
-      internalID: 829531393
+      spriteID: f5fe608cdb25f4c68a9e2f6901228bf5
+      internalID: -1980727114
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_47
+      name: protag-lying_to_standing_spritesheet_47
       rect:
         serializedVersion: 2
         x: 11880
         y: 7560
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4cca90ac5d86e40438af5d61afd4077d
-      internalID: 143482924
+      spriteID: 2fb425eedc5b14277ae275d43e21f948
+      internalID: -679492049
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_48
+      name: protag-lying_to_standing_spritesheet_48
       rect:
         serializedVersion: 2
         x: 0
         y: 6480
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 705872563a2304408ab3f997d866ff4b
-      internalID: -133348739
+      spriteID: e355344fc791e4883abe7a5433e1bb3e
+      internalID: -64389682
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_49
+      name: protag-lying_to_standing_spritesheet_49
       rect:
         serializedVersion: 2
         x: 1080
         y: 6480
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19689d5af53c64137b145ec9a93aab72
-      internalID: 283090771
+      spriteID: b163fa149a2c841208a3eef2134c6c89
+      internalID: 58345559
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_50
+      name: protag-lying_to_standing_spritesheet_50
       rect:
         serializedVersion: 2
         x: 2160
         y: 6480
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45a0b25d4cf91445392af6b30588b896
-      internalID: -844959705
+      spriteID: b5d339837e10d4e188d4833c053fb032
+      internalID: 283485568
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_51
+      name: protag-lying_to_standing_spritesheet_51
       rect:
         serializedVersion: 2
         x: 3240
         y: 6480
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8734570acf092486c8846b13b17b782d
-      internalID: -755764189
+      spriteID: 23e9ba16c873245739655e68a324258f
+      internalID: -1830557821
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_52
+      name: protag-lying_to_standing_spritesheet_52
       rect:
         serializedVersion: 2
         x: 4320
         y: 6480
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c53d480ee59c641cc96cc912714262b3
-      internalID: 686733513
+      spriteID: dc12697b4c10a47dbae675d7d3b13e5b
+      internalID: 1382167239
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_53
+      name: protag-lying_to_standing_spritesheet_53
       rect:
         serializedVersion: 2
         x: 5400
         y: 6480
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71a2fcf93b8484944ad88f4efba34daa
-      internalID: 956523091
+      spriteID: ebbf4b55dec8d42b1ba9fddd7f993a6e
+      internalID: 954390801
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_54
+      name: protag-lying_to_standing_spritesheet_54
       rect:
         serializedVersion: 2
         x: 6480
         y: 6480
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9bda98e5957be42009d8f65779b19671
-      internalID: 1761168123
+      spriteID: ed72c2eedfa5e40b19a28f58e1ec642f
+      internalID: -1688536952
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_55
+      name: protag-lying_to_standing_spritesheet_55
       rect:
         serializedVersion: 2
         x: 7560
         y: 6480
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24e45a542a9dd4c9b9734b645bf7fdfc
-      internalID: 271383826
+      spriteID: 00c8a700989134edeab26f8bb1899f6a
+      internalID: -565419644
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_56
+      name: protag-lying_to_standing_spritesheet_56
       rect:
         serializedVersion: 2
         x: 8640
         y: 6480
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34cc6427ef2404907b86792ab4691300
-      internalID: 1459050881
+      spriteID: 42bdbb59a7f0c40e8b78fdbc2ced8335
+      internalID: -1213078188
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_57
+      name: protag-lying_to_standing_spritesheet_57
       rect:
         serializedVersion: 2
         x: 9720
         y: 6480
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c4c4cc2235404aa4b479f4fe71db4b1
-      internalID: 1652592607
+      spriteID: fe591b7811be84008930320f903a0981
+      internalID: -1263757725
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_58
+      name: protag-lying_to_standing_spritesheet_58
       rect:
         serializedVersion: 2
         x: 10800
         y: 6480
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23339889c61874bd38d03d1f46515fd3
-      internalID: 717109421
+      spriteID: 66cfa23e3c09a4f84878590aa0ddb4eb
+      internalID: -1802674397
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_59
+      name: protag-lying_to_standing_spritesheet_59
       rect:
         serializedVersion: 2
         x: 11880
         y: 6480
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d18eeca4d4eb947afb31b05421a8ee36
-      internalID: -857163699
+      spriteID: 888b033def8754f2b83269df4ebee123
+      internalID: -960765451
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_60
+      name: protag-lying_to_standing_spritesheet_60
       rect:
         serializedVersion: 2
         x: 0
         y: 5400
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1865816b43b67499cbdab4c2334167aa
-      internalID: 744872118
+      spriteID: b14ef5e715a784d35acea7497f47c2e6
+      internalID: -459524608
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_61
+      name: protag-lying_to_standing_spritesheet_61
       rect:
         serializedVersion: 2
         x: 1080
         y: 5400
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f7d5bae487064900bc9834ea216a60c
-      internalID: 400303827
+      spriteID: 3bdaf51564be5441f84458b4fa52a5ba
+      internalID: -1210287419
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_62
+      name: protag-lying_to_standing_spritesheet_62
       rect:
         serializedVersion: 2
         x: 2160
         y: 5400
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17a9bb6c110784b65a81bf786c30e0dd
-      internalID: 1127526787
+      spriteID: 3d389694c506d424fb7c73d942bad233
+      internalID: -1065434316
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_63
+      name: protag-lying_to_standing_spritesheet_63
       rect:
         serializedVersion: 2
         x: 3240
         y: 5400
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ced0a2e36ff04ea1be044a2b448673d
-      internalID: 1418675731
+      spriteID: 734f6f224ef5e415a8b306fe99b1bfed
+      internalID: -1664930612
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_64
+      name: protag-lying_to_standing_spritesheet_64
       rect:
         serializedVersion: 2
         x: 4320
         y: 5400
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ec4e486752c842e0ac3d93943c02d34
-      internalID: 1174343203
+      spriteID: bcffd08a32bd64b89ae746b308b0219a
+      internalID: -2122178735
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_65
+      name: protag-lying_to_standing_spritesheet_65
       rect:
         serializedVersion: 2
         x: 5400
         y: 5400
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aaef7f8dafd774e749a80fa02ede56ad
-      internalID: 406878750
+      spriteID: fc2902ee291244508896a45de0166e18
+      internalID: 716272607
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_66
+      name: protag-lying_to_standing_spritesheet_66
       rect:
         serializedVersion: 2
         x: 6480
         y: 5400
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d375e12f7d8b6410381717597758e3c0
-      internalID: 1135651846
+      spriteID: ac15903da5a14423f9a1abf1869cd4a2
+      internalID: 1875355795
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_67
+      name: protag-lying_to_standing_spritesheet_67
       rect:
         serializedVersion: 2
         x: 7560
         y: 5400
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba3c8246fdb1c405ebaff8d94fab5dcc
-      internalID: 1704369090
+      spriteID: e07ecf19cc428459098de1a4d44fe7bb
+      internalID: -953527177
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_68
+      name: protag-lying_to_standing_spritesheet_68
       rect:
         serializedVersion: 2
         x: 8640
         y: 5400
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf79b7a27e5a14651a6a2a8022a7d7ad
-      internalID: -616868569
+      spriteID: bc3dc2131396441d68f8651ae3536dc6
+      internalID: 1925169118
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_69
+      name: protag-lying_to_standing_spritesheet_69
       rect:
         serializedVersion: 2
         x: 9720
         y: 5400
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eabb51d6544314637b233fa3dbbee855
-      internalID: -1721945091
+      spriteID: 73356089e1cbc466e9c1a25afe37d7e4
+      internalID: 1491857004
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_70
+      name: protag-lying_to_standing_spritesheet_70
       rect:
         serializedVersion: 2
         x: 10800
         y: 5400
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7726ed029da284c36a91d7b6cfd5a80e
-      internalID: 1574531808
+      spriteID: bb1ce5db40f28495fb6cff08d3807360
+      internalID: 425083581
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_71
+      name: protag-lying_to_standing_spritesheet_71
       rect:
         serializedVersion: 2
         x: 11880
         y: 5400
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e166681ed416a4907aa10f3f68892175
-      internalID: -1253847346
+      spriteID: cd4e23d85a00d4161b568ace6b15d960
+      internalID: -1623762366
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_72
+      name: protag-lying_to_standing_spritesheet_72
       rect:
         serializedVersion: 2
         x: 0
         y: 4320
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfd28edfbdbd14aa085ebd6109c2c88c
-      internalID: 1098797762
+      spriteID: 3424b2f5f3b434ec6ba9d97dc4f294fe
+      internalID: 1971885498
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_73
+      name: protag-lying_to_standing_spritesheet_73
       rect:
         serializedVersion: 2
         x: 1080
         y: 4320
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3e942ec093df472aa7ace55482ea5cf
-      internalID: 502104832
+      spriteID: a8978aa025eea4389a6583b18bdfd84c
+      internalID: 1522024541
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_74
+      name: protag-lying_to_standing_spritesheet_74
       rect:
         serializedVersion: 2
         x: 2160
         y: 4320
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6258821013954462a935bf775fdb65e0
-      internalID: -137098048
+      spriteID: 4de8d9d8eae8146429ae7d3b828cafc0
+      internalID: -848080360
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_75
+      name: protag-lying_to_standing_spritesheet_75
       rect:
         serializedVersion: 2
         x: 3240
         y: 4320
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f856f4a93abf4a82886155f986f07ad
-      internalID: 1739640887
+      spriteID: 26306155976d747e58aba1b4b14a7fa9
+      internalID: -1751567327
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_76
+      name: protag-lying_to_standing_spritesheet_76
       rect:
         serializedVersion: 2
         x: 4320
         y: 4320
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 155bf397f2da6420eafc73ed32a9748e
-      internalID: 1357379703
+      spriteID: e1088bb6afc4b4edf82c624fdf4c2ab5
+      internalID: -1875049830
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_77
+      name: protag-lying_to_standing_spritesheet_77
       rect:
         serializedVersion: 2
         x: 5400
         y: 4320
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9eeb25d5a08664649a36ddd487588210
-      internalID: -1882928694
+      spriteID: 4a5334cb3516c4bb2922705faeed8da6
+      internalID: -633473569
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_78
+      name: protag-lying_to_standing_spritesheet_78
       rect:
         serializedVersion: 2
         x: 6480
         y: 4320
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8440907315da245d7aae560314bea076
-      internalID: -1635673893
+      spriteID: 94c8079abb8a44dec827b12b4671df04
+      internalID: 95335446
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_79
+      name: protag-lying_to_standing_spritesheet_79
       rect:
         serializedVersion: 2
         x: 7560
         y: 4320
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72ce4cefb12984d37871d2156331f84f
-      internalID: -931012723
+      spriteID: 6244a308cdc3a4407a0fb4be987dc67c
+      internalID: 1899935552
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_80
+      name: protag-lying_to_standing_spritesheet_80
       rect:
         serializedVersion: 2
         x: 8640
         y: 4320
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc9217c8ea6794e5399e039c7f82b06b
-      internalID: -1381857422
+      spriteID: 71cb450ddfc464b798f3bcb50bb72b8c
+      internalID: 538353627
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_81
+      name: protag-lying_to_standing_spritesheet_81
       rect:
         serializedVersion: 2
         x: 9720
         y: 4320
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f931e2be0b364bdea79ab818f411dbb
-      internalID: -794361001
+      spriteID: b7348ac176756485091a74246156eafa
+      internalID: 1287152478
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_82
+      name: protag-lying_to_standing_spritesheet_82
       rect:
         serializedVersion: 2
         x: 10800
         y: 4320
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: baaebed9dc98045209742e8e659c4d8e
-      internalID: -1837976396
+      spriteID: 0f6ede7dc3fc94167b154fb928e9e890
+      internalID: -364897747
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_83
+      name: protag-lying_to_standing_spritesheet_83
       rect:
         serializedVersion: 2
         x: 11880
         y: 4320
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5239f2c8b02654308b8584690e28bd1a
-      internalID: -1252166926
+      spriteID: 867e51b37e13948fd802d835b50d271e
+      internalID: 688855373
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_84
+      name: protag-lying_to_standing_spritesheet_84
       rect:
         serializedVersion: 2
         x: 0
         y: 3240
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4943cbeae9bd9497c9f8744c3d4d4c78
-      internalID: 588197029
+      spriteID: b8d7a8f195bc94d198dc2bc3903a359d
+      internalID: 579306210
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_85
+      name: protag-lying_to_standing_spritesheet_85
       rect:
         serializedVersion: 2
         x: 1080
         y: 3240
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98623f69f0bcd41d89333ef605e4f0a8
-      internalID: -898868494
+      spriteID: 015ffbb7857e44d19bbef472d03935b5
+      internalID: -281299056
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_86
+      name: protag-lying_to_standing_spritesheet_86
       rect:
         serializedVersion: 2
         x: 2160
         y: 3240
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbe3007e22624490bbc812f6bdc1e018
-      internalID: -133617198
+      spriteID: e15b6dcb9d4f543f5aa0f86e176e6446
+      internalID: 1510261519
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_87
+      name: protag-lying_to_standing_spritesheet_87
       rect:
         serializedVersion: 2
         x: 3240
         y: 3240
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2808606a7cc6e4193b61d719ec8b7fa3
-      internalID: -1421891124
+      spriteID: f27a2637e0b804c048c17fb221070d27
+      internalID: 587387707
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_88
+      name: protag-lying_to_standing_spritesheet_88
       rect:
         serializedVersion: 2
         x: 4320
         y: 3240
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40c5428d8b58a41b1ba8b95ae3f50c33
-      internalID: 2068823415
+      spriteID: eb4b80cf835e4407189ca24352fd1d9f
+      internalID: -337219202
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_89
+      name: protag-lying_to_standing_spritesheet_89
       rect:
         serializedVersion: 2
         x: 5400
         y: 3240
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a70c6cf9188af4820989c64aa88bc878
-      internalID: 1048004689
+      spriteID: 764f61b9c67f14df8b0093e7d4ef26d8
+      internalID: -2118698374
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_90
+      name: protag-lying_to_standing_spritesheet_90
       rect:
         serializedVersion: 2
         x: 6480
         y: 3240
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b7f8bc31362546cdaac7415c8f07252
-      internalID: -131322988
+      spriteID: 43d7f5841b2b24f108a9cb97e14a755a
+      internalID: -917921981
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_91
+      name: protag-lying_to_standing_spritesheet_91
       rect:
         serializedVersion: 2
         x: 7560
         y: 3240
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd634f717453b416e99c13cc9509e9b1
-      internalID: -270199285
+      spriteID: 6cd30830c3ff847ca8a0b766b5308ad3
+      internalID: -643852965
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_92
+      name: protag-lying_to_standing_spritesheet_92
       rect:
         serializedVersion: 2
         x: 8640
         y: 3240
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 906faa8838af0411d8634ce64e797399
-      internalID: -1619549005
+      spriteID: e1b531f8c6eb74ee3ad99bc47ede70ee
+      internalID: 1581940010
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_93
+      name: protag-lying_to_standing_spritesheet_93
       rect:
         serializedVersion: 2
         x: 9720
         y: 3240
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fda081a38f9da4b6081a53bed0186ad8
-      internalID: 506863854
+      spriteID: e5cf1169f5b1c478193b869537e1f075
+      internalID: 482307767
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_94
+      name: protag-lying_to_standing_spritesheet_94
       rect:
         serializedVersion: 2
         x: 10800
         y: 3240
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ae76503c10df496a8576bb4ad32f098
-      internalID: -2079105516
+      spriteID: adba7b6f912394c54b94d2346468ffb5
+      internalID: -999978823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_95
+      name: protag-lying_to_standing_spritesheet_95
       rect:
         serializedVersion: 2
         x: 11880
         y: 3240
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14b4081658ee1490d9f040ae7437ef44
-      internalID: 502939254
+      spriteID: f262951b0f6e14c93a3e50bb1b7f54e8
+      internalID: -973485707
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_96
+      name: protag-lying_to_standing_spritesheet_96
       rect:
         serializedVersion: 2
         x: 0
         y: 2160
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e87da66dba134252a471c93d7cb34e5
-      internalID: -1281835702
+      spriteID: 9e107a4524ebd4953a033adb35ad9fc4
+      internalID: -2119659205
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_97
+      name: protag-lying_to_standing_spritesheet_97
       rect:
         serializedVersion: 2
         x: 1080
         y: 2160
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06fd588afe55c449aa73cbb3a484b2bf
-      internalID: 825577247
+      spriteID: 8f686e5efdf80462ab1044e7882a1627
+      internalID: -913127131
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_98
+      name: protag-lying_to_standing_spritesheet_98
       rect:
         serializedVersion: 2
         x: 2160
         y: 2160
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e32f7be6b9ff444482802a7e3c0f2bf
-      internalID: -1736155220
+      spriteID: 0a59aedf9beec48c3b34e091da214e5a
+      internalID: -440238381
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_99
+      name: protag-lying_to_standing_spritesheet_99
       rect:
         serializedVersion: 2
         x: 3240
         y: 2160
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 555d55123aa5c4851917a8ae29772467
-      internalID: -384708723
+      spriteID: 8c9f44d827d6c427db609a239bfb785a
+      internalID: 950760538
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_100
+      name: protag-lying_to_standing_spritesheet_100
       rect:
         serializedVersion: 2
         x: 4320
         y: 2160
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb2fa736acbad431e96aa3cbe659b4dd
-      internalID: -467622387
+      spriteID: e55f16fd27a07471d91b69e377a17835
+      internalID: -1263923566
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_101
+      name: protag-lying_to_standing_spritesheet_101
       rect:
         serializedVersion: 2
         x: 5400
         y: 2160
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe1965f790478475291ac866d9aa40ad
-      internalID: 2044751853
+      spriteID: 7e10be446513a45679281943d790c1b7
+      internalID: 143100795
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_102
+      name: protag-lying_to_standing_spritesheet_102
       rect:
         serializedVersion: 2
         x: 6480
         y: 2160
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 929c4fd4f394d4109bc9a794134bf58e
-      internalID: -673840658
+      spriteID: f0191dd87ec944460803314b367c3c2f
+      internalID: 1962901927
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_103
+      name: protag-lying_to_standing_spritesheet_103
       rect:
         serializedVersion: 2
         x: 7560
         y: 2160
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17324211a08bf4c7294aef8f07678d85
-      internalID: -16808459
+      spriteID: 176bec912ac824d849e42523fd18b008
+      internalID: 163009028
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_104
+      name: protag-lying_to_standing_spritesheet_104
       rect:
         serializedVersion: 2
         x: 8640
         y: 2160
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2791e157570e4cbf94950fb22ec66c2
-      internalID: -1397684280
+      spriteID: 0e40da5eba6264e2fae8cf62727cf56b
+      internalID: -68213049
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_105
+      name: protag-lying_to_standing_spritesheet_105
       rect:
         serializedVersion: 2
         x: 9720
         y: 2160
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee6b836a699fd47b985ab3cddb017641
-      internalID: -116127160
+      spriteID: 92f0e88b2a4af49139f18f756391c1f8
+      internalID: -456858674
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_106
+      name: protag-lying_to_standing_spritesheet_106
       rect:
         serializedVersion: 2
         x: 10800
         y: 2160
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5c81fe4cfb614cd386968cd0b684088
-      internalID: 459321415
+      spriteID: a2a757517f738495a935e0a41918499b
+      internalID: 966410846
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_107
+      name: protag-lying_to_standing_spritesheet_107
       rect:
         serializedVersion: 2
         x: 11880
         y: 2160
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9e591261b65d4481a10feff44c40aed
-      internalID: -305037263
+      spriteID: 8507b71a8379a48d5bba0c7cffa857a1
+      internalID: -82244082
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_108
+      name: protag-lying_to_standing_spritesheet_108
       rect:
         serializedVersion: 2
         x: 0
         y: 1080
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e62e253da7bcc47f9b59ee0416857512
-      internalID: -1778715552
+      spriteID: d4603d7688aed47e6804e85f0fbb1202
+      internalID: 1765745439
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_109
+      name: protag-lying_to_standing_spritesheet_109
       rect:
         serializedVersion: 2
         x: 1080
         y: 1080
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7783e9c365c344296aaba89c34f5f841
-      internalID: -307435696
+      spriteID: 26f890c79a2a0416d95d3a5371179fe2
+      internalID: -551265483
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_110
+      name: protag-lying_to_standing_spritesheet_110
       rect:
         serializedVersion: 2
         x: 2160
         y: 1080
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0245d17a2dafa43a889bb1fdc9d35906
-      internalID: 1047303622
+      spriteID: 25771d2c741424438a62b9809f94f694
+      internalID: -1802537388
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_111
+      name: protag-lying_to_standing_spritesheet_111
       rect:
         serializedVersion: 2
         x: 3240
         y: 1080
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58634b11e83934a11860908aebf66db2
-      internalID: 263363620
+      spriteID: 549f3552a01f6479e92b7114059ba522
+      internalID: -1676049011
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_112
+      name: protag-lying_to_standing_spritesheet_112
       rect:
         serializedVersion: 2
         x: 4320
         y: 1080
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: affde882f462f414e9d4d842adc5a6bd
-      internalID: 2040854849
+      spriteID: daa3892c4d9994563aa3d18ad07e8857
+      internalID: -1113050849
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_113
+      name: protag-lying_to_standing_spritesheet_113
       rect:
         serializedVersion: 2
         x: 5400
         y: 1080
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df1bbabcdc8df4e1892df54d84cfc695
-      internalID: 1683946276
+      spriteID: 8cb8fa948547a433db39f42843f07f8e
+      internalID: -2050558435
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_114
+      name: protag-lying_to_standing_spritesheet_114
       rect:
         serializedVersion: 2
         x: 6480
         y: 1080
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e8efb4891acb40bebce4e34ad953d27
-      internalID: 1000298740
+      spriteID: 1f6c6b0fbfdc543e087a64b090b9cf35
+      internalID: -80278081
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_115
+      name: protag-lying_to_standing_spritesheet_115
       rect:
         serializedVersion: 2
         x: 7560
         y: 1080
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ef253154c2504dafb1602cdfd9f7a56
-      internalID: 144814768
+      spriteID: 5d99d141f13b843c29bd34c8a3899abe
+      internalID: -149719506
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_116
+      name: protag-lying_to_standing_spritesheet_116
       rect:
         serializedVersion: 2
         x: 8640
         y: 1080
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a269cb99a23de493eb8c0a5518ca67b9
-      internalID: 714901343
+      spriteID: fa9e5ef6bc3394ae8af5ab48284c10cb
+      internalID: -491657950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_117
+      name: protag-lying_to_standing_spritesheet_117
       rect:
         serializedVersion: 2
         x: 9720
         y: 1080
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 866d0ba33112c4004aea3c4113d826bf
-      internalID: -1124796466
+      spriteID: 18ebc5102d7bf4b998cf9e3c7ae36a90
+      internalID: -127960267
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_118
+      name: protag-lying_to_standing_spritesheet_118
       rect:
         serializedVersion: 2
         x: 10800
         y: 1080
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c949be0c985c43ca97ace2a32d80374
-      internalID: 1670400649
+      spriteID: 1ccd25355714c4c7db0f9cdfa35faf50
+      internalID: 526558619
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_119
+      name: protag-lying_to_standing_spritesheet_119
       rect:
         serializedVersion: 2
         x: 11880
         y: 1080
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58f5fef3cb3454a459690f205927d432
-      internalID: -463850807
+      spriteID: 7b4321994fec247638da3aeb1b4790ce
+      internalID: 1330845121
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_120
+      name: protag-lying_to_standing_spritesheet_120
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e64a3334b37f48d3a42020baf4a1082
-      internalID: 83277836
+      spriteID: eeb3197ec0c8f4095bf71b183154754c
+      internalID: -2063454168
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_121
+      name: protag-lying_to_standing_spritesheet_121
       rect:
         serializedVersion: 2
         x: 1080
         y: 0
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e176c32d55194da6a69ae5f27d4007d
-      internalID: 276224410
+      spriteID: d148b35f88d9a46f2a6327a93c0d990a
+      internalID: 509168720
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_122
+      name: protag-lying_to_standing_spritesheet_122
       rect:
         serializedVersion: 2
         x: 2160
         y: 0
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 815010e3660854be496b1177f146de05
-      internalID: 576524341
+      spriteID: 0fb608ac0769a49c095b7450d6c39873
+      internalID: 1722881021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_123
+      name: protag-lying_to_standing_spritesheet_123
       rect:
         serializedVersion: 2
         x: 3240
         y: 0
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c92f80424a89f48a2af49c02554a0dc1
-      internalID: -1157623593
+      spriteID: 35f983c7d44904b798c381c3236f8001
+      internalID: -1374739635
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_124
+      name: protag-lying_to_standing_spritesheet_124
       rect:
         serializedVersion: 2
         x: 4320
         y: 0
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1dce2fdd2e7904eacaa142bccd82e341
-      internalID: 1432648975
+      spriteID: 70b656284c70d45918018ef8965f507d
+      internalID: -1052588797
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: protag-lying_to_standing_125
+      name: protag-lying_to_standing_spritesheet_125
       rect:
         serializedVersion: 2
         x: 5400
         y: 0
         width: 1080
         height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b586a901724ba4f62889aa956dfca53c
-      internalID: 946890052
+      spriteID: 855210062928849a7ac12bf7b49cfe62
+      internalID: -849238710
       vertices: []
       indices: 
       edges: []
       weights: []
     outline: []
+    customData: 
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
@@ -2778,133 +2918,135 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
     nameFileIdTable:
-      protag-lying_to_standing_0: -1917893488
-      protag-lying_to_standing_1: -22404436
-      protag-lying_to_standing_10: -1697536409
-      protag-lying_to_standing_100: -467622387
-      protag-lying_to_standing_101: 2044751853
-      protag-lying_to_standing_102: -673840658
-      protag-lying_to_standing_103: -16808459
-      protag-lying_to_standing_104: -1397684280
-      protag-lying_to_standing_105: -116127160
-      protag-lying_to_standing_106: 459321415
-      protag-lying_to_standing_107: -305037263
-      protag-lying_to_standing_108: -1778715552
-      protag-lying_to_standing_109: -307435696
-      protag-lying_to_standing_11: -1916718833
-      protag-lying_to_standing_110: 1047303622
-      protag-lying_to_standing_111: 263363620
-      protag-lying_to_standing_112: 2040854849
-      protag-lying_to_standing_113: 1683946276
-      protag-lying_to_standing_114: 1000298740
-      protag-lying_to_standing_115: 144814768
-      protag-lying_to_standing_116: 714901343
-      protag-lying_to_standing_117: -1124796466
-      protag-lying_to_standing_118: 1670400649
-      protag-lying_to_standing_119: -463850807
-      protag-lying_to_standing_12: 220686104
-      protag-lying_to_standing_120: 83277836
-      protag-lying_to_standing_121: 276224410
-      protag-lying_to_standing_122: 576524341
-      protag-lying_to_standing_123: -1157623593
-      protag-lying_to_standing_124: 1432648975
-      protag-lying_to_standing_125: 946890052
-      protag-lying_to_standing_13: 980349604
-      protag-lying_to_standing_14: -1480665038
-      protag-lying_to_standing_15: 1902935449
-      protag-lying_to_standing_16: 550167592
-      protag-lying_to_standing_17: -1377689349
-      protag-lying_to_standing_18: -1344562156
-      protag-lying_to_standing_19: 1655036133
-      protag-lying_to_standing_2: 189224861
-      protag-lying_to_standing_20: -1476651284
-      protag-lying_to_standing_21: 1960256374
-      protag-lying_to_standing_22: -917467692
-      protag-lying_to_standing_23: 901488007
-      protag-lying_to_standing_24: -730752034
-      protag-lying_to_standing_25: -848683460
-      protag-lying_to_standing_26: -709565350
-      protag-lying_to_standing_27: 1645296176
-      protag-lying_to_standing_28: -382516304
-      protag-lying_to_standing_29: -246298335
-      protag-lying_to_standing_3: 1095259071
-      protag-lying_to_standing_30: -2099307030
-      protag-lying_to_standing_31: 2046951443
-      protag-lying_to_standing_32: -399995946
-      protag-lying_to_standing_33: 1255978376
-      protag-lying_to_standing_34: -2063599352
-      protag-lying_to_standing_35: -722478609
-      protag-lying_to_standing_36: 1742888840
-      protag-lying_to_standing_37: 14663595
-      protag-lying_to_standing_38: 365197448
-      protag-lying_to_standing_39: -371721736
-      protag-lying_to_standing_4: -555191540
-      protag-lying_to_standing_40: -2081007281
-      protag-lying_to_standing_41: 476378340
-      protag-lying_to_standing_42: 462687304
-      protag-lying_to_standing_43: -785170043
-      protag-lying_to_standing_44: -760843817
-      protag-lying_to_standing_45: -1881976016
-      protag-lying_to_standing_46: 829531393
-      protag-lying_to_standing_47: 143482924
-      protag-lying_to_standing_48: -133348739
-      protag-lying_to_standing_49: 283090771
-      protag-lying_to_standing_5: -1673513930
-      protag-lying_to_standing_50: -844959705
-      protag-lying_to_standing_51: -755764189
-      protag-lying_to_standing_52: 686733513
-      protag-lying_to_standing_53: 956523091
-      protag-lying_to_standing_54: 1761168123
-      protag-lying_to_standing_55: 271383826
-      protag-lying_to_standing_56: 1459050881
-      protag-lying_to_standing_57: 1652592607
-      protag-lying_to_standing_58: 717109421
-      protag-lying_to_standing_59: -857163699
-      protag-lying_to_standing_6: 1397563936
-      protag-lying_to_standing_60: 744872118
-      protag-lying_to_standing_61: 400303827
-      protag-lying_to_standing_62: 1127526787
-      protag-lying_to_standing_63: 1418675731
-      protag-lying_to_standing_64: 1174343203
-      protag-lying_to_standing_65: 406878750
-      protag-lying_to_standing_66: 1135651846
-      protag-lying_to_standing_67: 1704369090
-      protag-lying_to_standing_68: -616868569
-      protag-lying_to_standing_69: -1721945091
-      protag-lying_to_standing_7: -931598216
-      protag-lying_to_standing_70: 1574531808
-      protag-lying_to_standing_71: -1253847346
-      protag-lying_to_standing_72: 1098797762
-      protag-lying_to_standing_73: 502104832
-      protag-lying_to_standing_74: -137098048
-      protag-lying_to_standing_75: 1739640887
-      protag-lying_to_standing_76: 1357379703
-      protag-lying_to_standing_77: -1882928694
-      protag-lying_to_standing_78: -1635673893
-      protag-lying_to_standing_79: -931012723
-      protag-lying_to_standing_8: -1106618945
-      protag-lying_to_standing_80: -1381857422
-      protag-lying_to_standing_81: -794361001
-      protag-lying_to_standing_82: -1837976396
-      protag-lying_to_standing_83: -1252166926
-      protag-lying_to_standing_84: 588197029
-      protag-lying_to_standing_85: -898868494
-      protag-lying_to_standing_86: -133617198
-      protag-lying_to_standing_87: -1421891124
-      protag-lying_to_standing_88: 2068823415
-      protag-lying_to_standing_89: 1048004689
-      protag-lying_to_standing_9: 665237205
-      protag-lying_to_standing_90: -131322988
-      protag-lying_to_standing_91: -270199285
-      protag-lying_to_standing_92: -1619549005
-      protag-lying_to_standing_93: 506863854
-      protag-lying_to_standing_94: -2079105516
-      protag-lying_to_standing_95: 502939254
-      protag-lying_to_standing_96: -1281835702
-      protag-lying_to_standing_97: 825577247
-      protag-lying_to_standing_98: -1736155220
-      protag-lying_to_standing_99: -384708723
+      protag-lying_to_standing_spritesheet_0: -2063734120
+      protag-lying_to_standing_spritesheet_1: 1914770330
+      protag-lying_to_standing_spritesheet_10: -434255998
+      protag-lying_to_standing_spritesheet_100: -1263923566
+      protag-lying_to_standing_spritesheet_101: 143100795
+      protag-lying_to_standing_spritesheet_102: 1962901927
+      protag-lying_to_standing_spritesheet_103: 163009028
+      protag-lying_to_standing_spritesheet_104: -68213049
+      protag-lying_to_standing_spritesheet_105: -456858674
+      protag-lying_to_standing_spritesheet_106: 966410846
+      protag-lying_to_standing_spritesheet_107: -82244082
+      protag-lying_to_standing_spritesheet_108: 1765745439
+      protag-lying_to_standing_spritesheet_109: -551265483
+      protag-lying_to_standing_spritesheet_11: 594459995
+      protag-lying_to_standing_spritesheet_110: -1802537388
+      protag-lying_to_standing_spritesheet_111: -1676049011
+      protag-lying_to_standing_spritesheet_112: -1113050849
+      protag-lying_to_standing_spritesheet_113: -2050558435
+      protag-lying_to_standing_spritesheet_114: -80278081
+      protag-lying_to_standing_spritesheet_115: -149719506
+      protag-lying_to_standing_spritesheet_116: -491657950
+      protag-lying_to_standing_spritesheet_117: -127960267
+      protag-lying_to_standing_spritesheet_118: 526558619
+      protag-lying_to_standing_spritesheet_119: 1330845121
+      protag-lying_to_standing_spritesheet_12: 587161143
+      protag-lying_to_standing_spritesheet_120: -2063454168
+      protag-lying_to_standing_spritesheet_121: 509168720
+      protag-lying_to_standing_spritesheet_122: 1722881021
+      protag-lying_to_standing_spritesheet_123: -1374739635
+      protag-lying_to_standing_spritesheet_124: -1052588797
+      protag-lying_to_standing_spritesheet_125: -849238710
+      protag-lying_to_standing_spritesheet_13: 2035578281
+      protag-lying_to_standing_spritesheet_14: -308346034
+      protag-lying_to_standing_spritesheet_15: -263564473
+      protag-lying_to_standing_spritesheet_16: -419071748
+      protag-lying_to_standing_spritesheet_17: -1541541210
+      protag-lying_to_standing_spritesheet_18: 1640272836
+      protag-lying_to_standing_spritesheet_19: 2016559431
+      protag-lying_to_standing_spritesheet_2: 654370828
+      protag-lying_to_standing_spritesheet_20: -850452760
+      protag-lying_to_standing_spritesheet_21: 584555837
+      protag-lying_to_standing_spritesheet_22: -841765857
+      protag-lying_to_standing_spritesheet_23: 361111431
+      protag-lying_to_standing_spritesheet_24: 1432238100
+      protag-lying_to_standing_spritesheet_25: -314339325
+      protag-lying_to_standing_spritesheet_26: -376053131
+      protag-lying_to_standing_spritesheet_27: -1853005897
+      protag-lying_to_standing_spritesheet_28: -602495094
+      protag-lying_to_standing_spritesheet_29: -672143582
+      protag-lying_to_standing_spritesheet_3: -1289618785
+      protag-lying_to_standing_spritesheet_30: -1660545985
+      protag-lying_to_standing_spritesheet_31: 79332543
+      protag-lying_to_standing_spritesheet_32: -610944164
+      protag-lying_to_standing_spritesheet_33: 1484123590
+      protag-lying_to_standing_spritesheet_34: -2079949946
+      protag-lying_to_standing_spritesheet_35: 38616314
+      protag-lying_to_standing_spritesheet_36: 1117970422
+      protag-lying_to_standing_spritesheet_37: -834829861
+      protag-lying_to_standing_spritesheet_38: -562640523
+      protag-lying_to_standing_spritesheet_39: -433590846
+      protag-lying_to_standing_spritesheet_4: -1595264292
+      protag-lying_to_standing_spritesheet_40: 1926816064
+      protag-lying_to_standing_spritesheet_41: 512166397
+      protag-lying_to_standing_spritesheet_42: 1469127159
+      protag-lying_to_standing_spritesheet_43: -598260769
+      protag-lying_to_standing_spritesheet_44: 98024852
+      protag-lying_to_standing_spritesheet_45: -1358499493
+      protag-lying_to_standing_spritesheet_46: -1980727114
+      protag-lying_to_standing_spritesheet_47: -679492049
+      protag-lying_to_standing_spritesheet_48: -64389682
+      protag-lying_to_standing_spritesheet_49: 58345559
+      protag-lying_to_standing_spritesheet_5: 2143380557
+      protag-lying_to_standing_spritesheet_50: 283485568
+      protag-lying_to_standing_spritesheet_51: -1830557821
+      protag-lying_to_standing_spritesheet_52: 1382167239
+      protag-lying_to_standing_spritesheet_53: 954390801
+      protag-lying_to_standing_spritesheet_54: -1688536952
+      protag-lying_to_standing_spritesheet_55: -565419644
+      protag-lying_to_standing_spritesheet_56: -1213078188
+      protag-lying_to_standing_spritesheet_57: -1263757725
+      protag-lying_to_standing_spritesheet_58: -1802674397
+      protag-lying_to_standing_spritesheet_59: -960765451
+      protag-lying_to_standing_spritesheet_6: -1005709499
+      protag-lying_to_standing_spritesheet_60: -459524608
+      protag-lying_to_standing_spritesheet_61: -1210287419
+      protag-lying_to_standing_spritesheet_62: -1065434316
+      protag-lying_to_standing_spritesheet_63: -1664930612
+      protag-lying_to_standing_spritesheet_64: -2122178735
+      protag-lying_to_standing_spritesheet_65: 716272607
+      protag-lying_to_standing_spritesheet_66: 1875355795
+      protag-lying_to_standing_spritesheet_67: -953527177
+      protag-lying_to_standing_spritesheet_68: 1925169118
+      protag-lying_to_standing_spritesheet_69: 1491857004
+      protag-lying_to_standing_spritesheet_7: 53264341
+      protag-lying_to_standing_spritesheet_70: 425083581
+      protag-lying_to_standing_spritesheet_71: -1623762366
+      protag-lying_to_standing_spritesheet_72: 1971885498
+      protag-lying_to_standing_spritesheet_73: 1522024541
+      protag-lying_to_standing_spritesheet_74: -848080360
+      protag-lying_to_standing_spritesheet_75: -1751567327
+      protag-lying_to_standing_spritesheet_76: -1875049830
+      protag-lying_to_standing_spritesheet_77: -633473569
+      protag-lying_to_standing_spritesheet_78: 95335446
+      protag-lying_to_standing_spritesheet_79: 1899935552
+      protag-lying_to_standing_spritesheet_8: -864307158
+      protag-lying_to_standing_spritesheet_80: 538353627
+      protag-lying_to_standing_spritesheet_81: 1287152478
+      protag-lying_to_standing_spritesheet_82: -364897747
+      protag-lying_to_standing_spritesheet_83: 688855373
+      protag-lying_to_standing_spritesheet_84: 579306210
+      protag-lying_to_standing_spritesheet_85: -281299056
+      protag-lying_to_standing_spritesheet_86: 1510261519
+      protag-lying_to_standing_spritesheet_87: 587387707
+      protag-lying_to_standing_spritesheet_88: -337219202
+      protag-lying_to_standing_spritesheet_89: -2118698374
+      protag-lying_to_standing_spritesheet_9: 133503445
+      protag-lying_to_standing_spritesheet_90: -917921981
+      protag-lying_to_standing_spritesheet_91: -643852965
+      protag-lying_to_standing_spritesheet_92: 1581940010
+      protag-lying_to_standing_spritesheet_93: 482307767
+      protag-lying_to_standing_spritesheet_94: -999978823
+      protag-lying_to_standing_spritesheet_95: -973485707
+      protag-lying_to_standing_spritesheet_96: -2119659205
+      protag-lying_to_standing_spritesheet_97: -913127131
+      protag-lying_to_standing_spritesheet_98: -440238381
+      protag-lying_to_standing_spritesheet_99: 950760538
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

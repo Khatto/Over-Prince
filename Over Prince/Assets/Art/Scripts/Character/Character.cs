@@ -9,11 +9,10 @@ public class Character : MonoBehaviour {
     public Rigidbody2D rigidBody;
     public CharacterState state = CharacterState.Idle;
     public AttackManager attackManager;
-    public CharacterController controller;
+    public MovableCharacterController controller;
     public IHurtableCharacterController hurtableController;
 
     public virtual void Start() {
-        Debug.Log("Character Start");
         hurtableController = GetComponent<IHurtableCharacterController>();
         rigidBody = GetComponent<Rigidbody2D>();
     }
@@ -33,7 +32,7 @@ public class Character : MonoBehaviour {
     public void ApplyHit(Hit hit, Constants.Direction direction) {
         if (CanBeHit()) {
             EnterState(CharacterState.HitStun);
-            rigidBody.velocity = Vector2.zero;
+            rigidBody.linearVelocity = Vector2.zero;
             rigidBody.AddForce(CalculateHitVector(hit, direction), ForceMode2D.Impulse);
             hurtableController.EnterHitStun(hit.hitStunFrames / Constants.targetFPS);
         }

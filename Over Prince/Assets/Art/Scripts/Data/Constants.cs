@@ -23,6 +23,7 @@ public static class Constants {
         public const string PerformAttack = "performAttack";
         public const string ContinueAttack = "continueAttack";
         public const string AttackDesignation = "attackDesignation";
+        public const string Start = "start";
     }
 
     public static class Colors {

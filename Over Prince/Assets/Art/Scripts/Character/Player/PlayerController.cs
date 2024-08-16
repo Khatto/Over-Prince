@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : CharacterController, IHurtableCharacterController
+public class PlayerController : MovableCharacterController, IHurtableCharacterController
 {
 
     public bool testMoveSpeed = false;
