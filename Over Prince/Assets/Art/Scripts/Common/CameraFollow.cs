@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-
+    public bool active = false;
     public float followSpeed = 0.1f;
     public float yOffset = 1f;
     public Transform target;
@@ -16,7 +16,7 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (target != null) {
+        if (active && target != null) {
             FollowTarget();
         }
     }

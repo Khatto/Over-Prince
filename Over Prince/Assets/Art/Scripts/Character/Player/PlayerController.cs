@@ -10,7 +10,7 @@ public class PlayerController : MovableCharacterController, IHurtableCharacterCo
 
     internal static class PlayerControllerConstants {
         internal static class InputKeyNames {
-            internal const string PlayerInput = "playerInput";
+            internal const string PlayerInputActionMapName = "playerInput";
             internal const string Move = "move";
             internal const string Sprint = "sprint";
             internal const string Attack1 = "attack1";
@@ -58,22 +58,22 @@ public class PlayerController : MovableCharacterController, IHurtableCharacterCo
     }
 
     void SetupActions() {
-        moveAction = actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInput).FindAction(PlayerControllerConstants.InputKeyNames.Move);
-        sprintAction = actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInput).FindAction(PlayerControllerConstants.InputKeyNames.Sprint);
+        moveAction = actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInputActionMapName).FindAction(PlayerControllerConstants.InputKeyNames.Move);
+        sprintAction = actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInputActionMapName).FindAction(PlayerControllerConstants.InputKeyNames.Sprint);
 
-        attack1Action = actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInput).FindAction(PlayerControllerConstants.InputKeyNames.Attack1);
+        attack1Action = actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInputActionMapName).FindAction(PlayerControllerConstants.InputKeyNames.Attack1);
         attack1Action.performed += (context) => OnAttackPressed(context, 0);
 
-        attack2Action = actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInput).FindAction(PlayerControllerConstants.InputKeyNames.Attack2);
+        attack2Action = actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInputActionMapName).FindAction(PlayerControllerConstants.InputKeyNames.Attack2);
         attack2Action.performed += (context) => OnAttackPressed(context, 1);
 
-        attack3Action = actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInput).FindAction(PlayerControllerConstants.InputKeyNames.Attack3);
+        attack3Action = actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInputActionMapName).FindAction(PlayerControllerConstants.InputKeyNames.Attack3);
         attack3Action.performed += (context) => OnAttackPressed(context, 2);
 
-        attack4Action = actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInput).FindAction(PlayerControllerConstants.InputKeyNames.Attack4);
+        attack4Action = actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInputActionMapName).FindAction(PlayerControllerConstants.InputKeyNames.Attack4);
         attack4Action.performed += (context) => OnAttackPressed(context, 3);
         
-        testAction = actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInput).FindAction(PlayerControllerConstants.InputKeyNames.TestAction);
+        testAction = actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInputActionMapName).FindAction(PlayerControllerConstants.InputKeyNames.TestAction);
         testAction.performed += OnTestButtonPressed;
     }
 
@@ -110,12 +110,12 @@ public class PlayerController : MovableCharacterController, IHurtableCharacterCo
 
     private void OnEnable()
     {
-        actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInput).Enable();
+        actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInputActionMapName).Enable();
     }
 
     private void OnDisable()
     {
-        actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInput).Disable();
+        actions.FindActionMap(PlayerControllerConstants.InputKeyNames.PlayerInputActionMapName).Disable();
     }
 
     public void EnterHitStun(float hitStunFrames)

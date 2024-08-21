@@ -18,7 +18,7 @@
                     "name": "interact",
                     "type": "Button",
                     "id": "32c7ec76-05f7-486c-979f-d762c42bee0e",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -27,7 +27,7 @@
                     "name": "sprint",
                     "type": "Button",
                     "id": "ef08368f-124f-47c6-8bf4-0bb2480abe1c",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -36,7 +36,7 @@
                     "name": "attack1",
                     "type": "Button",
                     "id": "c1a9a190-a414-45b7-8b7a-12101c75f723",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -45,7 +45,7 @@
                     "name": "attack2",
                     "type": "Button",
                     "id": "9d1b7dfd-7332-4b78-800b-3fa9ed5a6ed6",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -72,7 +72,7 @@
                     "name": "testAction",
                     "type": "Value",
                     "id": "ac0ab9b9-b728-41d7-b756-56741cec416b",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -81,7 +81,7 @@
                     "name": "proceed",
                     "type": "Value",
                     "id": "2b6ff894-c8a1-4747-bc87-f332122e138b",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -293,6 +293,67 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Touch",
+                    "action": "proceed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "dialogue",
+            "id": "64a54c5a-5dd7-4331-894b-f5a4f5b0966e",
+            "actions": [
+                {
+                    "name": "proceed",
+                    "type": "Button",
+                    "id": "48654ecc-5d54-47e8-82b6-c1103db83a8b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "10ce62f2-6275-45cc-b89f-f5a39468e2ae",
+                    "path": "*/{Forward}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard and Mouse;Touch",
+                    "action": "proceed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5c030f58-c5ce-4072-95d7-10fa6a9bbba8",
+                    "path": "*/{PrimaryAction}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard and Mouse;Touch",
+                    "action": "proceed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fa00b6cd-84e6-49bf-8757-21713e620ab3",
+                    "path": "*/{Submit}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard and Mouse;Touch",
+                    "action": "proceed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "09f9066f-1585-4cc1-bd8d-5bac7a50f027",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard and Mouse;Touch",
                     "action": "proceed",
                     "isComposite": false,
                     "isPartOfComposite": false

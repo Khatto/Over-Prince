@@ -5,6 +5,7 @@ public static class DialogueConstants {
         public static string TheFile = $"<color={Colors.redColor}>The File</color>";
         public static string End = $"<color={Colors.redColor}>END</color>";
         public static string Elevators = $"<color={Colors.elevatorColor}>Elevators</color>";
+        public static string Elevator = $"<color={Colors.elevatorColor}>Elevator</color>";
     }
 
     public static float TotalDialogueTime(Dialogue[] dialogues, float dialogueFadeTime) {
@@ -67,6 +68,17 @@ public static class DialogueConstants {
         public static class PartThirteen {
             public static Dialogue[] dialogues = {
                 new Dialogue($"This all has to {CommonFormattedTerms.End}!", "Music/Song_Name", 5)
+            };
+        }
+    }
+
+    public static class FieldLobbyIntro {
+        public static class PartOne {
+            public static Dialogue[] dialogues = {
+                new Dialogue("Waking up back here... Again...", "Music/Song_Name", 0),
+                new Dialogue($"Feels pointless to look for another {CommonFormattedTerms.Elevator}...", "Music/Song_Name", 0),
+                new Dialogue("When I'll just end up back here, AGAIN...", "Music/Song_Name", 0),
+                new Dialogue("But what else is there to do?", "Music/Song_Name", 0),
             };
         }
     }

@@ -6,7 +6,6 @@ using Vector3 = UnityEngine.Vector3;
 */
 public class TargetChase : MonoBehaviour
 {
-
     public Transform target;
     public ChaseType chaseType = ChaseType.Lerp;
     public float chaseSpeed = 0.1f;

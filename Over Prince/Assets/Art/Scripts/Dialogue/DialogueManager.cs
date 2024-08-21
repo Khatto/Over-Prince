@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEditor;
 using UnityEngine.UIElements;
+using UnityEngine.InputSystem;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -13,21 +14,50 @@ public class DialogueManager : MonoBehaviour
     public DialogueState state = DialogueState.NotStarted;
     public DialogueDisplayMode dialogueDisplayMode = DialogueDisplayMode.Single;
     public Vector2 dialogueDefaultPosition = new Vector2(0.0f, 0.0f);
+    public SpriteRenderer dialogueBackground;
+    public bool useDialogueBackground = false;
+
+    public InputActionAsset actions;
+    private InputAction proceedInputAction;
+    public Fade proceedIndicatorFade;
 
     public static class DialogueManagerConstants 
     {
         public const float dialogueFadeTime = 0.5f;
+
+        internal static class DialogueControls {
+            internal const string ActionMapName = "dialogue";
+            internal const string Proceed = "proceed";
+        }
     }
 
     void Start()
     {
         dialogueTextShadow.SetupShadowText();
+        SetupInputActions();
     }
 
+    public void SetupInputActions() {
+        proceedInputAction = actions.FindActionMap(DialogueManagerConstants.DialogueControls.ActionMapName).FindAction(DialogueManagerConstants.DialogueControls.Proceed);
+        proceedInputAction.performed += (context) => InputPressedDuringDialogue(context);
+    }
+
+    public void InputPressedDuringDialogue(InputAction.CallbackContext context) {
+        if (state == DialogueState.DisplayingDialogueWaitingForUserInput) {
+            DisplayNextQueuedDialogue();
+        }
+    }
+
+    /// <summary>
+    /// Starts the process of displaying Dialogues from the selected array.
+    /// </summary>
     public void DisplayDialogues(Dialogue[] dialogues)
     {
         dialogueDisplayMode = DialogueDisplayMode.Sequence;
         dialogueSequence = new Queue<Dialogue>(dialogues);
+        if (useDialogueBackground) {
+            SetupDialogueBackground();
+        }
         DisplayNextQueuedDialogue();
     }
 
@@ -43,6 +73,7 @@ public class DialogueManager : MonoBehaviour
             case DialogueState.FadingDialogueIn:
                 break;
             case DialogueState.DisplayingDialogue:
+            case DialogueState.DisplayingDialogueWaitingForUserInput:
                 StartCoroutine(FadeOutThenDisplayDialogue(dialogue));
                 break;
             case DialogueState.FadingDialogueOut:
@@ -53,6 +84,9 @@ public class DialogueManager : MonoBehaviour
     public void HideDialogue()
     {   state = DialogueState.FadingDialogueOut;
         FadeDialogue(FadeType.FadeOut);
+        if (useDialogueBackground) {
+            dialogueBackground.GetComponent<Fade>().StartFadeWithTime(FadeType.FadeOut, DialogueManagerConstants.dialogueFadeTime);
+        }
         StartCoroutine(SetDialogueStateAfterTime(DialogueState.Finished, DialogueManagerConstants.dialogueFadeTime));
     }
 
@@ -60,7 +94,12 @@ public class DialogueManager : MonoBehaviour
     {
         FadeDialogue(FadeType.FadeIn);
         SetDialogueText(dialogue.text);
-        StartCoroutine(SetDialogueStateAfterTime(DialogueState.DisplayingDialogue, dialogue.displayTime));
+        if (dialogue.IsTimed()) {
+            StartCoroutine(SetDialogueStateAfterTime(DialogueState.DisplayingDialogue, dialogue.displayTime));
+        } else {
+            StartCoroutine(DisplayProceedIndicatorAfterFadeIn());
+        }
+        
         StartCoroutine(ModifyDialoguePositionBasedOnLineCount());
     }
 
@@ -79,6 +118,15 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    private IEnumerator DisplayProceedIndicatorAfterFadeIn()
+    {
+        yield return new WaitForSeconds(DialogueManagerConstants.dialogueFadeTime);
+        if (proceedIndicatorFade != null) {
+            proceedIndicatorFade.StartFadeWithTime(FadeType.FadeIn, DialogueManagerConstants.dialogueFadeTime);
+        }
+        state = DialogueState.DisplayingDialogueWaitingForUserInput;
+    }
+
     private IEnumerator FadeOutThenDisplayDialogue(Dialogue dialogue, float dialogueFadeTime = DialogueManagerConstants.dialogueFadeTime)
     {
         state = DialogueState.FadingDialogueOut;
@@ -90,10 +138,13 @@ public class DialogueManager : MonoBehaviour
     private void FadeDialogue(FadeType fadeType)
     {
         dialogueTextShadow.StartFadeWithTime(fadeType, DialogueManagerConstants.dialogueFadeTime);
+        if (proceedIndicatorFade != null) {
+            proceedIndicatorFade.StartFadeWithTime(FadeType.FadeOut, DialogueManagerConstants.dialogueFadeTime);
+        }
     }
 
     public bool CanProceedToNextDialogue() {
-        return state == DialogueState.DisplayingDialogue;
+        return state == DialogueState.DisplayingDialogue || state == DialogueState.DisplayingDialogueWaitingForUserInput;
     }
 
     /// <summary>
@@ -137,12 +188,30 @@ public class DialogueManager : MonoBehaviour
         );
         dialogueTextShadow.SetDialoguePositionBasedOnLines(newPosition);
     }
+
+    private void SetupDialogueBackground() {
+        // TODO - Add a check to see if we've already set this up
+        dialogueBackground.GetComponent<AutoAlign>().AdjustVerticalAlignment();
+        dialogueBackground.GetComponent<AutoScale>().SetScale();
+        dialogueBackground.GetComponent<Fade>().StartFadeWithTime(FadeType.FadeIn, DialogueManagerConstants.dialogueFadeTime);
+    }
+
+    private void OnEnable()
+    {
+        actions.FindActionMap(DialogueManagerConstants.DialogueControls.ActionMapName).Enable();
+    }
+
+    private void OnDisable()
+    {
+        actions.FindActionMap(DialogueManagerConstants.DialogueControls.ActionMapName).Disable();
+    }
 }
 
 public enum DialogueState {
     NotStarted,
     FadingDialogueIn,
     DisplayingDialogue,
+    DisplayingDialogueWaitingForUserInput,
     FadingDialogueOut,
     Finished
 }
