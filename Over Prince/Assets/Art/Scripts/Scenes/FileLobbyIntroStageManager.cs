@@ -12,6 +12,12 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
     public CameraZoom cameraZoom;
     public CameraFollow cameraFollow;
     public DialogueManager dialogueManager;
+    public CinematicFrameManager cinematicFrameManager;
+    public InstructionManager instructionManager;
+
+    private struct FileLobbyIntroStageManagerConstants {
+        public const float dialogueDelay = 1.0f;
+    }
 
     public void Start() {
         base.Start();
@@ -56,14 +62,24 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
                 protagLyingAnimator.SetTrigger(Constants.AnimationKeys.Start);
                 break;
             case FileLobbyIntroStageState.Dialogue:
-                dialogueManager.DisplayDialogues(DialogueConstants.FieldLobbyIntro.PartOne.dialogues);
+                cinematicFrameManager.ExitFrames();
+                StartCoroutine(DelayedAction(FileLobbyIntroStageManagerConstants.dialogueDelay, () => {
+                    musicInfoManager.DisplayMusicInfo();
+                    dialogueManager.DisplayDialogues(DialogueConstants.FieldLobbyIntro.PartOne.dialogues);
+                }));
                 break;
             case FileLobbyIntroStageState.IntroduceControls:
-                player.GetComponent<PlayerController>().state = PlayerControllerState.Active;
+                player.GetComponent<PlayerController>().SetControlsActive(true);
                 cameraFollow.enabled = true;
                 cameraFollow.active = true;
+                instructionManager.DisplayInstructions(InstructionConstants.ControlInstructions.GetInstructionsBasedOnDevice());
                 break;
         }
+    }
+
+    private IEnumerator DelayedAction(float delay, System.Action action) {
+        yield return new WaitForSeconds(delay);
+        action();
     }
 }
 

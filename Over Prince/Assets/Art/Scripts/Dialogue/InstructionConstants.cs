@@ -1,0 +1,28 @@
+using UnityEngine;
+
+public static class InstructionConstants {
+    public const float instructionFadeTime = 0.5f;
+    public static Instruction ControlInstructions = new Instruction("Touch Screen to Move", "Use Arrow Keys to Move", "Use Left Stick to Move");
+}
+
+public class Instruction {
+    public string mobile;
+    public string pc;
+    public string console;
+
+    public Instruction(string mobile, string pc, string console) {
+        this.mobile = mobile;
+        this.pc = pc;
+        this.console = console;
+    }
+
+    public string GetInstructionsBasedOnDevice() {
+        return SystemInfo.deviceType switch
+        {
+            DeviceType.Handheld => mobile,
+            DeviceType.Desktop => pc,
+            DeviceType.Console => console,
+            _ => pc,
+        };
+    }
+}

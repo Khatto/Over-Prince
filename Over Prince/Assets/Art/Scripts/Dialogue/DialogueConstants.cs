@@ -76,8 +76,8 @@ public static class DialogueConstants {
         public static class PartOne {
             public static Dialogue[] dialogues = {
                 new Dialogue("Waking up back here... Again...", "Music/Song_Name", 0),
-                new Dialogue($"Feels pointless to look for another {CommonFormattedTerms.Elevator}...", "Music/Song_Name", 0),
-                new Dialogue("When I'll just end up back here, AGAIN...", "Music/Song_Name", 0),
+                new Dialogue($"Should I look for another {CommonFormattedTerms.Elevator}?", "Music/Song_Name", 0),
+                new Dialogue("For what though? When I'll probably just end up back here, AGAIN...", "Music/Song_Name", 0),
                 new Dialogue("But what else is there to do?", "Music/Song_Name", 0),
             };
         }

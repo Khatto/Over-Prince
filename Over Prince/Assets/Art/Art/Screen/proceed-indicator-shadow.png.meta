@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 37c3907f6d4ea41158868582ed090f44
+guid: 4ccf285bfd5ff40998a2576309664a32
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4625653053273784360
-    second: proceed-indicator_0
+      213: -1435739415052163885
+    second: proceed-indicator-shadow_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: proceed-indicator_0
+      name: proceed-indicator-shadow_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 57
-        height: 36
+        width: 67
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 820c596b1fe913040800000000000000
-      internalID: 4625653053273784360
+      spriteID: 3d4e9cfdb9a331ce0800000000000000
+      internalID: -1435739415052163885
       vertices: []
       indices: 
       edges: []

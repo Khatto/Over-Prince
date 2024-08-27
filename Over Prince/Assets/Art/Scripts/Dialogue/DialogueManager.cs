@@ -1,9 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using UnityEditor;
-using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
 
 public class DialogueManager : MonoBehaviour
@@ -20,6 +17,9 @@ public class DialogueManager : MonoBehaviour
     public InputActionAsset actions;
     private InputAction proceedInputAction;
     public Fade proceedIndicatorFade;
+    public SpriteRenderer proceedIndicatorSpriteRenderer;
+    public MoveBackAndForth proceedIndicatorMovement;
+    public Fade proceedIndicatorShadowFade;
 
     public static class DialogueManagerConstants 
     {
@@ -35,6 +35,10 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueTextShadow.SetupShadowText();
         SetupInputActions();
+        if (proceedIndicatorFade != null) {
+            proceedIndicatorSpriteRenderer = proceedIndicatorFade.GetComponent<SpriteRenderer>();
+            proceedIndicatorMovement = proceedIndicatorFade.GetComponent<MoveBackAndForth>();
+        }
     }
 
     public void SetupInputActions() {
@@ -116,6 +120,12 @@ public class DialogueManager : MonoBehaviour
         {
             DisplayNextQueuedDialogue();
         }
+        if (state == DialogueState.Finished)
+        {
+            proceedIndicatorMovement.active = false;
+            proceedIndicatorFade.StartFadeWithTime(FadeType.FadeOut, DialogueManagerConstants.dialogueFadeTime);
+            proceedIndicatorShadowFade.StartFadeWithTime(FadeType.FadeOut, DialogueManagerConstants.dialogueFadeTime);
+        }
     }
 
     private IEnumerator DisplayProceedIndicatorAfterFadeIn()
@@ -123,6 +133,8 @@ public class DialogueManager : MonoBehaviour
         yield return new WaitForSeconds(DialogueManagerConstants.dialogueFadeTime);
         if (proceedIndicatorFade != null) {
             proceedIndicatorFade.StartFadeWithTime(FadeType.FadeIn, DialogueManagerConstants.dialogueFadeTime);
+            proceedIndicatorShadowFade.StartFadeWithTime(FadeType.FadeIn, DialogueManagerConstants.dialogueFadeTime);
+            proceedIndicatorMovement.active = true;
         }
         state = DialogueState.DisplayingDialogueWaitingForUserInput;
     }
@@ -139,7 +151,8 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueTextShadow.StartFadeWithTime(fadeType, DialogueManagerConstants.dialogueFadeTime);
         if (proceedIndicatorFade != null) {
-            proceedIndicatorFade.StartFadeWithTime(FadeType.FadeOut, DialogueManagerConstants.dialogueFadeTime);
+            proceedIndicatorFade.StartFadeWithTime(fadeType, DialogueManagerConstants.dialogueFadeTime);
+            proceedIndicatorShadowFade.StartFadeWithTime(fadeType, DialogueManagerConstants.dialogueFadeTime);
         }
     }
 
@@ -187,6 +200,12 @@ public class DialogueManager : MonoBehaviour
             dialogueDefaultPosition.y - ((dialogueTextShadow.textInfo.lineCount % 2) * dialogueTextShadow.fontSize)
         );
         dialogueTextShadow.SetDialoguePositionBasedOnLines(newPosition);
+        SetProceedIndicatorPosition();
+    }
+
+    private void SetProceedIndicatorPosition() {
+        Vector3 dialoguePosition = Camera.main.ScreenToWorldPoint(dialogueTextShadow.rectTransform.position);
+        proceedIndicatorFade.transform.position = new Vector2(proceedIndicatorFade.transform.position.x, dialoguePosition.y - (proceedIndicatorSpriteRenderer.size.y * proceedIndicatorSpriteRenderer.transform.localScale.y / 2.0f));
     }
 
     private void SetupDialogueBackground() {

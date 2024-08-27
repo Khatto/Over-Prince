@@ -4,9 +4,7 @@ public class AutoAlign : MonoBehaviour
 {
     public VerticalAlignment verticalAlignment = VerticalAlignment.Center;
     public HorizontalAlignment horizontalAlignment = HorizontalAlignment.Center;
-
     public float verticalPadding = 0;
-
     public bool continuousAdjustment = false;
 
     void Start()
@@ -26,7 +24,7 @@ public class AutoAlign : MonoBehaviour
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null) {
-            float spriteHeight = spriteRenderer.size.y;
+            float spriteHeight = spriteRenderer.size.y * spriteRenderer.transform.localScale.y;
             float spriteY = transform.position.y;
             float spriteTop = spriteY + spriteHeight / 2;
             float spriteBottom = spriteY - spriteHeight / 2;

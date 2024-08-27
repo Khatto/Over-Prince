@@ -1,0 +1,33 @@
+using UnityEngine;
+
+public class CinematicFrameManager : MonoBehaviour
+{
+    public SpriteRenderer topFrame;
+    private SimpleMovement topFrameMovement;
+    private AutoScale topFrameAutoScale;
+    private AutoAlign topFrameAutoAlign;
+    public SpriteRenderer bottomFrame;
+    private SimpleMovement bottomFrameMovement;
+    private AutoScale bottomFrameAutoScale;
+    private AutoAlign bottomFrameAutoAlign;
+
+    public void Start() {
+        topFrameMovement = topFrame.GetComponent<SimpleMovement>();
+        topFrameAutoScale = topFrame.GetComponent<AutoScale>();
+        bottomFrameMovement = bottomFrame.GetComponent<SimpleMovement>();
+        bottomFrameAutoScale = bottomFrame.GetComponent<AutoScale>();
+        topFrameAutoAlign = topFrame.GetComponent<AutoAlign>();
+        bottomFrameAutoAlign = bottomFrame.GetComponent<AutoAlign>();
+    }
+    public void ExitFrames() {
+        Debug.Log("Exiting Frames");
+        topFrameMovement.SetMovementDelta(new Vector2(0, (topFrame.size.y * topFrame.transform.localScale.y)));
+        topFrameAutoScale.scaleUpdateFrequency = ScaleUpdateFrequency.None;
+        topFrameAutoAlign.continuousAdjustment = false;
+        topFrameMovement.Move();
+        bottomFrameMovement.SetMovementDelta(new Vector2(0, -(bottomFrame.size.y * bottomFrame.transform.localScale.y)));
+        bottomFrameAutoScale.scaleUpdateFrequency = ScaleUpdateFrequency.None;
+        bottomFrameAutoAlign.continuousAdjustment = false;
+        bottomFrameMovement.Move();
+    }
+}

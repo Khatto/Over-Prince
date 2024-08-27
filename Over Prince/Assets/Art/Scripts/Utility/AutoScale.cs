@@ -3,16 +3,26 @@ using UnityEngine.UIElements;
 
 public class AutoScale : MonoBehaviour
 {
-    public bool matchViewportWidth = false;
-    public bool matchViewportHeight = false;
-
+    public AutoScaleHorizontalMode autoScaleHorizontalMode = AutoScaleHorizontalMode.None;
+    public AutoScalVerticalMode autoScaleVerticalMode = AutoScalVerticalMode.None;
     public bool useBaseHeight = false;
     public float baseHeight;
-    public bool continuouslyScale = false;
+    public ScaleUpdateFrequency scaleUpdateFrequency = ScaleUpdateFrequency.OnStart;
 
-    private void Start()
-    {
-        if (continuouslyScale)
+    public float verticalHeightPercentage = 1;
+    public float horizontalHeightPercentage = 1;
+    public float horizontalScalePadding = 0;
+    public float verticalScalePadding = 0;
+
+    public void Start() {
+        if (scaleUpdateFrequency == ScaleUpdateFrequency.OnStart)
+        {
+            SetScale();
+        }
+    }
+
+    public void Update() {
+        if (scaleUpdateFrequency == ScaleUpdateFrequency.OnUpdate)
         {
             SetScale();
         }
@@ -23,14 +33,47 @@ public class AutoScale : MonoBehaviour
         if (spriteRenderer != null)
         {
             float worldScreenHeight = (useBaseHeight ? baseHeight : Camera.main.orthographicSize) * 2.0f;
-            
-            if (matchViewportWidth) {
-                float worldScreenWidth = worldScreenHeight * Camera.main.aspect;
-                transform.localScale = new Vector3(worldScreenWidth / spriteRenderer.size.x, transform.localScale.y, transform.localScale.z);
+
+            switch (autoScaleHorizontalMode)
+            {
+                case AutoScaleHorizontalMode.MatchViewportWidth:
+                    float worldScreenWidth = worldScreenHeight * Camera.main.aspect;
+                    transform.localScale = new Vector3(worldScreenWidth / spriteRenderer.size.x + horizontalScalePadding, transform.localScale.y, transform.localScale.z);
+                    break;
+                case AutoScaleHorizontalMode.MatchViewportWidthPercentage:
+                    float worldScreenWidthPercentage = worldScreenHeight * Camera.main.aspect * horizontalHeightPercentage;
+                    transform.localScale = new Vector3(worldScreenWidthPercentage / spriteRenderer.size.x + horizontalScalePadding, transform.localScale.y, transform.localScale.z);
+                    break;
             }
-            if (matchViewportHeight) {
-                transform.localScale = new Vector3(transform.localScale.x, worldScreenHeight / spriteRenderer.size.y, transform.localScale.z);
+
+            switch (autoScaleVerticalMode)
+            {
+                case AutoScalVerticalMode.MatchViewportHeight:
+                    transform.localScale = new Vector3(transform.localScale.x, worldScreenHeight / spriteRenderer.size.y + verticalScalePadding, transform.localScale.z);
+                    break;
+                case AutoScalVerticalMode.MatchViewportHeightPercentage:
+                    float worldScreenHeightPercentage = worldScreenHeight * verticalHeightPercentage;
+                    transform.localScale = new Vector3(transform.localScale.x, worldScreenHeightPercentage / spriteRenderer.size.y + verticalScalePadding, transform.localScale.z);
+                    break;
             }
         }
     }
+}
+
+public enum AutoScaleHorizontalMode {
+    None,
+    MatchViewportWidth,
+    MatchViewportWidthPercentage
+}
+
+public enum AutoScalVerticalMode {
+    None,
+    MatchViewportHeight,
+    MatchViewportHeightPercentage
+}
+
+public enum ScaleUpdateFrequency {
+    None,
+    OnStart,
+    OnUpdate
 }

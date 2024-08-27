@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MovableCharacterController, IHurtableCharacterController
 {
-
     public bool testMoveSpeed = false;
 
     internal static class PlayerControllerConstants {
@@ -19,6 +18,8 @@ public class PlayerController : MovableCharacterController, IHurtableCharacterCo
             internal const string Attack4 = "attack4";
             internal const string TestAction = "testAction";
         }
+        internal static float joystickSprintThreshold = 0.75f;
+        internal static float joystickFadeTime = 0.5f;
     }
     private Player player;
 
@@ -36,12 +37,19 @@ public class PlayerController : MovableCharacterController, IHurtableCharacterCo
 
     public PlayerControllerState state = PlayerControllerState.Inactive;
 
+    public Gamepad gamepad;
+
+    public Canvas touchControlsCanvas;
+    public Fade joystickBackgroundFade;
+    public Fade joystickKnobFade;
+
     void Start()
     {
         SetupActions();
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         player = GetComponent<Player>();
+        gamepad = Gamepad.current;
     }
 
     void FixedUpdate()
@@ -54,7 +62,6 @@ public class PlayerController : MovableCharacterController, IHurtableCharacterCo
                 rigidBody.MovePosition(rigidBody.position + moveVector * (testMoveSpeed ? moveSpeed : PlayerConstants.GetMoveSpeed(player.state)) * Time.fixedDeltaTime);
             }
         }
-        
     }
 
     void SetupActions() {
@@ -77,6 +84,18 @@ public class PlayerController : MovableCharacterController, IHurtableCharacterCo
         testAction.performed += OnTestButtonPressed;
     }
 
+    public void SetControlsActive(bool active) {
+        state = active ? PlayerControllerState.Active : PlayerControllerState.Inactive;
+        if (active && SystemInfo.deviceType == DeviceType.Handheld) {
+            touchControlsCanvas.enabled = true;
+            joystickBackgroundFade.StartFade(FadeType.FadeIn);
+            joystickKnobFade.StartFade(FadeType.FadeIn);
+        } else if (!active) {
+            joystickBackgroundFade.StartFadeWithTime(FadeType.FadeOut, PlayerControllerConstants.joystickFadeTime, () => touchControlsCanvas.enabled = false);
+            joystickKnobFade.StartFadeWithTime(FadeType.FadeOut, PlayerControllerConstants.joystickFadeTime);
+        }
+    }
+
     void UpdateSpriteFromMovement(Vector2 moveVector) {
         // TODO: (Performance) Check if it's more performant to only transform if we've changed our moveVector speed, or every method call
         if (player.state != CharacterState.Attacking) {
@@ -84,8 +103,7 @@ public class PlayerController : MovableCharacterController, IHurtableCharacterCo
                 transform.localScale = transform.localScale.FlippedHorizontally();
             }
             if (moveVector != Vector2.zero) {
-                float isSprinting = sprintAction.ReadValue<float>();
-                player.state = (CharacterState) 1 + (Mathf.Abs(isSprinting) > 0.0f ? 1 : 0);
+                player.state = (CharacterState) 1 + (DeterminePlayerSprinting() > 0.0f ? 1 : 0);
                 animator.SetInteger(Constants.AnimationKeys.MoveSpeed, (int) player.state);
             } else {
                 player.state = CharacterState.Idle;
@@ -121,6 +139,25 @@ public class PlayerController : MovableCharacterController, IHurtableCharacterCo
     public void EnterHitStun(float hitStunFrames)
     {
         throw new NotImplementedException();
+    }
+
+    private float DeterminePlayerSprinting() {
+        float isSprinting = Mathf.Abs(sprintAction.ReadValue<float>()) > 0.0f ? 1 : 0;
+        if (gamepad != null && SystemInfo.deviceType == DeviceType.Handheld) {
+            isSprinting = 
+            Mathf.Abs(gamepad.leftStick.ReadValue().x) >= PlayerControllerConstants.joystickSprintThreshold ||
+            Mathf.Abs(gamepad.leftStick.ReadValue().y) >= PlayerControllerConstants.joystickSprintThreshold
+            ? 1.0f : 0.0f;
+        }
+        #if UNITY_EDITOR
+        if (gamepad != null && isSprinting == 0.0f) {
+            isSprinting = 
+            Mathf.Abs(gamepad.leftStick.ReadValue().x) >= PlayerControllerConstants.joystickSprintThreshold ||
+            Mathf.Abs(gamepad.leftStick.ReadValue().y) >= PlayerControllerConstants.joystickSprintThreshold
+            ? 1.0f : 0.0f;
+        }
+        #endif
+        return isSprinting;
     }
 }
 
