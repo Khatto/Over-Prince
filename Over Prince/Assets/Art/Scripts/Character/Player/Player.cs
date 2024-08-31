@@ -2,19 +2,29 @@ using UnityEngine;
 
 public class Player : Character
 {
-    public Attack[] attacks = new Attack[] {
-        AttackData.GetAttackByAttackID(AttackID.Jab),
-    };
-
     public override void Start()
     {
         Setup();
+        SetupAttacks();
+        SetupHP();
     }
 
     void Setup() {
         base.Start();
         animator = GetComponent<Animator>();
         attackManager = GetComponent<AttackManager>();
+    }
+
+    void SetupAttacks() {
+        attacks = new Attack[] {
+            AttackData.GetAttackByAttackID(AttackID.Jab),
+        };
+    }
+
+    void SetupHP() {
+        hpBar = GameObject.FindGameObjectWithTag(Constants.TagKeys.PlayerHPBar).GetComponent<HPBar>();
+        stats = new CharacterStats(20, 0, 0);
+        hpBar.Setup(stats.maxHP);
     }
 
     public void InitiateAttack(int attackIndex) {

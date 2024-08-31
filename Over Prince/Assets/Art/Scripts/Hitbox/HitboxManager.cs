@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -8,7 +9,7 @@ using UnityEngine;
 /// </summary>
 public class HitboxManager : MonoBehaviour
 {
-
+    public bool displayLogs = false;
     public Hit hit;
     public HitboxState state = HitboxState.Startup;
     public SpriteRenderer spriteRenderer;
@@ -24,19 +25,19 @@ public class HitboxManager : MonoBehaviour
 
     private Color startUpColor {
         get {
-            return displayHitbox ? new Color(0, 1, 0, 1.0f) : Constants.Colors.transparent;
+            return displayHitbox ? Constants.Colors.hitboxStartUpColor : Constants.Colors.transparent;
         }
     }
 
     private Color activeColor {
         get {
-            return displayHitbox ? new Color(1, 0, 0, 1.0f) : Constants.Colors.transparent;
+            return displayHitbox ? Constants.Colors.hitboxActiveColor : Constants.Colors.transparent;
         }
     }
 
     private Color coolDownColor {
         get {
-            return displayHitbox ? new Color(0, 0, 1, 1.0f) : Constants.Colors.transparent;
+            return displayHitbox ? Constants.Colors.hitboxCoolDownColor : Constants.Colors.transparent;
         }
     }
 
@@ -74,11 +75,14 @@ public class HitboxManager : MonoBehaviour
 
     void FixedUpdate()
     {
+        timer += Time.deltaTime;
         switch (state) {
             case HitboxState.Startup:
             {
-                timer += Time.deltaTime;
-                Log("Hitbox is in Startup State: " + Time.time);
+                if (displayLogs) {
+                    Debug.Log("Hit Startup Frames: " + hit.startupFrames + " Hit total Frames: " + hit.totalFrames + " Hit Active Frames: " + hit.activeFrames);
+                    Debug.Log("Hitbox is in Startup State: " + Time.time + " and the computed startup frames is: " + computedStartupFrames);
+                }
                 if (timer >= computedStartupFrames) {
                     SetState(HitboxState.Active);
                 }
@@ -86,8 +90,9 @@ public class HitboxManager : MonoBehaviour
             }
             case HitboxState.Active:
             {
-                Log("Hitbox is in Active State: " + Time.time);
-                timer += Time.deltaTime;
+                if (displayLogs) {
+                    Debug.Log("Hitbox is in Active State: " + Time.time + " and the computed active frames is: " + computedActiveFrames);
+                }
                 if (timer >= computedActiveFrames) {
                     SetState(HitboxState.CoolDown);
                 }
@@ -95,8 +100,9 @@ public class HitboxManager : MonoBehaviour
             }
             case HitboxState.CoolDown:
             {
-                Log("Hitbox is in CoolDown State: " + Time.time);
-                timer += Time.deltaTime;
+                if (displayLogs) {
+                    Debug.Log("Hitbox is in CoolDown State: " + Time.time + " and the computed cool down frames is: " + computedCoolDownFrames);
+                }
                 if (timer >= hit.totalFrames / Constants.targetFPS) {
                     SetState(HitboxState.Finished);
                 }
@@ -107,7 +113,9 @@ public class HitboxManager : MonoBehaviour
     }
 
     void SetState(HitboxState state) {
-        Log("==== Setting Hitbox State to: " + state.ToString() + " at " + Time.time + " ====");
+        if (displayLogs) {
+            Debug.Log("==== Setting Hitbox State to: " + state.ToString() + " at " + Time.time + " ====");
+        }
         switch (state) {
             case HitboxState.Startup:
             {

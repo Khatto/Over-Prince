@@ -1,5 +1,4 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,10 +6,10 @@ public class PlayerController : MovableCharacterController, IHurtableCharacterCo
 {
     public bool testMoveSpeed = false;
 
-    internal static class PlayerControllerConstants {
-        internal static class InputKeyNames {
+    public static class PlayerControllerConstants {
+        public static class InputKeyNames {
             internal const string PlayerInputActionMapName = "playerInput";
-            internal const string Move = "move";
+            public const string Move = "move";
             internal const string Sprint = "sprint";
             internal const string Attack1 = "attack1";
             internal const string Attack2 = "attack2";

@@ -6,15 +6,20 @@ using UnityEngine;
 public class Character : MonoBehaviour {
 
     public Animator animator;
+    public SpriteRenderer spriteRenderer; // Is this too much responsibility for the Character class?
     public Rigidbody2D rigidBody;
     public CharacterState state = CharacterState.Idle;
     public AttackManager attackManager;
     public MovableCharacterController controller;
     public IHurtableCharacterController hurtableController;
+    public Attack[] attacks = new Attack[] {};
+    public HPBar hpBar;
+    public CharacterStats stats = new CharacterStats(1, 0, 0);
 
     public virtual void Start() {
         hurtableController = GetComponent<IHurtableCharacterController>();
         rigidBody = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public virtual void EnterState(CharacterState state) {
@@ -22,7 +27,7 @@ public class Character : MonoBehaviour {
     }
 
     public bool CanBeHit() {
-        return state != CharacterState.Dead && state != CharacterState.HitStun && state != CharacterState.Invulnerable;
+        return state != CharacterState.Dying && state != CharacterState.HitStun && state != CharacterState.Invulnerable;
     }
 
     /// <summary>
@@ -32,10 +37,24 @@ public class Character : MonoBehaviour {
     public void ApplyHit(Hit hit, Constants.Direction direction) {
         if (CanBeHit()) {
             EnterState(CharacterState.HitStun);
-            rigidBody.linearVelocity = Vector2.zero;
+            UpdateHP(hit.damage);
+            rigidBody.linearVelocity = Vector3.zero;
+            rigidBody.angularVelocity = 0.0f;
             rigidBody.AddForce(CalculateHitVector(hit, direction), ForceMode2D.Impulse);
             hurtableController.EnterHitStun(hit.hitStunFrames / Constants.targetFPS);
         }
+    }
+
+    public void UpdateHP(int damage) {
+        stats.currentHP -= damage;
+        if (stats.currentHP < 0) {
+            stats.currentHP = 0;
+        }
+        hpBar.ChangeHP(-damage);
+        if (stats.currentHP <= 0) {
+            EnterState(CharacterState.Dying);
+        }
+        
     }
 
     public Vector2 CalculateHitVector(Hit hit, Constants.Direction direction) {
@@ -45,5 +64,4 @@ public class Character : MonoBehaviour {
     public Constants.Direction GetDirection() {
         return transform.localScale.x >= 0 ? Constants.Direction.Right : Constants.Direction.Left;
     }
-
 }

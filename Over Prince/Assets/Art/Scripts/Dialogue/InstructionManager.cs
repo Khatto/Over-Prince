@@ -21,6 +21,12 @@ public class InstructionManager : MonoBehaviour
         StartCoroutine(DisplayInstructions());
     }
 
+    public void HideInstructions()
+    {
+        state = InstructionManagerState.FadingOut;
+        StartCoroutine(FadeOutInstructions());
+    }
+
     private IEnumerator DisplayInstructions()
     {
         instructionText.StartFadeWithTime(FadeType.FadeIn, InstructionConstants.instructionFadeTime);
@@ -31,6 +37,7 @@ public class InstructionManager : MonoBehaviour
 
     private IEnumerator FadeOutInstructions()
     {
+        instructionChangeColor.StopChangingColor();
         instructionText.StartFadeWithTime(FadeType.FadeOut, InstructionConstants.instructionFadeTime);
         yield return new WaitForSeconds(InstructionConstants.instructionFadeTime);
         state = InstructionManagerState.Finished;
@@ -41,7 +48,6 @@ public enum InstructionManagerState
 {
     NotStarted,
     FadingIn,
-    Waiting,
     WaitingForUserInput,
     FadingOut,
     Finished

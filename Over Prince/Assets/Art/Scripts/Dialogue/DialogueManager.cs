@@ -49,6 +49,7 @@ public class DialogueManager : MonoBehaviour
     public void InputPressedDuringDialogue(InputAction.CallbackContext context) {
         if (state == DialogueState.DisplayingDialogueWaitingForUserInput) {
             DisplayNextQueuedDialogue();
+            SoundManager.instance.PlaySound(SoundType.Confirm);
         }
     }
 

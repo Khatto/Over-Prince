@@ -186,7 +186,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      floating-joystick-knob_0: -7647994459355095164
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

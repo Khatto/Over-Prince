@@ -33,4 +33,13 @@ public class AttackManager : MonoBehaviour
         float xOffset = attack.hitbox.xOffset * (transform.localScale.x > 0 ? 1 : -1);
         return new Vector3(transform.position.x + xOffset , transform.position.y + attack.hitbox.yOffset, 0);
     }
+
+    public void DestroyInterruptibleHitboxes() {
+        HitboxManager[] hitboxes = GetComponentsInChildren<HitboxManager>();
+        foreach (HitboxManager hitbox in hitboxes) {
+            if (hitbox.hit.isInterruptible) {
+                Destroy(hitbox.gameObject);
+            }
+        }
+    }
 }

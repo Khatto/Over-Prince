@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -10,25 +11,33 @@ public class EnemyController : MovableCharacterController, IHurtableCharacterCon
     public Collider2D targetCollider;
     public float minDistanceFromTarget = 0.09f;
     private Enemy enemy;
+    private Vector2 defaultScale;
     private float hitStunTimer;
     private float hitStunDuration;
+    private SpriteRenderer spriteRenderer;
+    private Animator animator;
 
     void Start() {
         rigidBody = GetComponent<Rigidbody2D>();
         collider2D = GetComponent<Collider2D>();
         targetCollider = target.GetComponent<Collider2D>();
-        moveSpeed = EnemyConstants.GetMoveSpeedForEnemy(GetComponent<Enemy>().enemyID);
         enemy = GetComponent<Enemy>();
+        moveSpeed = EnemyConstants.GetMoveSpeedForEnemy(enemy.enemyID);
+        defaultScale = EnemyConstants.GetScaleForEnemy(enemy.enemyID);
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+        transform.localScale = EnemyConstants.GetScaleForEnemy(EnemyID.TriangleSlime);
     }
 
     void FixedUpdate()
     {
-        if (enemy.state != CharacterState.HitStun && enemy.state != CharacterState.Dead) {
+        if (enemy.state != CharacterState.HitStun && enemy.state != CharacterState.Dying) {
             LinearlyMoveTowardsTarget();
         }
         if (enemy.state == CharacterState.HitStun) {
             hitStunTimer += Time.fixedDeltaTime;
             if (hitStunTimer >= hitStunDuration) {
+                animator.SetTrigger(Constants.AnimationKeys.RecoverFromHurt);
                 enemy.EnterState(CharacterState.Idle);
                 hitStunTimer = 0;
             }
@@ -41,13 +50,33 @@ public class EnemyController : MovableCharacterController, IHurtableCharacterCon
     void LinearlyMoveTowardsTarget()
     {   
         bool isTouchingTarget = collider2D.IsTouching(targetCollider);
-        if (!isTouchingTarget && Vector3.Distance(target.transform.position, rigidBody.transform.position) > minDistanceFromTarget)
+        if (!isTouchingTarget && !WithinTargetRange() && enemy.state != CharacterState.HitStun)
         {
             Vector3 direction = (target.transform.position - rigidBody.transform.position).normalized;
             Vector3 moveVector = direction * moveSpeed * Time.fixedDeltaTime;
             moveVector.y *= Constants.verticalMovementModifier;
             rigidBody.MovePosition(rigidBody.transform.position + moveVector);
+            if (moveVector.x > 0)
+            {
+                rigidBody.transform.localScale = new Vector3(defaultScale.x, defaultScale.y, 1);
+            }
+            else if (moveVector.x < 0)
+            {
+                rigidBody.transform.localScale = new Vector3(-defaultScale.x, defaultScale.y, 1);
+            }
+            animator.SetFloat("moveSpeed", moveVector.magnitude);
+        } else {
+            animator.SetFloat("moveSpeed", 0);
         }
+        if (WithinTargetRange() || isTouchingTarget)
+        {
+            enemy.DetermineAndPerformAttack();
+        }
+    }
+
+    public bool WithinTargetRange()
+    {
+        return Vector3.Distance(target.transform.position, rigidBody.transform.position) <= minDistanceFromTarget;
     }
 
     /// <summary>
@@ -57,7 +86,7 @@ public class EnemyController : MovableCharacterController, IHurtableCharacterCon
     public void EnterHitStun(float hitStunDuration)
     {
         this.hitStunDuration = hitStunDuration;
-        Debug.Log("Enemy hitstun entered for " + hitStunDuration + " seconds.");
+        animator.SetTrigger(Constants.AnimationKeys.Hurt);
+        enemy.attackManager.DestroyInterruptibleHitboxes();
     }
-    
 }

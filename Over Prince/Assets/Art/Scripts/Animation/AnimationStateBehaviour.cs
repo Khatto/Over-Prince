@@ -9,6 +9,6 @@ public class AnimationStateBehaviour : StateMachineBehaviour
     
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.gameObject.GetComponent<Player>().EnterState(stateToTransitionToOnEnter);
+        animator.gameObject.GetComponent<Character>().EnterState(stateToTransitionToOnEnter);
     }
 }

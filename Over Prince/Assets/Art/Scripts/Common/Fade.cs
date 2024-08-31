@@ -67,94 +67,59 @@ public class Fade : MonoBehaviour
         active = true;
     }
 
-    private void FadeIn () {
+    private Color GetColor () {
         if (textMeshPro != null) {
-            Color color = textMeshPro.color;
-            color.a = Mathf.Lerp(startColor.a, 1, (Time.time - startTime) / fadeTime);
-            textMeshPro.color = color;
-            if (color.a == 1.0f) {
-                FinishedFadeAction();
-            }
+            return textMeshPro.color;
         }
         if (spriteRenderer != null) {
-            Color color = spriteRenderer.color;
-            color.a = Mathf.Lerp(startColor.a, 1, (Time.time - startTime) / fadeTime);
-            spriteRenderer.color = color;
-            if (color.a == 1.0f) {
-                FinishedFadeAction();
-            }
+            return spriteRenderer.color;
         }
         if (image != null) {
-            Color color = image.color;
-            color.a = Mathf.Lerp(startColor.a, 1, (Time.time - startTime) / fadeTime);
+            return image.color;
+        }
+        return Color.white;
+    }
+
+    private void SetColor(Color color) {
+        if (textMeshPro != null) {
+            textMeshPro.color = color;
+        }
+        if (spriteRenderer != null) {
+            spriteRenderer.color = color;
+        }
+        if (image != null) {
             image.color = color;
-            if (color.a == 1.0f) {
-                FinishedFadeAction();
-            }
+        }
+    }
+
+    private void FadeIn () {
+        Color color = GetColor();
+        color.a = Mathf.Lerp(startColor.a, useTargetAlpha ? targetAlpha : 1, (Time.time - startTime) / fadeTime);
+        SetColor(color);
+        if (color.a == (useTargetAlpha ? targetAlpha : 1.0f)) {
+            FinishedFadeAction();
         }
     }
 
     private void FadeOut () {
-        if (textMeshPro != null) {
-            Color color = textMeshPro.color;
-            color.a = Mathf.Lerp(startColor.a, 0, (Time.time - startTime) / fadeTime);
-            textMeshPro.color = color;
-            if (color.a == 0.0f) {
-                FinishedFadeAction();
-            }
-        }
-        if (spriteRenderer != null) {
-            Color color = spriteRenderer.color;
-            color.a = Mathf.Lerp(startColor.a, 0, (Time.time - startTime) / fadeTime);
-            spriteRenderer.color = color;
-            if (color.a == 0.0f) {
-                FinishedFadeAction();
-            }
-        }
-        if (image != null) {
-            Color color = image.color;
-            color.a = Mathf.Lerp(startColor.a, 0, (Time.time - startTime) / fadeTime);
-            image.color = color;
-            if (color.a == 0.0f) {
-                FinishedFadeAction();
-            }
+        Color color = GetColor();
+        color.a = Mathf.Lerp(startColor.a, useTargetAlpha ? targetAlpha : 0, (Time.time - startTime) / fadeTime);
+        SetColor(color);
+        if (color.a == (useTargetAlpha ? targetAlpha : 0.0f)) {
+            FinishedFadeAction();
         }
     }
 
     private void FadeInFadeOut () {
-        if (textMeshPro != null) {
-            Color color = textMeshPro.color;
-            color.a = Mathf.PingPong(Time.time, fadeTime);
-            textMeshPro.color = color;
-        }
-        if (spriteRenderer != null) {
-            Color color = spriteRenderer.color;
-            color.a = Mathf.PingPong(Time.time, fadeTime);
-            spriteRenderer.color = color;
-        }
-        if (image != null) {
-            Color color = image.color;
-            color.a = Mathf.PingPong(Time.time, fadeTime);
-            image.color = color;
-        }
+        Color color = GetColor();
+        color.a = Mathf.PingPong(Time.time, fadeTime);
+        SetColor(color);
     }
 
     private void FlashInThenFadeOut () {
-        if (textMeshPro != null) {
-            Color color = textMeshPro.color;
-            color.a = 1.0f;
-            textMeshPro.color = color;
-        }
-        if (spriteRenderer != null) {
-            Color color = spriteRenderer.color;
-            color.a = 1.0f;
-            spriteRenderer.color = color;
-        }
-        if (image != null) {
-            Color color = image.color;
-            color.a = 1.0f;
-            image.color = color;
-        }
+        Color color = GetColor();
+        color.a = 1.0f;
+        SetColor(color);
         StartFade(FadeType.FadeOut);
     }
 

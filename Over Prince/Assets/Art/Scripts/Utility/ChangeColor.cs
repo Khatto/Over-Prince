@@ -28,6 +28,20 @@ public class ChangeColor : MonoBehaviour
         }
     }
 
+    public void SetColorThenChange(Color color)
+    {
+        initialColor = color;
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = color;
+        }
+        if (text != null)
+        {
+            text.color = color;
+        }
+        StartChangingColor();
+    }
+
     public void StartChangingColor()
     {
         startTime = Time.time;
@@ -73,36 +87,6 @@ public class ChangeColor : MonoBehaviour
         }
     }
 
-    private IEnumerator TransitionColor(Color color)
-    {
-        while (Time.time - startTime < transitionDuration)
-        {
-            if (spriteRenderer != null) 
-            {
-                spriteRenderer.color = Color.Lerp(changeColorDirection == ChangeColorDirection.Forward ? initialColor : targetColor, color, (Time.time - startTime) / transitionDuration);
-            }
-            if (text != null) 
-            {
-                text.color = Color.Lerp(changeColorDirection == ChangeColorDirection.Forward ? initialColor : targetColor, color, (Time.time - startTime) / transitionDuration);
-            }
-            yield return null;
-        }
-
-        if (spriteRenderer != null) 
-        {
-            spriteRenderer.color = color;
-        }
-        if (text != null) 
-        {
-            text.color = color;
-        }
-
-        if (changeColorMode == ChangeColorMode.ChangeColorBackAndForth)
-        {
-            SwitchColorDirection();
-        }
-    }
-
     public void SwitchColorDirection()
     {
         startTime = Time.time;
@@ -126,6 +110,7 @@ public class ChangeColor : MonoBehaviour
     public void StopChangingColor()
     {
         StopAllCoroutines();
+        changeColorMode = ChangeColorMode.None;
     }
 }
 

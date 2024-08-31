@@ -40,6 +40,16 @@ public static class AttackData {
         new Hitbox(1.01f, 1.19f)
     );
 
+    private static Attack TriangleSlimeSlam = new Attack(
+        AttackID.TriangleSlimeSlam,
+        "TriangleSlimeSlam", 
+        AttackTrigger.Single, 
+        new Hit[] {
+            new(40, 21, 15, 35, 3, 3, 0.0f, new Vector2(200.0f, 0))
+        },
+        new Hitbox(1.06f, 1.56f, 1.5f, 1.5f)
+    );
+
     public static Attack GetAttackByAttackID(AttackID attackID) {
         switch (attackID) {
             case AttackID.Jab:
@@ -53,6 +63,10 @@ public static class AttackData {
             case AttackID.Jab3:
             {
                 return Jab3;
+            }
+            case AttackID.TriangleSlimeSlam:
+            {
+                return TriangleSlimeSlam;
             }
             default:
             {
@@ -89,11 +103,12 @@ public class Hit {
     public int activeFrames;
     public int cancelleableFrame;
     public int hitStunFrames;
-    public float damage;
+    public int damage;
     public float knockdownPower;
     public Vector2 knockback;
+    public bool isInterruptible = false;
 
-    public Hit(int totalFrames, int startupFrames, int activeFrames, int cancelleableFrame, int hitStunFrames, float damage, float knockdownPower, Vector2 knockback) {
+    public Hit(int totalFrames, int startupFrames, int activeFrames, int cancelleableFrame, int hitStunFrames, int damage, float knockdownPower, Vector2 knockback, bool isInterruptible = true) {
         this.totalFrames = totalFrames;
         this.startupFrames = startupFrames;
         this.activeFrames = activeFrames;
@@ -102,6 +117,7 @@ public class Hit {
         this.damage = damage;
         this.knockdownPower = knockdownPower;
         this.knockback = knockback;
+        this.isInterruptible = isInterruptible;
     }
 }
 
@@ -121,5 +137,6 @@ public enum AttackState {
 public enum AttackID {
     Jab = 1,
     Jab2 = 2,
-    Jab3 = 3
+    Jab3 = 3,
+    TriangleSlimeSlam = 4
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public static class InstructionConstants {
     public const float instructionFadeTime = 0.5f;
-    public static Instruction ControlInstructions = new Instruction("Touch Screen to Move", "Use Arrow Keys to Move", "Use Left Stick to Move");
+    public static Instruction ControlInstructions = new Instruction("Touch Screen to Explore", "Use Arrow Keys to Explore", "Use Left Stick to Explore");
 }
 
 public class Instruction {
