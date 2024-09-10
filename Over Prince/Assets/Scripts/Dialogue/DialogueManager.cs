@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
     public DialogueState state = DialogueState.NotStarted;
     public DialogueDisplayMode dialogueDisplayMode = DialogueDisplayMode.Single;
     public Vector2 dialogueDefaultPosition = new Vector2(0.0f, 0.0f);
+    public float dialogueDoubleLineVerticalOffset = 0.0f;
     public SpriteRenderer dialogueBackground;
     public bool useDialogueBackground = false;
 
@@ -58,9 +59,11 @@ public class DialogueManager : MonoBehaviour
     /// </summary>
     public void DisplayDialogues(Dialogue[] dialogues)
     {
-        state = DialogueState.NotStarted;
+        Reset();
+        //state = DialogueState.NotStarted;
         dialogueDisplayMode = DialogueDisplayMode.Sequence;
         dialogueSequence = new Queue<Dialogue>(dialogues);
+        //proceedIndicatorFade.gameObject.transform.localPosition = Vector2.zero;
         if (useDialogueBackground) {
             SetupDialogueBackground();
         }
@@ -197,12 +200,14 @@ public class DialogueManager : MonoBehaviour
     /// </summary>
     private void SetDialoguePositionBasedOnLines() 
     {
+        int lineCount = dialogueTextShadow.textInfo.lineCount;
+        float verticalOffset = (lineCount % 2) * dialogueTextShadow.fontSize;
         Vector2 newPosition = new Vector2(
             dialogueTextShadow.rectTransform.anchoredPosition.x, // TODO: Determine if we want to use 
-            dialogueDefaultPosition.y - ((dialogueTextShadow.textInfo.lineCount % 2) * dialogueTextShadow.fontSize)
+            dialogueDefaultPosition.y - verticalOffset + (lineCount > 1 ? dialogueDoubleLineVerticalOffset : 0)
         );
         dialogueTextShadow.SetDialoguePositionBasedOnLines(newPosition);
-        SetProceedIndicatorPosition();
+        //SetProceedIndicatorPosition();
     }
 
     private void SetProceedIndicatorPosition() {
@@ -215,6 +220,13 @@ public class DialogueManager : MonoBehaviour
         dialogueBackground.GetComponent<AutoAlign>().AdjustVerticalAlignment();
         dialogueBackground.GetComponent<AutoScale>().SetScale();
         dialogueBackground.GetComponent<Fade>().StartFadeWithTime(FadeType.FadeIn, DialogueManagerConstants.dialogueFadeTime);
+    }
+
+    // TODO - Make this automatic?
+    public void Reset() {
+        state = DialogueState.NotStarted;
+        proceedIndicatorMovement.StopMovement();
+        proceedIndicatorFade.transform.localPosition = Vector2.zero;
     }
 
     private void OnEnable()

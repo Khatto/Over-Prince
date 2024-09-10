@@ -8,6 +8,12 @@ public static class DialogueConstants {
         public static string Elevator = $"<color={Colors.elevatorColor}>Elevator</color>";
     }
 
+    public static class TestDialogue {
+            public static Dialogue[] dialogues = {
+                new Dialogue($"Test!", "Music/Song_Name", 0.1f)
+            };
+        }
+
     public static float TotalDialogueTime(Dialogue[] dialogues, float dialogueFadeTime) {
         float total = 0.0f;
         foreach (Dialogue dialogue in dialogues) {
@@ -82,9 +88,14 @@ public static class DialogueConstants {
             };
         }
 
-        public static class BattleIntroDialogue {
+        public static class BattleIntroDialoguePartOne {
             public static Dialogue[] dialogues = {
                 new Dialogue("Wait... I see a Monster!", "Music/Song_Name", 0),
+            };
+        }
+
+        public static class BattleIntroDialoguePartTwo {
+            public static Dialogue[] dialogues = {
                 new Dialogue("And it looks off guard!  I should sneak up and take it out!", "Music/Song_Name", 0),
             };
         }

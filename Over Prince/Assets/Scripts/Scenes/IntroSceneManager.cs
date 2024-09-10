@@ -292,7 +292,7 @@ public class IntroSceneManager : MonoBehaviour
 
     IEnumerator FadeToNextScene(float delayTime) {
         yield return new WaitForSeconds(delayTime);
-        UnityEngine.SceneManagement.SceneManager.LoadScene("FileLobbyIntroStageScene"); // TODO
+        UnityEngine.SceneManagement.SceneManager.LoadScene("FileLobbyIntroStageScene"); // TODO 
     }
 }
 

@@ -23,6 +23,7 @@ public class InstructionManager : MonoBehaviour
 
     public void HideInstructions()
     {
+        Debug.Log("Hide instructions!");
         state = InstructionManagerState.FadingOut;
         StartCoroutine(FadeOutInstructions());
     }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UIElements.Experimental;
 
 public class SimpleMovement : MonoBehaviour
@@ -19,7 +20,7 @@ public class SimpleMovement : MonoBehaviour
         float timeElapsed = 0;
         state = SimpleMovementState.Moving;
 
-        while (timeElapsed <= duration) {
+        while (timeElapsed <= duration && state == SimpleMovementState.Moving) {
             transform.position = Vector2.Lerp(startPosition, endPosition, easingFunction(timeElapsed / duration));
             yield return null;
             timeElapsed += Time.deltaTime;
@@ -53,6 +54,10 @@ public class SimpleMovement : MonoBehaviour
         this.movementTime = movementTime;
         this.movementDelta = movementDelta;
         this.easingFunction = easingFunction;
+    }
+    
+    public void StopMovement() {
+        state = SimpleMovementState.NotMoving;
     }
 }
 

@@ -393,7 +393,7 @@ Transform:
   m_GameObject: {fileID: 75031207}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.88, y: -2.71, z: 0}
+  m_LocalPosition: {x: 2.88, y: -2.71, z: 0}
   m_LocalScale: {x: 1, y: 6.44, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1004,6 +1004,7 @@ MonoBehaviour:
   state: 0
   dialogueDisplayMode: 0
   dialogueDefaultPosition: {x: 0, y: -330}
+  dialogueDoubleLineVerticalOffset: 20
   dialogueBackground: {fileID: 1905448051}
   useDialogueBackground: 1
   actions: {fileID: -944628639613478452, guid: 64b0cd6f4af934cf5afd1087ebceeaff, type: 3}
@@ -1112,7 +1113,7 @@ Transform:
   m_GameObject: {fileID: 391349196}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.75, y: -4.04, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1273,9 +1274,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   verticalAlignment: 2
-  horizontalAlignment: 2
-  verticalPadding: 1
-  horizontalPadding: 1
+  horizontalAlignment: 1
+  verticalPadding: 0.5
+  horizontalPadding: 0
   continuouslyAdjustVertical: 1
   continuouslyAdjustHorizontal: 1
   adjustOnStart: 0
@@ -1433,7 +1434,7 @@ MonoBehaviour:
   textMeshPro: {fileID: 0}
   spriteRenderer: {fileID: 0}
   image: {fileID: 0}
-  active: 1
+  active: 0
   fadeType: 2
   targetAlpha: 0
   useTargetAlpha: 0
@@ -1483,7 +1484,7 @@ SpriteRenderer:
   m_SortingLayer: 6
   m_SortingOrder: 1
   m_Sprite: {fileID: -1435739415052163885, guid: 4ccf285bfd5ff40998a2576309664a32, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4093,7 +4094,7 @@ MonoBehaviour:
   fadeType: 2
   targetAlpha: 0
   useTargetAlpha: 0
-  fadeTime: 1
+  fadeTime: 0.5
 --- !u!114 &1344698603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15107,7 +15108,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -330}
+  m_AnchoredPosition: {x: 0, y: -310}
   m_SizeDelta: {x: 1600, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1894502803

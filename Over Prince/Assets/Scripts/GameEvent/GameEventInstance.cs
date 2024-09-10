@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class GameEventManager : MonoBehaviour
+public class GameEventInstance : MonoBehaviour
 {
-    public GameEventManagerState state = GameEventManagerState.NotStarted;
+    public GameEventInstanceState state = GameEventInstanceState.NotStarted;
     public GameEvent gameEvent;
     public GameplayScene gameplayScene;
     public IGameEventListener gameEventListener;
@@ -15,15 +15,15 @@ public class GameEventManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (state != GameEventManagerState.Finished && other.CompareTag("Player"))
+        if (state != GameEventInstanceState.Finished && other.CompareTag("Player"))
         {
             gameEventListener.OnGameEvent(gameEvent);
-            state = GameEventManagerState.Finished;
+            state = GameEventInstanceState.Finished;
         }
     }
 }
 
-public enum GameEventManagerState {
+public enum GameEventInstanceState {
     NotStarted,
     Active,
     Finished

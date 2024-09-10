@@ -22,6 +22,8 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
 
     private struct FileLobbyIntroStageManagerConstants {
         public const float dialogueDelay = 1.0f;
+        public const float panCameraToMonsterDelay = 0.5f;
+        public const float panCameraToMonsterThreshold = 0.1f;
     }
 
     public override void Start() {
@@ -43,8 +45,20 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
                     PerformSceneAction(FileLobbyIntroStageState.NavigateToMonster);
                 }
                 break;
-            case FileLobbyIntroStageState.BattleIntroScene:
+            case FileLobbyIntroStageState.BattleIntroSceneWaitForDialogueCompletion:
                 if (dialogueManager.state == DialogueState.Finished) {
+                    // dialogueManager.Reset(); // TODO - Test if this is a better (cleaner) place than in the PerformSceneAction(BattleIntroScene)
+                    PerformSceneAction(FileLobbyIntroStageState.PanCameraToMonster);
+                }
+                break;
+            case FileLobbyIntroStageState.PanCameraToMonster:
+                if (Mathf.Abs(Camera.main.transform.position.x - firstTriangleEnemy.transform.position.x) <= FileLobbyIntroStageManagerConstants.panCameraToMonsterThreshold) {
+                    PerformSceneAction(FileLobbyIntroStageState.ExplainBattle);
+                }
+                break;
+            case FileLobbyIntroStageState.ExplainBattle:            
+                if (dialogueManager.state == DialogueState.Finished) {
+                    dialogueManager.Reset();
                     PerformSceneAction(FileLobbyIntroStageState.BattleTutorial);
                 }
                 break;
@@ -81,6 +95,7 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
                 StartCoroutine(DelayedAction(FileLobbyIntroStageManagerConstants.dialogueDelay, () => {
                     musicInfoManager.DisplayMusicInfo();
                     dialogueManager.DisplayDialogues(DialogueConstants.FieldLobbyIntro.PartOne.dialogues);
+                    //dialogueManager.DisplayDialogues(DialogueConstants.TestDialogue.dialogues);
                 }));
                 break;
             case FileLobbyIntroStageState.IntroduceControls:
@@ -99,13 +114,16 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
                 mapProceedIndicator.GetComponent<Fade>().StartFade(FadeType.FadeOut);
                 break;
             case FileLobbyIntroStageState.BattleIntroScene:
-                cameraFollow.followSpeed = 0.01f; // TODO from SHOWCASE
-                cinematicFrameManager.SetFramesToFollowContinuously();
-                cinematicFrameManager.EnterFrames();
+                dialogueManager.Reset();
                 playerController.StopMovement();
                 playerController.enabled = false;
-                cameraFollow.target = firstTriangleEnemy.transform;
-                dialogueManager.DisplayDialogues(DialogueConstants.FieldLobbyIntro.BattleIntroDialogue.dialogues);
+                StartCoroutine(BattleIntroScene());
+                break;
+            case FileLobbyIntroStageState.PanCameraToMonster:
+                StartCoroutine(PanCameraToMonster());
+                break;
+            case FileLobbyIntroStageState.ExplainBattle:
+                dialogueManager.DisplayDialogues(DialogueConstants.FieldLobbyIntro.BattleIntroDialoguePartTwo.dialogues);
                 break;
             case FileLobbyIntroStageState.BattleTutorial:
                 playerController.enabled = true;
@@ -117,6 +135,24 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
                 cinematicFrameManager.ExitFrames();
                 break;
         }
+    }
+
+    public IEnumerator PanCameraToMonster() {
+        yield return new WaitForSeconds(FileLobbyIntroStageManagerConstants.panCameraToMonsterDelay);
+        cameraFollow.followSpeed = 0.05f;
+        cameraFollow.target = firstTriangleEnemy.transform;
+        cameraFollow.enabled = true;
+        cameraFollow.active = true;
+    }
+
+    public IEnumerator BattleIntroScene() {
+        float cinematicFrameManagerMovementTime = cinematicFrameManager.GetMovementTime();
+        yield return new WaitForSeconds(cinematicFrameManagerMovementTime * 0.5f);
+        cinematicFrameManager.EnterFrames();
+        yield return new WaitForSeconds(cinematicFrameManagerMovementTime);
+        dialogueManager.DisplayDialogues(DialogueConstants.FieldLobbyIntro.BattleIntroDialoguePartOne.dialogues);
+        yield return new WaitForSeconds(DialogueManager.DialogueManagerConstants.dialogueFadeTime);
+        PerformSceneAction(FileLobbyIntroStageState.BattleIntroSceneWaitForDialogueCompletion);
     }
 
     private IEnumerator DelayedAction(float delay, System.Action action) {
@@ -138,5 +174,8 @@ public enum FileLobbyIntroStageState {
     IntroduceControls,
     NavigateToMonster,
     BattleIntroScene,
+    BattleIntroSceneWaitForDialogueCompletion,
+    PanCameraToMonster,
+    ExplainBattle,
     BattleTutorial
 }

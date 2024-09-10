@@ -59,7 +59,11 @@ public class ChangeColor : MonoBehaviour
 
     private IEnumerator TransitionColor(Color initialColor, Color targetColor)
     {
-        while (Time.time - startTime < transitionDuration)
+        if (changeColorMode == ChangeColorMode.None)
+        {
+            yield break;
+        }
+        while (Time.time - startTime < transitionDuration && changeColorMode != ChangeColorMode.None)
         {
             if (spriteRenderer != null) 
             {
@@ -89,6 +93,9 @@ public class ChangeColor : MonoBehaviour
 
     public void SwitchColorDirection()
     {
+        if (changeColorMode == ChangeColorMode.None) {
+            return;
+        }
         startTime = Time.time;
         if (changeColorDirection == ChangeColorDirection.Forward)
         {
@@ -98,7 +105,7 @@ public class ChangeColor : MonoBehaviour
         else if (changeColorDirection == ChangeColorDirection.Backward)
         {
             changeColorDirection = ChangeColorDirection.Forward;
-            StartCoroutine(TransitionColor(initialColor, targetColor));
+            StartCoroutine(TransitionColor(targetColor, initialColor));
         }
     }
 

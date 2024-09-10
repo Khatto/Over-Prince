@@ -47,4 +47,8 @@ public class CinematicFrameManager : MonoBehaviour
         bottomFrameAutoAlign.continuouslyAdjustVertical = true;
         bottomFrameAutoAlign.continuouslyAdjustHorizontal = true;
     }
+
+    public float GetMovementTime() {
+        return topFrameMovement.movementTime;
+    }
 }

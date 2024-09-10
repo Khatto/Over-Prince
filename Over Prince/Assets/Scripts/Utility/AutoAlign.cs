@@ -10,6 +10,8 @@ public class AutoAlign : MonoBehaviour
     public bool continuouslyAdjustHorizontal = false;
     public bool adjustOnStart = true;
 
+    public bool displayLogs = false;
+
     void Start()
     {
         if (adjustOnStart)
@@ -31,18 +33,19 @@ public class AutoAlign : MonoBehaviour
         }
     }
 
+    // TODO - Clean all this messy code up
     public void AdjustVerticalAlignment()
     {
+        float cameraHeight = Camera.main.orthographicSize * 2;
+        float cameraTop = Camera.main.transform.position.y + cameraHeight / 2;
+        float cameraBottom = Camera.main.transform.position.y - cameraHeight / 2;
+        float yOffset = 0;
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null) {
             float spriteHeight = spriteRenderer.size.y * spriteRenderer.transform.localScale.y;
             float spriteY = transform.position.y;
             float spriteTop = spriteY + spriteHeight / 2;
             float spriteBottom = spriteY - spriteHeight / 2;
-            float cameraHeight = Camera.main.orthographicSize * 2;
-            float cameraTop = Camera.main.transform.position.y + cameraHeight / 2;
-            float cameraBottom = Camera.main.transform.position.y - cameraHeight / 2;
-            float yOffset = 0;
             switch (verticalAlignment)
             {
                 case VerticalAlignment.Top:
@@ -55,22 +58,36 @@ public class AutoAlign : MonoBehaviour
                     yOffset = cameraBottom - spriteBottom;
                     break;
             }
-            transform.position = new Vector3(transform.position.x, transform.position.y + yOffset + verticalPadding, transform.position.z);
+        } else {
+            switch (verticalAlignment)
+            {
+                case VerticalAlignment.Top:
+                    yOffset = cameraTop - transform.position.y;
+                    break;
+                case VerticalAlignment.Center:
+                    yOffset = (cameraTop + cameraBottom) / 2 - transform.position.y;
+                    break;
+                case VerticalAlignment.Bottom:
+                    yOffset = cameraBottom - transform.position.y;
+                    break;
+            }
         }
+        transform.position = new Vector3(transform.position.x, transform.position.y + yOffset + verticalPadding, transform.position.z);
     }
 
+    // TODO - Clean all this messy code up
     public void AdjustHorizontalAlignment()
     {
+        float cameraWidth = Camera.main.aspect * Camera.main.orthographicSize * 2;
+        float cameraLeft = Camera.main.transform.position.x - cameraWidth / 2;
+        float cameraRight = Camera.main.transform.position.x + cameraWidth / 2;
+        float xOffset = 0;
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null) {
             float spriteWidth = spriteRenderer.size.x * spriteRenderer.transform.localScale.x;
             float spriteX = transform.position.x;
             float spriteLeft = spriteX - spriteWidth / 2;
             float spriteRight = spriteX + spriteWidth / 2;
-            float cameraWidth = Camera.main.aspect * Camera.main.orthographicSize * 2;
-            float cameraLeft = Camera.main.transform.position.x - cameraWidth / 2;
-            float cameraRight = Camera.main.transform.position.x + cameraWidth / 2;
-            float xOffset = 0;
             switch (horizontalAlignment)
             {
                 case HorizontalAlignment.Left:
@@ -84,6 +101,21 @@ public class AutoAlign : MonoBehaviour
                     break;
             }
             transform.position = new Vector3(transform.position.x + xOffset + horizontalPadding, transform.position.y, transform.position.z);
+        } else {
+            switch (horizontalAlignment)
+            {
+                
+                case HorizontalAlignment.Left:
+                    xOffset = cameraLeft - transform.position.x;
+                    break;
+                case HorizontalAlignment.Center:
+                    transform.position = new Vector3(Camera.main.transform.position.x + horizontalPadding, transform.position.y, transform.position.z);
+                    Debug.Log("Camera.main.transform.position.x: " + Camera.main.transform.position.x);
+                    break;
+                case HorizontalAlignment.Right:
+                    xOffset = cameraRight - transform.position.x;
+                    break;
+            }
         }
     }
 }

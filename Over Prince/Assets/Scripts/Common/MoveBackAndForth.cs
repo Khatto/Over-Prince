@@ -34,4 +34,14 @@ public class MoveBackAndForth : MonoBehaviour
         simpleMovement.movementDelta = -simpleMovement.movementDelta;
         simpleMovement.Move();
     }
+
+    public void StartMovement() {
+        active = true;
+        simpleMovement.Move();
+    }
+
+    public void StopMovement() {
+        active = false;
+        simpleMovement.StopMovement();
+    }
 }
