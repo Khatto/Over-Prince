@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -13,6 +14,8 @@ public class EnemyController : MovableCharacterController, IHurtableCharacterCon
     private Enemy enemy;
     private Vector2 defaultScale;
     private Animator animator;
+    public bool tutorial = false;
+    public ArrayList uniqueActions = new ArrayList();
 
     void Start() {
         rigidBody = GetComponent<Rigidbody2D>();
@@ -45,6 +48,10 @@ public class EnemyController : MovableCharacterController, IHurtableCharacterCon
             enemy.EnterState(CharacterState.Idle);
             hitStunTimer = 0;
             Debug.Log("Enemy is no longer in HitStun at time: " + Time.time);
+            if (uniqueActions.Contains(SpecialCharacterAction.FaceCharacterAfterHitStun)) {
+                FaceTarget();
+                uniqueActions.Remove(SpecialCharacterAction.FaceCharacterAfterHitStun);
+            }
         }
     }
 
@@ -103,5 +110,27 @@ public class EnemyController : MovableCharacterController, IHurtableCharacterCon
         this.hitStunDuration = hitStunDuration;
         animator.SetTrigger(Constants.AnimationKeys.Hurt);
         enemy.attackManager.DestroyInterruptibleHitboxes();
+    }
+
+    public override void PerformUniqueAction(SpecialCharacterAction action) {
+        switch (action) {
+            case SpecialCharacterAction.FaceCharacterAfterHitStun:
+                if (hitStunTimer >= 0) {
+                    uniqueActions.Add(SpecialCharacterAction.FaceCharacterAfterHitStun);
+                } else {
+                    FaceTarget();
+                    uniqueActions.Remove(SpecialCharacterAction.FaceCharacterAfterHitStun);
+                }
+                break;
+        }
+    }
+
+    private void FaceTarget() {
+        Debug.Log(name + " is facing the target.");
+        if (target.position.x >= transform.position.x) {
+            transform.localScale = new Vector3(defaultScale.x, defaultScale.y, 1);
+        } else {
+            transform.localScale = new Vector3(-defaultScale.x, defaultScale.y, 1);
+        }
     }
 }

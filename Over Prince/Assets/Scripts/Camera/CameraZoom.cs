@@ -26,6 +26,13 @@ public class CameraZoom : MonoBehaviour {
         );
     }
 
+    public void SetZoomAndStart(float startSize, float endSize, float duration) {
+        cameraStartSize = startSize;
+        cameraEndSize = endSize;
+        zoomDuration = duration;
+        StartZoom();
+    }
+
     public void StartZoom() {
         if (!zooming) {
             zooming = true;

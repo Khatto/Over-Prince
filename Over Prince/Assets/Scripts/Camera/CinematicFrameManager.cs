@@ -20,7 +20,7 @@ public class CinematicFrameManager : MonoBehaviour
         bottomFrameAutoAlign = bottomFrame.GetComponent<AutoAlign>();
     }
     public void ExitFrames() {
-        topFrameMovement.SetMovementDelta(new Vector2(0, (topFrame.size.y * topFrame.transform.localScale.y)));
+        topFrameMovement.SetMovementDelta(new Vector2(0, topFrame.size.y * topFrame.transform.localScale.y));
         topFrameAutoScale.scaleUpdateFrequency = ScaleUpdateFrequency.None;
         topFrameAutoAlign.continuouslyAdjustVertical = false;
         topFrameMovement.Move();
@@ -32,11 +32,11 @@ public class CinematicFrameManager : MonoBehaviour
 
     public void EnterFrames() {
         topFrameMovement.SetMovementDelta(new Vector2(0, -(topFrame.size.y * topFrame.transform.localScale.y) + 0.1f));
-        topFrameAutoScale.scaleUpdateFrequency = ScaleUpdateFrequency.None;
+        topFrameAutoScale.scaleUpdateFrequency = ScaleUpdateFrequency.OnUpdate;
         topFrameAutoAlign.continuouslyAdjustVertical = false;
         topFrameMovement.Move();
         bottomFrameMovement.SetMovementDelta(new Vector2(0, (bottomFrame.size.y * bottomFrame.transform.localScale.y) - 0.1f));
-        bottomFrameAutoScale.scaleUpdateFrequency = ScaleUpdateFrequency.None;
+        bottomFrameAutoScale.scaleUpdateFrequency = ScaleUpdateFrequency.OnUpdate;
         bottomFrameAutoAlign.continuouslyAdjustVertical = false;
         bottomFrameMovement.Move();
     }

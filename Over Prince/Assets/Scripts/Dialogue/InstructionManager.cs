@@ -23,7 +23,6 @@ public class InstructionManager : MonoBehaviour
 
     public void HideInstructions()
     {
-        Debug.Log("Hide instructions!");
         state = InstructionManagerState.FadingOut;
         StartCoroutine(FadeOutInstructions());
     }
@@ -32,7 +31,7 @@ public class InstructionManager : MonoBehaviour
     {
         instructionText.StartFadeWithTime(FadeType.FadeIn, InstructionConstants.instructionFadeTime);
         yield return new WaitForSeconds(InstructionConstants.instructionFadeTime);
-        instructionChangeColor.StartChangingColor();
+        instructionChangeColor.StartChangingColorWithMode(ChangeColorMode.ChangeColorBackAndForth);
         state = InstructionManagerState.WaitingForUserInput;
     }
 

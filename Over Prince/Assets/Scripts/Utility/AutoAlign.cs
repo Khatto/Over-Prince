@@ -110,7 +110,6 @@ public class AutoAlign : MonoBehaviour
                     break;
                 case HorizontalAlignment.Center:
                     transform.position = new Vector3(Camera.main.transform.position.x + horizontalPadding, transform.position.y, transform.position.z);
-                    Debug.Log("Camera.main.transform.position.x: " + Camera.main.transform.position.x);
                     break;
                 case HorizontalAlignment.Right:
                     xOffset = cameraRight - transform.position.x;

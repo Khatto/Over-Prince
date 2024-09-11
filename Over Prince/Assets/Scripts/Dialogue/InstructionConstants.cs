@@ -4,7 +4,7 @@ public static class InstructionConstants {
     public const float instructionFadeTime = 0.5f;
     public static Instruction ControlInstructions = new Instruction("Touch Screen to Explore", "Use Arrow Keys to Explore", "Use Left Stick to Explore");
 
-    public static Instruction BasicAttackInstruction = new Instruction("Tap this Button to Attack", "Press Z to Attack", "Press A to Attack");
+    public static Instruction BasicAttackInstruction = new Instruction("Tap this Button to Attack the Monster!", "Press Z to Attack the Monster!", "Press A to Attack the Monster!");
 }
 
 public class Instruction {

@@ -393,7 +393,7 @@ Transform:
   m_GameObject: {fileID: 75031207}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.88, y: -2.71, z: 0}
+  m_LocalPosition: {x: 13.7, y: -2.71, z: 0}
   m_LocalScale: {x: 1, y: 6.44, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -786,6 +786,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &171638412
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 171638413}
+  - component: {fileID: 171638414}
+  m_Layer: 0
+  m_Name: BattleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &171638413
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171638412}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1627217070}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &171638414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171638412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f5c8c61dec4c4e85ae5d5861010143f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battleState: 0
 --- !u!1 &171749377
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,6 +1142,7 @@ GameObject:
   - component: {fileID: 391349199}
   - component: {fileID: 391349201}
   - component: {fileID: 391349200}
+  - component: {fileID: 391349202}
   m_Layer: 0
   m_Name: Proceed Indicator
   m_TagString: Untagged
@@ -1228,6 +1274,27 @@ MonoBehaviour:
   active: 0
   totalDuration: 1
   simpleMovement: {fileID: 0}
+--- !u!114 &391349202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391349196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8341713f235ed4b71819025663a5c4c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoScaleHorizontalMode: 2
+  autoScaleVerticalMode: 2
+  useBaseHeight: 0
+  baseHeight: 0
+  scaleUpdateFrequency: 2
+  verticalHeightPercentage: 0.03
+  horizontalHeightPercentage: 0.03
+  horizontalScalePadding: 0
+  verticalScalePadding: 0
 --- !u!1 &402403029
 GameObject:
   m_ObjectHideFlags: 0
@@ -1280,6 +1347,7 @@ MonoBehaviour:
   continuouslyAdjustVertical: 1
   continuouslyAdjustHorizontal: 1
   adjustOnStart: 0
+  displayLogs: 0
 --- !u!1 &455842812
 GameObject:
   m_ObjectHideFlags: 0
@@ -1607,13 +1675,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1054317149694608800, guid: e4d9b8f7a4ced43c8bbf42e2997c0b11, type: 3}
+      propertyPath: hurtboxTriggerListenerObject
+      value: 
+      objectReference: {fileID: 1273645366}
     - target: {fileID: 1969316263929478620, guid: e4d9b8f7a4ced43c8bbf42e2997c0b11, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1969316263929478620, guid: e4d9b8f7a4ced43c8bbf42e2997c0b11, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.85
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1969316263929478620, guid: e4d9b8f7a4ced43c8bbf42e2997c0b11, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1662,6 +1734,10 @@ PrefabInstance:
     - target: {fileID: 7492214010600238616, guid: e4d9b8f7a4ced43c8bbf42e2997c0b11, type: 3}
       propertyPath: state
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7492214010600238616, guid: e4d9b8f7a4ced43c8bbf42e2997c0b11, type: 3}
+      propertyPath: specialBattleType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8381588706018263494, guid: e4d9b8f7a4ced43c8bbf42e2997c0b11, type: 3}
       propertyPath: target
@@ -2596,7 +2672,7 @@ Transform:
   m_GameObject: {fileID: 862862784}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 36.1, y: -2.73, z: 0}
+  m_LocalPosition: {x: 36, y: -2.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2696,6 +2772,7 @@ MonoBehaviour:
   continuouslyAdjustVertical: 1
   continuouslyAdjustHorizontal: 1
   adjustOnStart: 1
+  displayLogs: 0
 --- !u!114 &868842264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2713,7 +2790,7 @@ MonoBehaviour:
   useBaseHeight: 0
   baseHeight: 0
   scaleUpdateFrequency: 2
-  verticalHeightPercentage: 0.15
+  verticalHeightPercentage: 0.18
   horizontalHeightPercentage: 1
   horizontalScalePadding: 1
   verticalScalePadding: 0
@@ -2782,7 +2859,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.625, z: 1}
+  m_LocalScale: {x: 1, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1060172728}
@@ -3434,6 +3511,7 @@ MonoBehaviour:
   continuouslyAdjustVertical: 1
   continuouslyAdjustHorizontal: 1
   adjustOnStart: 1
+  displayLogs: 0
 --- !u!114 &1162973158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3451,7 +3529,7 @@ MonoBehaviour:
   useBaseHeight: 0
   baseHeight: 0
   scaleUpdateFrequency: 2
-  verticalHeightPercentage: 0.15
+  verticalHeightPercentage: 0.18
   horizontalHeightPercentage: 1
   horizontalScalePadding: 1
   verticalScalePadding: 0
@@ -3520,7 +3598,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.625, z: 1}
+  m_LocalScale: {x: 1, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1060172728}
@@ -3747,7 +3825,7 @@ Transform:
   m_GameObject: {fileID: 1269768974}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.46, y: -2.73, z: 0}
+  m_LocalPosition: {x: 22.44, y: -2.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3867,6 +3945,7 @@ MonoBehaviour:
   dialogueManager: {fileID: 340764444}
   cinematicFrameManager: {fileID: 1060172729}
   instructionManager: {fileID: 1435567037}
+  battleManager: {fileID: 171638414}
   mapProceedIndicator: {fileID: 1276293569}
   actions: {fileID: -944628639613478452, guid: 64b0cd6f4af934cf5afd1087ebceeaff, type: 3}
   firstTriangleEnemy: {fileID: 860057461}
@@ -3995,9 +4074,10 @@ MonoBehaviour:
   horizontalAlignment: 2
   verticalPadding: 0
   horizontalPadding: -0.44
-  continuouslyAdjustVertical: 0
+  continuouslyAdjustVertical: 1
   continuouslyAdjustHorizontal: 1
   adjustOnStart: 0
+  displayLogs: 0
 --- !u!114 &1276293573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5015,6 +5095,7 @@ Transform:
   - {fileID: 1273645367}
   - {fileID: 95279679}
   - {fileID: 538687935}
+  - {fileID: 171638413}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1640589254
@@ -15210,7 +15291,7 @@ Transform:
   m_GameObject: {fileID: 1894502803}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0, z: -0.9917944, w: -0.12784366}
-  m_LocalPosition: {x: 10.31, y: 5.3, z: 0}
+  m_LocalPosition: {x: 10.31, y: 6.27, z: 0}
   m_LocalScale: {x: 1.48, y: 1.48, z: 7.3999996}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -15347,6 +15428,7 @@ MonoBehaviour:
   continuouslyAdjustVertical: 0
   continuouslyAdjustHorizontal: 0
   adjustOnStart: 1
+  displayLogs: 0
 --- !u!114 &1905448053
 MonoBehaviour:
   m_ObjectHideFlags: 0

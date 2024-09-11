@@ -3,6 +3,7 @@ using UnityEngine;
 public class Enemy : Character
 {
     public EnemyID enemyID = EnemyID.TestEnemy;
+    public SpecialCharacterType specialBattleType = SpecialCharacterType.None;
 
     public override void Start()
     {
@@ -34,6 +35,9 @@ public class Enemy : Character
         {
             case CharacterState.Idle:
                 spriteRenderer.color = Color.white;
+                if (specialBattleType == SpecialCharacterType.IntroTutorial) {
+                    PerformUniqueAction(SpecialCharacterAction.FaceCharacterAfterHitStun);
+                }
                 break;
             case CharacterState.Attacking:
                 break;
@@ -84,4 +88,18 @@ public class Enemy : Character
         Destroy(gameObject);
     }
 
+    public void PerformUniqueAction(SpecialCharacterAction action) {
+        switch (action) {
+            case SpecialCharacterAction.FaceCharacterAfterHitStun:
+                EnterState(CharacterState.Disengaged);
+                GetComponent<EnemyController>().PerformUniqueAction(action);
+                break;
+        }
+    }
+
+    public void StartBattle() {
+        EnterState(CharacterState.Idle);
+        hpBar.DisplayHPBar();
+    }
 }
+

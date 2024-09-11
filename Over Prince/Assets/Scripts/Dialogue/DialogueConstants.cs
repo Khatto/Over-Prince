@@ -96,9 +96,17 @@ public static class DialogueConstants {
 
         public static class BattleIntroDialoguePartTwo {
             public static Dialogue[] dialogues = {
-                new Dialogue("And it looks off guard!  I should sneak up and take it out!", "Music/Song_Name", 0),
+                new Dialogue("They're dangerous, but it looks off guard...", "Music/Song_Name", 0),
+                new Dialogue("I should sneak up and take it out!", "Music/Song_Name", 0),
+            };
+        }
+
+        public static class BattlePostEnemyHit {
+            public static Dialogue[] dialogues = {
+                new Dialogue("Uh oh...  It's angry now.", "Music/Song_Name", 0),
+                new Dialogue("I need to take it out before it takes ME out!", "Music/Song_Name", 0),
             };
         }
     }
 
-}
+} 

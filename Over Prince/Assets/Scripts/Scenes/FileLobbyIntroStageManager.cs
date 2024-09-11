@@ -1,8 +1,9 @@
 using System.Collections;
+using System.IO;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
+public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener, IHurtboxTriggerListener
 {
     public FileLobbyIntroStageState fileLobbyState = FileLobbyIntroStageState.StandingUp;
     public GameObject player;
@@ -13,6 +14,7 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
     public DialogueManager dialogueManager;
     public CinematicFrameManager cinematicFrameManager;
     public InstructionManager instructionManager;
+    public BattleManager battleManager;
     public SpriteRenderer mapProceedIndicator;
 
     public InputActionAsset actions;
@@ -22,14 +24,19 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
 
     private struct FileLobbyIntroStageManagerConstants {
         public const float dialogueDelay = 1.0f;
-        public const float panCameraToMonsterDelay = 0.5f;
-        public const float panCameraToMonsterThreshold = 0.1f;
+        public const float panCameraDelay = 0.5f;
+        public const float panCameraDuration = 0.5f;
+        public const float panCameraToTargetThreshold = 0.1f;
+
+        public const float panCameraToMonsterCameraZoomStartSize = 5.0f;
+        public const float panCameraToMonsterCameraZoomEndSize = 3.69f;
     }
 
     public override void Start() {
         base.Start();
         cameraZoom.StartZoom();
         moveAction = actions.FindActionMap(PlayerController.PlayerControllerConstants.InputKeyNames.PlayerInputActionMapName).FindAction(PlayerController.PlayerControllerConstants.InputKeyNames.Move);
+        firstTriangleEnemy.GetComponentInChildren<HurtboxManager>().SetListener(this);
     }
 
     public override void Update() {
@@ -41,7 +48,7 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
                 }
                 break;
             case FileLobbyIntroStageState.IntroduceControls:
-                if (Mathf.Abs(moveAction.ReadValue<Vector2>().y) > 0 || Mathf.Abs(moveAction.ReadValue<Vector2>().x) > 0) {
+                if (PlayerIsMoving()) {
                     PerformSceneAction(FileLobbyIntroStageState.NavigateToMonster);
                 }
                 break;
@@ -52,13 +59,20 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
                 }
                 break;
             case FileLobbyIntroStageState.PanCameraToMonster:
-                if (Mathf.Abs(Camera.main.transform.position.x - firstTriangleEnemy.transform.position.x) <= FileLobbyIntroStageManagerConstants.panCameraToMonsterThreshold) {
+                //if (Mathf.Abs(Camera.main.transform.position.x - firstTriangleEnemy.transform.position.x) <= FileLobbyIntroStageManagerConstants.panCameraToTargetThreshold) {
+                if (WithinPanCameraToTargetThreshold(firstTriangleEnemy.transform)) {
                     PerformSceneAction(FileLobbyIntroStageState.ExplainBattle);
                 }
                 break;
+            
             case FileLobbyIntroStageState.ExplainBattle:            
                 if (dialogueManager.state == DialogueState.Finished) {
-                    dialogueManager.Reset();
+                    // dialogueManager.Reset();
+                    PerformSceneAction(FileLobbyIntroStageState.ReturnCameraBeforeBattleTutorial);
+                }
+                break;
+            case FileLobbyIntroStageState.ReturnCameraBeforeBattleTutorial:
+                if (WithinPanCameraToTargetThreshold(player.transform)) {
                     PerformSceneAction(FileLobbyIntroStageState.BattleTutorial);
                 }
                 break;
@@ -105,7 +119,7 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
                 mapProceedIndicator.gameObject.SetActive(true);
                 mapProceedIndicator.GetComponent<ChangeColor>().SetColorThenChange(Color.white);
                 StartCoroutine(DelayedAction(InstructionConstants.instructionFadeTime, () => {
-                    player.GetComponent<PlayerController>().SetControlsActive(true);
+                    playerController.SetControlsActive(true);
                 }));
                 break;
             case FileLobbyIntroStageState.NavigateToMonster:
@@ -114,7 +128,7 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
                 mapProceedIndicator.GetComponent<Fade>().StartFade(FadeType.FadeOut);
                 break;
             case FileLobbyIntroStageState.BattleIntroScene:
-                dialogueManager.Reset();
+                // dialogueManager.Reset();
                 playerController.StopMovement();
                 playerController.enabled = false;
                 StartCoroutine(BattleIntroScene());
@@ -125,24 +139,63 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
             case FileLobbyIntroStageState.ExplainBattle:
                 dialogueManager.DisplayDialogues(DialogueConstants.FieldLobbyIntro.BattleIntroDialoguePartTwo.dialogues);
                 break;
+            case FileLobbyIntroStageState.ReturnCameraBeforeBattleTutorial:
+                StartCoroutine(PanCameraBackToPlayer());
+                break;
             case FileLobbyIntroStageState.BattleTutorial:
                 playerController.enabled = true;
                 playerController.SetControlsActive(true);
                 instructionManager.DisplayInstructions(InstructionConstants.BasicAttackInstruction.GetInstructionsBasedOnDevice());
-                firstTriangleEnemy.EnterState(CharacterState.Idle);
-                firstTriangleEnemy.hpBar.DisplayHPBar();
+                battleManager.StartBattle();
                 cameraFollow.target = player.transform;
                 cinematicFrameManager.ExitFrames();
+                break;
+            case FileLobbyIntroStageState.PostEnemyHit:
+                instructionManager.HideInstructions();
+                cinematicFrameManager.EnterFrames();
+                playerController.enabled = false;
+                StartCoroutine(PostEnemyHit());
                 break;
         }
     }
 
+    public bool PlayerIsMoving() {
+        return Mathf.Abs(moveAction.ReadValue<Vector2>().y) > 0 || Mathf.Abs(moveAction.ReadValue<Vector2>().x) > 0;
+    }
+
+    public bool WithinPanCameraToTargetThreshold(Transform targetTransform) {
+        return Mathf.Abs(Camera.main.transform.position.x - targetTransform.position.x) <= FileLobbyIntroStageManagerConstants.panCameraToTargetThreshold;
+    }
+
     public IEnumerator PanCameraToMonster() {
-        yield return new WaitForSeconds(FileLobbyIntroStageManagerConstants.panCameraToMonsterDelay);
-        cameraFollow.followSpeed = 0.05f;
+        yield return new WaitForSeconds(FileLobbyIntroStageManagerConstants.panCameraDelay);
+        cinematicFrameManager.SetFramesToFollowContinuously();
+        cameraZoom.SetZoomAndStart(
+            FileLobbyIntroStageManagerConstants.panCameraToMonsterCameraZoomStartSize,
+            FileLobbyIntroStageManagerConstants.panCameraToMonsterCameraZoomEndSize, 
+            FileLobbyIntroStageManagerConstants.panCameraDuration
+        );
+        cameraFollow.followSpeed = 0.02f;
         cameraFollow.target = firstTriangleEnemy.transform;
-        cameraFollow.enabled = true;
-        cameraFollow.active = true;
+        //cameraFollow.enabled = true;
+        //cameraFollow.active = true;
+    }
+
+    public IEnumerator PanCameraBackToPlayer() {
+        yield return new WaitForSeconds(FileLobbyIntroStageManagerConstants.panCameraDelay);
+        cameraZoom.SetZoomAndStart(
+            FileLobbyIntroStageManagerConstants.panCameraToMonsterCameraZoomEndSize,
+            FileLobbyIntroStageManagerConstants.panCameraToMonsterCameraZoomStartSize, 
+            FileLobbyIntroStageManagerConstants.panCameraDuration
+        );
+        cameraFollow.target = player.transform;
+        //cameraFollow.enabled = true;
+        //cameraFollow.active = true;
+    }
+
+    public IEnumerator PostEnemyHit() {
+        yield return new WaitForSeconds(FileLobbyIntroStageManagerConstants.dialogueDelay);
+        dialogueManager.DisplayDialogues(DialogueConstants.FieldLobbyIntro.BattlePostEnemyHit.dialogues);
     }
 
     public IEnumerator BattleIntroScene() {
@@ -166,6 +219,17 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
             PerformSceneAction(FileLobbyIntroStageState.BattleIntroScene);
         }
     }
+
+    public void OnHurtboxTriggerEnter(Character character) {
+        if (character is Enemy && fileLobbyState == FileLobbyIntroStageState.BattleTutorial) {
+            //battleManager.OnEnemyHit((Enemy) character);
+            PerformSceneAction(FileLobbyIntroStageState.PostEnemyHit);
+        }
+    }
+
+    public void OnHurtboxTriggerExit(Character character) {
+        /* No action needed */
+    }
 }
 
 public enum FileLobbyIntroStageState {
@@ -177,5 +241,7 @@ public enum FileLobbyIntroStageState {
     BattleIntroSceneWaitForDialogueCompletion,
     PanCameraToMonster,
     ExplainBattle,
-    BattleTutorial
+    ReturnCameraBeforeBattleTutorial,
+    BattleTutorial,
+    PostEnemyHit
 }

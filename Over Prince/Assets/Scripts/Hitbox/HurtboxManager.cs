@@ -7,6 +7,7 @@ public class HurtboxManager : MonoBehaviour
 {
     public List<HitboxOwner> hitboxesToWatchFor = new List<HitboxOwner>();
     private Character character;
+    private IHurtboxTriggerListener hurtboxTriggerListener;
 
     void Start() {
         character = transform.parent.gameObject.GetComponent<Character>();
@@ -18,6 +19,7 @@ public class HurtboxManager : MonoBehaviour
             if (manager.state == HitboxState.Active && hitboxesToWatchFor.Contains(manager.hitboxOwner) && CanBeHit()) {
                 Debug.Log("(OnTriggerStay2D) " + name + " was hit! " + Time.time);
                 ApplyAttackFromHitbox(other.GetComponent<HitboxManager>());
+                hurtboxTriggerListener.OnHurtboxTriggerEnter(character);
             }
         }
     }
@@ -27,7 +29,8 @@ public class HurtboxManager : MonoBehaviour
             HitboxManager manager = other.gameObject.GetComponent<HitboxManager>();
             if (manager.state == HitboxState.Active && hitboxesToWatchFor.Contains(manager.hitboxOwner)) {
                 Log("TRIGGER ENTER! " + Time.time);
-                
+                ApplyAttackFromHitbox(other.GetComponent<HitboxManager>());
+                hurtboxTriggerListener.OnHurtboxTriggerEnter(character);
             }
         }
     }
@@ -37,7 +40,7 @@ public class HurtboxManager : MonoBehaviour
             HitboxManager manager = other.gameObject.GetComponent<HitboxManager>();
             if (manager.state == HitboxState.Active && hitboxesToWatchFor.Contains(manager.hitboxOwner)) {
                 Log("TRIGGER EXIT! " + Time.time);
-                
+                hurtboxTriggerListener.OnHurtboxTriggerExit(character);
             }
         }
     }
@@ -51,6 +54,10 @@ public class HurtboxManager : MonoBehaviour
         if (Settings.DisplayHitboxLogs) {
             Debug.Log(message);
         }
+    }
+
+    public void SetListener(IHurtboxTriggerListener listener) {
+        hurtboxTriggerListener = listener;
     }
 
     bool CanBeHit() {

@@ -42,6 +42,12 @@ public class ChangeColor : MonoBehaviour
         StartChangingColor();
     }
 
+    public void StartChangingColorWithMode(ChangeColorMode mode)
+    {
+        changeColorMode = mode;
+        StartChangingColor();
+    }
+
     public void StartChangingColor()
     {
         startTime = Time.time;

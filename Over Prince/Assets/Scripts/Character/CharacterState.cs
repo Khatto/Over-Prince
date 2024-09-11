@@ -9,3 +9,13 @@ public enum CharacterState {
     Dying = 6,
     Dead = 7
 }
+
+public enum SpecialCharacterType {
+    None,
+    IntroTutorial,
+}
+
+public enum SpecialCharacterAction {
+    None,
+    FaceCharacterAfterHitStun
+}

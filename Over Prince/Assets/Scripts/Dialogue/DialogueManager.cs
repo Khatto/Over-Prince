@@ -60,10 +60,8 @@ public class DialogueManager : MonoBehaviour
     public void DisplayDialogues(Dialogue[] dialogues)
     {
         Reset();
-        //state = DialogueState.NotStarted;
         dialogueDisplayMode = DialogueDisplayMode.Sequence;
         dialogueSequence = new Queue<Dialogue>(dialogues);
-        //proceedIndicatorFade.gameObject.transform.localPosition = Vector2.zero;
         if (useDialogueBackground) {
             SetupDialogueBackground();
         }

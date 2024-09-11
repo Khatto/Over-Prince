@@ -8,4 +8,8 @@ public class MovableCharacterController : MonoBehaviour
 
     public float hitStunDuration;
     public float hitStunTimer;
+
+    public virtual void PerformUniqueAction(SpecialCharacterAction action) {
+        /* Implement in child class */
+    }
 }
