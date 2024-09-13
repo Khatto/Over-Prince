@@ -36,10 +36,22 @@ public class HPBar : MonoBehaviour
         }
     }
 
+    void Update() {
+        if (displayHPBar) {
+            FlipHPBarDependingOnParentFacing();
+        }
+    }
+
     public void DisplayHPBar() {
         displayHPBar = true;
         currentHPBar.GetComponent<SpriteRenderer>().enabled = true;
         backgroundBar.GetComponent<SpriteRenderer>().enabled = true;
+    }
+
+    public void FlipHPBarDependingOnParentFacing() {
+        float localParentScaleX = transform.parent.localScale.x;
+        float facingMultiplier = localParentScaleX < 0 ? -1 : 1;
+        transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * facingMultiplier, 1, 1);
     }
 
     public void Setup(int maxHP)
@@ -73,6 +85,7 @@ public class HPBar : MonoBehaviour
     private void UpdateHPBar()
     {
         if (displayHPBar) {
+            
             float scale = (float) currentHP / (float) maxHP;
             currentHPBar.localScale = new Vector3(scale, 1f, 1f);
         }

@@ -93,7 +93,7 @@ public class IntroSceneManager : MonoBehaviour
                 }
                 break;
             case IntroSceneState.PartFour:
-                if (dialogueManager.state == DialogueState.Finished) {
+                if (dialogueManager.IsFinished()) {
                     PerformPart(IntroSceneState.PartFive);
                 }
                 break;
@@ -103,7 +103,7 @@ public class IntroSceneManager : MonoBehaviour
                 }
                 break;
             case IntroSceneState.PartSix:
-                if (dialogueManager.state == DialogueState.Finished) {
+                if (dialogueManager.IsFinished()) {
                     PerformPart(IntroSceneState.PartSeven);
                 }
                 break;
@@ -113,7 +113,7 @@ public class IntroSceneManager : MonoBehaviour
                 }
                 break;
             case IntroSceneState.PartEight:
-                if (dialogueManager.state == DialogueState.Finished) {
+                if (dialogueManager.IsFinished()) {
                     PerformPart(IntroSceneState.PartNine);
                 }
                 break;
@@ -123,7 +123,7 @@ public class IntroSceneManager : MonoBehaviour
                 }
                 break;
             case IntroSceneState.PartTen:
-                if (dialogueManager.state == DialogueState.Finished) {
+                if (dialogueManager.IsFinished()) {
                     PerformPart(IntroSceneState.PartEleven);
                 }
                 break;
@@ -150,12 +150,12 @@ public class IntroSceneManager : MonoBehaviour
                 cameraPos.z = IntroSceneConstants.cameraZPos;
                 mainCamera.transform.position = cameraPos;
 
-                if (dialogueManager.state == DialogueState.Finished) {
+                if (dialogueManager.IsFinished()) {
                     PerformPart(IntroSceneState.PartThirteen);
                 }
                 break;
             case IntroSceneState.PartThirteen:
-                if (dialogueManager.state == DialogueState.Finished) {
+                if (dialogueManager.IsFinished()) {
                     PerformPart(IntroSceneState.PartFourteen);
                 }
                 break;

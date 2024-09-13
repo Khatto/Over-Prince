@@ -49,8 +49,7 @@ public class EnemyController : MovableCharacterController, IHurtableCharacterCon
             hitStunTimer = 0;
             Debug.Log("Enemy is no longer in HitStun at time: " + Time.time);
             if (uniqueActions.Contains(SpecialCharacterAction.FaceCharacterAfterHitStun)) {
-                FaceTarget();
-                uniqueActions.Remove(SpecialCharacterAction.FaceCharacterAfterHitStun);
+                TutorialKnockbackSequence();
             }
         }
     }
@@ -118,19 +117,25 @@ public class EnemyController : MovableCharacterController, IHurtableCharacterCon
                 if (hitStunTimer >= 0) {
                     uniqueActions.Add(SpecialCharacterAction.FaceCharacterAfterHitStun);
                 } else {
-                    FaceTarget();
-                    uniqueActions.Remove(SpecialCharacterAction.FaceCharacterAfterHitStun);
+                    TutorialKnockbackSequence();
                 }
                 break;
         }
     }
 
     private void FaceTarget() {
-        Debug.Log(name + " is facing the target.");
         if (target.position.x >= transform.position.x) {
             transform.localScale = new Vector3(defaultScale.x, defaultScale.y, 1);
         } else {
             transform.localScale = new Vector3(-defaultScale.x, defaultScale.y, 1);
         }
+    }
+
+    /// <summary>
+    /// The unique action sequence for the tutorial knockback sequence.
+    /// </summary>
+    private void TutorialKnockbackSequence() { // TODO - Find a way that we're not including this as such a unique method
+        FaceTarget();
+        uniqueActions.Remove(SpecialCharacterAction.FaceCharacterAfterHitStun);
     }
 }

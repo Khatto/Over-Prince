@@ -42,8 +42,16 @@ public class ChangeColor : MonoBehaviour
         StartChangingColor();
     }
 
-    public void StartChangingColorWithMode(ChangeColorMode mode)
+    public void StartChangingColorWithMode(ChangeColorMode mode, Color? startColor = null, Color? targetColor = null)
     {
+        if (startColor != null)
+        {
+            initialColor = (Color) startColor;
+        }
+        if (targetColor != null)
+        {
+            this.targetColor = (Color) targetColor;
+        }
         changeColorMode = mode;
         StartChangingColor();
     }
@@ -91,7 +99,7 @@ public class ChangeColor : MonoBehaviour
             text.color = targetColor;
         }
 
-        if (changeColorMode == ChangeColorMode.ChangeColorBackAndForth)
+        if (changeColorMode == ChangeColorMode.ChangeColorBackAndForth && changeColorMode != ChangeColorMode.None)
         {
             SwitchColorDirection();
         }

@@ -4,9 +4,10 @@ using UnityEngine.Audio;
 
 public class MusicManager : MonoBehaviour
 {
-
     public AudioSource mainSong;
     public AudioSource loopedSong;
+    public AudioSource battleSong;
+    public AudioSource battleSongLooped;
     public bool startScenePlaying = true;
     public MusicState state = MusicState.NotStarted;
     public float musicFadeTime = Constants.targetFPS * 2.0f;

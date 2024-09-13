@@ -31,13 +31,14 @@ public class InstructionManager : MonoBehaviour
     {
         instructionText.StartFadeWithTime(FadeType.FadeIn, InstructionConstants.instructionFadeTime);
         yield return new WaitForSeconds(InstructionConstants.instructionFadeTime);
-        instructionChangeColor.StartChangingColorWithMode(ChangeColorMode.ChangeColorBackAndForth);
+        instructionChangeColor.StartChangingColorWithMode(ChangeColorMode.ChangeColorBackAndForth, Color.white);
         state = InstructionManagerState.WaitingForUserInput;
     }
 
     private IEnumerator FadeOutInstructions()
     {
         instructionChangeColor.StopChangingColor();
+        yield return new WaitForSeconds(0f); // Wait for a frame to ensure the color change stops | TODO: See if this is truly necessary
         instructionText.StartFadeWithTime(FadeType.FadeOut, InstructionConstants.instructionFadeTime);
         yield return new WaitForSeconds(InstructionConstants.instructionFadeTime);
         state = InstructionManagerState.Finished;

@@ -27,6 +27,9 @@ public class Enemy : Character
         hpBar.Setup(stats.maxHP);
     }
 
+    public void SetToMaxHP() {
+        stats.currentHP = stats.maxHP;
+    }
 
     public override void EnterState(CharacterState state)
     {
@@ -98,6 +101,7 @@ public class Enemy : Character
     }
 
     public void StartBattle() {
+        Debug.Log("Enemy " + name + " is starting battle from state " + state);
         EnterState(CharacterState.Idle);
         hpBar.DisplayHPBar();
     }

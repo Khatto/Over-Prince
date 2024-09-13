@@ -1,10 +1,11 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BattleManager : MonoBehaviour
 {
     public BattleState battleState = BattleState.NotStarted;
-    ArrayList enemies = new ArrayList();
+    public List<Enemy> enemies = new List<Enemy>();
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

@@ -123,7 +123,7 @@ public class DialogueManager : MonoBehaviour
         {
             DisplayNextQueuedDialogue();
         }
-        if (state == DialogueState.Finished)
+        if (IsFinished())
         {
             proceedIndicatorMovement.active = false;
             proceedIndicatorFade.StartFadeWithTime(FadeType.FadeOut, DialogueManagerConstants.dialogueFadeTime);
@@ -225,6 +225,10 @@ public class DialogueManager : MonoBehaviour
         state = DialogueState.NotStarted;
         proceedIndicatorMovement.StopMovement();
         proceedIndicatorFade.transform.localPosition = Vector2.zero;
+    }
+
+    public bool IsFinished() {
+        return state == DialogueState.Finished;
     }
 
     private void OnEnable()
