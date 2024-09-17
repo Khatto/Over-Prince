@@ -16,6 +16,8 @@ public class Character : MonoBehaviour {
     public HPBar hpBar;
     public CharacterStats stats = new CharacterStats(1, 0, 0);
     public CharacterSoundManager soundManager;
+    public float hitStunModifier = 1.0f;
+    public bool displayLogs = false;
 
     public virtual void Start() {
         hurtableController = GetComponent<IHurtableCharacterController>();
@@ -48,14 +50,12 @@ public class Character : MonoBehaviour {
     /// <param name="hit">The hit information.</param>
     public void ApplyHit(Hit hit, Constants.Direction direction) {
         if (CanBeHit()) {
-            Debug.Log("(ApplyHit) " + transform.name + " was hit! " + Time.time);
+            if (displayLogs) Debug.Log("(ApplyHit) " + transform.name + " was hit! " + Time.time);
             UpdateHP(hit.damage);
-            rigidBody.linearVelocity = Vector3.zero;
-            rigidBody.angularVelocity = 0.0f;
             EnterState(CharacterState.HitStun);
             soundManager.PlayHitContactSound(hit.hitContactSound);
             rigidBody.AddForce(CalculateHitVector(hit, direction), ForceMode2D.Impulse);
-            hurtableController.EnterHitStun(hit.hitStunFrames / Constants.targetFPS);
+            hurtableController.EnterHitStun((hit.hitStunFrames / Constants.targetFPS) * hitStunModifier);
         }
     }
 
@@ -64,7 +64,7 @@ public class Character : MonoBehaviour {
         if (stats.currentHP < 0) {
             stats.currentHP = 0;
         }
-        Debug.Log(transform.name + " took " + damage + " damage and now has " + stats.currentHP + "/" + stats.maxHP + " HP.");
+        if (displayLogs) Debug.Log(transform.name + " took " + damage + " damage and now has " + stats.currentHP + "/" + stats.maxHP + " HP.");
         hpBar.ChangeHP(-damage);
         if (stats.currentHP <= 0) {
             EnterState(CharacterState.Dying);

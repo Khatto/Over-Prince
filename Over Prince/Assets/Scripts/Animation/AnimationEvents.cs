@@ -27,5 +27,6 @@ public enum AnimationEvent {
     ProtagSideTurnToFrontFinished,
     Slime,
     EnemyCry,
-    EnemyCharge
+    EnemyCharge,
+    AttackWhoosh
 }

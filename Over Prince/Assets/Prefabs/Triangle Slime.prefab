@@ -463,7 +463,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1048879409
   m_SortingLayer: 4
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: f49ecc5bceb49435f8d067d721244739, type: 3}
   m_Color: {r: 0.1764706, g: 0.74509805, b: 0.03137255, a: 0.8}
   m_FlipX: 0
@@ -685,6 +685,8 @@ MonoBehaviour:
   target: {fileID: 0}
   targetCollider: {fileID: 0}
   minDistanceFromTarget: 1.7
+  tutorial: 0
+  displayLogs: 0
 --- !u!114 &7492214010600238616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -705,7 +707,10 @@ MonoBehaviour:
   controller: {fileID: 0}
   hpBar: {fileID: 0}
   soundManager: {fileID: 0}
+  hitStunModifier: 1
+  displayLogs: 0
   enemyID: 1
+  specialBattleType: 0
 --- !u!95 &302355486084347079
 Animator:
   serializedVersion: 7
@@ -741,6 +746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitboxPrefab: {fileID: 2156701263562147746, guid: 3bf9456d3e7334e6f82d1a0b945eed0d, type: 3}
+  hitboxes: []
 --- !u!114 &7689526367604996704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1034,7 +1040,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1048879409
   m_SortingLayer: 4
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: f49ecc5bceb49435f8d067d721244739, type: 3}
   m_Color: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 0.8}
   m_FlipX: 0
@@ -1861,3 +1867,7 @@ MonoBehaviour:
   lightHit2Sound: {fileID: 7761432078734263409}
   lightHit3Sound: {fileID: 6705587292234777120}
   lightHitSounds: []
+  attackWhoosh1Sound: {fileID: 0}
+  attackWhoosh2Sound: {fileID: 0}
+  attackWhoosh3Sound: {fileID: 0}
+  attackWhooshSounds: []

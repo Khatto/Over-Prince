@@ -16,6 +16,7 @@ public class EnemyController : MovableCharacterController, IHurtableCharacterCon
     private Animator animator;
     public bool tutorial = false;
     public ArrayList uniqueActions = new ArrayList();
+    public bool displayLogs = false;
 
     void Start() {
         rigidBody = GetComponent<Rigidbody2D>();
@@ -30,8 +31,8 @@ public class EnemyController : MovableCharacterController, IHurtableCharacterCon
 
     void FixedUpdate()
     {
-        //Debug.Log("Enemy state is: " + enemy.state);
-        //Debug.Log("Can they move towards target: " + CanMoveTowardsTarget());
+        if (displayLogs) Debug.Log("Enemy state is: " + enemy.state);
+        if (displayLogs) Debug.Log("Can they move towards target: " + CanMoveTowardsTarget());
         if (CanMoveTowardsTarget()) {
             LinearlyMoveTowardsTarget();
         }
@@ -47,7 +48,7 @@ public class EnemyController : MovableCharacterController, IHurtableCharacterCon
             animator.SetTrigger(Constants.AnimationKeys.RecoverFromHurt);
             enemy.EnterState(CharacterState.Idle);
             hitStunTimer = 0;
-            Debug.Log("Enemy is no longer in HitStun at time: " + Time.time);
+            if (displayLogs) Debug.Log("Enemy is no longer in HitStun at time: " + Time.time);
             if (uniqueActions.Contains(SpecialCharacterAction.FaceCharacterAfterHitStun)) {
                 TutorialKnockbackSequence();
             }
@@ -55,7 +56,6 @@ public class EnemyController : MovableCharacterController, IHurtableCharacterCon
     }
 
     private bool CanMoveTowardsTarget() {
-        
         switch (enemy.state) {
             case CharacterState.Idle:
             case CharacterState.Invulnerable:
@@ -89,8 +89,9 @@ public class EnemyController : MovableCharacterController, IHurtableCharacterCon
         } else {
             animator.SetFloat("moveSpeed", 0);
         }
-        if (WithinTargetRange() || isTouchingTarget)
+        if (WithinTargetRange() || isTouchingTarget && enemy.state == CharacterState.Idle)
         {
+            if (displayLogs) Debug.Log("Enemy is within target range with state: " + enemy.state);
             enemy.DetermineAndPerformAttack();
         }
     }

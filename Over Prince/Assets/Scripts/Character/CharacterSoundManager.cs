@@ -23,8 +23,12 @@ public class CharacterSoundManager : MonoBehaviour, IAnimationEventListener
     public AudioSource lightHit1Sound;
     public AudioSource lightHit2Sound;
     public AudioSource lightHit3Sound;
-
     public AudioSource[] lightHitSounds;
+
+    public AudioSource attackWhoosh1Sound;
+    public AudioSource attackWhoosh2Sound;
+    public AudioSource attackWhoosh3Sound;
+    public AudioSource[] attackWhooshSounds;
 
     private void Start()
     {
@@ -43,6 +47,10 @@ public class CharacterSoundManager : MonoBehaviour, IAnimationEventListener
         if (lightHit1Sound != null && lightHit2Sound != null && lightHit3Sound != null)
         {
             lightHitSounds = new AudioSource[] {lightHit1Sound, lightHit2Sound, lightHit3Sound};
+        }
+        if (attackWhoosh1Sound != null && attackWhoosh2Sound != null && attackWhoosh3Sound != null)
+        {
+            attackWhooshSounds = new AudioSource[] {attackWhoosh1Sound, attackWhoosh2Sound, attackWhoosh3Sound};
         }
     }
 
@@ -65,6 +73,9 @@ public class CharacterSoundManager : MonoBehaviour, IAnimationEventListener
             case AnimationEvent.EnemyCharge:
                 enemyChargeSound.Play();
                 break;
+            case AnimationEvent.AttackWhoosh:
+                PlayRandomSound(attackWhooshSounds);
+                break;
         }
     }
 
@@ -86,7 +97,6 @@ public class CharacterSoundManager : MonoBehaviour, IAnimationEventListener
             case HitContactSound.Heavy:
                 PlayRandomSound(lightHitSounds);
                 break;
-
         }
     }
 

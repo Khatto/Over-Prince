@@ -15,7 +15,7 @@ public static class AttackData {
         "Jab", 
         AttackTrigger.Single, 
         new Hit[] {
-            new(30, 5, 10, 20, 11, 1, 0.0f, new Vector2(0, 0))
+            new(30, 5, 10, 20, 10, 1, 0.0f, new Vector2(0, 0))
         },
         new Hitbox(0.82f, 1.39f)
     );
@@ -25,7 +25,7 @@ public static class AttackData {
         "Jab2", 
         AttackTrigger.Single, 
         new Hit[] {
-            new(30, 4, 10, 20, 11, 1, 0.0f, new Vector2(0, 0))
+            new(30, 4, 10, 20, 10, 1, 0.0f, new Vector2(0, 0))
         },
         new Hitbox(0.85f, 1.42f)
     );
@@ -35,9 +35,9 @@ public static class AttackData {
         "Jab3", 
         AttackTrigger.Single, 
         new Hit[] {
-            new(30, 5, 4, 20, 45, 3, 1.0f, new Vector2(600.0f, 0))
+            new(30, 5, 4, 20, 45, 3, 1.0f, new Vector2(1000.0f, 0))
         },
-        new Hitbox(1.01f, 1.19f)
+        new Hitbox(1.01f, 1.19f, 1.5f, 1.5f)
     );
 
     private static Attack TriangleSlimeSlam = new Attack(

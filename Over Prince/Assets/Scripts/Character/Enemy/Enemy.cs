@@ -10,6 +10,7 @@ public class Enemy : Character
         base.Start();
         SetupAttacks();
         SetupHP();
+        SetupHitStun();
     }
 
     public void SetupAttacks() {
@@ -25,6 +26,10 @@ public class Enemy : Character
         }
         stats = EnemyConstants.GetStatsForEnemy(enemyID);
         hpBar.Setup(stats.maxHP);
+    }
+
+    public void SetupHitStun() {
+        hitStunModifier = EnemyConstants.GetHitStunModifierForEnemy(enemyID);
     }
 
     public void SetToMaxHP() {
@@ -45,11 +50,14 @@ public class Enemy : Character
             case CharacterState.Attacking:
                 break;
             case CharacterState.HitStun:
-                Debug.Log("Enemy is in HitStun at time: " + Time.time);
+                if (displayLogs) Debug.Log("Enemy is in HitStun at time: " + Time.time);
                 spriteRenderer.color = Constants.Colors.hurtRed;
+                attackManager.DestroyInterruptibleHitboxes();
                 break;
             case CharacterState.Dying:
+                if (displayLogs) Debug.Log("Enemy is in Dying at time: " + Time.time);
                 PerformDeathAnimation();
+                attackManager.DestroyInterruptibleHitboxes();
                 break;
             case CharacterState.Invulnerable:
                 break;
@@ -60,7 +68,7 @@ public class Enemy : Character
 
     public void DetermineAndPerformAttack() {
         if (state != CharacterState.Attacking && state != CharacterState.HitStun) {
-            Debug.Log(transform.gameObject.name + " is Determining and Performing an attack ");
+            if (displayLogs) Debug.Log(transform.gameObject.name + " is Determining and Performing an attack at time: " + Time.time + " in state: " + state);
             int attackIndex = Random.Range(0, attacks.Length);
             InitiateAttack(attackIndex);
         }
@@ -68,7 +76,7 @@ public class Enemy : Character
 
     public void InitiateAttack(int attackIndex) {
         if (state != CharacterState.Attacking && state != CharacterState.HitStun && attackIndex < attacks.Length) {
-            Debug.Log(transform.gameObject.name + " is Initiating attack " + attacks[attackIndex].attackID);
+            if (displayLogs) Debug.Log(transform.gameObject.name + " is Initiating attack " + attacks[attackIndex].attackID);
             EnterState(CharacterState.Attacking);
             animator.SetTrigger(Constants.AnimationKeys.PerformAttack);
             animator.SetInteger(Constants.AnimationKeys.AttackDesignation, (int) attacks[attackIndex].attackID);
@@ -81,13 +89,12 @@ public class Enemy : Character
         hpBar.FadeOut();
         soundManager.PlayDeathSound();
         var fade = gameObject.GetComponent<Fade>();
-        if (fade != null) {
-            fade.StartFadeWithTime(FadeType.FadeOut, Constants.deathFadeTime, () => Die());
-        }
+        if (fade != null) fade.StartFadeWithTime(FadeType.FadeOut, Constants.deathFadeTime, () => Die());
     }
 
     public void Die() {
         EnterState(CharacterState.Dead);
+        attackManager.DestroyInterruptibleHitboxes();
         Destroy(gameObject);
     }
 
@@ -101,7 +108,7 @@ public class Enemy : Character
     }
 
     public void StartBattle() {
-        Debug.Log("Enemy " + name + " is starting battle from state " + state);
+        if (displayLogs) Debug.Log("Enemy " + name + " is starting battle from state " + state);
         EnterState(CharacterState.Idle);
         hpBar.DisplayHPBar();
     }

@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour, IAnimationEventListener
 {
-
     public static SoundManager instance;
 
     public AudioSource confirmSound;

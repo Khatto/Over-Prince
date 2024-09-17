@@ -8,6 +8,7 @@ public class HurtboxManager : MonoBehaviour
     public List<HitboxOwner> hitboxesToWatchFor = new List<HitboxOwner>();
     private Character character;
     private IHurtboxTriggerListener hurtboxTriggerListener;
+    private HitImpactParticleManager hitImpactParticleManager;
 
     void Start() {
         character = transform.parent.gameObject.GetComponent<Character>();
@@ -18,7 +19,7 @@ public class HurtboxManager : MonoBehaviour
             HitboxManager manager = other.gameObject.GetComponent<HitboxManager>();
             if (manager.state == HitboxState.Active && hitboxesToWatchFor.Contains(manager.hitboxOwner) && CanBeHit()) {
                 Debug.Log("(OnTriggerStay2D) " + name + " was hit! " + Time.time);
-                ApplyAttackFromHitbox(other.GetComponent<HitboxManager>());
+                ApplyAttackFromHitbox(other);
                 if (hurtboxTriggerListener != null) hurtboxTriggerListener.OnHurtboxTriggerEnter(character);
             }
         }
@@ -29,7 +30,7 @@ public class HurtboxManager : MonoBehaviour
             HitboxManager manager = other.gameObject.GetComponent<HitboxManager>();
             if (manager.state == HitboxState.Active && hitboxesToWatchFor.Contains(manager.hitboxOwner)) {
                 Log("TRIGGER ENTER! " + Time.time);
-                ApplyAttackFromHitbox(other.GetComponent<HitboxManager>());
+                ApplyAttackFromHitbox(other);
                 if (hurtboxTriggerListener != null) hurtboxTriggerListener.OnHurtboxTriggerEnter(character);
             }
         }
@@ -45,9 +46,18 @@ public class HurtboxManager : MonoBehaviour
         }
     }
 
-    private void ApplyAttackFromHitbox(HitboxManager manager) {
+    private void ApplyAttackFromHitbox(Collider2D other) {
+        var manager = other.gameObject.GetComponent<HitboxManager>();
         Debug.Log(character.transform.name + " was in the " + character.state + " state when hit by " + manager.name + " at " + Time.time + " in the state: " + manager.state + " with color: " + manager.spriteRenderer.color);
         character.ApplyHit(manager.hit, manager.direction);
+        PlayHitImpactParticles(other.transform.position);
+    }
+
+    private void PlayHitImpactParticles(Vector3 position) {
+        if (hitImpactParticleManager == null) {
+            hitImpactParticleManager = HitImpactParticleManager.instance;
+        }
+        hitImpactParticleManager.PlayHitImpactParticles(position);
     }
 
     private void Log(string message) {

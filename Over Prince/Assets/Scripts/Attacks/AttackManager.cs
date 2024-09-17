@@ -5,6 +5,7 @@ using UnityEngine;
 public class AttackManager : MonoBehaviour
 {
     public GameObject hitboxPrefab;
+    public List<HitboxManager> hitboxes = new List<HitboxManager>();
 
     // TODO: Potentially convert this to be an int if we don't explicitly need the AttackID for other reasons
     public void PerformAttack(AttackID attackID, HitboxOwner hitboxOwner, Constants.Direction direction) {
@@ -17,7 +18,6 @@ public class AttackManager : MonoBehaviour
     public void GenerateAttackHitboxes(AttackID attackID, HitboxOwner hitboxOwner, Constants.Direction direction) {
         Attack attack = AttackData.GetAttackByAttackID(attackID);
         for (int i = 0; i < attack.hits.Length; i++) {
-            Debug.Log("Generating hitbox for hit " + i + " of " + attack.name + " for " + hitboxOwner + " in direction " + direction);
             GenerateHitboxForHit(attack, attack.hits[i], hitboxOwner, direction);
         }
     }
@@ -29,6 +29,7 @@ public class AttackManager : MonoBehaviour
         hitboxManager.hitboxOwner = hitboxOwner;
         hitboxManager.SetHitboxName();
         hitboxManager.PerformAttack(hit);
+        hitboxes.Add(hitboxManager);
     }
 
     private Vector3 GetHitboxPosition(Attack attack) {
@@ -37,9 +38,8 @@ public class AttackManager : MonoBehaviour
     }
 
     public void DestroyInterruptibleHitboxes() {
-        HitboxManager[] hitboxes = GetComponentsInChildren<HitboxManager>();
         foreach (HitboxManager hitbox in hitboxes) {
-            if (hitbox.hit.isInterruptible) {
+            if (hitbox != null && hitbox.hit.isInterruptible) {
                 Destroy(hitbox.gameObject);
             }
         }

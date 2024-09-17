@@ -37,7 +37,7 @@ public class HPBar : MonoBehaviour
     }
 
     void Update() {
-        if (displayHPBar) {
+        if (displayHPBar && transform.parent != null) {
             FlipHPBarDependingOnParentFacing();
         }
     }

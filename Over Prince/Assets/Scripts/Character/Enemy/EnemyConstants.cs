@@ -47,6 +47,14 @@ public static class EnemyConstants {
         };
     }
 
+    public static float GetHitStunModifierForEnemy(EnemyID enemyID) {
+        return enemyID switch {
+            EnemyID.TestEnemy => 1.0f,
+            EnemyID.TriangleSlime => 1.0f,
+            _ => 1.0f
+        };
+    }
+
     public static bool IsBoss(EnemyID enemyID) {
         return enemyID switch {
             EnemyID.TestEnemy => false,
