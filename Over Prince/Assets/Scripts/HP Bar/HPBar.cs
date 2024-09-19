@@ -5,7 +5,13 @@ public class HPBar : MonoBehaviour
     public bool displayHPBar = true;
     public bool shouldShiftBar = true;
     public Transform currentHPBar;
+    public SpriteRenderer currentHPBarSpriteRenderer;
+
     public Transform backgroundBar;
+
+    public Transform lossIndicatorTransform;
+    public SpriteRenderer lossIndicator;
+    public Fade lossIndicatorFade;
 
     public Fade currentHPBarFade;
     public Fade backgroundBarFade;
@@ -15,20 +21,23 @@ public class HPBar : MonoBehaviour
     public int maxHP = 100;
     public int currentHP = 100;
 
+    private int lastDamageAmount = 0;
+
     public static class Constants
     {
         public const float hpBarFadeTime = 0.5f;
+        public const float lossIndicatorFadeTime = 0.25f;
     }
 
     void Start()
     {
         currentHPBarFade = currentHPBar.GetComponent<Fade>();
         backgroundBarFade = backgroundBar.GetComponent<Fade>();
+        currentHPBarSpriteRenderer = currentHPBar.GetComponent<SpriteRenderer>();
+        lossIndicator = lossIndicatorTransform.GetComponent<SpriteRenderer>();
+        lossIndicatorFade = lossIndicatorTransform.GetComponent<Fade>();
         UpdateHPBar();
-        if (shouldShiftBar)
-        {
-            SetBarPositions();
-        }
+        if (shouldShiftBar) SetBarPositions();
         if (!displayHPBar)
         {
             currentHPBar.GetComponent<SpriteRenderer>().enabled = false;
@@ -37,9 +46,7 @@ public class HPBar : MonoBehaviour
     }
 
     void Update() {
-        if (displayHPBar && transform.parent != null) {
-            FlipHPBarDependingOnParentFacing();
-        }
+        if (displayHPBar && transform.parent != null) FlipHPBarDependingOnParentFacing();
     }
 
     public void DisplayHPBar() {
@@ -79,15 +86,33 @@ public class HPBar : MonoBehaviour
         {
             currentHP = 0;
         }
-        UpdateHPBar();
+        lastDamageAmount = amount;
+        if (displayHPBar) 
+        {
+            UpdateHPBar();
+            UpdateLossIndicator();
+        }
     }
 
     private void UpdateHPBar()
     {
         if (displayHPBar) {
-            
             float scale = (float) currentHP / (float) maxHP;
             currentHPBar.localScale = new Vector3(scale, 1f, 1f);
+        }
+    }
+
+    private void UpdateLossIndicator()
+    {
+        if (lastDamageAmount < 0)
+        {
+            lossIndicatorTransform.localScale = new Vector3((float) lastDamageAmount / (float) maxHP, 1f, 1f);
+            float rightSideOfHPBar = currentHPBar.localPosition.x + currentHPBar.localScale.x * currentHPBarSpriteRenderer.size.x;
+            
+            float lossIndicatorWidth = lossIndicator.size.x * Mathf.Abs(lossIndicatorTransform.localScale.x);
+            Debug.Log("Loss Indicator Width: " + lossIndicatorWidth + " Loss Indicator Scale: " + lossIndicatorTransform.localScale.x + " Loss Indicator Size: " + lossIndicator.size.x);
+            lossIndicatorTransform.localPosition = new Vector3(rightSideOfHPBar + lossIndicatorWidth, lossIndicatorTransform.localPosition.y, lossIndicatorTransform.localPosition.z);
+            lossIndicatorFade.StartFadeWithTime(FadeType.FlashInThenFadeOut, Constants.lossIndicatorFadeTime);
         }
     }
 
