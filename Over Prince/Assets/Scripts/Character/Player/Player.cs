@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Player : Character
 {
+    public HPPortraitManager hpPortraitManager;
+    
     public override void Start()
     {
         Setup();
@@ -22,6 +24,7 @@ public class Player : Character
     }
 
     void SetupHP() {
+        hpPortraitManager = GameObject.FindGameObjectWithTag(Constants.TagKeys.PlayerHPPortrait).GetComponent<HPPortraitManager>();
         hpBar = GameObject.FindGameObjectWithTag(Constants.TagKeys.PlayerHPBar).GetComponent<HPBar>();
         stats = new CharacterStats(20, 0, 0);
         hpBar.Setup(stats.maxHP);
@@ -58,6 +61,12 @@ public class Player : Character
 
     private bool IsPerformingJab3() {
         return animator.GetCurrentAnimatorStateInfo(0).IsName(AttackData.AnimationKeys.Jab3);
+    }
+
+    public override void UpdateHP(int damage)
+    {
+        base.UpdateHP(damage);
+        if (damage > 0) hpPortraitManager.PerformPortraitAction(PortraitAction.Hurt);
     }
 
 }

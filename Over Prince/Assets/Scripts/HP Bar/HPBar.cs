@@ -15,6 +15,8 @@ public class HPBar : MonoBehaviour
 
     public Fade currentHPBarFade;
     public Fade backgroundBarFade;
+    public Fade backgroundBorderFade;
+    public Fade barShadowFade;
 
     public Vector2 barOffset = new Vector2(0, 0);
 
@@ -27,6 +29,8 @@ public class HPBar : MonoBehaviour
     {
         public const float hpBarFadeTime = 0.5f;
         public const float lossIndicatorFadeTime = 0.25f;
+        public static Color currentHPMaxColor = new Color(0.1764706f, 0.7450981f, 0.03137255f, 0.8f);
+        public static Color backgroundBarColor = new Color(0.3113208f, 0.3113208f, 0.3113208f, 0.6392157f);
     }
 
     void Start()
@@ -53,6 +57,13 @@ public class HPBar : MonoBehaviour
         displayHPBar = true;
         currentHPBar.GetComponent<SpriteRenderer>().enabled = true;
         backgroundBar.GetComponent<SpriteRenderer>().enabled = true;
+    }
+
+    public void FadeInHPBar() {
+        currentHPBarFade.StartFadeWithTime(FadeType.FadeIn, Constants.hpBarFadeTime);
+        backgroundBarFade.StartFadeWithTime(FadeType.FadeIn, Constants.hpBarFadeTime);
+        backgroundBorderFade.StartFadeWithTime(FadeType.FadeIn, Constants.hpBarFadeTime);
+        barShadowFade.StartFadeWithTime(FadeType.FadeIn, Constants.hpBarFadeTime);
     }
 
     public void FlipHPBarDependingOnParentFacing() {
@@ -108,9 +119,7 @@ public class HPBar : MonoBehaviour
         {
             lossIndicatorTransform.localScale = new Vector3((float) lastDamageAmount / (float) maxHP, 1f, 1f);
             float rightSideOfHPBar = currentHPBar.localPosition.x + currentHPBar.localScale.x * currentHPBarSpriteRenderer.size.x;
-            
             float lossIndicatorWidth = lossIndicator.size.x * Mathf.Abs(lossIndicatorTransform.localScale.x);
-            Debug.Log("Loss Indicator Width: " + lossIndicatorWidth + " Loss Indicator Scale: " + lossIndicatorTransform.localScale.x + " Loss Indicator Size: " + lossIndicator.size.x);
             lossIndicatorTransform.localPosition = new Vector3(rightSideOfHPBar + lossIndicatorWidth, lossIndicatorTransform.localPosition.y, lossIndicatorTransform.localPosition.z);
             lossIndicatorFade.StartFadeWithTime(FadeType.FlashInThenFadeOut, Constants.lossIndicatorFadeTime);
         }

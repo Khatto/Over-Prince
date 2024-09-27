@@ -10,6 +10,7 @@ public class TestDataDisplay : MonoBehaviour
     public TextMeshProUGUI textMeshProUGUI;
     
     public Player player;
+    public Enemy triangleSlime;
     public PlayerController playerController;
     public Animator animator;
 
@@ -23,9 +24,11 @@ public class TestDataDisplay : MonoBehaviour
     {
         if (textMeshProUGUI != null) {
             string playerState = "Player Character State: " + player.state;
+            string triangleSlimeState = "Triangle Slime Character State: " + triangleSlime.state;
             string isJab3 = "Is in Jab-3: " + animator.GetCurrentAnimatorStateInfo(0).IsName("Base.Attack-Jab3");
             string fps = "FPS: " + (1 / Time.unscaledDeltaTime);
-            textMeshProUGUI.text = playerState + "\n" + isJab3 + "\n" + fps;
+            string time = "Time: " + Time.time;
+            textMeshProUGUI.text = playerState + "\n" + triangleSlimeState + "\n" + isJab3 + "\n" + fps + "\n" + time;
         }
     }
 }

@@ -178,7 +178,7 @@ MonoBehaviour:
   displayLogs: 0
   state: 1
   spriteRenderer: {fileID: 0}
-  displayHitbox: 0
+  displayHitbox: 1
   hitboxOwner: 0
   direction: 0
   timeEnteredStartup: 0

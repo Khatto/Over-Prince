@@ -28,9 +28,10 @@ public class ChangeColor : MonoBehaviour
         }
     }
 
-    public void SetColorThenChange(Color color)
+    public void SetColorThenChange(Color color, Color? targetColor = null)
     {
         initialColor = color;
+        if (targetColor != null) this.targetColor = (Color) targetColor;
         if (spriteRenderer != null)
         {
             spriteRenderer.color = color;

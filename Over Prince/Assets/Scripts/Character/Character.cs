@@ -41,7 +41,7 @@ public class Character : MonoBehaviour {
     }
 
     public bool CanBeHit() {
-        return state != CharacterState.Dying && state != CharacterState.HitStun && state != CharacterState.Invulnerable;
+        return state != CharacterState.Dying && state != CharacterState.Dead && state != CharacterState.HitStun && state != CharacterState.Invulnerable;
     }
 
     /// <summary>
@@ -50,26 +50,20 @@ public class Character : MonoBehaviour {
     /// <param name="hit">The hit information.</param>
     public void ApplyHit(Hit hit, Constants.Direction direction) {
         if (CanBeHit()) {
-            if (displayLogs) Debug.Log("(ApplyHit) " + transform.name + " was hit! " + Time.time);
+            if (displayLogs) Debug.Log("(HitStream) " + transform.name + " was hit for damage: " + hit.damage + " at time: " + Time.time);
+            soundManager.PlayHitContactSound(hit.hitContactSound);
             UpdateHP(hit.damage);
             EnterState(CharacterState.HitStun);
-            soundManager.PlayHitContactSound(hit.hitContactSound);
             rigidBody.AddForce(CalculateHitVector(hit, direction), ForceMode2D.Impulse);
             hurtableController.EnterHitStun((hit.hitStunFrames / Constants.targetFPS) * hitStunModifier);
         }
     }
 
-    public void UpdateHP(int damage) {
+    public virtual void UpdateHP(int damage) {
         stats.currentHP -= damage;
-        if (stats.currentHP < 0) {
-            stats.currentHP = 0;
-        }
-        if (displayLogs) Debug.Log(transform.name + " took " + damage + " damage and now has " + stats.currentHP + "/" + stats.maxHP + " HP.");
+        if (stats.currentHP < 0) stats.currentHP = 0;
         hpBar.ChangeHP(-damage);
-        if (stats.currentHP <= 0) {
-            EnterState(CharacterState.Dying);
-        }
-        
+        if (stats.currentHP <= 0) EnterState(CharacterState.Dying);
     }
 
     public Vector2 CalculateHitVector(Hit hit, Constants.Direction direction) {

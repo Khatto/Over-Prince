@@ -30,5 +30,6 @@ public enum GameEventInstanceState {
 }
 
 public enum GameEvent {
-    BattleIntro
+    BattleIntro,
+    AlternativeBattleIntro,
 }

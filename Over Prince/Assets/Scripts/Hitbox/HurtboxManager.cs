@@ -18,7 +18,7 @@ public class HurtboxManager : MonoBehaviour
         if (other.gameObject.tag == Constants.TagKeys.Hitbox) {
             HitboxManager manager = other.gameObject.GetComponent<HitboxManager>();
             if (manager.state == HitboxState.Active && hitboxesToWatchFor.Contains(manager.hitboxOwner) && CanBeHit()) {
-                Debug.Log("(OnTriggerStay2D) " + name + " was hit! " + Time.time);
+                Debug.Log("(OnTriggerStay2D) " + transform.parent.name + " was hit! " + Time.time);
                 ApplyAttackFromHitbox(other);
                 if (hurtboxTriggerListener != null) hurtboxTriggerListener.OnHurtboxTriggerEnter(character);
             }

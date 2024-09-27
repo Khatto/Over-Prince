@@ -834,8 +834,11 @@ MonoBehaviour:
   backgroundBar: {fileID: 5318275895716605036}
   lossIndicatorTransform: {fileID: 7636965460157405864}
   lossIndicator: {fileID: 0}
+  lossIndicatorFade: {fileID: 0}
   currentHPBarFade: {fileID: 0}
   backgroundBarFade: {fileID: 0}
+  backgroundBorderFade: {fileID: 0}
+  barShadowFade: {fileID: 0}
   barOffset: {x: 0, y: 0}
   maxHP: 100
   currentHP: 100
@@ -1154,7 +1157,7 @@ SpriteRenderer:
   m_SortingLayer: 6
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: f49ecc5bceb49435f8d067d721244739, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

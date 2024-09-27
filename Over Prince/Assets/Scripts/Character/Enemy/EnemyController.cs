@@ -31,27 +31,34 @@ public class EnemyController : MovableCharacterController, IHurtableCharacterCon
 
     void FixedUpdate()
     {
-        if (displayLogs) Debug.Log("Enemy state is: " + enemy.state);
-        if (displayLogs) Debug.Log("Can they move towards target: " + CanMoveTowardsTarget());
-        if (CanMoveTowardsTarget()) {
-            LinearlyMoveTowardsTarget();
-        }
+        //if (displayLogs) Debug.Log("Enemy state is: " + enemy.state);
+        //if (displayLogs) Debug.Log("Can they move towards target: " + CanMoveTowardsTarget());
         if (enemy.state == CharacterState.HitStun) {
             ProcessHitStunTimer();
+        } else if (CanMoveTowardsTarget()) {
+            LinearlyMoveTowardsTarget();
         }
     }
 
     // TODO: Combine this in the MovableCharacterController class after you extract the enemy.state references from the enemy.enemyID references to share with the PlayerController
     void ProcessHitStunTimer() {
         hitStunTimer += Time.fixedDeltaTime;
+        //Debug.Log("--- (HitStream) " + transform.name + " HitStunTimer: " + hitStunTimer + " | HitStunDuration: " + hitStunDuration + " at time: " + Time.time);
         if (hitStunTimer >= hitStunDuration) {
+            if (displayLogs) Debug.Log("(HitStream) " + transform.name + " is no longer in HitStun at time: " + Time.time);
+            animator.ResetTrigger(Constants.AnimationKeys.PerformAttack);
+            animator.ResetTrigger(Constants.AnimationKeys.Hurt);
             animator.SetTrigger(Constants.AnimationKeys.RecoverFromHurt);
+            enemy.spriteRenderer.color = Color.blue;
             enemy.EnterState(CharacterState.Idle);
             hitStunTimer = 0;
-            if (displayLogs) Debug.Log("Enemy is no longer in HitStun at time: " + Time.time);
-            if (uniqueActions.Contains(SpecialCharacterAction.FaceCharacterAfterHitStun)) {
-                TutorialKnockbackSequence();
-            }
+            ProcessUniqueActions();
+        }
+    }
+
+    private void ProcessUniqueActions() {
+        if (uniqueActions.Contains(SpecialCharacterAction.FaceCharacterAfterHitStun)) {
+            TutorialKnockbackSequence();
         }
     }
 
@@ -77,14 +84,10 @@ public class EnemyController : MovableCharacterController, IHurtableCharacterCon
             Vector3 moveVector = direction * moveSpeed * Time.fixedDeltaTime;
             moveVector.y *= Constants.verticalMovementModifier;
             rigidBody.MovePosition(rigidBody.transform.position + moveVector);
-            if (moveVector.x > 0)
-            {
-                rigidBody.transform.localScale = new Vector3(defaultScale.x, defaultScale.y, 1);
-            }
-            else if (moveVector.x < 0)
-            {
-                rigidBody.transform.localScale = new Vector3(-defaultScale.x, defaultScale.y, 1);
-            }
+
+            if (moveVector.x > 0) rigidBody.transform.localScale = new Vector3(defaultScale.x, defaultScale.y, 1);
+            else if (moveVector.x < 0) rigidBody.transform.localScale = new Vector3(-defaultScale.x, defaultScale.y, 1);
+            
             animator.SetFloat("moveSpeed", moveVector.magnitude);
         } else {
             animator.SetFloat("moveSpeed", 0);
@@ -108,6 +111,9 @@ public class EnemyController : MovableCharacterController, IHurtableCharacterCon
     public void EnterHitStun(float hitStunDuration)
     {
         this.hitStunDuration = hitStunDuration;
+        if (displayLogs) Debug.Log("(HitStream) " + gameObject.name + " is in " + hitStunDuration + "s of HitStun at time: " + Time.time + ". Should be free at " + (Time.time + hitStunDuration) + " | And the hitStunTimer is : " + hitStunTimer);
+        animator.ResetTrigger(Constants.AnimationKeys.RecoverFromHurt);
+        animator.ResetTrigger(Constants.AnimationKeys.PerformAttack);
         animator.SetTrigger(Constants.AnimationKeys.Hurt);
         enemy.attackManager.DestroyInterruptibleHitboxes();
     }

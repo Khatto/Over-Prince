@@ -51,7 +51,7 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
                 }
                 break;
             case FileLobbyIntroStageState.IntroduceControls:
-                if (PlayerIsMoving()) {
+                if (instructionManager.state == InstructionManagerState.WaitingForUserInput && PlayerIsMoving()) {
                     PerformSceneAction(FileLobbyIntroStageState.NavigateToMonster);
                 }
                 break;
@@ -161,7 +161,6 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
             case FileLobbyIntroStageState.StartBattle:
                 StartCoroutine(StartBattle());
                 break;
-            
         }
     }
 
@@ -199,6 +198,7 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
         instructionManager.HideInstructions();
         cinematicFrameManager.EnterFrames();
         playerController.enabled = false;
+        playerController.StopMovement();
         yield return new WaitForSeconds(FileLobbyIntroStageManagerConstants.dialogueDelay);
         dialogueManager.DisplayDialogues(DialogueConstants.FieldLobbyIntro.BattlePostEnemyHit.dialogues);
         PerformSceneAction(FileLobbyIntroStageState.FinishDialogueBeforeBattle);
@@ -233,6 +233,9 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
         if (gameEvent == GameEvent.BattleIntro) {
             PerformSceneAction(FileLobbyIntroStageState.BattleIntroScene);
         }
+        if (gameEvent == GameEvent.AlternativeBattleIntro) {
+            PerformSceneAction(FileLobbyIntroStageState.StartBattle);
+        }
     }
 
     public void OnHurtboxTriggerEnter(Character character) {
@@ -245,6 +248,11 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
 
     public void OnHurtboxTriggerExit(Character character) {
         /* No action needed */
+    }
+
+
+    public void OnBattleEnd() {
+        // Implement the battle end logic here
     }
 }
 
@@ -261,5 +269,7 @@ public enum FileLobbyIntroStageState {
     BattleTutorial,
     PostEnemyHit,
     FinishDialogueBeforeBattle,
-    StartBattle
+    StartBattle,
+    FinishedBattle,
+    NavigateTowardsEnd
 }

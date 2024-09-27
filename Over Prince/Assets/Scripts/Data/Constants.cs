@@ -18,6 +18,8 @@ public static class Constants {
         public const string Hurtbox = "Hurtbox";
         public const string Hitbox = "Hitbox";
         public const string PlayerHPBar = "Player HP Bar";
+        public const string PlayerHPPortrait = "Player HP Portrait";
+        public const string HitStopManager = "HitStopManager";
     }
 
     public static class AnimationKeys {

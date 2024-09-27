@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameplayScene : MonoBehaviour, IGameEventListener
+public class GameplayScene : MonoBehaviour, IGameEventListener, IBattleEventListener
 {
     public static class GameplaySceneConstants {
         public static float sceneFadeInDuration = 1.5f;
@@ -73,6 +73,16 @@ public class GameplayScene : MonoBehaviour, IGameEventListener
     public virtual void OnGameEvent(GameEvent gameEvent)
     {
         // Implement the game event logic here
+    }
+
+    public virtual void OnBattleStart()
+    {
+        // Implement the battle start logic here
+    }
+
+    public void OnBattleEnd()
+    {
+        // Implement the battle end logic here
     }
 }
 

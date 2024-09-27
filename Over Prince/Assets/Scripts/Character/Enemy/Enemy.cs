@@ -38,11 +38,13 @@ public class Enemy : Character
 
     public override void EnterState(CharacterState state)
     {
+        if (this.state == CharacterState.Dying && state != CharacterState.Dead) return;
         base.EnterState(state);
+        if (displayLogs) Debug.Log("(HitStream) Enemy " + name + " is entering state: " + state + " at time " + Time.time);
         switch (state)
         {
             case CharacterState.Idle:
-                spriteRenderer.color = Color.white;
+                spriteRenderer.color = Color.blue;
                 if (specialBattleType == SpecialCharacterType.IntroTutorial) {
                     PerformUniqueAction(SpecialCharacterAction.FaceCharacterAfterHitStun);
                 }
@@ -76,8 +78,11 @@ public class Enemy : Character
 
     public void InitiateAttack(int attackIndex) {
         if (state != CharacterState.Attacking && state != CharacterState.HitStun && attackIndex < attacks.Length) {
-            if (displayLogs) Debug.Log(transform.gameObject.name + " is Initiating attack " + attacks[attackIndex].attackID);
+            if (displayLogs) Debug.Log("(HitStream) " + transform.gameObject.name + " is Initiating attack " + attacks[attackIndex].attackID);
             EnterState(CharacterState.Attacking);
+            spriteRenderer.color = new Color(1.0f, 1.0f, 0.0f, 1.0f);
+            animator.ResetTrigger(Constants.AnimationKeys.RecoverFromHurt);
+            animator.ResetTrigger(Constants.AnimationKeys.Hurt);
             animator.SetTrigger(Constants.AnimationKeys.PerformAttack);
             animator.SetInteger(Constants.AnimationKeys.AttackDesignation, (int) attacks[attackIndex].attackID);
             attackManager.PerformAttack(attacks[attackIndex].attackID, HitboxOwner.Enemy, GetDirection());
