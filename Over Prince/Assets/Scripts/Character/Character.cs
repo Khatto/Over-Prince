@@ -41,7 +41,7 @@ public class Character : MonoBehaviour {
     }
 
     public bool CanBeHit() {
-        return state != CharacterState.Dying && state != CharacterState.Dead && state != CharacterState.HitStun && state != CharacterState.Invulnerable;
+        return state != CharacterState.Dying && state != CharacterState.Dead && state != CharacterState.Invulnerable;
     }
 
     /// <summary>

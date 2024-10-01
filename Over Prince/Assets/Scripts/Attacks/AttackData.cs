@@ -21,7 +21,7 @@ public static class AttackData {
         "Jab", 
         AttackTrigger.Single, 
         new Hit[] {
-            new(30, 5, 10, 20, 10, 1, 0.0f, new Vector2(0, 0), HitStopDurations.light)
+            new(totalFrames: 30, startupFrames: 5, activeFrames: 10, cancelleableFrame: 20, hitStunFrames: 10, damage: 1, rehitRate: 0.0f, knockdownPower: 0.0f, knockback: new Vector2(0, 0), hitStopDuration: HitStopDurations.light)
         },
         new Hitbox(0.82f, 1.39f)
     );
@@ -31,7 +31,7 @@ public static class AttackData {
         "Jab2", 
         AttackTrigger.Single, 
         new Hit[] {
-            new(30, 5, 10, 20, 10, 1, 0.0f, new Vector2(0, 0), HitStopDurations.light)
+            new(totalFrames: 30, startupFrames: 5, activeFrames: 10, cancelleableFrame: 20, hitStunFrames: 10, damage: 1, rehitRate: 0.0f, knockdownPower: 0.0f, knockback: new Vector2(0, 0), hitStopDuration: HitStopDurations.light)
         },
         new Hitbox(0.85f, 1.42f)
     );
@@ -41,7 +41,7 @@ public static class AttackData {
         "Jab3", 
         AttackTrigger.Single, 
         new Hit[] {
-            new(30, 5, 4, 20, 45, 3, 1.0f, new Vector2(1000.0f, 0), HitStopDurations.medium)
+            new(totalFrames: 30, startupFrames: 5, activeFrames: 4, cancelleableFrame: 20, hitStunFrames: 45, damage: 3, rehitRate: 0.0f, knockdownPower: 1.0f, knockback: new Vector2(1000.0f, 0), hitStopDuration: HitStopDurations.medium)
         },
         new Hitbox(1.05f, 1.19f, 1.5f, 1.5f)
     );
@@ -51,7 +51,7 @@ public static class AttackData {
         "TriangleSlimeSlam", 
         AttackTrigger.Single, 
         new Hit[] {
-            new(40, 21, 15, 35, 15, 3, 0.0f, new Vector2(1000.0f, 0), HitStopDurations.light)
+            new(totalFrames: 40, startupFrames: 21, activeFrames: 15, cancelleableFrame: 35, hitStunFrames: 15, damage: 3, rehitRate: 0.0f, knockdownPower: 1.0f, knockback: new Vector2(1000.0f, 0), hitStopDuration: HitStopDurations.light)
         },
         new Hitbox(1.06f, 1.56f, 1.5f, 1.5f)
     );
@@ -110,24 +110,30 @@ public class Hit {
     public int cancelleableFrame;
     public int hitStunFrames;
     public int damage;
+    public float rehitRate = 0.0f;
     public float knockdownPower;
     public Vector2 knockback;
     public float hitStopDuration = 0.0f;
     public bool isInterruptible = false;
     public HitContactSound hitContactSound;
 
-    public Hit(int totalFrames, int startupFrames, int activeFrames, int cancelleableFrame, int hitStunFrames, int damage, float knockdownPower, Vector2 knockback, float hitStopDuration = 0.0f, bool isInterruptible = true, HitContactSound hitContactSound = HitContactSound.Light) {
+    public Hit(int totalFrames, int startupFrames, int activeFrames, int cancelleableFrame, int hitStunFrames, int damage, float rehitRate, float knockdownPower, Vector2 knockback, float hitStopDuration = 0.0f, bool isInterruptible = true, HitContactSound hitContactSound = HitContactSound.Light) {
         this.totalFrames = totalFrames;
         this.startupFrames = startupFrames;
         this.activeFrames = activeFrames;
         this.cancelleableFrame = cancelleableFrame;
         this.hitStunFrames = hitStunFrames;
         this.damage = damage;
+        this.rehitRate = rehitRate;
         this.knockdownPower = knockdownPower;
         this.knockback = knockback;
         this.hitStopDuration = hitStopDuration;
         this.isInterruptible = isInterruptible;
         this.hitContactSound = hitContactSound;
+    }
+
+    public bool CanRehit() {
+        return rehitRate > 0.0f;
     }
 }
 

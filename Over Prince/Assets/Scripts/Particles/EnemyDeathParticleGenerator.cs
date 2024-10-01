@@ -1,6 +1,6 @@
-public class HitImpactParticleManager : CommonParticleGenerator
+public class EnemyDeathParticleGenerator : CommonParticleGenerator
 {
-    public static HitImpactParticleManager instance;
+    public static EnemyDeathParticleGenerator instance;
 
     public override void SetupSingleton() {
         if (instance == null) {

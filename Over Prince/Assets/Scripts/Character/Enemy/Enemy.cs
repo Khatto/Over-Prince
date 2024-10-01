@@ -94,6 +94,7 @@ public class Enemy : Character
         hpBar.FadeOut();
         soundManager.PlayDeathSound();
         var fade = gameObject.GetComponent<Fade>();
+        EnemyDeathParticleGenerator.instance.GenerateParticles(transform.position);
         if (fade != null) fade.StartFadeWithTime(FadeType.FadeOut, Constants.deathFadeTime, () => Die());
     }
 
