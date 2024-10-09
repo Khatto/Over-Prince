@@ -6,6 +6,16 @@ public class GameplayScene : MonoBehaviour, IGameEventListener, IBattleEventList
 {
     public static class GameplaySceneConstants {
         public static float sceneFadeInDuration = 1.5f;
+
+        public static class DeathSequence {
+            public static float deathSequenceWaitTime = 2.5f;
+            public static float screenFaderTime = 0.5f;
+            public static float cameraScaleSize = 0.85f;
+            public static float screenFaderTargetAlpha = 0.82f;
+            public static float gameOverFadeInTime = 0.75f;
+            public static float timeScale = 0.85f;
+            public static Color screenFaderGameOverStartColor = new Color(0.0f, 0.0f, 0.0f, 0.0f);
+        }
     }
 
     public bool shouldAutoFadeInScene = true;
@@ -14,6 +24,8 @@ public class GameplayScene : MonoBehaviour, IGameEventListener, IBattleEventList
     public GameplaySceneState state = GameplaySceneState.Loading;
     public PlayerController playerController;
     public MusicInfoManager musicInfoManager;
+    public ShadowedText gameOverText;
+    public SpriteRenderer mapProceedIndicator;
 
     public virtual void Start()
     {
@@ -23,6 +35,7 @@ public class GameplayScene : MonoBehaviour, IGameEventListener, IBattleEventList
                 StartCoroutine(DisplayMusicInfo());
             }
         }
+        gameOverText.SetupShadowText();
     }
 
     /// <summary>
@@ -80,9 +93,38 @@ public class GameplayScene : MonoBehaviour, IGameEventListener, IBattleEventList
         // Implement the battle start logic here
     }
 
-    public void OnBattleEnd()
+    public virtual void OnBattleComplete()
     {
         // Implement the battle end logic here
+    }
+
+    public virtual void OnPlayerDied()
+    {
+        Time.timeScale = GameplaySceneConstants.DeathSequence.timeScale;
+        playerController.animator.SetTrigger(Constants.AnimationKeys.DeathAnimation);
+        playerController.DisableOnPlayerDeath();
+        CameraZoom zoom = Camera.main.GetComponent<CameraZoom>();
+        zoom.SetZoomAndStart(Camera.main.orthographicSize, Camera.main.orthographicSize * GameplaySceneConstants.DeathSequence.cameraScaleSize, GameplaySceneConstants.DeathSequence.deathSequenceWaitTime);
+        StartCoroutine(PlayerDeathSequence());
+    }
+
+    private IEnumerator PlayerDeathSequence() {
+        yield return new WaitForSeconds(GameplaySceneConstants.DeathSequence.deathSequenceWaitTime);
+        screenFader.targetAlpha = GameplaySceneConstants.DeathSequence.screenFaderTargetAlpha;
+        screenFader.useTargetAlpha = true;
+        screenFader.SetColor(GameplaySceneConstants.DeathSequence.screenFaderGameOverStartColor);
+        screenFader.StartFadeWithTime(FadeType.FadeIn, GameplaySceneConstants.DeathSequence.screenFaderTargetAlpha);
+        gameOverText.StartFadeWithTime(FadeType.FadeIn, GameplaySceneConstants.DeathSequence.gameOverFadeInTime);
+    }
+
+    public void DisplayMapProceedIndicator(bool shouldDisplay) {
+        if (shouldDisplay) {
+            mapProceedIndicator.gameObject.SetActive(true);
+            mapProceedIndicator.GetComponent<ChangeColor>().SetColorThenChange(Color.white, null, ChangeColorMode.ChangeColorBackAndForth);
+        } else {
+            mapProceedIndicator.GetComponent<ChangeColor>().StopChangingColor();
+            mapProceedIndicator.GetComponent<Fade>().StartFade(FadeType.FadeOut);
+        }
     }
 }
 

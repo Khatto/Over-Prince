@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -15,8 +16,6 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
     public CinematicFrameManager cinematicFrameManager;
     public InstructionManager instructionManager;
     public BattleManager battleManager;
-    public SpriteRenderer mapProceedIndicator;
-
     public InputActionAsset actions;
     private InputAction moveAction;
 
@@ -29,10 +28,11 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
         public const float panCameraDelay = 0.5f;
         public const float panCameraDuration = 0.5f;
         public const float panCameraToTargetThreshold = 0.1f;
-
         public const float panCameraToMonsterCameraZoomStartSize = 5.0f;
         public const float panCameraToMonsterCameraZoomEndSize = 3.69f;
         public const float tutorialKnockbackForce = 1000.0f;
+        public static Range2D battleCameraFollowMaxRange = new Vector2(0.3f, 17f);
+        public static Range2D postBattleCameraFollow = new Vector2(0.3f, 20f); 
     }
 
     public override void Start() {
@@ -40,6 +40,7 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
         cameraZoom.StartZoom();
         moveAction = actions.FindActionMap(PlayerController.PlayerControllerConstants.InputKeyNames.PlayerInputActionMapName).FindAction(PlayerController.PlayerControllerConstants.InputKeyNames.Move);
         firstTriangleEnemy.GetComponentInChildren<HurtboxManager>().SetListener(this);
+        battleManager.Setup(player.GetComponent<Player>(), this, new List<Enemy> { firstTriangleEnemy });
     }
 
     public override void Update() {
@@ -122,16 +123,14 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
                 cameraFollow.enabled = true;
                 cameraFollow.active = true;
                 instructionManager.DisplayInstructions(InstructionConstants.ControlInstructions.GetInstructionsBasedOnDevice());
-                mapProceedIndicator.gameObject.SetActive(true);
-                mapProceedIndicator.GetComponent<ChangeColor>().SetColorThenChange(Color.white);
+                DisplayMapProceedIndicator(true);
                 StartCoroutine(DelayedAction(InstructionConstants.instructionFadeTime, () => {
                     playerController.SetControlsActive(true);
                 }));
                 break;
             case FileLobbyIntroStageState.NavigateToMonster:
                 instructionManager.HideInstructions();
-                mapProceedIndicator.GetComponent<ChangeColor>().StopChangingColor();
-                mapProceedIndicator.GetComponent<Fade>().StartFade(FadeType.FadeOut);
+                DisplayMapProceedIndicator(false);
                 break;
             case FileLobbyIntroStageState.BattleIntroScene:
                 // dialogueManager.Reset();
@@ -216,6 +215,7 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
 
     public IEnumerator StartBattle() {
         cinematicFrameManager.ExitFrames();
+        cameraFollow.cameraRangeX = FileLobbyIntroStageManagerConstants.battleCameraFollowMaxRange;
         yield return new WaitForSeconds(cinematicFrameManager.GetMovementTime());
         playerController.enabled = true;
         firstTriangleEnemy.SetToMaxHP();
@@ -234,6 +234,7 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
             PerformSceneAction(FileLobbyIntroStageState.BattleIntroScene);
         }
         if (gameEvent == GameEvent.AlternativeBattleIntro) {
+            instructionManager.HideInstructions();
             PerformSceneAction(FileLobbyIntroStageState.StartBattle);
         }
     }
@@ -250,9 +251,11 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
         /* No action needed */
     }
 
-
-    public void OnBattleEnd() {
-        // Implement the battle end logic here
+    public override void OnBattleComplete()
+    {
+        base.OnBattleComplete();
+        cameraFollow.cameraRangeX = FileLobbyIntroStageManagerConstants.postBattleCameraFollow;
+        DisplayMapProceedIndicator(true);
     }
 }
 

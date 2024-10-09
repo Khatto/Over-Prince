@@ -53,17 +53,20 @@ public class HPBar : MonoBehaviour
         if (displayHPBar && transform.parent != null) FlipHPBarDependingOnParentFacing();
     }
 
+    // TODO: Clean up DisplayHPBar vs. FadeHPBar(FadeType.FadeIn)
     public void DisplayHPBar() {
         displayHPBar = true;
         currentHPBar.GetComponent<SpriteRenderer>().enabled = true;
         backgroundBar.GetComponent<SpriteRenderer>().enabled = true;
     }
 
-    public void FadeInHPBar() {
-        currentHPBarFade.StartFadeWithTime(FadeType.FadeIn, Constants.hpBarFadeTime);
-        backgroundBarFade.StartFadeWithTime(FadeType.FadeIn, Constants.hpBarFadeTime);
-        backgroundBorderFade.StartFadeWithTime(FadeType.FadeIn, Constants.hpBarFadeTime);
-        barShadowFade.StartFadeWithTime(FadeType.FadeIn, Constants.hpBarFadeTime);
+    public void FadeHPBar(FadeType fadeType) {
+        currentHPBarFade.useTargetAlpha = fadeType == FadeType.FadeIn;
+        currentHPBarFade.StartFadeWithTime(fadeType, Constants.hpBarFadeTime);
+        backgroundBarFade.useTargetAlpha = fadeType == FadeType.FadeIn;
+        backgroundBarFade.StartFadeWithTime(fadeType, Constants.hpBarFadeTime);
+        if (backgroundBorderFade != null) backgroundBorderFade.StartFadeWithTime(fadeType, Constants.hpBarFadeTime);
+        if (barShadowFade != null) barShadowFade.StartFadeWithTime(fadeType, Constants.hpBarFadeTime);
     }
 
     public void FlipHPBarDependingOnParentFacing() {
@@ -123,11 +126,5 @@ public class HPBar : MonoBehaviour
             lossIndicatorTransform.localPosition = new Vector3(rightSideOfHPBar + lossIndicatorWidth, lossIndicatorTransform.localPosition.y, lossIndicatorTransform.localPosition.z);
             lossIndicatorFade.StartFadeWithTime(FadeType.FlashInThenFadeOut, Constants.lossIndicatorFadeTime);
         }
-    }
-
-    public void FadeOut()
-    {
-        currentHPBarFade.StartFadeWithTime(FadeType.FadeOut, Constants.hpBarFadeTime);
-        backgroundBarFade.StartFadeWithTime(FadeType.FadeOut, Constants.hpBarFadeTime);
     }
 }

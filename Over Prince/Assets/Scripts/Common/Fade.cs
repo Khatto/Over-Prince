@@ -80,7 +80,7 @@ public class Fade : MonoBehaviour
         return Color.white;
     }
 
-    private void SetColor(Color color) {
+    public void SetColor(Color color) {
         if (textMeshPro != null) {
             textMeshPro.color = color;
         }

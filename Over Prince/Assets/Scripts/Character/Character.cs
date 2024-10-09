@@ -52,6 +52,7 @@ public class Character : MonoBehaviour {
         if (CanBeHit()) {
             if (displayLogs) Debug.Log("(HitStream) " + transform.name + " was hit for damage: " + hit.damage + " at time: " + Time.time);
             soundManager.PlayHitContactSound(hit.hitContactSound);
+            // HitStopManager.instance.HitStop(hit.hitStopDuration);
             UpdateHP(hit.damage);
             EnterState(CharacterState.HitStun);
             rigidBody.AddForce(CalculateHitVector(hit, direction), ForceMode2D.Impulse);

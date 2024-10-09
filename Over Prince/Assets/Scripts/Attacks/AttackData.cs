@@ -51,7 +51,7 @@ public static class AttackData {
         "TriangleSlimeSlam", 
         AttackTrigger.Single, 
         new Hit[] {
-            new(totalFrames: 40, startupFrames: 21, activeFrames: 15, cancelleableFrame: 35, hitStunFrames: 15, damage: 3, rehitRate: 0.0f, knockdownPower: 1.0f, knockback: new Vector2(1000.0f, 0), hitStopDuration: HitStopDurations.light)
+            new(totalFrames: 40, startupFrames: 21, activeFrames: 15, cancelleableFrame: 35, hitStunFrames: 15, damage: 4, rehitRate: 0.0f, knockdownPower: 1.0f, knockback: new Vector2(1000.0f, 0), hitStopDuration: HitStopDurations.light)
         },
         new Hitbox(1.06f, 1.56f, 1.5f, 1.5f)
     );

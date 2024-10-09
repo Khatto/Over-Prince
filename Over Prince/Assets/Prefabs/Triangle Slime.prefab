@@ -1271,6 +1271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitboxesToWatchFor: 00000000
   hitboxesToIgnore: []
+  state: 0
 --- !u!1 &7012119843165494491
 GameObject:
   m_ObjectHideFlags: 0

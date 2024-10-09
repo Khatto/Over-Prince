@@ -31,8 +31,6 @@ public class EnemyController : MovableCharacterController, IHurtableCharacterCon
 
     void FixedUpdate()
     {
-        //if (displayLogs) Debug.Log("Enemy state is: " + enemy.state);
-        //if (displayLogs) Debug.Log("Can they move towards target: " + CanMoveTowardsTarget());
         if (enemy.state == CharacterState.HitStun) {
             ProcessHitStunTimer();
         } else if (CanMoveTowardsTarget()) {
@@ -49,7 +47,6 @@ public class EnemyController : MovableCharacterController, IHurtableCharacterCon
             animator.ResetTrigger(Constants.AnimationKeys.PerformAttack);
             animator.ResetTrigger(Constants.AnimationKeys.Hurt);
             animator.SetTrigger(Constants.AnimationKeys.RecoverFromHurt);
-            enemy.spriteRenderer.color = Color.blue;
             enemy.EnterState(CharacterState.Idle);
             hitStunTimer = 0;
             ProcessUniqueActions();

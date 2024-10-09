@@ -28,7 +28,7 @@ public class ChangeColor : MonoBehaviour
         }
     }
 
-    public void SetColorThenChange(Color color, Color? targetColor = null)
+    public void SetColorThenChange(Color color, Color? targetColor = null, ChangeColorMode? mode = null)
     {
         initialColor = color;
         if (targetColor != null) this.targetColor = (Color) targetColor;
@@ -39,6 +39,10 @@ public class ChangeColor : MonoBehaviour
         if (text != null)
         {
             text.color = color;
+        }
+        if (mode != null)
+        {
+            changeColorMode = (ChangeColorMode) mode;
         }
         StartChangingColor();
     }

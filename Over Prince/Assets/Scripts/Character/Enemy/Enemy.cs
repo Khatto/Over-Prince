@@ -44,10 +44,10 @@ public class Enemy : Character
         switch (state)
         {
             case CharacterState.Idle:
-                spriteRenderer.color = Color.blue;
                 if (specialBattleType == SpecialCharacterType.IntroTutorial) {
                     PerformUniqueAction(SpecialCharacterAction.FaceCharacterAfterHitStun);
                 }
+                spriteRenderer.color = Color.white;
                 break;
             case CharacterState.Attacking:
                 break;
@@ -80,7 +80,6 @@ public class Enemy : Character
         if (state != CharacterState.Attacking && state != CharacterState.HitStun && attackIndex < attacks.Length) {
             if (displayLogs) Debug.Log("(HitStream) " + transform.gameObject.name + " is Initiating attack " + attacks[attackIndex].attackID);
             EnterState(CharacterState.Attacking);
-            spriteRenderer.color = new Color(1.0f, 1.0f, 0.0f, 1.0f);
             animator.ResetTrigger(Constants.AnimationKeys.RecoverFromHurt);
             animator.ResetTrigger(Constants.AnimationKeys.Hurt);
             animator.SetTrigger(Constants.AnimationKeys.PerformAttack);
@@ -91,7 +90,7 @@ public class Enemy : Character
 
     public void PerformDeathAnimation() {
         animator.SetTrigger(Constants.AnimationKeys.DeathAnimation);
-        hpBar.FadeOut();
+        hpBar.FadeHPBar(FadeType.FadeOut);
         soundManager.PlayDeathSound();
         var fade = gameObject.GetComponent<Fade>();
         EnemyDeathParticleGenerator.instance.GenerateParticles(transform.position);
@@ -117,6 +116,13 @@ public class Enemy : Character
         if (displayLogs) Debug.Log("Enemy " + name + " is starting battle from state " + state);
         EnterState(CharacterState.Idle);
         hpBar.DisplayHPBar();
+    }
+
+    public void StopBattle() {
+        if (displayLogs) Debug.Log("Enemy " + name + " is stopping battle from state " + state);
+        EnterState(CharacterState.Disengaged);
+        hpBar.FadeHPBar(FadeType.FadeOut);
+        GetComponentInChildren<HurtboxManager>().state = HurtboxState.Inactive;
     }
 }
 

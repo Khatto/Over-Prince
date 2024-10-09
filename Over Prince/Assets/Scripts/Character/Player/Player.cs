@@ -66,7 +66,9 @@ public class Player : Character
     public override void UpdateHP(int damage)
     {
         base.UpdateHP(damage);
-        if (damage > 0) hpPortraitManager.PerformPortraitAction(PortraitAction.Hurt);
+        if (damage > 0) {
+            hpPortraitManager.PerformPortraitAction(stats.currentHP > 0 ? PortraitAction.Hurt : PortraitAction.Die);
+        }
     }
 
 }

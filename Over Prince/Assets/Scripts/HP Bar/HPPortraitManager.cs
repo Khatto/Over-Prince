@@ -30,7 +30,6 @@ public class HPPortraitManager : MonoBehaviour
     public void PerformPortraitAction(PortraitAction action) {
         switch (action) {
             case PortraitAction.Normal:
-                Debug.Log("Should be performing Portrait Normal action!");
                 portraitNormalFade.StartFadeWithTime(FadeType.FadeIn, HPPortraitManagerConstants.portraitActionChangeTime);
                 portraitHurtFade.StartFadeWithTime(FadeType.FadeOut, HPPortraitManagerConstants.portraitActionChangeTime);
                 break;
@@ -40,6 +39,11 @@ public class HPPortraitManager : MonoBehaviour
                 portraitBackground.SetColorThenChange(HPPortraitManagerConstants.portraitHurtColor, HPPortraitManagerConstants.portraitBackgroundColor);
                 StartCoroutine(PerformPortraitActionWithDelay(PortraitAction.Normal, HPPortraitManagerConstants.portraitActionReturnDelay));
                 break;
+            case PortraitAction.Die:
+                portraitNormalFade.StartFadeWithTime(FadeType.FadeOut, HPPortraitManagerConstants.portraitActionChangeTime);
+                portraitHurtFade.StartFadeWithTime(FadeType.FadeIn, HPPortraitManagerConstants.portraitActionChangeTime);
+                portraitBackground.SetColorThenChange(HPPortraitManagerConstants.portraitHurtColor, HPPortraitManagerConstants.portraitBackgroundColor);
+                break;
         }
     }
 
@@ -48,22 +52,20 @@ public class HPPortraitManager : MonoBehaviour
         PerformPortraitAction(action);
     }
 
-    public void DisplayPortrait() {
-        portraitFrameFade.StartFadeWithTime(FadeType.FadeIn, HPPortraitManagerConstants.portraitFadeTime);
-        portraitShadowFade.StartFadeWithTime(FadeType.FadeIn, HPPortraitManagerConstants.portraitFadeTime);
-        portraitNormalFade.StartFadeWithTime(FadeType.FadeIn, HPPortraitManagerConstants.portraitFadeTime);
-        portraitBackgroundFade.StartFadeWithTime(FadeType.FadeIn, HPPortraitManagerConstants.portraitFadeTime);
-    }
-
-    public void HidePortrait() {
-        portraitFrameFade.StartFadeWithTime(FadeType.FadeOut, HPPortraitManagerConstants.portraitFadeTime);
-        portraitShadowFade.StartFadeWithTime(FadeType.FadeOut, HPPortraitManagerConstants.portraitFadeTime);
-        portraitNormalFade.StartFadeWithTime(FadeType.FadeOut, HPPortraitManagerConstants.portraitFadeTime);
-        portraitBackgroundFade.StartFadeWithTime(FadeType.FadeOut, HPPortraitManagerConstants.portraitFadeTime);
+    public void FadePortrait(FadeType fadeType) {
+        portraitFrameFade.StartFadeWithTime(fadeType, HPPortraitManagerConstants.portraitFadeTime);
+        portraitShadowFade.StartFadeWithTime(fadeType, HPPortraitManagerConstants.portraitFadeTime);
+        portraitNormalFade.StartFadeWithTime(fadeType, HPPortraitManagerConstants.portraitFadeTime);
+        if (fadeType == FadeType.FadeOut) {
+            portraitHurtFade.StartFadeWithTime(fadeType, HPPortraitManagerConstants.portraitFadeTime);
+        }
+        portraitBackgroundFade.useTargetAlpha = fadeType == FadeType.FadeIn;
+        portraitBackgroundFade.StartFadeWithTime(fadeType, HPPortraitManagerConstants.portraitFadeTime);
     }
 }
 
 public enum PortraitAction {
     Normal,
-    Hurt
+    Hurt,
+    Die
 }

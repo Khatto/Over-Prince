@@ -9,6 +9,7 @@ public class HurtboxManager : MonoBehaviour
     public List<HitboxManager> hitboxesToIgnore = new List<HitboxManager>();
     private Character character;
     private IHurtboxTriggerListener hurtboxTriggerListener;
+    public HurtboxState state = HurtboxState.Active;
 
     void Start() {
         character = transform.parent.gameObject.GetComponent<Character>();
@@ -74,6 +75,11 @@ public class HurtboxManager : MonoBehaviour
     }
 
     bool CanBeHit(HitboxManager manager) {
-        return manager.hit.CanRehit() ? CanBeHit() : !hitboxesToIgnore.Contains(manager) && CanBeHit();
+        return (manager.hit.CanRehit() ? CanBeHit() : !hitboxesToIgnore.Contains(manager) && CanBeHit()) && state == HurtboxState.Active;
     }
+}
+
+public enum HurtboxState {
+    Active,
+    Inactive
 }

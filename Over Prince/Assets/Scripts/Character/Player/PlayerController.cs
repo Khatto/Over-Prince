@@ -53,25 +53,11 @@ public class PlayerController : MovableCharacterController, IHurtableCharacterCo
 
     void FixedUpdate()
     {
-        if (state == PlayerControllerState.Active && player.state != CharacterState.Dying && player.state != CharacterState.HitStun) {
-            Vector2 moveVector = moveAction.ReadValue<Vector2>();
-            moveVector.y *= Constants.verticalMovementModifier;
-            UpdateSpriteFromMovement(moveVector);
-            if (moveVector != Vector2.zero && player.state != CharacterState.Attacking) {
-                rigidBody.MovePosition(rigidBody.position + moveVector * (testMoveSpeed ? moveSpeed : PlayerConstants.GetMoveSpeed(player.state)) * Time.fixedDeltaTime);
-            }
+        if (CanMove()) {
+            ProcessMovementInput();
         }
         if (player.state == CharacterState.HitStun) {
             ProcessHitStunTimer();
-        }
-    }
-
-    void ProcessHitStunTimer() {
-        hitStunTimer += Time.fixedDeltaTime;
-        if (hitStunTimer >= hitStunDuration) {
-            animator.SetTrigger(Constants.AnimationKeys.RecoverFromHurt);
-            player.EnterState(CharacterState.Idle);
-            hitStunTimer = 0;
         }
     }
 
@@ -95,6 +81,28 @@ public class PlayerController : MovableCharacterController, IHurtableCharacterCo
         testAction.performed += OnTestButtonPressed;
     }
 
+    void ProcessMovementInput() {
+        Vector2 moveVector = moveAction.ReadValue<Vector2>();
+        moveVector.y *= Constants.verticalMovementModifier;
+        UpdateSpriteFromMovement(moveVector);
+        if (moveVector != Vector2.zero && player.state != CharacterState.Attacking) {
+            rigidBody.MovePosition(rigidBody.position + moveVector * (testMoveSpeed ? moveSpeed : PlayerConstants.GetMoveSpeed(player.state)) * Time.fixedDeltaTime);
+        }
+    }
+
+    private bool CanMove() {
+        return state == PlayerControllerState.Active && player.state != CharacterState.Dying && player.state != CharacterState.HitStun;
+    }
+
+    void ProcessHitStunTimer() {
+        hitStunTimer += Time.fixedDeltaTime;
+        if (hitStunTimer >= hitStunDuration) {
+            animator.SetTrigger(Constants.AnimationKeys.RecoverFromHurt);
+            player.EnterState(CharacterState.Idle);
+            hitStunTimer = 0;
+        }
+    }
+
     public void SetControlsActive(bool active) {
         state = active ? PlayerControllerState.Active : PlayerControllerState.Inactive;
         if (active && SystemInfo.deviceType == DeviceType.Handheld) {
@@ -102,8 +110,8 @@ public class PlayerController : MovableCharacterController, IHurtableCharacterCo
             joystickBackgroundFade.StartFade(FadeType.FadeIn);
             joystickKnobFade.StartFade(FadeType.FadeIn);
         } else if (!active) {
-            joystickBackgroundFade.StartFadeWithTime(FadeType.FadeOut, PlayerControllerConstants.joystickFadeTime, () => touchControlsCanvas.enabled = false);
-            joystickKnobFade.StartFadeWithTime(FadeType.FadeOut, PlayerControllerConstants.joystickFadeTime);
+            if (joystickBackgroundFade != null) joystickBackgroundFade.StartFadeWithTime(FadeType.FadeOut, PlayerControllerConstants.joystickFadeTime, () => touchControlsCanvas.enabled = false);
+            if (joystickKnobFade != null) joystickKnobFade.StartFadeWithTime(FadeType.FadeOut, PlayerControllerConstants.joystickFadeTime);
         }
     }
 
@@ -129,9 +137,18 @@ public class PlayerController : MovableCharacterController, IHurtableCharacterCo
         player.animator.SetInteger(Constants.AnimationKeys.MoveSpeed, (int) CharacterState.Idle);
     }
 
+    public void DisableOnPlayerDeath() {
+        StopMovement();
+        SetControlsActive(false);
+    }
+
     private void OnAttackPressed(InputAction.CallbackContext context, int attackIndex)
     {
-        InitiateAttack(attackIndex);
+        if (CanAttack()) InitiateAttack(attackIndex);
+    }
+
+    private bool CanAttack() {
+        return state == PlayerControllerState.Active && player.state != CharacterState.Dying;
     }
 
     private void OnTestButtonPressed(InputAction.CallbackContext context)

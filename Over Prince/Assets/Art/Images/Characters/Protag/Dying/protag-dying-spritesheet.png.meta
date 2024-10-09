@@ -1,0 +1,4069 @@
+fileFormatVersion: 2
+guid: 3b9a1b8219da74074b2f5e3a66bf8493
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6767816079196556641
+    second: protag-dying-spritesheet_0
+  - first:
+      213: -7989126682857833866
+    second: protag-dying-spritesheet_1
+  - first:
+      213: 6079538067549812978
+    second: protag-dying-spritesheet_2
+  - first:
+      213: -2490200717677439928
+    second: protag-dying-spritesheet_3
+  - first:
+      213: -6115381998721662601
+    second: protag-dying-spritesheet_4
+  - first:
+      213: 9009824195547417777
+    second: protag-dying-spritesheet_5
+  - first:
+      213: -1364545593394128833
+    second: protag-dying-spritesheet_6
+  - first:
+      213: 4557832313159164856
+    second: protag-dying-spritesheet_7
+  - first:
+      213: -2211842921220888989
+    second: protag-dying-spritesheet_8
+  - first:
+      213: 2050719695367326915
+    second: protag-dying-spritesheet_9
+  - first:
+      213: -4024121328915421521
+    second: protag-dying-spritesheet_10
+  - first:
+      213: 37271354593467171
+    second: protag-dying-spritesheet_11
+  - first:
+      213: -2343594540422454703
+    second: protag-dying-spritesheet_12
+  - first:
+      213: -6393825198747823007
+    second: protag-dying-spritesheet_13
+  - first:
+      213: -557874499256912695
+    second: protag-dying-spritesheet_14
+  - first:
+      213: -1411690324829940933
+    second: protag-dying-spritesheet_15
+  - first:
+      213: -7729616791850328602
+    second: protag-dying-spritesheet_16
+  - first:
+      213: -3172279954868788845
+    second: protag-dying-spritesheet_17
+  - first:
+      213: -3322603707709838235
+    second: protag-dying-spritesheet_18
+  - first:
+      213: 4162603224629981952
+    second: protag-dying-spritesheet_19
+  - first:
+      213: -7045448686368033564
+    second: protag-dying-spritesheet_20
+  - first:
+      213: -1189856128313902544
+    second: protag-dying-spritesheet_21
+  - first:
+      213: -1346270525266337653
+    second: protag-dying-spritesheet_22
+  - first:
+      213: -6423540061162211526
+    second: protag-dying-spritesheet_23
+  - first:
+      213: -4892804114544518642
+    second: protag-dying-spritesheet_24
+  - first:
+      213: 1103154879183647409
+    second: protag-dying-spritesheet_25
+  - first:
+      213: -275725867501099631
+    second: protag-dying-spritesheet_26
+  - first:
+      213: -1264707064041443182
+    second: protag-dying-spritesheet_27
+  - first:
+      213: 2109187709978762299
+    second: protag-dying-spritesheet_28
+  - first:
+      213: 4946838466675512749
+    second: protag-dying-spritesheet_29
+  - first:
+      213: -7974811400846860213
+    second: protag-dying-spritesheet_30
+  - first:
+      213: -2871337777627368175
+    second: protag-dying-spritesheet_31
+  - first:
+      213: -54084953250098961
+    second: protag-dying-spritesheet_32
+  - first:
+      213: 4216709976719159824
+    second: protag-dying-spritesheet_33
+  - first:
+      213: -6650824549568714001
+    second: protag-dying-spritesheet_34
+  - first:
+      213: 226457459189546527
+    second: protag-dying-spritesheet_35
+  - first:
+      213: 5485962526829663659
+    second: protag-dying-spritesheet_36
+  - first:
+      213: 535370260672039823
+    second: protag-dying-spritesheet_37
+  - first:
+      213: 2876459036558611444
+    second: protag-dying-spritesheet_38
+  - first:
+      213: -6960807072882620477
+    second: protag-dying-spritesheet_39
+  - first:
+      213: -5616772672121891883
+    second: protag-dying-spritesheet_40
+  - first:
+      213: -6334900372809455800
+    second: protag-dying-spritesheet_41
+  - first:
+      213: 2174641960369135590
+    second: protag-dying-spritesheet_42
+  - first:
+      213: 2611759679556273348
+    second: protag-dying-spritesheet_43
+  - first:
+      213: 2108021718440131076
+    second: protag-dying-spritesheet_44
+  - first:
+      213: -5195202130838802776
+    second: protag-dying-spritesheet_45
+  - first:
+      213: -1278587326579010096
+    second: protag-dying-spritesheet_46
+  - first:
+      213: -9088039404602646379
+    second: protag-dying-spritesheet_47
+  - first:
+      213: 9178596202062479118
+    second: protag-dying-spritesheet_48
+  - first:
+      213: 6716554052554422630
+    second: protag-dying-spritesheet_49
+  - first:
+      213: 2739302441745367249
+    second: protag-dying-spritesheet_50
+  - first:
+      213: -2750863857547454308
+    second: protag-dying-spritesheet_51
+  - first:
+      213: -4354845063053338465
+    second: protag-dying-spritesheet_52
+  - first:
+      213: -5168309348354353457
+    second: protag-dying-spritesheet_53
+  - first:
+      213: -8193263665389898713
+    second: protag-dying-spritesheet_54
+  - first:
+      213: -3094325347041719766
+    second: protag-dying-spritesheet_55
+  - first:
+      213: -5827671158560685718
+    second: protag-dying-spritesheet_56
+  - first:
+      213: 1991970734412615177
+    second: protag-dying-spritesheet_57
+  - first:
+      213: 6681708083252203699
+    second: protag-dying-spritesheet_58
+  - first:
+      213: -2597110501395832522
+    second: protag-dying-spritesheet_59
+  - first:
+      213: 3303500348194126606
+    second: protag-dying-spritesheet_60
+  - first:
+      213: 5440369084893783806
+    second: protag-dying-spritesheet_61
+  - first:
+      213: -4035671521798401295
+    second: protag-dying-spritesheet_62
+  - first:
+      213: 8811206954288103969
+    second: protag-dying-spritesheet_63
+  - first:
+      213: 418481382023604084
+    second: protag-dying-spritesheet_64
+  - first:
+      213: 3525259024592883779
+    second: protag-dying-spritesheet_65
+  - first:
+      213: 1744432343404831359
+    second: protag-dying-spritesheet_66
+  - first:
+      213: 6304542470847093415
+    second: protag-dying-spritesheet_67
+  - first:
+      213: 5150010265659033776
+    second: protag-dying-spritesheet_68
+  - first:
+      213: 8700952756861255533
+    second: protag-dying-spritesheet_69
+  - first:
+      213: 789045702998944378
+    second: protag-dying-spritesheet_70
+  - first:
+      213: -5451997456129165201
+    second: protag-dying-spritesheet_71
+  - first:
+      213: 1345047134208652146
+    second: protag-dying-spritesheet_72
+  - first:
+      213: 2264045126684269619
+    second: protag-dying-spritesheet_73
+  - first:
+      213: -3194155324943999211
+    second: protag-dying-spritesheet_74
+  - first:
+      213: -9121922081730427147
+    second: protag-dying-spritesheet_75
+  - first:
+      213: 7326989302461346273
+    second: protag-dying-spritesheet_76
+  - first:
+      213: 3578202107119585366
+    second: protag-dying-spritesheet_77
+  - first:
+      213: -193922129747817991
+    second: protag-dying-spritesheet_78
+  - first:
+      213: -7378968058066720852
+    second: protag-dying-spritesheet_79
+  - first:
+      213: 2457208748341656042
+    second: protag-dying-spritesheet_80
+  - first:
+      213: 4496699563462207646
+    second: protag-dying-spritesheet_81
+  - first:
+      213: 5530788049364931707
+    second: protag-dying-spritesheet_82
+  - first:
+      213: 345736979933458342
+    second: protag-dying-spritesheet_83
+  - first:
+      213: 3373463958475699967
+    second: protag-dying-spritesheet_84
+  - first:
+      213: 1028839893001855521
+    second: protag-dying-spritesheet_85
+  - first:
+      213: -909775119162570278
+    second: protag-dying-spritesheet_86
+  - first:
+      213: 5506979696542341553
+    second: protag-dying-spritesheet_87
+  - first:
+      213: -6223579003412220655
+    second: protag-dying-spritesheet_88
+  - first:
+      213: 4278143459172353417
+    second: protag-dying-spritesheet_89
+  - first:
+      213: -3428425761044665566
+    second: protag-dying-spritesheet_90
+  - first:
+      213: -7045732517716114935
+    second: protag-dying-spritesheet_91
+  - first:
+      213: -277134664877203270
+    second: protag-dying-spritesheet_92
+  - first:
+      213: 6544136891264144646
+    second: protag-dying-spritesheet_93
+  - first:
+      213: -7388018126002933730
+    second: protag-dying-spritesheet_94
+  - first:
+      213: -7189188019291925656
+    second: protag-dying-spritesheet_95
+  - first:
+      213: -4093206358000515703
+    second: protag-dying-spritesheet_96
+  - first:
+      213: 2061558855568943616
+    second: protag-dying-spritesheet_97
+  - first:
+      213: -8447283822485826540
+    second: protag-dying-spritesheet_98
+  - first:
+      213: -4417174365900978092
+    second: protag-dying-spritesheet_99
+  - first:
+      213: 8177962768243869501
+    second: protag-dying-spritesheet_100
+  - first:
+      213: 945802524447562896
+    second: protag-dying-spritesheet_101
+  - first:
+      213: -3075401602880199953
+    second: protag-dying-spritesheet_102
+  - first:
+      213: 5808770277854982788
+    second: protag-dying-spritesheet_103
+  - first:
+      213: 9017211252052406745
+    second: protag-dying-spritesheet_104
+  - first:
+      213: -6788032645567131010
+    second: protag-dying-spritesheet_105
+  - first:
+      213: -2674694196626649021
+    second: protag-dying-spritesheet_106
+  - first:
+      213: -1405163895521215689
+    second: protag-dying-spritesheet_107
+  - first:
+      213: 8656290105087389129
+    second: protag-dying-spritesheet_108
+  - first:
+      213: -7108524351006901246
+    second: protag-dying-spritesheet_109
+  - first:
+      213: 2729980862481120715
+    second: protag-dying-spritesheet_110
+  - first:
+      213: 8228313747821053440
+    second: protag-dying-spritesheet_111
+  - first:
+      213: -6483250347234984480
+    second: protag-dying-spritesheet_112
+  - first:
+      213: 4677602735088081517
+    second: protag-dying-spritesheet_113
+  - first:
+      213: -7236467322875725515
+    second: protag-dying-spritesheet_114
+  - first:
+      213: -1178730421130545694
+    second: protag-dying-spritesheet_115
+  - first:
+      213: 9156910732025324117
+    second: protag-dying-spritesheet_116
+  - first:
+      213: -7220102280612851023
+    second: protag-dying-spritesheet_117
+  - first:
+      213: 6915925124452051853
+    second: protag-dying-spritesheet_118
+  - first:
+      213: 3114385366771809870
+    second: protag-dying-spritesheet_119
+  - first:
+      213: 5749305553660928202
+    second: protag-dying-spritesheet_120
+  - first:
+      213: 3684421005775840864
+    second: protag-dying-spritesheet_121
+  - first:
+      213: 4257304165171124906
+    second: protag-dying-spritesheet_122
+  - first:
+      213: 6620139312859920890
+    second: protag-dying-spritesheet_123
+  - first:
+      213: -2699757299938948229
+    second: protag-dying-spritesheet_124
+  - first:
+      213: -25146197883482014
+    second: protag-dying-spritesheet_125
+  - first:
+      213: -2465679419666689094
+    second: protag-dying-spritesheet_126
+  - first:
+      213: 8035700128699699663
+    second: protag-dying-spritesheet_127
+  - first:
+      213: -4593410086945013065
+    second: protag-dying-spritesheet_128
+  - first:
+      213: -7627869234833108045
+    second: protag-dying-spritesheet_129
+  - first:
+      213: -8291160016961695610
+    second: protag-dying-spritesheet_130
+  - first:
+      213: -2183379909736904649
+    second: protag-dying-spritesheet_131
+  - first:
+      213: 7815661992951345697
+    second: protag-dying-spritesheet_132
+  - first:
+      213: 1862322563572393627
+    second: protag-dying-spritesheet_133
+  - first:
+      213: 1257192539669313961
+    second: protag-dying-spritesheet_134
+  - first:
+      213: -701889602198338349
+    second: protag-dying-spritesheet_135
+  - first:
+      213: -7050137446660060287
+    second: protag-dying-spritesheet_136
+  - first:
+      213: 3432065595000307506
+    second: protag-dying-spritesheet_137
+  - first:
+      213: -7791290573145930289
+    second: protag-dying-spritesheet_138
+  - first:
+      213: 2729624693234848726
+    second: protag-dying-spritesheet_139
+  - first:
+      213: -467722081689227038
+    second: protag-dying-spritesheet_140
+  - first:
+      213: -7865890863320681574
+    second: protag-dying-spritesheet_141
+  - first:
+      213: 7347337251985290493
+    second: protag-dying-spritesheet_142
+  - first:
+      213: 2980572985919852163
+    second: protag-dying-spritesheet_143
+  - first:
+      213: -1312029073684347631
+    second: protag-dying-spritesheet_144
+  - first:
+      213: 7826606983693131928
+    second: protag-dying-spritesheet_145
+  - first:
+      213: 6138941809705948245
+    second: protag-dying-spritesheet_146
+  - first:
+      213: -6322143017074860325
+    second: protag-dying-spritesheet_147
+  - first:
+      213: -613003102842084663
+    second: protag-dying-spritesheet_148
+  - first:
+      213: -6064258847323330617
+    second: protag-dying-spritesheet_149
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Win64
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 11264
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a207211685e64430980e6aa20d00711
+      internalID: 1041824496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 11264
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7864cf6b4875c481badf04e5a192e7d3
+      internalID: -302125310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 11264
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f582fb0cfab6b4973a5ff6fc6948f0ab
+      internalID: -1377888331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 11264
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f1f8ee495bab4e7e936ec7387755a19
+      internalID: 1877604141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 11264
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04be4db50669a4f40bc4c82745975c80
+      internalID: -1563356028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 11264
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e5464d0a074648a19dd80bcc8d84505
+      internalID: -1802491478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 11264
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb0cb2172cb804677b673f6a0b361611
+      internalID: 51242726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 7168
+        y: 11264
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37852012b61794e11b4376172106b955
+      internalID: -1455182581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 8192
+        y: 11264
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3327e347e64744eefab53c32a9529d08
+      internalID: -73103592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 9216
+        y: 11264
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67c939cd2d55f4008bdbda39e79a958c
+      internalID: -102645814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 11264
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7dfa01100f4f44c3b6483475ede6151
+      internalID: 201057115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 11264
+        y: 11264
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a94bf95c2586548359666b6f1eee84cb
+      internalID: 81709168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 12288
+        y: 11264
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 381005e29cc044a8383e550bce318378
+      internalID: 127031037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 10240
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b339291bef80422b93ae1c9dc0106c3
+      internalID: 1174397071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 10240
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3dcb45b9225f4c8bbae37f08414c2a1
+      internalID: 2012261840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 10240
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5358ee3817c2a45989865e23cf006fb2
+      internalID: -946064380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 10240
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79dd2559f68a9459981ce40591ed4b67
+      internalID: -585125056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 10240
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 028d668ba5516472990bb0f97ad9409a
+      internalID: -1724159992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 10240
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e8d7f12cf12a45fbbaa720c28de6e25
+      internalID: 1535343660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 10240
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ba5d6e3d776340de81196d881ad6549
+      internalID: -1453116494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 7168
+        y: 10240
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abe56d84ed39544799d3b999edda79de
+      internalID: -500208961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 8192
+        y: 10240
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52d6e1df61cbf4545a1a826a16fb5566
+      internalID: -1913764553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 9216
+        y: 10240
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abd7c9bddaed748eab19724f10ff52a6
+      internalID: -1590076204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 10240
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e30daa058d34247628bc96cda02f2af0
+      internalID: 197916702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 11264
+        y: 10240
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bbd84ced238d438d83ea4d57d8ca71c
+      internalID: 1525499251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 12288
+        y: 10240
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42bbe00a762ac4064b8d5a5bdf45d4a5
+      internalID: -1541056582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 9216
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7944241835d714c7abb0c69bfad7b607
+      internalID: -679542635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 9216
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43892fc6b6ef54f92ab23af8eba7a2df
+      internalID: 2110654227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 9216
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 211a8bcfaca4c4ac99b7f53307d6eff5
+      internalID: -2055985899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 9216
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fa9d2ac811ec4beda0b1a37d3158945
+      internalID: -1043344743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 9216
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daddfaf17bf424aa798b4a9fc80142cc
+      internalID: -1304766799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 9216
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f39b8a25b709e4cadbbf89c45e531c0b
+      internalID: -1532706828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 9216
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff5351f5f3c57449fa9cf2bcc79a2662
+      internalID: 2016917291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 7168
+        y: 9216
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e98f5b47244f24fea80f4b4bcb3ff7b0
+      internalID: -1996710822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 8192
+        y: 9216
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adf380d117eaf400897db1f3e7a6bafa
+      internalID: -785045139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 9216
+        y: 9216
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b54167c79ebf42aa9a14b1b4857bf93
+      internalID: -302130751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 9216
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 907da416ad334463b991d1cc589be99e
+      internalID: 968640925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 11264
+        y: 9216
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d85c3f8f69ec04240993e0376fdf7b95
+      internalID: -2132182863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 12288
+        y: 9216
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1603a01641e43435196aa8586d2cdd82
+      internalID: 531633010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8192
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa72b04f3030e4531946bebd833cec67
+      internalID: -1278307276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 8192
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 849f8020339b84e4b80284dff1f11648
+      internalID: -2072538405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 8192
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52a0a36eb83e140c7ac9ffdcde1a6c75
+      internalID: -1253609236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_42
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 8192
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eee7eab0ecbb4d82bbccf9779ffecdd
+      internalID: 336306149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_43
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 8192
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06a46e4a536944980aaa745e204f2d3b
+      internalID: 324690367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_44
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 8192
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 148c7999a9ba948aa912a937b6c25a44
+      internalID: -543136938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_45
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 8192
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 579501c7b76c447e684659c23d6d2dff
+      internalID: -1756729369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_46
+      rect:
+        serializedVersion: 2
+        x: 7168
+        y: 8192
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d431f975bccad4483ad5a83f70a65c8d
+      internalID: 1544175426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_47
+      rect:
+        serializedVersion: 2
+        x: 8192
+        y: 8192
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2977f281fb50445d4a4e1176b0e34fe8
+      internalID: -1296873478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_48
+      rect:
+        serializedVersion: 2
+        x: 9216
+        y: 8192
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a53340c0005c47588c58778533aea78
+      internalID: -1137154637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_49
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 8192
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d0da5fec3d024fe0a8f0e7ca12e4af8
+      internalID: -451878897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_50
+      rect:
+        serializedVersion: 2
+        x: 11264
+        y: 8192
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3c03ad3daba240de974be13946a5716
+      internalID: 1999068603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_51
+      rect:
+        serializedVersion: 2
+        x: 12288
+        y: 8192
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a392aa83e1dd4fd2bdf1b56d16be643
+      internalID: -1885798058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_52
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7168
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8d6e5b5dbeb045c99cc9ae989130952
+      internalID: -78496454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_53
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 7168
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c9d3288548874a5384d7f1f506c89af
+      internalID: 384310279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_54
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 7168
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27e66a691d082437691a0e39890478c0
+      internalID: 2121551789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_55
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 7168
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7db7c07a74db494e89d7b2fa97eaff1
+      internalID: -1312378203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_56
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 7168
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f095f6bfe06c415fa64810450897292
+      internalID: 25259386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_57
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 7168
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b31daea7c5d64dbbb976be2e1917225
+      internalID: -1859832941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_58
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 7168
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aac716bf0f7f9406cbed494c20a67821
+      internalID: -2057733220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_59
+      rect:
+        serializedVersion: 2
+        x: 7168
+        y: 7168
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51e4066769dc849d681bf1d88b14db8b
+      internalID: -1489663615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_60
+      rect:
+        serializedVersion: 2
+        x: 8192
+        y: 7168
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cd2f55688d124d3a90b53bedd5e6af2
+      internalID: -976199081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_61
+      rect:
+        serializedVersion: 2
+        x: 9216
+        y: 7168
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33cab6782c4704c6781371f25c6665d7
+      internalID: 1956675867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_62
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 7168
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 112e0a3efd1fa4794975af89446c3d89
+      internalID: 781084914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_63
+      rect:
+        serializedVersion: 2
+        x: 11264
+        y: 7168
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbbfbad73a33f4fb98b0b5a60f25696c
+      internalID: -2117867374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_64
+      rect:
+        serializedVersion: 2
+        x: 12288
+        y: 7168
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7c0f6b1caced409f867c7a748512b36
+      internalID: -1021632985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_65
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6144
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c58e70190f6a947bc9980062fbbaf2c5
+      internalID: -235127089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_66
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 6144
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb0817e0128814405b53bbb43d9cd8a7
+      internalID: -1209363771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_67
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 6144
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e60f413a541c48d889bd3d2df670deb
+      internalID: 84567936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_68
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 6144
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d41c08e74db934e5dbbd9bb38f199abd
+      internalID: -1011395412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_69
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 6144
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe1456323e0354301a1c4fef32fb2f25
+      internalID: 1930471630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_70
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 6144
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da07246233d584f8b964618467a0f79e
+      internalID: 394332259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_71
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 6144
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 417933db6bf764c37800644aae3ff242
+      internalID: -1185142717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_72
+      rect:
+        serializedVersion: 2
+        x: 7168
+        y: 6144
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a071d25d99304420c80711318ef2d324
+      internalID: -1354970785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_73
+      rect:
+        serializedVersion: 2
+        x: 8192
+        y: 6144
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ab8d78ca46be47c296a0d22c3f5416c
+      internalID: -360484552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_74
+      rect:
+        serializedVersion: 2
+        x: 9216
+        y: 6144
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51db27ca2a7904331b6700d8bdce381c
+      internalID: 255677621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_75
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 6144
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f0e873ac37e947a5a1509dd1e84b681
+      internalID: 1393759580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_76
+      rect:
+        serializedVersion: 2
+        x: 11264
+        y: 6144
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6445ed7ed693048069aea77d69056f4a
+      internalID: -250887349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_77
+      rect:
+        serializedVersion: 2
+        x: 12288
+        y: 6144
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65aed928c05d342e68fec7e5134aeb26
+      internalID: -1706517363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_78
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5120
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5c13544ebf1648589d977e858967971
+      internalID: 1905077720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_79
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 5120
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b000bc11e0a04251b3b1d126deb7906
+      internalID: 2025157542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_80
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 5120
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe5851043d877445b9713f321cadbb5a
+      internalID: 1897720686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_81
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 5120
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fe3683d119d24e7d90ba24ef4d67653
+      internalID: 465410658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_82
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 5120
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 136726234b0af4d95ba233c19da1f697
+      internalID: -2099914663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_83
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 5120
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cc7577279d6d4640a6bea507d87f0a5
+      internalID: 617057413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_84
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 5120
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0b3fd6e5bf184762b4f7caa0005f2d8
+      internalID: 194910587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_85
+      rect:
+        serializedVersion: 2
+        x: 7168
+        y: 5120
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67ff62573a7764f96b496356477bef21
+      internalID: -1924464457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_86
+      rect:
+        serializedVersion: 2
+        x: 8192
+        y: 5120
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e296c9c1c686d44e38f2ee63ff0d0995
+      internalID: -261338686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_87
+      rect:
+        serializedVersion: 2
+        x: 9216
+        y: 5120
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4fcf3e188b3948b0880b5b24b0f43b9
+      internalID: 1134390336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_88
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 5120
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67a583aceb8404540b0f67e804108609
+      internalID: 360147568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_89
+      rect:
+        serializedVersion: 2
+        x: 11264
+        y: 5120
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2900c98a3b7a84dce835748b35356b9c
+      internalID: 1793620060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_90
+      rect:
+        serializedVersion: 2
+        x: 12288
+        y: 5120
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10f29e0bb611348338399cc502de2cce
+      internalID: 242728681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_91
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4096
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1891c9377cd7e48ec9d12f39f1026d11
+      internalID: -910746535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_92
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 4096
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86afc70948ad24574a4c850278ba2e2a
+      internalID: -1449960929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_93
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 4096
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 236f9357c4ccc474eab5855d18468b4a
+      internalID: 55487905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_94
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 4096
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06972a0ce655a4dd9b9158c5a7363c43
+      internalID: -64894535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_95
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 4096
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8078bb869353c4067b0f290a031a8c7a
+      internalID: -513503982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_96
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 4096
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05f86753c98bd4b6fbde75b38bc267e7
+      internalID: -425742977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_97
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 4096
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eff91c7956b4143a7b362eae6d7e8b59
+      internalID: -1628907642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_98
+      rect:
+        serializedVersion: 2
+        x: 7168
+        y: 4096
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dc57fae24c774b23904f469821c458b
+      internalID: -1275250099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_99
+      rect:
+        serializedVersion: 2
+        x: 8192
+        y: 4096
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d3aa1afa8a174c37851d3fa105949ad
+      internalID: -532114425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_100
+      rect:
+        serializedVersion: 2
+        x: 9216
+        y: 4096
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e74567f94a4d4b94a6db928b2689f2d
+      internalID: 1474905528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_101
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 4096
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cf35db078c0544f0acfd4a17e7a1708
+      internalID: 899466791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_102
+      rect:
+        serializedVersion: 2
+        x: 11264
+        y: 4096
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1f86580942a2423abd0361dca77daa6
+      internalID: -1563105116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_103
+      rect:
+        serializedVersion: 2
+        x: 12288
+        y: 4096
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd9297b3de1f849769fe7376fbe10017
+      internalID: -1672779232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_104
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3072
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 305efb5208684434cb6b88ba74f1d67c
+      internalID: -1634600228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_105
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 3072
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3f6c4e30a30849bfa6fdfbab91a36a2
+      internalID: 2048006636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_106
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 3072
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dfb2f4681ce941dab17fcf21cb417dc
+      internalID: -977165658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_107
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 3072
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6cb218a8f45c475d8dd59efd920d28d
+      internalID: 1221354702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_108
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 3072
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d86daa8d425004f03a63cfdfd6b792f4
+      internalID: -2027557905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_109
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 3072
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90f3efc3e0cf843bc818c575adb52d4b
+      internalID: -543113651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_110
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 3072
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0380d7e2fc9f45a7a57ddf16d25983d
+      internalID: -1429943248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_111
+      rect:
+        serializedVersion: 2
+        x: 7168
+        y: 3072
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd4b3081a8ead420e8b2624fb7716d48
+      internalID: 1960881908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_112
+      rect:
+        serializedVersion: 2
+        x: 8192
+        y: 3072
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a3b723017afc47509e45b1cdf16b3f5
+      internalID: 236545353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_113
+      rect:
+        serializedVersion: 2
+        x: 9216
+        y: 3072
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ae975b7d091e41a0bc6c19646ba1d8a
+      internalID: -2100367314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_114
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 3072
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8412245acf9954f269d49f98f4faf5ab
+      internalID: -124496667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_115
+      rect:
+        serializedVersion: 2
+        x: 11264
+        y: 3072
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7373a6b61e7ba47edb4e636c4672d5e1
+      internalID: 143239543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_116
+      rect:
+        serializedVersion: 2
+        x: 12288
+        y: 3072
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d133d3a311a504a188983d01513636b3
+      internalID: 1139025749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_117
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad5522831c3fa4de4b3f61519b3cae7d
+      internalID: 1972919454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_118
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97acc499c9e194608b87e2472dc3dd56
+      internalID: 1462431083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_119
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 027074161724e4827966b6da837dff20
+      internalID: 1432048954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_120
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b128da42236714ad3af7391e1aea03af
+      internalID: -1445119357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_121
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79e5a3d14372c46e9a162f577e1fe5dc
+      internalID: 434496405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_122
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 000c38502d0b048729acbc14a102fa12
+      internalID: 1237068226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_123
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e557e724e89d42b7892ab0c5754af61
+      internalID: -11297089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_124
+      rect:
+        serializedVersion: 2
+        x: 7168
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eebedb330787f4b828d12a1078a0816e
+      internalID: 1979994939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_125
+      rect:
+        serializedVersion: 2
+        x: 8192
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1da1d9be334d468c9129ec53a8ab2a4
+      internalID: -1837110920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_126
+      rect:
+        serializedVersion: 2
+        x: 9216
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65ae18aa2cd6042499be6d99340ab290
+      internalID: 574213426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_127
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8add4fcc66b1948eb8701741d280c20c
+      internalID: -758848684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_128
+      rect:
+        serializedVersion: 2
+        x: 11264
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de5af1c004b6b45fab560d05587cc6b7
+      internalID: 1045858758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_129
+      rect:
+        serializedVersion: 2
+        x: 12288
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 142e5cef9039d4a82bf92a9d1e30db45
+      internalID: 553010287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_130
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aada5b9f2240744e28e739798f49ce9a
+      internalID: -1428261918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_131
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc6e17228d5784d6db1b61c11cbe64be
+      internalID: 1441671297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_132
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2a669100d9d3476cbe77dc670479808
+      internalID: 9532712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_133
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c21f4dee53de04ead9b10bd4ced60da3
+      internalID: -2026051932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_134
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b084694491b4b4dbeac90a0403a061f6
+      internalID: 1480608448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_135
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da79575c01e6e452e952b7549466aa6e
+      internalID: 434238486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_136
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1342338c0a50468a80454fc8415ad97
+      internalID: 1093339985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_137
+      rect:
+        serializedVersion: 2
+        x: 7168
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb5e731b44ea140ab963f47418adc89f
+      internalID: -1906423956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_138
+      rect:
+        serializedVersion: 2
+        x: 8192
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d49d15910f2234b9a8ea20862448c3e4
+      internalID: 662781505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_139
+      rect:
+        serializedVersion: 2
+        x: 9216
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 393248bbc01d44a8fadf9be7b543cd07
+      internalID: 867528715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_140
+      rect:
+        serializedVersion: 2
+        x: 10240
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fffc6083cadc34af488321c6c0d78cae
+      internalID: 1628234727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_141
+      rect:
+        serializedVersion: 2
+        x: 11264
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c93ea44214aba4f58a4d9152e71e7f2a
+      internalID: 1386514323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_142
+      rect:
+        serializedVersion: 2
+        x: 12288
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1dd2d86b62c34bd8a9043a0428d9dae
+      internalID: 1837803774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_143
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80f815b49c9394b248fbd1c083b7b289
+      internalID: -2043339603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_144
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c91eff7bb3bf4f108b1302a8ed41115
+      internalID: -1360589484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_145
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a93e88f2a84124058a6ad7164babd31b
+      internalID: -1346387164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_146
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 571d6d714dc264dee82d5ae66e2c6e7e
+      internalID: -1523436091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_147
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 269c687fc6c91493c96b8addeac74059
+      internalID: 1924728244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_148
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f376a323d6b4d4907b6f262d7dda8a07
+      internalID: 651660138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protag-dying-spritesheet_149
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e64824f8f16e408294d2b355b9d4270
+      internalID: 1425170474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 660d3205a26794f49ac3eb5933f63b21
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      protag-dying-spritesheet_0: 1041824496
+      protag-dying-spritesheet_1: -302125310
+      protag-dying-spritesheet_10: 201057115
+      protag-dying-spritesheet_100: 1474905528
+      protag-dying-spritesheet_101: 899466791
+      protag-dying-spritesheet_102: -1563105116
+      protag-dying-spritesheet_103: -1672779232
+      protag-dying-spritesheet_104: -1634600228
+      protag-dying-spritesheet_105: 2048006636
+      protag-dying-spritesheet_106: -977165658
+      protag-dying-spritesheet_107: 1221354702
+      protag-dying-spritesheet_108: -2027557905
+      protag-dying-spritesheet_109: -543113651
+      protag-dying-spritesheet_11: 81709168
+      protag-dying-spritesheet_110: -1429943248
+      protag-dying-spritesheet_111: 1960881908
+      protag-dying-spritesheet_112: 236545353
+      protag-dying-spritesheet_113: -2100367314
+      protag-dying-spritesheet_114: -124496667
+      protag-dying-spritesheet_115: 143239543
+      protag-dying-spritesheet_116: 1139025749
+      protag-dying-spritesheet_117: 1972919454
+      protag-dying-spritesheet_118: 1462431083
+      protag-dying-spritesheet_119: 1432048954
+      protag-dying-spritesheet_12: 127031037
+      protag-dying-spritesheet_120: -1445119357
+      protag-dying-spritesheet_121: 434496405
+      protag-dying-spritesheet_122: 1237068226
+      protag-dying-spritesheet_123: -11297089
+      protag-dying-spritesheet_124: 1979994939
+      protag-dying-spritesheet_125: -1837110920
+      protag-dying-spritesheet_126: 574213426
+      protag-dying-spritesheet_127: -758848684
+      protag-dying-spritesheet_128: 1045858758
+      protag-dying-spritesheet_129: 553010287
+      protag-dying-spritesheet_13: 1174397071
+      protag-dying-spritesheet_130: -1428261918
+      protag-dying-spritesheet_131: 1441671297
+      protag-dying-spritesheet_132: 9532712
+      protag-dying-spritesheet_133: -2026051932
+      protag-dying-spritesheet_134: 1480608448
+      protag-dying-spritesheet_135: 434238486
+      protag-dying-spritesheet_136: 1093339985
+      protag-dying-spritesheet_137: -1906423956
+      protag-dying-spritesheet_138: 662781505
+      protag-dying-spritesheet_139: 867528715
+      protag-dying-spritesheet_14: 2012261840
+      protag-dying-spritesheet_140: 1628234727
+      protag-dying-spritesheet_141: 1386514323
+      protag-dying-spritesheet_142: 1837803774
+      protag-dying-spritesheet_143: -2043339603
+      protag-dying-spritesheet_144: -1360589484
+      protag-dying-spritesheet_145: -1346387164
+      protag-dying-spritesheet_146: -1523436091
+      protag-dying-spritesheet_147: 1924728244
+      protag-dying-spritesheet_148: 651660138
+      protag-dying-spritesheet_149: 1425170474
+      protag-dying-spritesheet_15: -946064380
+      protag-dying-spritesheet_16: -585125056
+      protag-dying-spritesheet_17: -1724159992
+      protag-dying-spritesheet_18: 1535343660
+      protag-dying-spritesheet_19: -1453116494
+      protag-dying-spritesheet_2: -1377888331
+      protag-dying-spritesheet_20: -500208961
+      protag-dying-spritesheet_21: -1913764553
+      protag-dying-spritesheet_22: -1590076204
+      protag-dying-spritesheet_23: 197916702
+      protag-dying-spritesheet_24: 1525499251
+      protag-dying-spritesheet_25: -1541056582
+      protag-dying-spritesheet_26: -679542635
+      protag-dying-spritesheet_27: 2110654227
+      protag-dying-spritesheet_28: -2055985899
+      protag-dying-spritesheet_29: -1043344743
+      protag-dying-spritesheet_3: 1877604141
+      protag-dying-spritesheet_30: -1304766799
+      protag-dying-spritesheet_31: -1532706828
+      protag-dying-spritesheet_32: 2016917291
+      protag-dying-spritesheet_33: -1996710822
+      protag-dying-spritesheet_34: -785045139
+      protag-dying-spritesheet_35: -302130751
+      protag-dying-spritesheet_36: 968640925
+      protag-dying-spritesheet_37: -2132182863
+      protag-dying-spritesheet_38: 531633010
+      protag-dying-spritesheet_39: -1278307276
+      protag-dying-spritesheet_4: -1563356028
+      protag-dying-spritesheet_40: -2072538405
+      protag-dying-spritesheet_41: -1253609236
+      protag-dying-spritesheet_42: 336306149
+      protag-dying-spritesheet_43: 324690367
+      protag-dying-spritesheet_44: -543136938
+      protag-dying-spritesheet_45: -1756729369
+      protag-dying-spritesheet_46: 1544175426
+      protag-dying-spritesheet_47: -1296873478
+      protag-dying-spritesheet_48: -1137154637
+      protag-dying-spritesheet_49: -451878897
+      protag-dying-spritesheet_5: -1802491478
+      protag-dying-spritesheet_50: 1999068603
+      protag-dying-spritesheet_51: -1885798058
+      protag-dying-spritesheet_52: -78496454
+      protag-dying-spritesheet_53: 384310279
+      protag-dying-spritesheet_54: 2121551789
+      protag-dying-spritesheet_55: -1312378203
+      protag-dying-spritesheet_56: 25259386
+      protag-dying-spritesheet_57: -1859832941
+      protag-dying-spritesheet_58: -2057733220
+      protag-dying-spritesheet_59: -1489663615
+      protag-dying-spritesheet_6: 51242726
+      protag-dying-spritesheet_60: -976199081
+      protag-dying-spritesheet_61: 1956675867
+      protag-dying-spritesheet_62: 781084914
+      protag-dying-spritesheet_63: -2117867374
+      protag-dying-spritesheet_64: -1021632985
+      protag-dying-spritesheet_65: -235127089
+      protag-dying-spritesheet_66: -1209363771
+      protag-dying-spritesheet_67: 84567936
+      protag-dying-spritesheet_68: -1011395412
+      protag-dying-spritesheet_69: 1930471630
+      protag-dying-spritesheet_7: -1455182581
+      protag-dying-spritesheet_70: 394332259
+      protag-dying-spritesheet_71: -1185142717
+      protag-dying-spritesheet_72: -1354970785
+      protag-dying-spritesheet_73: -360484552
+      protag-dying-spritesheet_74: 255677621
+      protag-dying-spritesheet_75: 1393759580
+      protag-dying-spritesheet_76: -250887349
+      protag-dying-spritesheet_77: -1706517363
+      protag-dying-spritesheet_78: 1905077720
+      protag-dying-spritesheet_79: 2025157542
+      protag-dying-spritesheet_8: -73103592
+      protag-dying-spritesheet_80: 1897720686
+      protag-dying-spritesheet_81: 465410658
+      protag-dying-spritesheet_82: -2099914663
+      protag-dying-spritesheet_83: 617057413
+      protag-dying-spritesheet_84: 194910587
+      protag-dying-spritesheet_85: -1924464457
+      protag-dying-spritesheet_86: -261338686
+      protag-dying-spritesheet_87: 1134390336
+      protag-dying-spritesheet_88: 360147568
+      protag-dying-spritesheet_89: 1793620060
+      protag-dying-spritesheet_9: -102645814
+      protag-dying-spritesheet_90: 242728681
+      protag-dying-spritesheet_91: -910746535
+      protag-dying-spritesheet_92: -1449960929
+      protag-dying-spritesheet_93: 55487905
+      protag-dying-spritesheet_94: -64894535
+      protag-dying-spritesheet_95: -513503982
+      protag-dying-spritesheet_96: -425742977
+      protag-dying-spritesheet_97: -1628907642
+      protag-dying-spritesheet_98: -1275250099
+      protag-dying-spritesheet_99: -532114425
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
