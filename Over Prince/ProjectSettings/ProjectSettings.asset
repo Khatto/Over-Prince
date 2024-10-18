@@ -82,7 +82,6 @@ PlayerSettings:
   defaultIsNativeResolution: 1
   macRetinaSupport: 1
   runInBackground: 1
-  captureSingleScreen: 0
   muteOtherAudioSources: 0
   Prepare IOS For Recording: 0
   Force IOS Speakers When Recording: 0
@@ -241,7 +240,7 @@ PlayerSettings:
   iOSRenderExtraFrameOnPause: 0
   iosCopyPluginsCodeInsteadOfSymlink: 0
   appleDeveloperTeamID: 2Z82R33R79
-  iOSManualSigningProvisioningProfileID: 1266c700-a1ba-471d-b562-a34c89fe952b
+  iOSManualSigningProvisioningProfileID: f6b7b975-9a11-43df-a112-84b31b1f60e8
   tvOSManualSigningProvisioningProfileID: 
   VisionOSManualSigningProvisioningProfileID: 
   iOSManualSigningProvisioningProfileType: 1
@@ -578,6 +577,9 @@ PlayerSettings:
   m_BuildTargetDefaultTextureCompressionFormat:
   - serializedVersion: 3
     m_BuildTarget: Android
+    m_Formats: 03000000
+  - serializedVersion: 3
+    m_BuildTarget: iOS
     m_Formats: 03000000
   playModeTestRunnerEnabled: 0
   runPlayModeTestAsEditModeTest: 0

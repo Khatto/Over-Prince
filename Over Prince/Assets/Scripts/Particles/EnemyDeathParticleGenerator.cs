@@ -1,12 +1,9 @@
+using UnityEngine;
+
+// TODO: See if we even need this class, or we can use the CommonParticleGenerator
 public class EnemyDeathParticleGenerator : CommonParticleGenerator
 {
-    public static EnemyDeathParticleGenerator instance;
-
-    public override void SetupSingleton() {
-        if (instance == null) {
-            instance = this;
-        } else {
-            Destroy(gameObject);
-        }
+    public override void GenerateParticles(Vector3 position) {
+        base.GenerateParticles(position);
     }
 }

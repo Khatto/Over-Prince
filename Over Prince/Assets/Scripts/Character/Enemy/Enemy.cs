@@ -11,6 +11,7 @@ public class Enemy : Character
         SetupAttacks();
         SetupHP();
         SetupHitStun();
+        SetupDeathParticles();
     }
 
     public void SetupAttacks() {
@@ -33,7 +34,12 @@ public class Enemy : Character
     }
 
     public void SetToMaxHP() {
-        stats.currentHP = stats.maxHP;
+        stats.currentHP = stats.maxHP; // TODO: Something about these implementations is a bit redundant
+        hpBar.SetToMaxHP();
+    }
+
+    public void SetupDeathParticles() {
+        deathGenerator = GetComponentInChildren<CommonParticleGenerator>();
     }
 
     public override void EnterState(CharacterState state)
@@ -93,7 +99,7 @@ public class Enemy : Character
         hpBar.FadeHPBar(FadeType.FadeOut);
         soundManager.PlayDeathSound();
         var fade = gameObject.GetComponent<Fade>();
-        EnemyDeathParticleGenerator.instance.GenerateParticles(transform.position);
+        if (deathGenerator != null) deathGenerator.GenerateParticles(transform.position);
         if (fade != null) fade.StartFadeWithTime(FadeType.FadeOut, Constants.deathFadeTime, () => Die());
     }
 

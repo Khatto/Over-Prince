@@ -186,7 +186,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      over-prince-icon_0: 165058357243455904
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

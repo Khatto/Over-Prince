@@ -32,4 +32,5 @@ public enum GameEventInstanceState {
 public enum GameEvent {
     BattleIntro,
     AlternativeBattleIntro,
+    HoodedBoyEncounter
 }

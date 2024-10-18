@@ -9,6 +9,7 @@ TagManager:
   - Player HP Bar
   - Player HP Portrait
   - HItStopManager
+  - Text Shadow
   layers:
   - Default
   - TransparentFX

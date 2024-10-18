@@ -88,6 +88,11 @@ public class HPBar : MonoBehaviour
         backgroundBar.position = currentHPBar.position;
     }
 
+    public void SetToMaxHP() {
+        currentHP = maxHP;
+        UpdateHPBar();
+    }
+
 
     public void ChangeHP(int amount)
     {

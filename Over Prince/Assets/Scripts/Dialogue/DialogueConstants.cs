@@ -10,7 +10,7 @@ public static class DialogueConstants {
 
     public static class TestDialogue {
             public static Dialogue[] dialogues = {
-                new Dialogue($"Test!", "Music/Song_Name", 0.1f)
+                new Dialogue($"Test!", "Music/Song_Name", 0.0f)
             };
         }
 
@@ -105,6 +105,33 @@ public static class DialogueConstants {
             public static Dialogue[] dialogues = {
                 new Dialogue("Uh oh...  It's angry now.", "Music/Song_Name", 0),
                 new Dialogue("I need to take it out before it takes ME out!", "Music/Song_Name", 0),
+            };
+        }
+
+        public static class BattleComplete {
+            public static Dialogue[] dialogues = {
+                new Dialogue("Whew...  That was close.", "Music/Song_Name", 0),
+                new Dialogue("Let me keep looking around...", "Music/Song_Name", 0),
+            };
+        }
+
+        public static class HoodedBoyEncounter {
+            public static Dialogue[] dialogues = {
+                new Dialogue("???: Do you feel that...", "Music/Song_Name", 0),
+                new Dialogue(
+                    "Do you feel that...", 
+                    "Music/Song_Name",
+                    0,
+                    new Choice[] {
+                        new Choice("Who are you?", ChoiceConstants.FontSize.Normal, Constants.Emotions.Frenzy),
+                        new Choice("Yeah I do...", ChoiceConstants.FontSize.Normal, Constants.Emotions.Confusion),
+                        new Choice("Feel what?", ChoiceConstants.FontSize.Normal, Constants.Emotions.Sorrow)
+                    }
+                ),
+                new Dialogue("You're not like the others...", "Music/Song_Name", 0),
+                new Dialogue("You're different...", "Music/Song_Name", 0),
+                new Dialogue("I can help you...", "Music/Song_Name", 0),
+                new Dialogue("But you have to trust me...", "Music/Song_Name", 0),
             };
         }
     }

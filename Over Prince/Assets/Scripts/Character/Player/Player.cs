@@ -8,6 +8,7 @@ public class Player : Character
     {
         Setup();
         SetupAttacks();
+        SetupStats();
         SetupHP();
     }
 
@@ -23,10 +24,13 @@ public class Player : Character
         };
     }
 
+    void SetupStats() {
+        stats = new PlayerStats(20, 0, 0, 0, 0, 0, 0, 0, 0);
+    }
+
     void SetupHP() {
         hpPortraitManager = GameObject.FindGameObjectWithTag(Constants.TagKeys.PlayerHPPortrait).GetComponent<HPPortraitManager>();
         hpBar = GameObject.FindGameObjectWithTag(Constants.TagKeys.PlayerHPBar).GetComponent<HPBar>();
-        stats = new CharacterStats(20, 0, 0);
         hpBar.Setup(stats.maxHP);
     }
 

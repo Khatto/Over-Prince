@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -22,6 +24,13 @@ public class DialogueManager : MonoBehaviour
     public MoveBackAndForth proceedIndicatorMovement;
     public Fade proceedIndicatorShadowFade;
 
+    public bool displayingChoices = false;
+    public Button choice1Button;
+    public Button choice2Button;
+    public Button choice3Button;
+    public ShadowedText choicePrompt;
+    public int numberOfChoices = 0;
+
     public static class DialogueManagerConstants 
     {
         public const float dialogueFadeTime = 0.5f;
@@ -34,12 +43,19 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
-        dialogueTextShadow.SetupShadowText();
+        SetupShadowedTexts();
         SetupInputActions();
         if (proceedIndicatorFade != null) {
             proceedIndicatorSpriteRenderer = proceedIndicatorFade.GetComponent<SpriteRenderer>();
             proceedIndicatorMovement = proceedIndicatorFade.GetComponent<MoveBackAndForth>();
         }
+    }
+
+    public void SetupShadowedTexts() {
+        dialogueTextShadow.SetupShadowText();
+        choice1Button.GetComponentInChildren<ShadowedText>().SetupShadowText();
+        choice2Button.GetComponentInChildren<ShadowedText>().SetupShadowText();
+        choice3Button.GetComponentInChildren<ShadowedText>().SetupShadowText();
     }
 
     public void SetupInputActions() {
@@ -48,10 +64,14 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void InputPressedDuringDialogue(InputAction.CallbackContext context) {
-        if (state == DialogueState.DisplayingDialogueWaitingForUserInput) {
-            DisplayNextQueuedDialogue();
-            SoundManager.instance.PlaySound(SoundType.Confirm);
+        if (state == DialogueState.DisplayingDialogueWaitingForUserInput && !displayingChoices) {
+            ChoiceSelectedOrProceedInitiated();
         }
+    }
+
+    private void ChoiceSelectedOrProceedInitiated(bool playAudio = true) {
+        DisplayNextQueuedDialogue();
+        if (playAudio) SoundManager.instance.PlaySound(SoundType.Confirm);
     }
 
     /// <summary>
@@ -88,6 +108,25 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    private void FadeInAndDisplayDialogue(Dialogue dialogue)
+    {
+        displayingChoices = dialogue.IsChoice();
+        if (dialogue.choices != null && dialogue.choices.Length > 0) {
+            numberOfChoices = dialogue.choices.Length;
+        } else {
+            numberOfChoices = 0;
+        }
+        FadeDialogue(FadeType.FadeIn);
+        SetDialogueText(dialogue);
+        if (dialogue.IsTimed()) {
+            StartCoroutine(SetDialogueStateAfterTime(DialogueState.DisplayingDialogue, dialogue.displayTime));
+        } else if (!displayingChoices) {
+            StartCoroutine(DisplayProceedIndicatorAfterFadeIn());
+        }
+        
+        StartCoroutine(ModifyDialoguePositionBasedOnLineCount());
+    }
+
     public void HideDialogue()
     {   state = DialogueState.FadingDialogueOut;
         FadeDialogue(FadeType.FadeOut);
@@ -95,19 +134,6 @@ public class DialogueManager : MonoBehaviour
             dialogueBackground.GetComponent<Fade>().StartFadeWithTime(FadeType.FadeOut, DialogueManagerConstants.dialogueFadeTime);
         }
         StartCoroutine(SetDialogueStateAfterTime(DialogueState.Finished, DialogueManagerConstants.dialogueFadeTime));
-    }
-
-    private void FadeInAndDisplayDialogue(Dialogue dialogue)
-    {
-        FadeDialogue(FadeType.FadeIn);
-        SetDialogueText(dialogue.text);
-        if (dialogue.IsTimed()) {
-            StartCoroutine(SetDialogueStateAfterTime(DialogueState.DisplayingDialogue, dialogue.displayTime));
-        } else {
-            StartCoroutine(DisplayProceedIndicatorAfterFadeIn());
-        }
-        
-        StartCoroutine(ModifyDialoguePositionBasedOnLineCount());
     }
 
     private IEnumerator ModifyDialoguePositionBasedOnLineCount() {
@@ -125,9 +151,9 @@ public class DialogueManager : MonoBehaviour
         }
         if (IsFinished())
         {
-            proceedIndicatorMovement.active = false;
-            proceedIndicatorFade.StartFadeWithTime(FadeType.FadeOut, DialogueManagerConstants.dialogueFadeTime);
-            proceedIndicatorShadowFade.StartFadeWithTime(FadeType.FadeOut, DialogueManagerConstants.dialogueFadeTime);
+            if (proceedIndicatorMovement != null) proceedIndicatorMovement.active = false;
+            if (proceedIndicatorFade != null) proceedIndicatorFade.StartFadeWithTime(FadeType.FadeOut, DialogueManagerConstants.dialogueFadeTime);
+            if (proceedIndicatorShadowFade != null) proceedIndicatorShadowFade.StartFadeWithTime(FadeType.FadeOut, DialogueManagerConstants.dialogueFadeTime);
         }
     }
 
@@ -152,11 +178,45 @@ public class DialogueManager : MonoBehaviour
 
     private void FadeDialogue(FadeType fadeType)
     {
-        dialogueTextShadow.StartFadeWithTime(fadeType, DialogueManagerConstants.dialogueFadeTime);
-        if (proceedIndicatorFade != null) {
-            proceedIndicatorFade.StartFadeWithTime(fadeType, DialogueManagerConstants.dialogueFadeTime);
-            proceedIndicatorShadowFade.StartFadeWithTime(fadeType, DialogueManagerConstants.dialogueFadeTime);
+        if (!displayingChoices) {
+            dialogueTextShadow.StartFadeWithTime(fadeType, DialogueManagerConstants.dialogueFadeTime);
+            if (proceedIndicatorFade != null) {
+                proceedIndicatorFade.StartFadeWithTime(fadeType, DialogueManagerConstants.dialogueFadeTime);
+                proceedIndicatorShadowFade.StartFadeWithTime(fadeType, DialogueManagerConstants.dialogueFadeTime);
+            }
+        } else {
+            FadeChoiceButton(choice1Button, fadeType);
+            FadeChoiceButton(choice2Button, fadeType);
+            if (numberOfChoices > 2) FadeChoiceButton(choice3Button, fadeType);
+            StartCoroutine(ChoiceButtonsReadyForInteraction());
         }
+    }
+
+    private void FadeChoiceButton(Button button, FadeType fadeType) {
+        button.GetComponent<Fade>().StartFadeWithTime(fadeType, DialogueManagerConstants.dialogueFadeTime);
+        GetPrimaryShadowTextFromButton(button).StartFadeWithTime(fadeType, DialogueManagerConstants.dialogueFadeTime);
+        StartCoroutine(SetButtonInteractivity(fadeType));
+    }
+
+    public IEnumerator SetButtonInteractivity(FadeType fadeType) {
+        if (fadeType == FadeType.FadeIn) yield return new WaitForSeconds(ChoiceConstants.choiceInteractivityDelay);
+        choice1Button.interactable = fadeType == FadeType.FadeIn;
+        choice2Button.interactable = fadeType == FadeType.FadeIn;
+        choice3Button.interactable = fadeType == FadeType.FadeIn;
+    }
+
+    public IEnumerator ChoiceButtonsReadyForInteraction() {
+        yield return new WaitForSeconds(ChoiceConstants.choiceInteractivityDelay);
+        state = DialogueState.DisplayingDialogueWaitingForUserInput;
+    }
+
+    public ShadowedText GetPrimaryShadowTextFromButton(Button button) {
+        // TODO - This is a not very streamlined means to get the ShadowedTexts.  Can we use a predicate with GetComponentsInChildren
+        var shadowedTexts = button.GetComponentsInChildren<ShadowedText>();
+        foreach (var shadowedText in shadowedTexts) {
+            if (shadowedText.tag != ShadowedText.ShadowedTextConstants.tag) return shadowedText;
+        }
+        return button.GetComponentInChildren<ShadowedText>();
     }
 
     public bool CanProceedToNextDialogue() {
@@ -188,9 +248,41 @@ public class DialogueManager : MonoBehaviour
     /// Sets the text of the dialogue to the provided text, and its shadow if it exists
     /// </summary>
     /// <param name="text"></param>
-    private void SetDialogueText(string text)
+    private void SetDialogueText(Dialogue dialogue)
     {
-        dialogueTextShadow.SetText(text);
+        if (displayingChoices) {
+            SetChoicesText(dialogue);
+        } else {
+            dialogueTextShadow.SetText(dialogue.text);
+        }
+    }
+
+    private void SetChoicesText(Dialogue dialogue) {
+        choicePrompt.SetText(dialogue.text);
+        SetupChoiceButton(choice1Button, dialogue.choices[0]);
+        SetupChoiceButton(choice2Button, dialogue.choices[1]);
+        if (dialogue.choices.Length > 2) {
+            SetupChoiceButton(choice3Button, dialogue.choices[2]);
+        }
+    }
+
+    private void SetupChoiceButton(Button button, Choice choice) {
+        button.GetComponent<ChoiceDataHolder>().choice = choice;
+        GetPrimaryShadowTextFromButton(button).SetText(choice.text);
+        button.onClick.RemoveAllListeners();
+        button.onClick.AddListener(() => {
+            StartCoroutine(OnChoiceSelected(choice, this.gameObject.transform.position));
+        });
+    }
+
+    private IEnumerator OnChoiceSelected(Choice choice, Vector3 position) {
+        ChoiceManager.instance.MakeEmotionChoice(choice, position);
+        choice1Button.interactable = false;
+        choice2Button.interactable = false;
+        if (numberOfChoices > 2) choice3Button.interactable = false;
+        SoundManager.instance.PlaySound(SoundType.Confirm);
+        yield return new WaitForSeconds(ChoiceConstants.choiceSelectionAnimationDuration);
+        ChoiceSelectedOrProceedInitiated(false);
     }
 
     /// <summary>
@@ -205,12 +297,6 @@ public class DialogueManager : MonoBehaviour
             dialogueDefaultPosition.y - verticalOffset + (lineCount > 1 ? dialogueDoubleLineVerticalOffset : 0)
         );
         dialogueTextShadow.SetDialoguePositionBasedOnLines(newPosition);
-        //SetProceedIndicatorPosition();
-    }
-
-    private void SetProceedIndicatorPosition() {
-        Vector3 dialoguePosition = Camera.main.ScreenToWorldPoint(dialogueTextShadow.rectTransform.position);
-        proceedIndicatorFade.transform.position = new Vector2(proceedIndicatorFade.transform.position.x, dialoguePosition.y - (proceedIndicatorSpriteRenderer.size.y * proceedIndicatorSpriteRenderer.transform.localScale.y / 2.0f));
     }
 
     private void SetupDialogueBackground() {
@@ -223,8 +309,8 @@ public class DialogueManager : MonoBehaviour
     // TODO - Make this automatic?
     public void Reset() {
         state = DialogueState.NotStarted;
-        proceedIndicatorMovement.StopMovement();
-        proceedIndicatorFade.transform.localPosition = Vector2.zero;
+        if (proceedIndicatorMovement != null) proceedIndicatorMovement.StopMovement();
+        if (proceedIndicatorFade != null) proceedIndicatorFade.transform.localPosition = Vector2.zero;
     }
 
     public bool IsFinished() {

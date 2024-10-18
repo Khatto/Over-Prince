@@ -6,6 +6,12 @@ using System;
 /// </summary>
 public static class Constants {
 
+    public enum Emotions { // TODO: Consider moving this to it's own class?
+        Frenzy,
+        Sorrow,
+        Confusion
+    }
+
     public static class Scenes {
         public const string Title = "TitleScreen";
         public const string Intro = "IntroScene";

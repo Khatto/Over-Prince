@@ -18,6 +18,7 @@ public class Character : MonoBehaviour {
     public CharacterSoundManager soundManager;
     public float hitStunModifier = 1.0f;
     public bool displayLogs = false;
+    public CommonParticleGenerator deathGenerator;
 
     public virtual void Start() {
         hurtableController = GetComponent<IHurtableCharacterController>();

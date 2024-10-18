@@ -186,7 +186,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      hp-bar-portrait-frame-circle_0: -7956917943156222683
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

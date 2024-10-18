@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener, IHurtboxTriggerListener
 {
     public FileLobbyIntroStageState fileLobbyState = FileLobbyIntroStageState.StandingUp;
-    public GameObject player;
+    public Player player;
     public Animator protagLyingAnimator;
     public GameObject playerTurnSideToFront;
     public CameraZoom cameraZoom;
@@ -16,10 +16,14 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
     public CinematicFrameManager cinematicFrameManager;
     public InstructionManager instructionManager;
     public BattleManager battleManager;
+    public ChoiceManager choiceManager;
     public InputActionAsset actions;
     private InputAction moveAction;
 
     public Enemy firstTriangleEnemy;
+    public GameEventInstance alternativeBattleStart;
+
+    public GameObject rightFloorBorder;
 
     public float testForce = 1000;
 
@@ -83,6 +87,11 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
                     PerformSceneAction(FileLobbyIntroStageState.StartBattle);
                 }
                 break;
+            case FileLobbyIntroStageState.FinishedBattle:
+                if (dialogueManager.IsFinished()) {
+                    PerformSceneAction(FileLobbyIntroStageState.NavigateTowardsEnd);
+                }
+                break;
         }
     }
 
@@ -99,7 +108,8 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
                 break;
             case AnimationEvent.ProtagSideTurnToFrontFinished:
                 playerTurnSideToFront.SetActive(false);
-                player.SetActive(true);
+                player.gameObject.SetActive(true);
+                choiceManager.SetPlayer(player);
                 PerformSceneAction(FileLobbyIntroStageState.Dialogue);
                 break;
         }
@@ -115,8 +125,8 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
                 cinematicFrameManager.ExitFrames();
                 StartCoroutine(DelayedAction(FileLobbyIntroStageManagerConstants.dialogueDelay, () => {
                     musicInfoManager.DisplayMusicInfo();
-                    dialogueManager.DisplayDialogues(DialogueConstants.FieldLobbyIntro.PartOne.dialogues);
-                    //dialogueManager.DisplayDialogues(DialogueConstants.TestDialogue.dialogues);
+                    //dialogueManager.DisplayDialogues(DialogueConstants.FieldLobbyIntro.PartOne.dialogues);
+                    dialogueManager.DisplayDialogues(DialogueConstants.TestDialogue.dialogues);
                 }));
                 break;
             case FileLobbyIntroStageState.IntroduceControls:
@@ -133,7 +143,6 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
                 DisplayMapProceedIndicator(false);
                 break;
             case FileLobbyIntroStageState.BattleIntroScene:
-                // dialogueManager.Reset();
                 playerController.StopMovement();
                 playerController.enabled = false;
                 StartCoroutine(BattleIntroScene());
@@ -159,6 +168,12 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
                 break;
             case FileLobbyIntroStageState.StartBattle:
                 StartCoroutine(StartBattle());
+                break;
+            case FileLobbyIntroStageState.FinishedBattle:
+                dialogueManager.DisplayDialogues(DialogueConstants.FieldLobbyIntro.BattleComplete.dialogues);
+                break;
+            case FileLobbyIntroStageState.NavigateTowardsEnd:
+                DisplayMapProceedIndicator(true);
                 break;
         }
     }
@@ -221,6 +236,7 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
         firstTriangleEnemy.SetToMaxHP();
         firstTriangleEnemy.specialBattleType = SpecialCharacterType.None;
         battleManager.StartBattle();
+        alternativeBattleStart.gameObject.SetActive(false);
     }
 
     private IEnumerator DelayedAction(float delay, System.Action action) {
@@ -255,7 +271,7 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
     {
         base.OnBattleComplete();
         cameraFollow.cameraRangeX = FileLobbyIntroStageManagerConstants.postBattleCameraFollow;
-        DisplayMapProceedIndicator(true);
+        PerformSceneAction(FileLobbyIntroStageState.FinishedBattle);
     }
 }
 

@@ -1,6 +1,7 @@
 /// <summary>
 /// Represents the various statistics of the character, including HP, attack, MP, etc.
 /// </summary>
+[System.Serializable]
 public class CharacterStats {
     public int maxHP;
     public int currentHP;

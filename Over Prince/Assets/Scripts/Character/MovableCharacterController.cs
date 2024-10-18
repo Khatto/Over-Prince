@@ -12,4 +12,8 @@ public class MovableCharacterController : MonoBehaviour
     public virtual void PerformUniqueAction(SpecialCharacterAction action) {
         /* Implement in child class */
     }
+
+    public float GetVelocity() {
+        return rigidBody.linearVelocityX;
+    }
 }

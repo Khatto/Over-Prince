@@ -14,6 +14,7 @@ public class ShadowedText : TextMeshProUGUI
     public class ShadowedTextConstants {
         public const float shadowOffsetX = 0.0f;
         public const float shadowOffsetY = -10.0f;
+        public const string tag = "Text Shadow";
     }
 
     void Start() {
@@ -24,6 +25,7 @@ public class ShadowedText : TextMeshProUGUI
     public void SetupShadowText() {
         shadow = Instantiate(this, transform.parent);
         shadow.name = name + " Shadow";
+        shadow.tag = ShadowedTextConstants.tag;
         shadow.transform.SetSiblingIndex(0);
         shadow.transform.position = transform.position + new Vector3(shadowOffsetX, shadowOffsetY, 0);
         shadow.color = shadowColor;

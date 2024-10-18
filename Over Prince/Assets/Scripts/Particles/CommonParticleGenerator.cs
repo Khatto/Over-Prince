@@ -22,7 +22,7 @@ public class CommonParticleGenerator : MonoBehaviour
         }
     }
 
-    public void GenerateParticles(Vector3 position) {
+    public virtual void GenerateParticles(Vector3 position) {
         particleGenerator.transform.position = position;
         particleGenerator.Play();
     }
