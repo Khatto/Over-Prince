@@ -53,9 +53,6 @@ public class DialogueManager : MonoBehaviour
 
     public void SetupShadowedTexts() {
         dialogueTextShadow.SetupShadowText();
-        choice1Button.GetComponentInChildren<ShadowedText>().SetupShadowText();
-        choice2Button.GetComponentInChildren<ShadowedText>().SetupShadowText();
-        choice3Button.GetComponentInChildren<ShadowedText>().SetupShadowText();
     }
 
     public void SetupInputActions() {
@@ -194,7 +191,7 @@ public class DialogueManager : MonoBehaviour
 
     private void FadeChoiceButton(Button button, FadeType fadeType) {
         button.GetComponent<Fade>().StartFadeWithTime(fadeType, DialogueManagerConstants.dialogueFadeTime);
-        GetPrimaryShadowTextFromButton(button).StartFadeWithTime(fadeType, DialogueManagerConstants.dialogueFadeTime);
+        button.transform.GetChild(0).GetComponent<Fade>().StartFadeWithTime(fadeType, DialogueManagerConstants.dialogueFadeTime);
         StartCoroutine(SetButtonInteractivity(fadeType));
     }
 
@@ -208,19 +205,6 @@ public class DialogueManager : MonoBehaviour
     public IEnumerator ChoiceButtonsReadyForInteraction() {
         yield return new WaitForSeconds(ChoiceConstants.choiceInteractivityDelay);
         state = DialogueState.DisplayingDialogueWaitingForUserInput;
-    }
-
-    public ShadowedText GetPrimaryShadowTextFromButton(Button button) {
-        // TODO - This is a not very streamlined means to get the ShadowedTexts.  Can we use a predicate with GetComponentsInChildren
-        var shadowedTexts = button.GetComponentsInChildren<ShadowedText>();
-        foreach (var shadowedText in shadowedTexts) {
-            if (shadowedText.tag != ShadowedText.ShadowedTextConstants.tag) return shadowedText;
-        }
-        return button.GetComponentInChildren<ShadowedText>();
-    }
-
-    public bool CanProceedToNextDialogue() {
-        return state == DialogueState.DisplayingDialogue || state == DialogueState.DisplayingDialogueWaitingForUserInput;
     }
 
     /// <summary>
@@ -268,10 +252,11 @@ public class DialogueManager : MonoBehaviour
 
     private void SetupChoiceButton(Button button, Choice choice) {
         button.GetComponent<ChoiceDataHolder>().choice = choice;
-        GetPrimaryShadowTextFromButton(button).SetText(choice.text);
+        button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText(choice.text);
         button.onClick.RemoveAllListeners();
         button.onClick.AddListener(() => {
-            StartCoroutine(OnChoiceSelected(choice, this.gameObject.transform.position));
+            Vector3 worldPosition = Camera.main.ScreenToWorldPoint(button.transform.position);
+            StartCoroutine(OnChoiceSelected(choice, worldPosition));
         });
     }
 
@@ -302,7 +287,7 @@ public class DialogueManager : MonoBehaviour
     private void SetupDialogueBackground() {
         // TODO - Add a check to see if we've already set this up
         dialogueBackground.GetComponent<AutoAlign>().AdjustVerticalAlignment();
-        dialogueBackground.GetComponent<AutoScale>().SetScale();
+        dialogueBackground.GetComponent<AutoScale>().Scale();
         dialogueBackground.GetComponent<Fade>().StartFadeWithTime(FadeType.FadeIn, DialogueManagerConstants.dialogueFadeTime);
     }
 

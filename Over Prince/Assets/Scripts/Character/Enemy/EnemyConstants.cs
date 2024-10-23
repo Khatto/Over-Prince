@@ -42,7 +42,7 @@ public static class EnemyConstants {
     public static CharacterStats GetStatsForEnemy(EnemyID enemyID) {
         return enemyID switch {
             EnemyID.TestEnemy => new CharacterStats(1, 0, 0),
-            EnemyID.TriangleSlime => new CharacterStats(20, 0, 0),
+            EnemyID.TriangleSlime => new CharacterStats(1, 0, 0),
             _ => new CharacterStats(1, 0, 0),
         };
     }

@@ -17,18 +17,18 @@ public class AutoScale : MonoBehaviour
     public void Start() {
         if (scaleUpdateFrequency == ScaleUpdateFrequency.OnStart)
         {
-            SetScale();
+            Scale();
         }
     }
 
     public void Update() {
         if (scaleUpdateFrequency == ScaleUpdateFrequency.OnUpdate)
         {
-            SetScale();
+            Scale();
         }
     }
 
-    public void SetScale() {
+    public void Scale() {
         var spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
         {

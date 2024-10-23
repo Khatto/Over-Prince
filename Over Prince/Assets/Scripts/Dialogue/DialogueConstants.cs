@@ -128,10 +128,8 @@ public static class DialogueConstants {
                         new Choice("Feel what?", ChoiceConstants.FontSize.Normal, Constants.Emotions.Sorrow)
                     }
                 ),
-                new Dialogue("You're not like the others...", "Music/Song_Name", 0),
-                new Dialogue("You're different...", "Music/Song_Name", 0),
-                new Dialogue("I can help you...", "Music/Song_Name", 0),
-                new Dialogue("But you have to trust me...", "Music/Song_Name", 0),
+                //new Dialogue("???: Things are changing...", "Music/Song_Name", 0),
+                //new Dialogue("???: Everything's changing...", "Music/Song_Name", 0),
             };
         }
     }

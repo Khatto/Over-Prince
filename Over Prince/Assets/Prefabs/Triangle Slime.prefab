@@ -707,9 +707,15 @@ MonoBehaviour:
   attackManager: {fileID: 0}
   controller: {fileID: 0}
   hpBar: {fileID: 0}
+  stats:
+    maxHP: 1
+    currentHP: 1
+    experience: 0
+    experienceToNextLevel: 0
   soundManager: {fileID: 0}
   hitStunModifier: 1
   displayLogs: 0
+  deathGenerator: {fileID: 0}
   enemyID: 1
   specialBattleType: 0
 --- !u!95 &302355486084347079

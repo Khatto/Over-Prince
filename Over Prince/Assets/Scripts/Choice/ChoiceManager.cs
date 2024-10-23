@@ -8,10 +8,14 @@ public class ChoiceManager : MonoBehaviour {
     public PlayerStats playerStats;
     public Player player;
     public ChoiceParticleGenerator choiceParticleGenerator;
+    public GameObject choiceFlasher;
+    private AutoScale choiceFlasherAutoScale;
+    private ChangeColor choiceFlasherChangeColor;
 
     public void Awake() {
         SetupSingleton();
         FindPlayer();
+        SetupChoiceFlasher();
     }
 
     public void SetupSingleton() {
@@ -28,6 +32,12 @@ public class ChoiceManager : MonoBehaviour {
 
     public void SetPlayer(Player player) {
         this.player = player;
+    }
+
+    public void SetupChoiceFlasher() {
+        choiceFlasher = GameObject.FindGameObjectWithTag(Constants.TagKeys.ChoiceFlasher);
+        choiceFlasherAutoScale = choiceFlasher.GetComponent<AutoScale>();
+        choiceFlasherChangeColor = choiceFlasher.GetComponent<ChangeColor>();
     }
 
     public void MakeEmotionChoice(Choice choice, Vector3 position) {
@@ -49,7 +59,8 @@ public class ChoiceManager : MonoBehaviour {
 
     public IEnumerator EmotionChoiceAnimation(Constants.Emotions emotion, Vector3 position) {
         choiceParticleGenerator.GenerateParticles(position, emotion);
+        choiceFlasherAutoScale.Scale();
+        choiceFlasherChangeColor.SetColorThenChange(Constants.Colors.GetEmotionColor(emotion), Constants.Colors.transparent, ChangeColorMode.ChangeColor);
         yield return new WaitForSeconds(ChoiceConstants.choiceSelectionAnimationDuration);
-
     }
 }

@@ -37,6 +37,8 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
         public const float tutorialKnockbackForce = 1000.0f;
         public static Range2D battleCameraFollowMaxRange = new Vector2(0.3f, 17f);
         public static Range2D postBattleCameraFollow = new Vector2(0.3f, 20f); 
+        public const float postBattleDialogueDelay = 0.25f;
+        public const float hoodedBoyMaxCameraRange = 40.0f;
     }
 
     public override void Start() {
@@ -87,7 +89,7 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
                     PerformSceneAction(FileLobbyIntroStageState.StartBattle);
                 }
                 break;
-            case FileLobbyIntroStageState.FinishedBattle:
+            case FileLobbyIntroStageState.PostBattleDialogue:
                 if (dialogueManager.IsFinished()) {
                     PerformSceneAction(FileLobbyIntroStageState.NavigateTowardsEnd);
                 }
@@ -170,10 +172,24 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
                 StartCoroutine(StartBattle());
                 break;
             case FileLobbyIntroStageState.FinishedBattle:
-                dialogueManager.DisplayDialogues(DialogueConstants.FieldLobbyIntro.BattleComplete.dialogues);
+                dialogueManager.Reset(); // TODO - See why this is working so differently from the other Dialogues
+                playerController.enabled = false;
+                playerController.SetControlsActive(false);
+                StartCoroutine(StartPostBattleDialogue());
+                PerformSceneAction(FileLobbyIntroStageState.PostBattleDialogue);
                 break;
             case FileLobbyIntroStageState.NavigateTowardsEnd:
+                playerController.enabled = true;
+                playerController.SetControlsActive(true);
+                rightFloorBorder.SetActive(false);
                 DisplayMapProceedIndicator(true);
+                cameraFollow.target = player.transform;
+                cameraFollow.cameraRangeX.max = FileLobbyIntroStageManagerConstants.hoodedBoyMaxCameraRange;
+                break;
+            case FileLobbyIntroStageState.PanCameraToHoodedBoy:
+                DisplayMapProceedIndicator(false);
+                playerController.enabled = false;
+                playerController.SetControlsActive(false);
                 break;
         }
     }
@@ -239,6 +255,11 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
         alternativeBattleStart.gameObject.SetActive(false);
     }
 
+    public IEnumerator StartPostBattleDialogue() {
+        yield return new WaitForSeconds(FileLobbyIntroStageManagerConstants.postBattleDialogueDelay);
+        dialogueManager.DisplayDialogues(DialogueConstants.FieldLobbyIntro.BattleComplete.dialogues);
+    }
+
     private IEnumerator DelayedAction(float delay, System.Action action) {
         yield return new WaitForSeconds(delay);
         action();
@@ -252,6 +273,9 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
         if (gameEvent == GameEvent.AlternativeBattleIntro) {
             instructionManager.HideInstructions();
             PerformSceneAction(FileLobbyIntroStageState.StartBattle);
+        }
+        if (gameEvent == GameEvent.HoodedBoyEncounter) {
+            PerformSceneAction(FileLobbyIntroStageState.NavigateTowardsEnd);
         }
     }
 
@@ -290,5 +314,7 @@ public enum FileLobbyIntroStageState {
     FinishDialogueBeforeBattle,
     StartBattle,
     FinishedBattle,
-    NavigateTowardsEnd
+    PostBattleDialogue,
+    NavigateTowardsEnd,
+    PanCameraToHoodedBoy
 }

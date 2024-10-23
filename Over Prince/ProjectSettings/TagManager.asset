@@ -10,6 +10,7 @@ TagManager:
   - Player HP Portrait
   - HItStopManager
   - Text Shadow
+  - Choice Flasher
   layers:
   - Default
   - TransparentFX

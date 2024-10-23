@@ -34,7 +34,6 @@ public class GameplayScene : MonoBehaviour, IGameEventListener, IBattleEventList
     public SpriteRenderer mapProceedIndicator;
     public Button retryButton;
     public Button returnToTitleButton;
-    public TextMeshProUGUI retryButtonText;
     public Fade screenTransitionFader;
 
     public virtual void Start()
@@ -154,10 +153,9 @@ public class GameplayScene : MonoBehaviour, IGameEventListener, IBattleEventList
         retryButton.interactable = false;
         returnToTitleButton.interactable = false;
         StartCoroutine(FadeOutSceneThenTransition(sceneName));
-        
     }
 
-    public IEnumerator FadeOutSceneThenTransition(String sceneName) {
+    public IEnumerator FadeOutSceneThenTransition(string sceneName) {
         screenTransitionFader.gameObject.SetActive(true);
         screenTransitionFader.StartFadeWithTime(FadeType.FadeIn, GameplaySceneConstants.DeathSequence.scenFadeOutDuration);
         yield return new WaitForSeconds(GameplaySceneConstants.DeathSequence.scenFadeOutDuration);

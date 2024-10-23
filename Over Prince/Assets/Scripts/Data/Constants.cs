@@ -26,6 +26,7 @@ public static class Constants {
         public const string PlayerHPBar = "Player HP Bar";
         public const string PlayerHPPortrait = "Player HP Portrait";
         public const string HitStopManager = "HitStopManager";
+        public const string ChoiceFlasher = "Choice Flasher";
     }
 
     public static class AnimationKeys {
@@ -53,6 +54,21 @@ public static class Constants {
         public static Color hpBarGreen = new(0.18f, .75f, 0.03f, 1.0f); // #2DBE08
 
         public static Color hpBarBackground = new(0.0f, 0.0f, 0.0f, 1.0f);
+
+        public static Color frenzyColor = new Color(0.57f, 0.06f, 0.06f, 1.0f); // #921010
+
+        public static Color sorrowColor = new Color(0.062f, 0.063f, 0.573f, 1.0f); // #101092
+
+        public static Color confusionColor = new Color(0.31f, 0.02f, 0.66f, 1.0f); // #4F06A9
+
+        public static Color GetEmotionColor(Emotions emotion) {
+            return emotion switch {
+                Emotions.Frenzy => frenzyColor,
+                Emotions.Sorrow => sorrowColor,
+                Emotions.Confusion => confusionColor,
+                _ => Color.white
+            };
+        }
     }
 
     public static float targetFPS = 60f;
