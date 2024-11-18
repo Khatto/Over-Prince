@@ -7,6 +7,7 @@ using System;
 public static class Constants {
 
     public enum Emotions { // TODO: Consider moving this to it's own class?
+        
         Frenzy,
         Sorrow,
         Confusion
@@ -38,6 +39,7 @@ public static class Constants {
         public const string Hurt = "hurt";
         public const string RecoverFromHurt = "recoverFromHurt";
         public const string DeathAnimation = "deathAnimation";
+        public const string Walking = "walking";
     }
 
     public static class Colors {
@@ -68,6 +70,14 @@ public static class Constants {
                 Emotions.Confusion => confusionColor,
                 _ => Color.white
             };
+        }
+
+        public static Color GetColorFullyVisible(Color color) {
+            return new Color(color.r, color.g, color.b, 1.0f);
+        }
+
+        public static Color GetColorFullyTransparent(Color color) {
+            return new Color(color.r, color.g, color.b, 0.0f);
         }
     }
 

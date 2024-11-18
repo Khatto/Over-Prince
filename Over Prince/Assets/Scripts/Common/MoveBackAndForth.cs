@@ -30,6 +30,13 @@ public class MoveBackAndForth : MonoBehaviour
         }
     }
 
+    public void SetValues(Vector2 movementDelta, float totalDuration)
+    {
+        this.movementDelta = movementDelta;
+        this.totalDuration = totalDuration;
+        simpleMovement.SetMovementValues(totalDuration, movementDelta, easingFunctionType.GetEasingFunction());
+    }
+
     private void SwitchDirection() {
         simpleMovement.movementDelta = -simpleMovement.movementDelta;
         simpleMovement.Move();

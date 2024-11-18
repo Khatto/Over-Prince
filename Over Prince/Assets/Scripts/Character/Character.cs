@@ -19,11 +19,16 @@ public class Character : MonoBehaviour {
     public float hitStunModifier = 1.0f;
     public bool displayLogs = false;
     public CommonParticleGenerator deathGenerator;
+    public ShaderFlasher shaderFlasher;
+    public OrganicMouth organicMouth;
 
     public virtual void Start() {
         hurtableController = GetComponent<IHurtableCharacterController>();
         rigidBody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        shaderFlasher = GetComponent<ShaderFlasher>();
+        organicMouth = GetComponentInChildren<OrganicMouth>();
+        animator = GetComponent<Animator>();
         SetupSounds();
     }
 
@@ -58,6 +63,7 @@ public class Character : MonoBehaviour {
             EnterState(CharacterState.HitStun);
             rigidBody.AddForce(CalculateHitVector(hit, direction), ForceMode2D.Impulse);
             hurtableController.EnterHitStun((hit.hitStunFrames / Constants.targetFPS) * hitStunModifier);
+            shaderFlasher.Flash();
         }
     }
 

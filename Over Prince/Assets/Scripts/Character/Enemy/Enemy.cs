@@ -16,7 +16,7 @@ public class Enemy : Character
 
     public void SetupAttacks() {
         base.Start();
-        animator = GetComponent<Animator>();
+        // animator = GetComponent<Animator>();
         attackManager = GetComponent<AttackManager>();
         attacks = EnemyConstants.GetAttacksForEnemy(enemyID);
     }
@@ -59,7 +59,6 @@ public class Enemy : Character
                 break;
             case CharacterState.HitStun:
                 if (displayLogs) Debug.Log("Enemy is in HitStun at time: " + Time.time);
-                spriteRenderer.color = Constants.Colors.hurtRed;
                 attackManager.DestroyInterruptibleHitboxes();
                 break;
             case CharacterState.Dying:

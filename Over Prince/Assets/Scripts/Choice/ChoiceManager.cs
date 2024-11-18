@@ -1,9 +1,9 @@
 using UnityEngine;
 using System.Collections;
+using NUnit.Framework.Constraints;
 
 public class ChoiceManager : MonoBehaviour {
     public static ChoiceManager instance;
-
     public Choice currentChoice;
     public PlayerStats playerStats;
     public Player player;
@@ -57,10 +57,16 @@ public class ChoiceManager : MonoBehaviour {
         StartCoroutine(EmotionChoiceAnimation(choice.emotion, position));
     }
 
-    public IEnumerator EmotionChoiceAnimation(Constants.Emotions emotion, Vector3 position) {
-        choiceParticleGenerator.GenerateParticles(position, emotion);
-        choiceFlasherAutoScale.Scale();
-        choiceFlasherChangeColor.SetColorThenChange(Constants.Colors.GetEmotionColor(emotion), Constants.Colors.transparent, ChangeColorMode.ChangeColor);
-        yield return new WaitForSeconds(ChoiceConstants.choiceSelectionAnimationDuration);
+    public IEnumerator EmotionChoiceAnimation(Constants.Emotions? emotion, Vector3 position) {
+        if (emotion != null) {
+            choiceParticleGenerator.GenerateParticles(position, emotion.GetValueOrDefault());
+            choiceFlasherAutoScale.Scale();
+            choiceFlasherChangeColor.SetColorThenChange(Constants.Colors.GetEmotionColor(emotion.GetValueOrDefault()), Constants.Colors.transparent, ChangeColorMode.ChangeColor);
+            yield return new WaitForSeconds(ChoiceConstants.emotionChoiceSelectionAnimationDuration);
+        } else {
+            yield return null;
+        }
+        
+        
     }
 }

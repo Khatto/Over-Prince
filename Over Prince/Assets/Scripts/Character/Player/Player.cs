@@ -14,7 +14,7 @@ public class Player : Character
 
     void Setup() {
         base.Start();
-        animator = GetComponent<Animator>();
+        // animator = GetComponent<Animator>();
         attackManager = GetComponent<AttackManager>();
     }
 

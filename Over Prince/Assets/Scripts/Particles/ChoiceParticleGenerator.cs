@@ -39,12 +39,6 @@ public class ChoiceParticleGenerator : CommonParticleGenerator
             GenerateColorKeys(Color.white),
             ChoiceParticleGeneratorConstants.alphaKeys
         );
-        Debug.Log("Frenzy Gradient at 0% is " + frenzyGradient.Evaluate(0.0f));
-        Debug.Log("Frenzy Gradient at 10% is " + frenzyGradient.Evaluate(0.1f));
-        Debug.Log("Frenzy Gradient at 50% is " + frenzyGradient.Evaluate(0.5f));
-        Debug.Log("Frenzy Gradient at 90% is " + frenzyGradient.Evaluate(0.9f));
-        Debug.Log("Frenzy Gradient at 100% is " + frenzyGradient.Evaluate(1.0f));
-
     }
 
     private GradientColorKey[] GenerateColorKeys(Color color) {

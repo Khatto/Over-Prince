@@ -261,6 +261,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitboxesToWatchFor: 01000000
+  hitboxesToIgnore: []
+  state: 0
 --- !u!1 &1511887114143673840
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,6 +750,7 @@ GameObject:
   - component: {fileID: 5237383843168614501}
   - component: {fileID: 3156481782436025357}
   - component: {fileID: 3358152048872484282}
+  - component: {fileID: 8957463132276074884}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -795,7 +798,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f311cec5bde5d4227b124dc0a0453cd6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -964,7 +967,17 @@ MonoBehaviour:
   attackManager: {fileID: 0}
   controller: {fileID: 0}
   hpBar: {fileID: 0}
+  stats:
+    maxHP: 1
+    currentHP: 1
+    experience: 0
+    experienceToNextLevel: 0
   soundManager: {fileID: 0}
+  hitStunModifier: 1
+  displayLogs: 0
+  deathGenerator: {fileID: 0}
+  shaderFlasher: {fileID: 0}
+  hpPortraitManager: {fileID: 0}
 --- !u!114 &3156481782436025357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -978,6 +991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitboxPrefab: {fileID: 2156701263562147746, guid: 3bf9456d3e7334e6f82d1a0b945eed0d, type: 3}
+  hitboxes: []
 --- !u!114 &3358152048872484282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -991,6 +1005,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listener: {fileID: 287954365368445378}
+--- !u!114 &8957463132276074884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2737220212957336512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99c55fb7eaccc496d9727e0d2abd008f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
+  solidOutlineFullColorMaterial: {fileID: 2100000, guid: 8322330e79f5e40938a1e33eeef51d0d, type: 2}
+  solidOutlineMaterial: {fileID: 2100000, guid: f311cec5bde5d4227b124dc0a0453cd6, type: 2}
+  flashTime: 0.15
 --- !u!1 &4118459636934156675
 GameObject:
   m_ObjectHideFlags: 0

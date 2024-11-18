@@ -513,6 +513,7 @@ GameObject:
   - component: {fileID: 4982925038520134073}
   - component: {fileID: 7689526367604996704}
   - component: {fileID: 7130269373864233585}
+  - component: {fileID: 5598377383226680378}
   m_Layer: 8
   m_Name: Triangle Slime
   m_TagString: Untagged
@@ -562,7 +563,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f311cec5bde5d4227b124dc0a0453cd6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -716,6 +717,7 @@ MonoBehaviour:
   hitStunModifier: 1
   displayLogs: 0
   deathGenerator: {fileID: 0}
+  shaderFlasher: {fileID: 0}
   enemyID: 1
   specialBattleType: 0
 --- !u!95 &302355486084347079
@@ -787,6 +789,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listener: {fileID: 8779713421060403083}
+--- !u!114 &5598377383226680378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2844685101394387919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99c55fb7eaccc496d9727e0d2abd008f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
+  solidOutlineFullColorMaterial: {fileID: 2100000, guid: 8322330e79f5e40938a1e33eeef51d0d, type: 2}
+  solidOutlineMaterial: {fileID: 2100000, guid: f311cec5bde5d4227b124dc0a0453cd6, type: 2}
+  flashTime: 0.15
 --- !u!1 &3461753993668163007
 GameObject:
   m_ObjectHideFlags: 0

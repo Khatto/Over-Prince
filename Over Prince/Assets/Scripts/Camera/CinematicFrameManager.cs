@@ -48,6 +48,11 @@ public class CinematicFrameManager : MonoBehaviour
         bottomFrameAutoAlign.continuouslyAdjustHorizontal = true;
     }
 
+    public void SetScaleUpdateFrequency(ScaleUpdateFrequency frequency) {
+        topFrameAutoScale.scaleUpdateFrequency = frequency;
+        bottomFrameAutoScale.scaleUpdateFrequency = frequency;
+    }
+
     public float GetMovementTime() {
         return topFrameMovement.movementTime;
     }

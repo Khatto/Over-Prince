@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.iOS;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
@@ -13,6 +14,7 @@ public class DialogueManager : MonoBehaviour
     public DialogueState state = DialogueState.NotStarted;
     public DialogueDisplayMode dialogueDisplayMode = DialogueDisplayMode.Single;
     public Vector2 dialogueDefaultPosition = new Vector2(0.0f, 0.0f);
+    public Vector2 choiceDialogueDefaultPosition = new Vector2(0.0f, 0.0f);
     public float dialogueDoubleLineVerticalOffset = 0.0f;
     public SpriteRenderer dialogueBackground;
     public bool useDialogueBackground = false;
@@ -28,8 +30,9 @@ public class DialogueManager : MonoBehaviour
     public Button choice1Button;
     public Button choice2Button;
     public Button choice3Button;
-    public ShadowedText choicePrompt;
+    //public ShadowedText choicePrompt;
     public int numberOfChoices = 0;
+    public IDialogueTraitListener dialogueTraitListener;
 
     public static class DialogueManagerConstants 
     {
@@ -66,6 +69,10 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Starts or continues the process of displaying dialogues from the selected display.
+    /// </summary>
+    /// <param name="playAudio">Primarily used to prevent audio from playing when a choice is selected, since choices have a different sound handled in the OnChoiceSelected method.</param>
     private void ChoiceSelectedOrProceedInitiated(bool playAudio = true) {
         DisplayNextQueuedDialogue();
         if (playAudio) SoundManager.instance.PlaySound(SoundType.Confirm);
@@ -115,6 +122,7 @@ public class DialogueManager : MonoBehaviour
         }
         FadeDialogue(FadeType.FadeIn);
         SetDialogueText(dialogue);
+        SetDialogueTraits(dialogue.traits);
         if (dialogue.IsTimed()) {
             StartCoroutine(SetDialogueStateAfterTime(DialogueState.DisplayingDialogue, dialogue.displayTime));
         } else if (!displayingChoices) {
@@ -175,13 +183,12 @@ public class DialogueManager : MonoBehaviour
 
     private void FadeDialogue(FadeType fadeType)
     {
-        if (!displayingChoices) {
-            dialogueTextShadow.StartFadeWithTime(fadeType, DialogueManagerConstants.dialogueFadeTime);
-            if (proceedIndicatorFade != null) {
-                proceedIndicatorFade.StartFadeWithTime(fadeType, DialogueManagerConstants.dialogueFadeTime);
-                proceedIndicatorShadowFade.StartFadeWithTime(fadeType, DialogueManagerConstants.dialogueFadeTime);
-            }
-        } else {
+        dialogueTextShadow.StartFadeWithTime(fadeType, DialogueManagerConstants.dialogueFadeTime);
+        if (!displayingChoices && proceedIndicatorFade != null) {
+            proceedIndicatorFade.StartFadeWithTime(fadeType, DialogueManagerConstants.dialogueFadeTime);
+            proceedIndicatorShadowFade.StartFadeWithTime(fadeType, DialogueManagerConstants.dialogueFadeTime);
+        }
+        if (displayingChoices) {
             FadeChoiceButton(choice1Button, fadeType);
             FadeChoiceButton(choice2Button, fadeType);
             if (numberOfChoices > 2) FadeChoiceButton(choice3Button, fadeType);
@@ -234,25 +241,29 @@ public class DialogueManager : MonoBehaviour
     /// <param name="text"></param>
     private void SetDialogueText(Dialogue dialogue)
     {
-        if (displayingChoices) {
-            SetChoicesText(dialogue);
-        } else {
-            dialogueTextShadow.SetText(dialogue.text);
+        if (displayingChoices) SetChoicesText(dialogue);
+        dialogueTextShadow.SetText(dialogue.text);
+    }
+
+    private void SetDialogueTraits(DialogueTrait[] traits) {
+        if (dialogueTraitListener == null || traits == null || traits.Length == 0) return;
+        foreach (DialogueTrait trait in traits) {
+            dialogueTraitListener.OnTrait(trait);
         }
     }
 
     private void SetChoicesText(Dialogue dialogue) {
-        choicePrompt.SetText(dialogue.text);
-        SetupChoiceButton(choice1Button, dialogue.choices[0]);
-        SetupChoiceButton(choice2Button, dialogue.choices[1]);
+        SetupChoiceButton(choice1Button, dialogue.choices[0], 0);
+        SetupChoiceButton(choice2Button, dialogue.choices[1], 1);
         if (dialogue.choices.Length > 2) {
-            SetupChoiceButton(choice3Button, dialogue.choices[2]);
+            SetupChoiceButton(choice3Button, dialogue.choices[2], 2);
         }
     }
 
-    private void SetupChoiceButton(Button button, Choice choice) {
+    private void SetupChoiceButton(Button button, Choice choice, int index) {
         button.GetComponent<ChoiceDataHolder>().choice = choice;
         button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText(choice.text);
+        if (index != 2) SetChoiceButtonPosition(button, ChoiceConstants.Button.GetXPosForButtons(numberOfChoices, index == 0));
         button.onClick.RemoveAllListeners();
         button.onClick.AddListener(() => {
             Vector3 worldPosition = Camera.main.ScreenToWorldPoint(button.transform.position);
@@ -261,13 +272,22 @@ public class DialogueManager : MonoBehaviour
     }
 
     private IEnumerator OnChoiceSelected(Choice choice, Vector3 position) {
-        ChoiceManager.instance.MakeEmotionChoice(choice, position);
         choice1Button.interactable = false;
         choice2Button.interactable = false;
         if (numberOfChoices > 2) choice3Button.interactable = false;
         SoundManager.instance.PlaySound(SoundType.Confirm);
-        yield return new WaitForSeconds(ChoiceConstants.choiceSelectionAnimationDuration);
+        if (choice.choiceType == ChoiceType.Emotion) {
+            Debug.Log("Our choice: " + choice.text + " is an emotion choice with choiceType " + choice.choiceType);
+            ChoiceManager.instance.MakeEmotionChoice(choice, position);
+            yield return new WaitForSeconds(ChoiceConstants.emotionChoiceSelectionAnimationDuration);
+        } else {
+            yield return new WaitForSeconds(ChoiceConstants.choiceSelectionDuration);
+        }
         ChoiceSelectedOrProceedInitiated(false);
+    }
+
+    private void SetChoiceButtonPosition(Button button, float xPos) {
+        button.transform.localPosition = new Vector3(xPos, button.transform.localPosition.y, button.transform.localPosition.z);
     }
 
     /// <summary>
@@ -277,9 +297,10 @@ public class DialogueManager : MonoBehaviour
     {
         int lineCount = dialogueTextShadow.textInfo.lineCount;
         float verticalOffset = (lineCount % 2) * dialogueTextShadow.fontSize;
+        float yPos = displayingChoices ? choiceDialogueDefaultPosition.y : dialogueDefaultPosition.y - verticalOffset + (lineCount > 1 ? dialogueDoubleLineVerticalOffset : 0);
         Vector2 newPosition = new Vector2(
             dialogueTextShadow.rectTransform.anchoredPosition.x, // TODO: Determine if we want to use 
-            dialogueDefaultPosition.y - verticalOffset + (lineCount > 1 ? dialogueDoubleLineVerticalOffset : 0)
+            yPos
         );
         dialogueTextShadow.SetDialoguePositionBasedOnLines(newPosition);
     }
