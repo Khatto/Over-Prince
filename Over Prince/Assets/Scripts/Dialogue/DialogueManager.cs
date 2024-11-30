@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.iOS;
 using UnityEngine.UI;
@@ -30,8 +31,12 @@ public class DialogueManager : MonoBehaviour
     public Button choice1Button;
     public Button choice2Button;
     public Button choice3Button;
-    //public ShadowedText choicePrompt;
+    public UnityAction choice1TouchAction;
+    public UnityAction choice2TouchAction;
+    public UnityAction choice3TouchAction;
     public int numberOfChoices = 0;
+    public IChoiceListener choiceListener;
+
     public IDialogueTraitListener dialogueTraitListener;
 
     public static class DialogueManagerConstants 
@@ -253,6 +258,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     private void SetChoicesText(Dialogue dialogue) {
+        RemoveAllChoiceButtonListeners();
         SetupChoiceButton(choice1Button, dialogue.choices[0], 0);
         SetupChoiceButton(choice2Button, dialogue.choices[1], 1);
         if (dialogue.choices.Length > 2) {
@@ -264,11 +270,30 @@ public class DialogueManager : MonoBehaviour
         button.GetComponent<ChoiceDataHolder>().choice = choice;
         button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText(choice.text);
         if (index != 2) SetChoiceButtonPosition(button, ChoiceConstants.Button.GetXPosForButtons(numberOfChoices, index == 0));
-        button.onClick.RemoveAllListeners();
-        button.onClick.AddListener(() => {
-            Vector3 worldPosition = Camera.main.ScreenToWorldPoint(button.transform.position);
-            StartCoroutine(OnChoiceSelected(choice, worldPosition));
-        });
+        if (index == 0) { // TODO - Clean this mess up
+            SetButtonOnClickListener(button, choice, choice1TouchAction);
+        } else if (index == 1) {
+            SetButtonOnClickListener(button, choice, choice2TouchAction);
+        } else if (index == 2) {
+            SetButtonOnClickListener(button, choice, choice3TouchAction);
+        }
+    }
+
+    public void RemoveAllChoiceButtonListeners() {
+        choice1Button.onClick.RemoveAllListeners();
+        choice2Button.onClick.RemoveAllListeners();
+        choice3Button.onClick.RemoveAllListeners();
+    }
+
+    public void SetButtonOnClickListener(Button button, Choice choice, UnityAction unityAction) {
+        if (unityAction != null) button.onClick.RemoveListener(unityAction);
+        unityAction = new UnityAction(() => ChoiceButtonListenerFunction(button, choice));
+        button.onClick.AddListener(unityAction);
+    }
+
+    private void ChoiceButtonListenerFunction(Button button, Choice choice) {
+        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(button.transform.position);
+        StartCoroutine(OnChoiceSelected(choice, worldPosition));
     }
 
     private IEnumerator OnChoiceSelected(Choice choice, Vector3 position) {
@@ -277,10 +302,10 @@ public class DialogueManager : MonoBehaviour
         if (numberOfChoices > 2) choice3Button.interactable = false;
         SoundManager.instance.PlaySound(SoundType.Confirm);
         if (choice.choiceType == ChoiceType.Emotion) {
-            Debug.Log("Our choice: " + choice.text + " is an emotion choice with choiceType " + choice.choiceType);
             ChoiceManager.instance.MakeEmotionChoice(choice, position);
             yield return new WaitForSeconds(ChoiceConstants.emotionChoiceSelectionAnimationDuration);
         } else {
+            choiceListener.OnChoiceSelected(choice);
             yield return new WaitForSeconds(ChoiceConstants.choiceSelectionDuration);
         }
         ChoiceSelectedOrProceedInitiated(false);

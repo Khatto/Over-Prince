@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEditor.ShaderGraph.Internal;
 
 public struct Choice {

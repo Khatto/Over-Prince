@@ -127,4 +127,8 @@ public static class Constants {
         return randomDigits;
     }
 
+    public static Vector2 GetInvertedVector(Vector2 vector) {
+        return new Vector2(-vector.x, -vector.y);
+    }
+
 }

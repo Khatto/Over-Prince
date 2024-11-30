@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public static class DialogueConstants {
 
     public static class CommonFormattedTerms {
@@ -151,9 +153,9 @@ public static class DialogueConstants {
                     "Music/Song_Name",
                     0,
                     new Choice[] {
-                        new Choice("And you are?", ChoiceConstants.FontSize.Normal, Constants.Emotions.Frenzy, ChoiceType.Emotion),
+                        new Choice("And who are you?", ChoiceConstants.FontSize.Normal, Constants.Emotions.Frenzy, ChoiceType.Emotion),
                         new Choice("Yeah I do...", ChoiceConstants.FontSize.Normal, Constants.Emotions.Confusion, ChoiceType.Emotion),
-                        new Choice("Feel what?", ChoiceConstants.FontSize.Normal, Constants.Emotions.Sorrow, ChoiceType.Emotion),
+                        new Choice("Huh? Feel what?", ChoiceConstants.FontSize.Normal, Constants.Emotions.Sorrow, ChoiceType.Emotion),
                     },
                     new DialogueTrait[] { DialogueTrait.StopSpeaking }
                 ),
@@ -178,8 +180,7 @@ public static class DialogueConstants {
                     new DialogueTrait[] { DialogueTrait.StartSpeaking }
                 ),
                 new Dialogue("???: It can take you up, or down...", "Music/Song_Name", 0),
-                new Dialogue("???: Those outcomes will all depend on you...", "Music/Song_Name", 0),
-                new Dialogue("???: So if you're ready for change,", "Music/Song_Name", 0),
+                new Dialogue("???: If you are ready for change,", "Music/Song_Name", 0),
                 new Dialogue($"???: Take this {CommonFormattedTerms.Elevator}.", "Music/Song_Name", 0)
             };
         }
@@ -191,12 +192,76 @@ public static class DialogueConstants {
                     "Music/Song_Name",
                     0,
                     new Choice[] {
-                        new Choice("Yes", ChoiceConstants.FontSize.Normal, null),
-                        new Choice("No", ChoiceConstants.FontSize.Normal, null)
+                        new Choice(SimpleChoices.Yes, ChoiceConstants.FontSize.Normal, null),
+                        new Choice(SimpleChoices.No, ChoiceConstants.FontSize.Normal, null)
                     },
                     new DialogueTrait[] { DialogueTrait.StopSpeaking }
                 )
             };
+        }
+
+        public static class HoodedBoyReassurance {
+
+            public static Dialogue reassurance1 = new Dialogue(
+                "???: Don't worry, you'll be fine...",
+                "Music/Song_Name", 
+                0,
+                null,
+                new DialogueTrait[] { DialogueTrait.StartSpeaking }
+            );
+
+            public static Dialogue reassurance2 = new Dialogue(
+                "???: Don't be afraid to embrace change...",
+                "Music/Song_Name", 
+                0,
+                null,
+                new DialogueTrait[] { DialogueTrait.StartSpeaking }
+            );
+
+            public static Dialogue reassurance3 = new Dialogue(
+                "???: You can do this...",
+                "Music/Song_Name", 
+                0,
+                null,
+                new DialogueTrait[] { DialogueTrait.StartSpeaking }
+            );
+
+            public static Dialogue reassurance4 = new Dialogue(
+                "???: Your future is in your hands...",
+                "Music/Song_Name", 
+                0,
+                null,
+                new DialogueTrait[] { DialogueTrait.StartSpeaking }
+            );
+
+            public static Dialogue reassurance5 = new Dialogue(
+                "???: Don't worry, you'll be fine.",
+                "Music/Song_Name", 
+                0,
+                null,
+                new DialogueTrait[] { DialogueTrait.StartSpeaking }
+            );
+            
+            public static Dialogue reassuranceFailure = new Dialogue(
+                "???: Your fear of change will be your end.",
+                "Music/Song_Name", 
+                0,
+                null,
+                new DialogueTrait[] { DialogueTrait.StartSpeaking }
+            );
+
+            public static Dialogue[] RandomDialogue() {
+                // Return a random dialogue from the various reassurance dialogues in a Dialogue array
+                Dialogue[] dialogues = {
+                    reassurance1,
+                    reassurance2,
+                    reassurance3,
+                    reassurance4,
+                    reassurance5
+                };
+                return new Dialogue[] { dialogues[Random.Range(0, dialogues.Length)] };
+
+            }
         }
     }
 

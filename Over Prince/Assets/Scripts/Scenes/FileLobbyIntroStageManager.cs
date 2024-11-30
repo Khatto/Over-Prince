@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener, IHurtboxTriggerListener, IDialogueTraitListener
+public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener, IHurtboxTriggerListener, IDialogueTraitListener, IChoiceListener
 {
     public FileLobbyIntroStageState fileLobbyState = FileLobbyIntroStageState.StandingUp;
     public Player player;
@@ -26,12 +28,16 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
     public Character hoodedBoy;
     public SimpleMovement hoodedBoySimpleMovement;
 
+    public Elevator elevator;
     public SimpleMovement elevatorAppearMaskMovement;
     public ParticleSystem elevatorAppearParticles;
     public Fade[] elevatorAppearFadeElements;
-    public ParticleSystem shineBurstParticles;
+    public SpriteRenderer[] elevatorMaskedElements;
+
+    // public ParticleSystem shineBurstParticles; // TODO - Get rid of this ultimately unless I make it prettier and look more like Shimmering glitter
     public Vector3 moveToElevatorPosition;
     public float moveToElevatorSpeed;
+    public int refusalCount = 0; // TODO - After the Refusal count reaches a certain number, have an alternate ending
 
     public float testForce = 1000;
 
@@ -61,6 +67,11 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
         public static Vector2 hiddenBoyMoveVector = new Vector2(0.0f, 1.0f);
 
         public const float zoomCameraMovingToElevator = 4.70f;
+        public static Vector2 elevatorMaskWhenProtagEntersPosition = new Vector2(53.95f, -3.0f);
+
+        public const float moveCameraToElevatorWhenProceedingInsideDelay = 0.75f;
+        public static Range2D cameraToElevatorWhenProceedingInsideRange = new Vector2(0.3f, 50.8f);
+
     }
 
     public override void Start() {
@@ -70,6 +81,7 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
         firstTriangleEnemy.GetComponentInChildren<HurtboxManager>().SetListener(this);
         battleManager.Setup(player.GetComponent<Player>(), this, new List<Enemy> { firstTriangleEnemy });
         dialogueManager.dialogueTraitListener = this;
+        dialogueManager.choiceListener = this;
     }
 
     public override void Update() {
@@ -144,6 +156,21 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
                     player.animator.SetInteger(Constants.AnimationKeys.MoveSpeed, 1);
                 } else {
                     PerformSceneAction(FileLobbyIntroStageState.ProceedConfirmation);
+                    player.animator.SetInteger(Constants.AnimationKeys.MoveSpeed, 0);
+                }
+                break;
+            case FileLobbyIntroStageState.RefusalEncouragement:
+                if (dialogueManager.IsFinished()) {
+                    PerformSceneAction(FileLobbyIntroStageState.ProceedConfirmation);
+                }
+                break;
+            case FileLobbyIntroStageState.ProceedIntoElevator: // TODO - Consolidate this with MoveCloserToElevator
+                if (player.transform.position.x != moveToElevatorPosition.x || player.transform.position.y != moveToElevatorPosition.y) {
+                    Vector3 moveTowardsValue = Vector3.MoveTowards(player.transform.localPosition, moveToElevatorPosition, Time.deltaTime * moveToElevatorSpeed);
+                    player.transform.localPosition = moveTowardsValue;
+                    player.animator.SetInteger(Constants.AnimationKeys.MoveSpeed, 1);
+                } else {
+                    PerformSceneAction(FileLobbyIntroStageState.CloseDoorAndLightArrow);
                     player.animator.SetInteger(Constants.AnimationKeys.MoveSpeed, 0);
                 }
                 break;
@@ -271,6 +298,36 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
             case FileLobbyIntroStageState.ProceedConfirmation:
                 StartCoroutine(ProceedConfirmation());
                 break;
+            case FileLobbyIntroStageState.DelayBeforeRefusalEncouragement:
+                StartCoroutine(DelayedAction(DialogueManager.DialogueManagerConstants.dialogueFadeTime * 3.15f, () => { // TODO - Use the right constant for the choice delay
+                    PerformSceneAction(FileLobbyIntroStageState.RefusalEncouragement);
+                }));
+                break;
+            case FileLobbyIntroStageState.RefusalEncouragement:
+                dialogueManager.Reset();
+                dialogueManager.DisplayDialogues(DialogueConstants.FieldLobbyIntro.HoodedBoyReassurance.RandomDialogue());
+                break;
+            case FileLobbyIntroStageState.PanCameraToElevatorBeforeProceedIntoElevator:
+                cameraFollow.cameraRangeX = FileLobbyIntroStageManagerConstants.cameraToElevatorWhenProceedingInsideRange;
+                StartCoroutine(DelayedAction(FileLobbyIntroStageManagerConstants.moveCameraToElevatorWhenProceedingInsideDelay, () => {
+                    PerformSceneAction(FileLobbyIntroStageState.ProceedIntoElevator);
+                }));
+                break;
+            case FileLobbyIntroStageState.ProceedIntoElevator:
+                foreach (SpriteRenderer sprite in elevatorMaskedElements) {
+                    sprite.maskInteraction = SpriteMaskInteraction.None;
+                }
+                player.spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+                elevatorAppearMaskMovement.transform.position = FileLobbyIntroStageManagerConstants.elevatorMaskWhenProtagEntersPosition;
+                break;
+            case FileLobbyIntroStageState.CloseDoorAndLightArrow:
+                StartCoroutine(CloseDoorAndLightArrows());
+                break;
+            case FileLobbyIntroStageState.DisappearElevator:
+                foreach (Fade fade in elevatorAppearFadeElements) {
+                    fade.StartFadeWithTime(FadeType.FadeIn, FileLobbyIntroStageManagerConstants.appearElevatorFlashFadeOut);
+                }
+                break;
         }
     }
 
@@ -329,7 +386,7 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
             fade.StartFadeWithTime(FadeType.FadeOut, FileLobbyIntroStageManagerConstants.appearElevatorFlashFadeOut);
         }
         yield return new WaitForSeconds(FileLobbyIntroStageManagerConstants.appearElevatorFlashFadeOut);
-        shineBurstParticles.Play();
+        // shineBurstParticles.Play();
         PerformSceneAction(FileLobbyIntroStageState.HoodedBoyMove);
     }
 
@@ -344,9 +401,25 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
     }
 
     public IEnumerator ProceedConfirmation() {
-        StartCoroutine(PanCameraBackToPlayer(FileLobbyIntroStageManagerConstants.zoomCameraOutToElevatorSize));
-        yield return new WaitForSeconds(FileLobbyIntroStageManagerConstants.panCameraDuration);
+        if (refusalCount == 0) {
+            moveToElevatorPosition.x += 5.0f;
+            StartCoroutine(PanCameraBackToPlayer(FileLobbyIntroStageManagerConstants.zoomCameraOutToElevatorSize));
+            yield return new WaitForSeconds(FileLobbyIntroStageManagerConstants.panCameraDuration);
+        } else if (refusalCount > 0) {
+            hoodedBoy.organicMouth.Speak(false);
+        }
         dialogueManager.DisplayDialogues(DialogueConstants.FieldLobbyIntro.ElevatorConfirmation.dialogues);
+    }
+
+    public IEnumerator CloseDoorAndLightArrows() {
+        player.gameObject.SetActive(false);
+        elevatorAppearMaskMovement.gameObject.SetActive(false);
+        elevator.CloseDoors();
+        yield return new WaitForSeconds(Elevator.ElevatorConstants.doorOpenCloseDuration);
+        elevator.FlashSignBoxDeltas();
+        // TODO - Add an elevator noise
+        yield return new WaitForSeconds(Elevator.ElevatorConstants.signBoxDeltaFlashDuration);
+        PerformSceneAction(FileLobbyIntroStageState.DisappearElevator);
     }
 
     #endregion Perform Scene Action
@@ -433,6 +506,24 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
     public void OnHurtboxTriggerExit(Character character) {
         /* No action needed */
     }
+
+    #region IChoiceListener
+    public void OnChoiceSelected(Choice choice) {
+        if (fileLobbyState == FileLobbyIntroStageState.ProceedConfirmation) {
+            HandleElevatorChoice(choice);
+        }
+    }
+
+    public void HandleElevatorChoice(Choice choice) {
+        if (choice.text == SimpleChoices.Yes) {
+            PerformSceneAction(FileLobbyIntroStageState.PanCameraToElevatorBeforeProceedIntoElevator);
+        }
+        if (choice.text == SimpleChoices.No) {
+            refusalCount++;
+            PerformSceneAction(FileLobbyIntroStageState.DelayBeforeRefusalEncouragement);
+        }
+    }
+    #endregion IChoiceListener
 }
 
 public enum FileLobbyIntroStageState {
@@ -459,7 +550,10 @@ public enum FileLobbyIntroStageState {
     FinalDiscussion,
     MoveCloserToElevator,
     ProceedConfirmation,
+    DelayBeforeRefusalEncouragement,
     RefusalEncouragement,
+    PanCameraToElevatorBeforeProceedIntoElevator,
     ProceedIntoElevator,
     CloseDoorAndLightArrow,
+    DisappearElevator
 }

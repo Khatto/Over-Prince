@@ -18,6 +18,8 @@ public class TestCommands : MonoBehaviour
     public bool createTestDoubleDialogueButton = true;
     public bool createTestTripleDialogueButton = true;
     public bool createTransportToHoodedBoyEventButton = true;
+    public bool createRemoveAllChoiceButtonListeners = true;
+    public bool createSimpleChoiceDialogue = true;
 
 
     void OnGUI() {
@@ -47,6 +49,12 @@ public class TestCommands : MonoBehaviour
         }
         if (createTransportToHoodedBoyEventButton && GUI.Button(new Rect(10, 330, 150, 30), "Go to Hooded Boy")) { 
             OnTransportToHoodedBoyEvent();
+        }
+        if (createRemoveAllChoiceButtonListeners && GUI.Button(new Rect(10, 370, 150, 30), "Remove Choice Listeners")) { 
+            OnRemoveAllChoiceButtonListeners();
+        }
+        if (createSimpleChoiceDialogue && GUI.Button(new Rect(10, 410, 150, 30), "Simple Choice Dialogue")) { 
+            OnCreateSimpleChoiceDialogue();
         }
     }
 
@@ -146,5 +154,17 @@ public class TestCommands : MonoBehaviour
         player.transform.position = new Vector3(36, -2, 0);
         FileLobbyIntroStageManager manager = FindFirstObjectByType<FileLobbyIntroStageManager>();
         manager.PerformSceneAction(FileLobbyIntroStageState.NavigateTowardsEnd);
+    }
+
+    void OnRemoveAllChoiceButtonListeners()
+    {
+        DialogueManager dialogueManager = FindFirstObjectByType<DialogueManager>();
+        dialogueManager.RemoveAllChoiceButtonListeners();
+    }
+
+    void OnCreateSimpleChoiceDialogue()
+    {
+        DialogueManager dialogueManager = FindFirstObjectByType<DialogueManager>();
+        dialogueManager.DisplayDialogues(DialogueConstants.FieldLobbyIntro.ElevatorConfirmation.dialogues);
     }
 }
