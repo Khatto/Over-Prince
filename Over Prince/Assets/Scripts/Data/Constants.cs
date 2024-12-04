@@ -18,6 +18,7 @@ public static class Constants {
         public const string Intro = "IntroScene";
         public const string Playground = "PlaygroundScene";
         public const string SceneOne = "SceneOne";
+        public const string ElevatorScene = "ElevatorScene";
         public const float SceneTransitionTime = .65f;
     }
 

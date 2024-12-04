@@ -20,6 +20,7 @@ public class TestCommands : MonoBehaviour
     public bool createTransportToHoodedBoyEventButton = true;
     public bool createRemoveAllChoiceButtonListeners = true;
     public bool createSimpleChoiceDialogue = true;
+    public bool createAppearElevatorButton = true;
 
 
     void OnGUI() {
@@ -55,6 +56,9 @@ public class TestCommands : MonoBehaviour
         }
         if (createSimpleChoiceDialogue && GUI.Button(new Rect(10, 410, 150, 30), "Simple Choice Dialogue")) { 
             OnCreateSimpleChoiceDialogue();
+        }
+        if (createAppearElevatorButton && GUI.Button(new Rect(10, 450, 150, 30), "Appear Elevator")) { 
+            OnAppearElevator();
         }
     }
 
@@ -166,5 +170,15 @@ public class TestCommands : MonoBehaviour
     {
         DialogueManager dialogueManager = FindFirstObjectByType<DialogueManager>();
         dialogueManager.DisplayDialogues(DialogueConstants.FieldLobbyIntro.ElevatorConfirmation.dialogues);
+    }
+
+    void OnAppearElevator()
+    {
+        OnTransportToHoodedBoyEvent();
+        // Find a game object with name "Hooded Boy Encounter Trigger" and set it inactive
+        GameObject hoodedBoyEncounterTrigger = GameObject.Find("Hooded Boy Encounter Trigger");
+        hoodedBoyEncounterTrigger.SetActive(false);
+        FileLobbyIntroStageManager manager = FindFirstObjectByType<FileLobbyIntroStageManager>();
+        manager.PerformSceneAction(FileLobbyIntroStageState.AppearElevator);
     }
 }

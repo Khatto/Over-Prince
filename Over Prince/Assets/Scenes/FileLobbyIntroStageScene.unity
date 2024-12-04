@@ -13836,6 +13836,7 @@ MonoBehaviour:
   createTransportToHoodedBoyEventButton: 1
   createRemoveAllChoiceButtonListeners: 1
   createSimpleChoiceDialogue: 1
+  createAppearElevatorButton: 1
 --- !u!4 &619835461
 Transform:
   m_ObjectHideFlags: 0

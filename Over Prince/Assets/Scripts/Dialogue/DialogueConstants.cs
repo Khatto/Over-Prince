@@ -180,7 +180,7 @@ public static class DialogueConstants {
                     new DialogueTrait[] { DialogueTrait.StartSpeaking }
                 ),
                 new Dialogue("???: It can take you up, or down...", "Music/Song_Name", 0),
-                new Dialogue("???: If you are ready for change,", "Music/Song_Name", 0),
+                new Dialogue("???: If change is what you seek,", "Music/Song_Name", 0),
                 new Dialogue($"???: Take this {CommonFormattedTerms.Elevator}.", "Music/Song_Name", 0)
             };
         }

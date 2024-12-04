@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FileLobbyIntroStageScene.unity
     guid: 5c47465acf74d4bc5bcfbeae23a66e34
+  - enabled: 1
+    path: Assets/Scenes/ElevatorScene.unity
+    guid: b6cbf59a565c5470a9b08bfc7680f421
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

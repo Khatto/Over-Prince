@@ -147,7 +147,7 @@ public class GameplayScene : MonoBehaviour, IGameEventListener, IBattleEventList
         }
     }
 
-    public void LoadScene(string sceneName) {
+    public void LoadNextScene(string sceneName) {
         if (state == GameplaySceneState.Transitioning) return;
         state = GameplaySceneState.Transitioning;
         retryButton.interactable = false;

@@ -21,7 +21,7 @@ public class Fade : MonoBehaviour
     private Action callback = null;
     
 
-    void Start () {
+    void Awake () {
         textMeshPro = gameObject.GetComponent<TextMeshProUGUI>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         image = gameObject.GetComponent<Image>();

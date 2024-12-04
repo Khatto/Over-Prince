@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -54,6 +55,7 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
         public const float delayBeforeAppearElevator = 0.25f;
         public const float appearElevatorDelay = 2.0f;
         public const float appearElevatorFlashFadeOut = 0.125f;
+        public const float disappearElevatorFlashFadeOut = 1.0f;
         public const float tutorialKnockbackForce = 1000.0f;
         public static Range2D battleCameraFollowMaxRange = new Vector2(0.3f, 21.6f);
         public static Range2D postBattleCameraFollow = new Vector2(0.3f, 20f); 
@@ -68,6 +70,9 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
 
         public const float zoomCameraMovingToElevator = 4.70f;
         public static Vector2 elevatorMaskWhenProtagEntersPosition = new Vector2(53.95f, -3.0f);
+
+        public const float zoomCameraFinalHoodedBoy = 2.05f;
+        public const float zoomCameraFinalHoodedBoyDuration = 3.5f;
 
         public const float moveCameraToElevatorWhenProceedingInsideDelay = 0.75f;
         public static Range2D cameraToElevatorWhenProceedingInsideRange = new Vector2(0.3f, 50.8f);
@@ -231,7 +236,7 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
                 StartCoroutine(BattleIntroScene());
                 break;
             case FileLobbyIntroStageState.PanCameraToMonster:
-                StartCoroutine(PanCameraToTarget(firstTriangleEnemy.gameObject, FileLobbyIntroStageManagerConstants.panCameraToMonsterCameraZoomEndSize));
+                StartCoroutine(PanCameraToTarget(firstTriangleEnemy.gameObject, FileLobbyIntroStageManagerConstants.panCameraToTargetCameraZoomStartSize, FileLobbyIntroStageManagerConstants.panCameraToMonsterCameraZoomEndSize));
                 break;
             case FileLobbyIntroStageState.ExplainBattle:
                 dialogueManager.DisplayDialogues(DialogueConstants.FieldLobbyIntro.BattleIntroDialoguePartTwo.dialogues);
@@ -276,7 +281,7 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
                 dialogueManager.Reset();
 
                 cinematicFrameManager.SetScaleUpdateFrequency(ScaleUpdateFrequency.OnUpdate);
-                StartCoroutine(PanCameraToTarget(hoodedBoy.gameObject, FileLobbyIntroStageManagerConstants.panCameraToHoodedBoyZoomEndSize));
+                StartCoroutine(PanCameraToTarget(hoodedBoy.gameObject, FileLobbyIntroStageManagerConstants.panCameraToTargetCameraZoomStartSize, FileLobbyIntroStageManagerConstants.panCameraToHoodedBoyZoomEndSize));
                 break;
             case FileLobbyIntroStageState.HoodedBoyDialogue:
                 hoodedBoy.organicMouth.Speak(true);
@@ -324,10 +329,12 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
                 StartCoroutine(CloseDoorAndLightArrows());
                 break;
             case FileLobbyIntroStageState.DisappearElevator:
-                foreach (Fade fade in elevatorAppearFadeElements) {
-                    fade.StartFadeWithTime(FadeType.FadeIn, FileLobbyIntroStageManagerConstants.appearElevatorFlashFadeOut);
-                }
+                StartCoroutine(DisappearElevator());
                 break;
+            case FileLobbyIntroStageState.FinalZoomOnHoodedBoy:
+                StartCoroutine(FinalZoomOnHoodedBoy());
+                break;
+
         }
     }
 
@@ -422,6 +429,24 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
         PerformSceneAction(FileLobbyIntroStageState.DisappearElevator);
     }
 
+    public IEnumerator DisappearElevator() {
+        foreach (Fade fade in elevatorAppearFadeElements) {
+            fade.StartFadeWithTime(FadeType.FadeIn, FileLobbyIntroStageManagerConstants.appearElevatorFlashFadeOut);
+        }
+        yield return new WaitForSeconds(FileLobbyIntroStageManagerConstants.appearElevatorFlashFadeOut);
+        screenFader.StartFadeWithTime(FadeType.FlashInThenFadeOut, FileLobbyIntroStageManagerConstants.disappearElevatorFlashFadeOut);
+        elevator.gameObject.SetActive(false);
+        yield return new WaitForSeconds(FileLobbyIntroStageManagerConstants.disappearElevatorFlashFadeOut);
+        PerformSceneAction(FileLobbyIntroStageState.FinalZoomOnHoodedBoy);
+    }
+
+    public IEnumerator FinalZoomOnHoodedBoy() {
+        StartCoroutine(PanCameraToTarget(hoodedBoy.gameObject, Camera.main.orthographicSize, FileLobbyIntroStageManagerConstants.zoomCameraFinalHoodedBoy));
+        yield return new WaitForSeconds(FileLobbyIntroStageManagerConstants.zoomCameraFinalHoodedBoyDuration);
+        LoadNextScene(Constants.Scenes.Title);
+
+    }
+
     #endregion Perform Scene Action
 
     #region Scene and Camera Visuals
@@ -433,17 +458,22 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
         return Mathf.Abs(Camera.main.transform.position.x - targetTransform.position.x) <= FileLobbyIntroStageManagerConstants.panCameraToTargetThreshold;
     }
 
-    public IEnumerator PanCameraToTarget(GameObject target, float zoomEndSize) {
+    public IEnumerator PanCameraToTarget(GameObject target, float zoomStartSize, float zoomEndSize, bool setCameraFollowSpeed = true) {
         yield return new WaitForSeconds(FileLobbyIntroStageManagerConstants.panCameraDelay);
         cinematicFrameManager.SetFramesToFollowContinuously();
         cameraZoom.SetZoomAndStart(
-            FileLobbyIntroStageManagerConstants.panCameraToTargetCameraZoomStartSize,
+            zoomStartSize,
             zoomEndSize, 
             FileLobbyIntroStageManagerConstants.panCameraDuration
         );
-        cameraFollow.followSpeed = FileLobbyIntroStageManagerConstants.cameraMoveToTargetFollowSpeed;
+        if (setCameraFollowSpeed) cameraFollow.followSpeed = FileLobbyIntroStageManagerConstants.cameraMoveToTargetFollowSpeed;
         cameraFollow.target = target.transform;
     }
+
+    public IEnumerator PanCameraBackToPlayer(float zoomStartSize) {
+        return PanCameraToTarget(player.gameObject, zoomStartSize, FileLobbyIntroStageManagerConstants.panCameraToTargetCameraZoomStartSize, false);
+    }
+    /*
 
     public IEnumerator PanCameraBackToPlayer(float zoomEndSize) { // TODO - Consolidate this with PanCameraToTarget
         yield return new WaitForSeconds(FileLobbyIntroStageManagerConstants.panCameraDelay);
@@ -454,6 +484,8 @@ public class FileLobbyIntroStageManager : GameplayScene, IAnimationEventListener
         );
         cameraFollow.target = player.transform;
     }
+    */
+
     #endregion Scene and Camera Visuals
 
     private IEnumerator DelayedAction(float delay, System.Action action) {
@@ -555,5 +587,8 @@ public enum FileLobbyIntroStageState {
     PanCameraToElevatorBeforeProceedIntoElevator,
     ProceedIntoElevator,
     CloseDoorAndLightArrow,
-    DisappearElevator
+    DisappearElevator,
+    FinalZoomOnHoodedBoy, // TODO - Implement later
+    TransitionToNextScene
+
 }
